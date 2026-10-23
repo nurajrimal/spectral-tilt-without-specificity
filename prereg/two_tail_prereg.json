@@ -1,0 +1,94 @@
+{
+  "title": "Two-tail specificity test: pre-registration for the revision",
+  "status": "DRAFT until scripts/freeze_prereg.py has written two_tail_prereg.lock.json and both files are committed. Edit only before freezing.",
+  "supersedes_note": "Extends the original pre-specification (commit 2bcfd96). Nothing frozen there is changed; this file adds the new concepts, the window-size sweep, the multiplicity rule and the equivalence bound.",
+
+  "models": [
+    "Qwen2.5-0.5B", "Qwen2.5-3B", "Qwen2.5-7B", "Qwen3-4B",
+    "Mistral-7B-v0.3", "Llama-3.2-3B", "Llama-3.1-8B", "gemma-2-2b"
+  ],
+  "gemma_policy": "Every test is reported twice, with all eight models and without gemma-2-2b. gemma-2-2b failed the split-half reliability gate on the concept side (section 4.3), so the without-gemma result is the one consistent with that rule; the with-gemma result is reported so that no conclusion rests on the exclusion. A conclusion is stated as robust only if it holds in both.",
+
+  "unit_of_analysis": "model. Concepts are averaged within a model before testing, because concepts in one model share an eigenbasis and are not independent.",
+  "basis": "published_language",
+  "basis_note": "Primary tests use the published language-subset basis (en-fr/cov_src.pt) so both tails are measured in the basis the published claims were made in. The full-vocabulary basis is a pre-specified robustness check, run into its own folder.",
+
+  "loud_tail": {
+    "claim_tested": "the high-variance head carries syntax specifically",
+    "label": "UD English-EWT part of speech, 500 sentences, published filter",
+    "primary": {"quantity": "delta", "control": "token_id_random", "layer": "final", "k_frac": 0.10, "probe": "linear"},
+    "secondary_controls": ["freq_bucket", "length_bucket"],
+    "secondary_layers": ["mid"],
+    "k_frac_note": "0.10 is the published window size; it is primary because the published claim was made at it."
+  },
+
+  "quiet_tail": {
+    "claim_tested": "the low-variance tail carries concepts specifically",
+    "primary": {"quantity": "delta", "control": "length_bucket", "layer": "mid", "k_frac": 0.005, "probe": "linear"},
+    "secondary_layers": ["final"],
+    "k_frac_note": "0.005 is the window size the original concept-side runs used. It is frozen here BEFORE the new concepts are run.",
+    "original_concepts": ["truth_cities", "sycophancy"],
+    "new_concepts": [
+      "truth_counterfact", "truth_magnitude", "truth_translation",
+      "truth_cities_negated", "truth_conjunction", "truth_disjunction",
+      "sycophancy_nlp", "sycophancy_philpapers", "sycophancy_political"
+    ],
+    "pooling": "last_token",
+    "max_pairs": 512,
+    "exclusion_rule": {
+      "floor_check": "drop a cell whose shuffled-label probe is more than 0.05 from the majority rate",
+      "min_concept_headroom": 0.10,
+      "also_report_without_exclusions": true
+    }
+  },
+
+  "k_sweep": [0.0025, 0.005, 0.01, 0.02, 0.05, 0.10],
+  "k_sweep_role": "Robustness only. The sweep is reported in full for both tails and both layers; no conclusion is drawn from a k other than the primary one, and no k is promoted after the fact.",
+
+  "inference": {
+    "test": "one-sample t-test over models (two-sided), Wilcoxon signed-rank reported alongside",
+    "alpha": 0.05,
+    "primary_rule": "One primary test per tail (above). Each primary is tested at alpha = 0.05; the two primaries address different claims.",
+    "family": {
+      "method": "holm",
+      "members": [
+        {"tail": "loud",  "layer": "final", "quantity": "delta"},
+        {"tail": "loud",  "layer": "final", "quantity": "gap"},
+        {"tail": "loud",  "layer": "mid",   "quantity": "delta"},
+        {"tail": "loud",  "layer": "mid",   "quantity": "gap"},
+        {"tail": "quiet", "layer": "mid",   "quantity": "delta"},
+        {"tail": "quiet", "layer": "mid",   "quantity": "gap"},
+        {"tail": "quiet", "layer": "final", "quantity": "delta"},
+        {"tail": "quiet", "layer": "final", "quantity": "gap"}
+      ],
+      "missing_member_rule": "A family member that was not run enters Holm with p = 1, so the family size stays 8 and the correction is never weakened by omission.",
+      "quantities": {
+        "delta": "specificity: retention gap of the real label minus that of the control",
+        "gap": "tilt: retention gap of the real label alone (loud: top minus bottom; quiet: bottom minus top)"
+      }
+    }
+  },
+
+  "equivalence": {
+    "method": "TOST on the model-level mean (Lakens 2017)",
+    "applies_to": "every quiet-tail family member; reported for the loud tail as well",
+    "sesoi": 0.10,
+    "scale": "retention units (fraction of the label's own full-dimensional signal)",
+    "rationale": "A window that retains ten percentage points more of a concept's own decodable signal than the control does is the smallest difference we would describe as the tail 'holding' the concept. It equals the concept-headroom threshold already used to exclude cells. Set before the new concepts were run; not chosen from the data.",
+    "non_superiority": "Specificity is a directional claim, so a one-sided test of H0: mean delta >= +sesoi is also reported for both tails."
+  },
+
+  "length_control": {
+    "diagnostic": "For every dataset report the AUC of character length (and token count) for the concept label, and the share of pairs whose positive member is longer.",
+    "robustness_runs": ["balance", "residualise"],
+    "balance": "subsample pairs so the positive member is longer exactly as often as the negative",
+    "residualise": "regress [chars, log chars, words, tokens] out of the activations the concept probe sees",
+    "reading": "If the quiet-tail delta stays inside the equivalence bound under both, the length-control objection does not change the conclusion."
+  },
+
+  "nonlinear_probe": {
+    "probe": "one hidden layer, 256 units, ReLU, dropout 0.1, AdamW, early stopping on a 10% split of the training fold",
+    "models": ["Qwen2.5-3B", "Llama-3.2-3B", "Mistral-7B-v0.3", "Qwen3-4B"],
+    "role": "robustness; reported with the same primary k, layer and controls"
+  }
+}

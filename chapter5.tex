@@ -1,0 +1,19 @@
+\section{Negative Results and Diagnostic Limitations}
+\label{sec:negative_results}
+
+A rigorous evaluation of mechanistic hypotheses requires documenting where explanatory frameworks fail to hold under empirical scrutiny. In this section, we present three key negative results: the statistical failure of matrix rank as an explanatory variable, the causal overlap between semantic concept directions and token-shuffled structural controls during activation addition, and the diagnostic breakdown of cosine similarity metrics.
+
+\subsection{Evaluation of the Rank Hypothesis}
+We evaluated whether the intrinsic dimensionality or matrix rank of layer activations explains the observed spectral migration of concept directions toward low-variance eigenspaces. Hypothesis testing across model architectures yielded no overall statistical significance ($p = 0.374$). 
+
+More critically, individual model evaluations revealed structural instability: two distinct model families exhibited statistically significant correlations between activation matrix rank and spectral anti-concentration, but in \textit{opposing directions}. This directional divergence indicates that matrix rank is not a universal mechanism driving spectral tail concentration, but rather an architecture-dependent artifact.
+
+\subsection{Causal Refusal Log-Odds Overlap with Structural Nulls}
+To test whether refusal behavior induced by concept steering is uniquely attributable to semantic directions, we executed activation addition interventions comparing extracted refusal directions against $50$ token-shuffled structural null directions generated via Algorithm~\ref{alg:null_gen}.
+
+Across evaluation runs, between $11$ and $17$ out of the $50$ structural null directions produced target refusal log-odds shifts that matched or exceeded the causal effect of the true refusal vector. Because token-shuffled nulls destroy semantic sequence continuity while preserving prompt length and token marginal distributions, this finding demonstrates that a substantial fraction of the log-odds shift observed in standard activation addition experiments is driven by coarse structural and length-dependent anisotropy rather than clean, isolated concept semantics.
+
+\subsection{Diagnostic Limits of Cosine Similarity}
+Finally, we assessed whether standard geometric diagnostics in activation space—specifically cosine similarity relative to baseline activation means—could reliably differentiate true concept directions from high-performing structural nulls.
+
+Across all layer depths and concept domains, cosine similarity metrics failed to separate functional concept vectors from structural nulls. Directions that produced near-identical log-odds impacts during causal steering exhibited non-discriminative cosine similarity distributions relative to the real concept vectors. Consequently, proximity metrics in standard activation space are insufficient to verify concept purity without controlling for the underlying spectral covariance structure of the unembedding space.

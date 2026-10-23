@@ -1,0 +1,56 @@
+matrices
+__pycache__/
+.DS_Store
+
+.env
+.env.deploy
+
+# Internal (never publish): review/rebuttal notes and paper source
+docs/
+
+.venv/
+
+# Heavy / non-redistributable experiment outputs.
+# NOTE: results/ itself is intentionally NOT ignored -- the small JSON/CSV
+# summary artifacts under results/_spectral/ back the paper's tables and are
+# part of the release. Only the bulky intermediates are excluded.
+remote_results/
+results_old/
+results/**/*.pt
+results/**/*.npy
+results/**/*.npz
+results/**/*.safetensors
+results/**/eigen_cache/
+results/**/cache/
+logs/
+
+*.lock
+*.pdf
+*.log
+*.md
+!README.md
+
+# thesis
+.venv/
+results/**/cov/
+results/**/concepts/
+results/**/acts_*.pt
+data/statements/*.jsonl
+logs/
+!figures/thesis/*.pdf
+
+# syntax-claim activation caches (regenerable in ~10s per model)
+results/_spectral/syntax_claim*/acts_*.pt
+
+# rebuilt language-subset covariances (regenerable via build_language_cov.py)
+results/*/en-fr/cov_src.pt
+# UD corpus itself; PROVENANCE.md has URLs and sha256 to re-fetch
+data/ud/*.conllu
+results/_spectral/concept_subspace/acts_*.pt
+
+# --- release: files that must be published despite the rules above ---
+!RUNBOOK_REVISION.md
+!paper/thesis_revised.pdf
+!results/_spectral/rev/report/*.pdf
+!prereg/*.lock.json
+!results/_spectral/rev/report/report.md

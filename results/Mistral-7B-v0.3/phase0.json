@@ -1,0 +1,42 @@
+{
+  "model": "mistralai/Mistral-7B-v0.3",
+  "full_vocab": {
+    "d": 4096,
+    "cond": 759062.0,
+    "top10pct_variance": 0.3273334801197052,
+    "random_gini_mean": -0.18907911886274814,
+    "random_gini_std": 0.0054349741719353275
+  },
+  "language": {
+    "d": 4096,
+    "cond": 759062.0,
+    "top10pct_variance": 0.3273334801197052,
+    "random_gini_mean": -0.18907911886274814,
+    "random_gini_std": 0.0054349741719353275
+  },
+  "word_level": {
+    "n_concepts": 42,
+    "verification": {
+      "cosines": {
+        "last_token": 0.8659219741821289,
+        "mean_over_sequence": 0.9359248876571655
+      },
+      "best_pooling": "mean_over_sequence",
+      "best_cosine": 0.9359248876571655,
+      "tol": 0.95,
+      "ok": false,
+      "sign_agrees": true,
+      "warning": "final-layer cosine against the published extractor is 0.936, below 0.95. The control is not measuring the published quantity; the paired test would compare two different things.",
+      "concept": "3pSg - Ved"
+    },
+    "baseline_check": {
+      "ok": false,
+      "mean_gini": -0.16764021806773685,
+      "expected": -0.356,
+      "tol": 0.05,
+      "delta": 0.18835978193226313,
+      "n_concepts": 42,
+      "note": "Published mean is over the paper's 27 selected concepts; this is over all files present. Compare counts before concluding the environment is wrong."
+    }
+  }
+}

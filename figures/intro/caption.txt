@@ -1,0 +1,29 @@
+% ---------------------------------------------------------------------------
+% Flagship introduction figure. Use as a full-width (figure*) float.
+% Choose ONE of the two variants below by editing the \includegraphics path.
+%   dual_geometry_v1.pdf  = single horizontal-spectrum "landscape" (recommended)
+%   dual_geometry_v2.pdf  = two-panel "vocabulary vs. activation"
+% ---------------------------------------------------------------------------
+
+\begin{figure*}[t]
+  \centering
+  \includegraphics[width=\textwidth]{figures/intro/dual_geometry_v1.pdf}
+  \caption{\textbf{The dual geometry of transformer representations.}
+  We order the eigenvectors of the unembedding covariance $\Sigma$ from the
+  high-variance \emph{head} (left) to the low-variance \emph{tail} (right).
+  Concept directions built from the \emph{static vocabulary}---unembedding-row
+  contrasts $\gamma(w^{+})-\gamma(w^{-})$ (orange)---\emph{concentrate} in the
+  high-variance head, whereas \emph{contextualized activation}-space concept
+  directions recovered by three independent methods (difference-of-means, SAE
+  features, and linear probes; blue) \emph{anti-concentrate} in the low-variance
+  tail. During the forward pass, semantic concept information is thus rotated
+  out of the loud head and into the quiet tail (mean Gini deviation $=-0.28$
+  across 17 models, $p<10^{-33}$). Inset: the cumulative concept-energy curve
+  bows \emph{below} the uniform diagonal for activation directions
+  (anti-concentration) and above it for vocabulary contrasts (concentration).
+  The high-variance head disproportionately carries structural load---concepts
+  ``whisper'' in the quiet tail while syntax ``shouts'' in the loud head---a
+  functional interpretation that holds on most, though not all, tested models
+  (\S\ref{sec:why}).}
+  \label{fig:dual-geometry-intro}
+\end{figure*}

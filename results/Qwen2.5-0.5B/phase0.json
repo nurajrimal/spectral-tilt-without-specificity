@@ -1,0 +1,41 @@
+{
+  "model": "Qwen/Qwen2.5-0.5B",
+  "full_vocab": {
+    "d": 896,
+    "cond": 2302.390869140625,
+    "top10pct_variance": 0.31420212984085083,
+    "random_gini_mean": -0.14516863115876913,
+    "random_gini_std": 0.010978094425794971
+  },
+  "language": {
+    "d": 896,
+    "cond": 2302.390869140625,
+    "top10pct_variance": 0.31420212984085083,
+    "random_gini_mean": -0.14516863115876913,
+    "random_gini_std": 0.010978094425794971
+  },
+  "word_level": {
+    "n_concepts": 42,
+    "verification": {
+      "cosines": {
+        "last_token": 0.8696825504302979,
+        "mean_over_sequence": 0.9988409876823425
+      },
+      "best_pooling": "mean_over_sequence",
+      "best_cosine": 0.9988409876823425,
+      "tol": 0.95,
+      "ok": true,
+      "sign_agrees": true,
+      "concept": "3pSg - Ved"
+    },
+    "baseline_check": {
+      "ok": true,
+      "mean_gini": -0.3976971613509314,
+      "expected": -0.356,
+      "tol": 0.05,
+      "delta": -0.04169716135093143,
+      "n_concepts": 42,
+      "note": "Published mean is over the paper's 27 selected concepts; this is over all files present. Compare counts before concluding the environment is wrong."
+    }
+  }
+}

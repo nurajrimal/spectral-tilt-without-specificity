@@ -1,0 +1,204 @@
+[
+  {
+    "model": "Qwen/Qwen2.5-3B",
+    "model_name": "Qwen2.5-3B",
+    "ud_lang": "chinese",
+    "k": 204,
+    "k_frac": 0.1,
+    "d": 2048,
+    "top_k_variance_captured": 0.27008265256881714,
+    "bottom_k_variance_captured": 0.02552419900894165,
+    "n_tokens": 10813,
+    "n_sentences": 500,
+    "n_classes": 13,
+    "tag_names": [
+      "ADJ",
+      "ADP",
+      "ADV",
+      "AUX",
+      "CCONJ",
+      "DET",
+      "NOUN",
+      "NUM",
+      "PART",
+      "PRON",
+      "PROPN",
+      "SCONJ",
+      "VERB"
+    ],
+    "tag_counts": {
+      "ADV": 323,
+      "VERB": 1851,
+      "SCONJ": 559,
+      "NOUN": 3637,
+      "ADJ": 313,
+      "PART": 1042,
+      "AUX": 365,
+      "ADP": 556,
+      "DET": 119,
+      "CCONJ": 164,
+      "PRON": 174,
+      "NUM": 654,
+      "PROPN": 1056
+    },
+    "probes": {
+      "top_k": {
+        "mean_accuracy": 0.410802098876787,
+        "std_accuracy": 0.006239089205723771,
+        "fold_accuracies": [
+          0.41701340730466946,
+          0.4128525196486362,
+          0.39944521497919555,
+          0.41535615171137835,
+          0.4093432007400555
+        ]
+      },
+      "bottom_k": {
+        "mean_accuracy": 0.46213014866544955,
+        "std_accuracy": 0.006551748979035908,
+        "fold_accuracies": [
+          0.4600092464170134,
+          0.45538603791030974,
+          0.4576976421636616,
+          0.47409805735430155,
+          0.46345975948196116
+        ]
+      },
+      "random_k": {
+        "mean_accuracy": 0.42672680686835146,
+        "std_accuracy": 0.002650532910549293,
+        "trial_accuracies": [
+          0.4251366540886313,
+          0.43022261112486815,
+          0.4236556449546939,
+          0.4250439333111796,
+          0.4295751908623845
+        ]
+      },
+      "full": {
+        "mean_accuracy": 0.6915756672966376,
+        "std_accuracy": 0.00793440771671088,
+        "fold_accuracies": [
+          0.6846971798428109,
+          0.6944059177068885,
+          0.6879334257975035,
+          0.6850138760407031,
+          0.7058279370952821
+        ]
+      },
+      "test": {
+        "accuracy_gap": -0.051328049788662566,
+        "t_statistic": -14.305957635399531,
+        "p_value": 0.00013869713729922195,
+        "significant_ttest": true,
+        "bootstrap_gap": -0.051327106260982136,
+        "bootstrap_ci_lo": -0.05687598261352078,
+        "bootstrap_ci_hi": -0.045778229908443546,
+        "significant_bootstrap": false,
+        "significant": true
+      },
+      "verdict": "NOT_CONFIRMED"
+    }
+  },
+  {
+    "model": "Qwen/Qwen3-4B",
+    "model_name": "Qwen3-4B",
+    "ud_lang": "chinese",
+    "k": 256,
+    "k_frac": 0.1,
+    "d": 2560,
+    "top_k_variance_captured": 0.2839389741420746,
+    "bottom_k_variance_captured": 0.023681819438934326,
+    "n_tokens": 10813,
+    "n_sentences": 500,
+    "n_classes": 13,
+    "tag_names": [
+      "ADJ",
+      "ADP",
+      "ADV",
+      "AUX",
+      "CCONJ",
+      "DET",
+      "NOUN",
+      "NUM",
+      "PART",
+      "PRON",
+      "PROPN",
+      "SCONJ",
+      "VERB"
+    ],
+    "tag_counts": {
+      "ADV": 323,
+      "VERB": 1851,
+      "SCONJ": 559,
+      "NOUN": 3637,
+      "ADJ": 313,
+      "PART": 1042,
+      "AUX": 365,
+      "ADP": 556,
+      "DET": 119,
+      "CCONJ": 164,
+      "PRON": 174,
+      "NUM": 654,
+      "PROPN": 1056
+    },
+    "probes": {
+      "top_k": {
+        "mean_accuracy": 0.4323499713241322,
+        "std_accuracy": 0.00674510453590488,
+        "fold_accuracies": [
+          0.4415164123901988,
+          0.43411927877947293,
+          0.42117429496070274,
+          0.4296947271045328,
+          0.43524514338575393
+        ]
+      },
+      "bottom_k": {
+        "mean_accuracy": 0.4456679338791371,
+        "std_accuracy": 0.004534330824514246,
+        "fold_accuracies": [
+          0.44798890429958393,
+          0.439204808136847,
+          0.44244105409153955,
+          0.44634597594819614,
+          0.45235892691951896
+        ]
+      },
+      "random_k": {
+        "mean_accuracy": 0.44929290570579206,
+        "std_accuracy": 0.00669209326682375,
+        "trial_accuracies": [
+          0.44964380765912965,
+          0.4550076704204041,
+          0.4573208143176618,
+          0.44594592513994724,
+          0.4385463109918172
+        ]
+      },
+      "full": {
+        "mean_accuracy": 0.7074818140255572,
+        "std_accuracy": 0.010400102149388173,
+        "fold_accuracies": [
+          0.710124826629681,
+          0.7087378640776699,
+          0.7027276930189551,
+          0.6919518963922294,
+          0.7238667900092507
+        ]
+      },
+      "test": {
+        "accuracy_gap": -0.013317962555004892,
+        "t_statistic": -4.176820518945847,
+        "p_value": 0.013954078641849759,
+        "significant_ttest": true,
+        "bootstrap_gap": -0.013317303246092649,
+        "bootstrap_ci_lo": -0.018218810690835086,
+        "bootstrap_ci_hi": -0.008508277073892512,
+        "significant_bootstrap": false,
+        "significant": true
+      },
+      "verdict": "NOT_CONFIRMED"
+    }
+  }
+]

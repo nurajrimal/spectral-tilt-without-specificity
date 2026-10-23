@@ -1,0 +1,42 @@
+{
+  "model": "meta-llama/Llama-3.2-3B",
+  "full_vocab": {
+    "d": 3072,
+    "cond": 3422.627685546875,
+    "top10pct_variance": 0.31919705867767334,
+    "random_gini_mean": -0.15970852141082287,
+    "random_gini_std": 0.005808979125263572
+  },
+  "language": {
+    "d": 3072,
+    "cond": 3422.627685546875,
+    "top10pct_variance": 0.31919705867767334,
+    "random_gini_mean": -0.15970852141082287,
+    "random_gini_std": 0.005808979125263572
+  },
+  "word_level": {
+    "n_concepts": 42,
+    "verification": {
+      "cosines": {
+        "last_token": 0.9311749935150146,
+        "mean_over_sequence": 0.906498908996582
+      },
+      "best_pooling": "last_token",
+      "best_cosine": 0.9311749935150146,
+      "tol": 0.95,
+      "ok": false,
+      "sign_agrees": true,
+      "warning": "final-layer cosine against the published extractor is 0.931, below 0.95. The control is not measuring the published quantity; the paired test would compare two different things.",
+      "concept": "3pSg - Ved"
+    },
+    "baseline_check": {
+      "ok": false,
+      "mean_gini": -0.11407097768304604,
+      "expected": -0.356,
+      "tol": 0.05,
+      "delta": 0.24192902231695396,
+      "n_concepts": 42,
+      "note": "Published mean is over the paper's 27 selected concepts; this is over all files present. Compare counts before concluding the environment is wrong."
+    }
+  }
+}

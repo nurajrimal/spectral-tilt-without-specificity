@@ -1,0 +1,305 @@
+[
+  {
+    "model": "google/gemma-2-2b",
+    "model_name": "gemma-2-2b",
+    "ud_lang": "english",
+    "k": 230,
+    "k_frac": 0.1,
+    "d": 2304,
+    "top_k_variance_captured": 0.3981330990791321,
+    "bottom_k_variance_captured": 0.01602238416671753,
+    "n_tokens": 6585,
+    "n_sentences": 500,
+    "n_classes": 13,
+    "tag_names": [
+      "ADJ",
+      "ADP",
+      "ADV",
+      "AUX",
+      "CCONJ",
+      "DET",
+      "NOUN",
+      "NUM",
+      "PART",
+      "PRON",
+      "PROPN",
+      "SCONJ",
+      "VERB"
+    ],
+    "tag_counts": {
+      "ADP": 678,
+      "DET": 612,
+      "PROPN": 696,
+      "VERB": 857,
+      "NOUN": 1168,
+      "NUM": 138,
+      "PART": 194,
+      "ADJ": 474,
+      "ADV": 350,
+      "AUX": 466,
+      "PRON": 601,
+      "CCONJ": 211,
+      "SCONJ": 140
+    },
+    "probes": {
+      "top_k": {
+        "mean_accuracy": 0.554290053151101,
+        "std_accuracy": 0.0059787455383536825,
+        "fold_accuracies": [
+          0.5466970387243736,
+          0.5527714502657555,
+          0.5550493545937737,
+          0.5649202733485194,
+          0.5520121488230828
+        ]
+      },
+      "bottom_k": {
+        "mean_accuracy": 0.5059984813971147,
+        "std_accuracy": 0.003977464192470399,
+        "fold_accuracies": [
+          0.5087319665907365,
+          0.5026575550493546,
+          0.5034168564920274,
+          0.5125284738041003,
+          0.5026575550493546
+        ]
+      },
+      "random_k": {
+        "mean_accuracy": 0.5261958997722095,
+        "std_accuracy": 0.0028280283910669017,
+        "trial_accuracies": [
+          0.5242217160212604,
+          0.5278663629460896,
+          0.5292331055429005,
+          0.5216400911161732,
+          0.5280182232346242
+        ]
+      },
+      "full": {
+        "mean_accuracy": 0.8132118451025058,
+        "std_accuracy": 0.006131094681301837,
+        "fold_accuracies": [
+          0.8056188306757783,
+          0.8200455580865603,
+          0.8109339407744874,
+          0.8208048595292331,
+          0.8086560364464692
+        ]
+      },
+      "test": {
+        "accuracy_gap": 0.04829157175398635,
+        "t_statistic": 18.314010622324954,
+        "p_value": 5.2291856321925523e-05,
+        "significant_ttest": true,
+        "bootstrap_gap": 0.04829157175398635,
+        "bootstrap_ci_lo": 0.03993925588458613,
+        "bootstrap_ci_hi": 0.056795747911921046,
+        "significant_bootstrap": true,
+        "significant": true
+      },
+      "verdict": "CONFIRMED"
+    }
+  },
+  {
+    "model": "Qwen/Qwen2.5-3B",
+    "model_name": "Qwen2.5-3B",
+    "ud_lang": "english",
+    "k": 204,
+    "k_frac": 0.1,
+    "d": 2048,
+    "top_k_variance_captured": 0.27008265256881714,
+    "bottom_k_variance_captured": 0.02552419900894165,
+    "n_tokens": 6585,
+    "n_sentences": 500,
+    "n_classes": 13,
+    "tag_names": [
+      "ADJ",
+      "ADP",
+      "ADV",
+      "AUX",
+      "CCONJ",
+      "DET",
+      "NOUN",
+      "NUM",
+      "PART",
+      "PRON",
+      "PROPN",
+      "SCONJ",
+      "VERB"
+    ],
+    "tag_counts": {
+      "ADP": 678,
+      "DET": 612,
+      "PROPN": 696,
+      "VERB": 857,
+      "NOUN": 1168,
+      "NUM": 138,
+      "PART": 194,
+      "ADJ": 474,
+      "ADV": 350,
+      "AUX": 466,
+      "PRON": 601,
+      "CCONJ": 211,
+      "SCONJ": 140
+    },
+    "probes": {
+      "top_k": {
+        "mean_accuracy": 0.5568716780561883,
+        "std_accuracy": 0.005073133815790448,
+        "fold_accuracies": [
+          0.5618830675778284,
+          0.548215641609719,
+          0.5573272589217919,
+          0.5618830675778284,
+          0.5550493545937737
+        ]
+      },
+      "bottom_k": {
+        "mean_accuracy": 0.5755504935459378,
+        "std_accuracy": 0.0037506724480572415,
+        "fold_accuracies": [
+          0.5808656036446469,
+          0.5694760820045558,
+          0.5763097949886105,
+          0.5770690964312832,
+          0.5740318906605922
+        ]
+      },
+      "random_k": {
+        "mean_accuracy": 0.5546848899012907,
+        "std_accuracy": 0.00671188116911996,
+        "trial_accuracies": [
+          0.5453302961275626,
+          0.5497342444950646,
+          0.5564160971905847,
+          0.5649202733485194,
+          0.5570235383447228
+        ]
+      },
+      "full": {
+        "mean_accuracy": 0.7873955960516325,
+        "std_accuracy": 0.003989043443147668,
+        "fold_accuracies": [
+          0.7851176917236142,
+          0.7813211845102506,
+          0.7927107061503417,
+          0.7873955960516325,
+          0.7904328018223234
+        ]
+      },
+      "test": {
+        "accuracy_gap": -0.01867881548974948,
+        "t_statistic": -19.093302932375966,
+        "p_value": 4.433293022874229e-05,
+        "significant_ttest": true,
+        "bootstrap_gap": -0.01867881548974948,
+        "bootstrap_ci_lo": -0.025816249050873208,
+        "bootstrap_ci_hi": -0.011845102505694705,
+        "significant_bootstrap": false,
+        "significant": true
+      },
+      "verdict": "NOT_CONFIRMED"
+    }
+  },
+  {
+    "model": "meta-llama/Llama-3.2-3B",
+    "model_name": "Llama-3.2-3B",
+    "ud_lang": "english",
+    "k": 307,
+    "k_frac": 0.1,
+    "d": 3072,
+    "top_k_variance_captured": 0.32019633054733276,
+    "bottom_k_variance_captured": 0.020592808723449707,
+    "n_tokens": 6585,
+    "n_sentences": 500,
+    "n_classes": 13,
+    "tag_names": [
+      "ADJ",
+      "ADP",
+      "ADV",
+      "AUX",
+      "CCONJ",
+      "DET",
+      "NOUN",
+      "NUM",
+      "PART",
+      "PRON",
+      "PROPN",
+      "SCONJ",
+      "VERB"
+    ],
+    "tag_counts": {
+      "ADP": 678,
+      "DET": 612,
+      "PROPN": 696,
+      "VERB": 857,
+      "NOUN": 1168,
+      "NUM": 138,
+      "PART": 194,
+      "ADJ": 474,
+      "ADV": 350,
+      "AUX": 466,
+      "PRON": 601,
+      "CCONJ": 211,
+      "SCONJ": 140
+    },
+    "probes": {
+      "top_k": {
+        "mean_accuracy": 0.6276385725132878,
+        "std_accuracy": 0.005814484348998199,
+        "fold_accuracies": [
+          0.6340167046317388,
+          0.6256643887623387,
+          0.6309794988610479,
+          0.6302201974183751,
+          0.6173120728929385
+        ]
+      },
+      "bottom_k": {
+        "mean_accuracy": 0.5758542141230069,
+        "std_accuracy": 0.008058617561987322,
+        "fold_accuracies": [
+          0.5914958238420653,
+          0.5702353834472286,
+          0.574791192103265,
+          0.5732725892179195,
+          0.5694760820045558
+        ]
+      },
+      "random_k": {
+        "mean_accuracy": 0.5835383447228549,
+        "std_accuracy": 0.005771969646128781,
+        "trial_accuracies": [
+          0.5740318906605921,
+          0.5873955960516325,
+          0.5876993166287016,
+          0.588914198936978,
+          0.5796507213363705
+        ]
+      },
+      "full": {
+        "mean_accuracy": 0.8350797266514807,
+        "std_accuracy": 0.004142196415181743,
+        "fold_accuracies": [
+          0.8291571753986332,
+          0.8321943811693242,
+          0.8367501898253606,
+          0.8413059984813971,
+          0.835990888382688
+        ]
+      },
+      "test": {
+        "accuracy_gap": 0.05178435839028095,
+        "t_statistic": 18.266401014590198,
+        "p_value": 5.283374652883633e-05,
+        "significant_ttest": true,
+        "bootstrap_gap": 0.05178435839028095,
+        "bootstrap_ci_lo": 0.04252088078967353,
+        "bootstrap_ci_hi": 0.0607441154138193,
+        "significant_bootstrap": true,
+        "significant": true
+      },
+      "verdict": "CONFIRMED"
+    }
+  }
+]

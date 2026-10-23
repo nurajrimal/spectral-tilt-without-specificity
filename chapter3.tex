@@ -1,0 +1,40 @@
+\subsection{Mathematical Formulations and Spectral Metrics}
+\label{sec:spectral_metrics}
+
+Let $\mathbf{\Sigma} \in \mathbb{R}^{d \times d}$ denote the uncentered hidden representation covariance matrix at a specified model layer, decomposed via symmetric eigendecomposition as $\mathbf{\Sigma} = \mathbf{U} \mathbf{\Lambda} \mathbf{U}^\top$, where $\mathbf{\Lambda} = \text{diag}(\lambda_1, \lambda_2, \dots, \lambda_d)$ with eigenvalues arranged in descending order ($\lambda_1 \ge \lambda_2 \ge \dots \ge \lambda_d > 0$). The cumulative explained variance profile $V(k)$ up to eigenvector index $k \in \{1, \dots, d\}$ is defined by:
+\begin{equation}
+V(k) = \frac{\sum_{i=1}^k \lambda_i}{\sum_{j=1}^d \lambda_j}
+\end{equation}
+
+\subsubsection{Directional and Subspace Energy Distributions}
+For a single concept unit vector $\mathbf{v} \in \mathbb{R}^d$, the fractional energy concentrated along the $i$-th eigenvector $\mathbf{u}_i$ is given by $E_i = \frac{(\mathbf{v}^\top \mathbf{u}_i)^2}{\|\mathbf{v}\|_2^2}$. The cumulative concept energy CDF, $C(k)$, is:
+\begin{equation}
+C(k) = \sum_{i=1}^k E_i = \frac{1}{\|\mathbf{v}\|_2^2} \sum_{i=1}^k \left(\mathbf{v}^\top \mathbf{u}_i\right)^2
+\end{equation}
+
+For higher-dimensional concepts defined by an orthonormal basis matrix $\mathbf{B} \in \mathbb{R}^{r \times d}$ of rank $r$, the energy CDF generalizes to average energy per subspace dimension:
+\begin{equation}
+C_{\text{subspace}}(k) = \frac{1}{r} \sum_{i=1}^k \sum_{j=1}^r \left(\mathbf{b}_j^\top \mathbf{u}_i\right)^2
+\end{equation}
+
+\subsubsection{Gini Deviation and Null Gini Gap}
+The degree of anti-concentration or alignment with high-variance eigenspaces is quantified by the Gini deviation $\mathcal{G}$, defined as the signed area between the concept energy CDF $C(V)$ and the diagonal background variance curve $V$:
+\begin{equation}
+\mathcal{G} = \int_0^1 \left[ C(V) - V \right] dV
+\end{equation}
+In practice, $\mathcal{G}$ is evaluated via trapezoidal numerical integration over discrete variance steps $V(k)$. 
+
+To evaluate whether an observed direction deviates significantly from expectation, we establish the Gini Gap ($\Delta \mathcal{G}$) against an isotropic control distribution of $B = 1000$ norm-matched random Gaussian vectors $\mathbf{v}_{\text{null}} \sim \mathcal{N}(\mathbf{0}, \mathbf{I}_d)$:
+\begin{equation}
+\Delta \mathcal{G} = \mathcal{G}_{\text{observed}} - \frac{1}{B} \sum_{b=1}^{B} \mathcal{G}_{\text{null}, b}
+\end{equation}
+
+\subsubsection{Statistical Inference and Equivalence Testing}
+To prevent pseudo-replication, individual model families ($n=8$) serve as the unit of statistical analysis. Hypothesis tests on mean Gini gaps $\bar{\Delta \mathcal{G}}$ employ both parametric one-sample $t$-tests and non-parametric Wilcoxon signed-rank tests.
+
+In scenarios where $H_0: \bar{\Delta \mathcal{G}} = 0$ cannot be rejected, we evaluate statistical equivalence using Two One-Sided Tests (TOST). The Smallest Effect Size of Interest (SESOI) is set to $\pm 0.082$, corresponding to the published word-level concept gap bound:
+\begin{equation}
+t_L = \frac{\bar{\Delta \mathcal{G}} - (-0.082)}{\text{SE}(\bar{\Delta \mathcal{G}})}, \quad t_U = \frac{\bar{\Delta \mathcal{G}} - 0.082}{\text{SE}(\bar{\Delta \mathcal{G}})}
+\end{equation}
+Equivalence is established at level $\alpha = 0.05$ if and only if both one-sided null hypotheses ($H_{01}: \mu \le -0.082$ and $H_{02}: \mu \ge 0.082$) are simultaneously rejected, guaranteeing that the $90\%$ confidence interval lies entirely within $[-0.082, 0.082]$.
+

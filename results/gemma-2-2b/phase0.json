@@ -1,0 +1,42 @@
+{
+  "model": "google/gemma-2-2b",
+  "full_vocab": {
+    "d": 2304,
+    "cond": 49508.890625,
+    "top10pct_variance": 0.4109714925289154,
+    "random_gini_mean": -0.20025360694527625,
+    "random_gini_std": 0.006323875304645409
+  },
+  "language": {
+    "d": 2304,
+    "cond": 49508.890625,
+    "top10pct_variance": 0.4109714925289154,
+    "random_gini_mean": -0.20025360694527625,
+    "random_gini_std": 0.006323875304645409
+  },
+  "word_level": {
+    "n_concepts": 42,
+    "verification": {
+      "cosines": {
+        "last_token": 0.0,
+        "mean_over_sequence": 0.0
+      },
+      "best_pooling": "last_token",
+      "best_cosine": 0.0,
+      "tol": 0.95,
+      "ok": false,
+      "sign_agrees": false,
+      "warning": "final-layer cosine against the published extractor is 0.000, below 0.95. The control is not measuring the published quantity; the paired test would compare two different things.",
+      "concept": "3pSg - Ved"
+    },
+    "baseline_check": {
+      "ok": false,
+      "mean_gini": -0.4190041451227097,
+      "expected": -0.356,
+      "tol": 0.05,
+      "delta": -0.06300414512270974,
+      "n_concepts": 42,
+      "note": "Published mean is over the paper's 27 selected concepts; this is over all files present. Compare counts before concluding the environment is wrong."
+    }
+  }
+}

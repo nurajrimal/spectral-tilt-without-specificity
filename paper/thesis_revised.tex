@@ -1,0 +1,721 @@
+% Revised thesis: one story, two tails.
+%
+% Build:   cd paper && latexmk -pdf thesis_revised.tex
+% Numbers: every result from the revision is a macro from
+%          results/_spectral/rev/report/paper_numbers.tex, written by
+%          scripts/two_tail_report.py. Until that file exists, every such number
+%          prints as a bold ?? so nothing unverified can slip into the PDF.
+%          Numbers carried over from the previous draft are typed in and are
+%          marked in revision_notes.md.
+\documentclass[11pt]{report}
+\usepackage[margin=1.1in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage[hidelinks]{hyperref}
+% References: author-year (TMLR style) by default. For numbered references,
+% change \numberedrefsfalse to \numberedrefstrue.
+\newif\ifnumberedrefs
+\numberedrefsfalse
+\ifnumberedrefs
+  \usepackage[numbers,sort&compress]{natbib}
+\else
+  \usepackage[round,authoryear]{natbib}
+\fi
+
+% ── numbers from the analysis ────────────────────────────────────────────────
+\newcommand{\numfile}{../results/_spectral/rev/report/paper_numbers.tex}
+\IfFileExists{\numfile}{\input{\numfile}}{}
+% The exploratory semantic control is included only if its results exist, so
+% the PDF can never show placeholder numbers for it.
+\newcommand{\ifsemantic}[1]{\ifcsname RobSemanticControlMidDeltaAllMean\endcsname #1\fi}
+\newcommand{\num}[1]{\ifcsname #1\endcsname\csname #1\endcsname\else\textbf{??}\fi}
+% p-values: \pval{X} prints "= 0.025" or "< 0.001"; \ptab{X} prints "0.025" or "<0.001".
+\newcommand{\pval}[1]{\ifcsname #1Lt\endcsname<\else=\fi\num{#1}}
+\newcommand{\ptab}[1]{\ifcsname #1Lt\endcsname$<$\fi\num{#1}}
+\newcommand{\figdir}{../results/_spectral/rev/report}
+\newcommand{\maybefig}[2]{\IfFileExists{\figdir/#1.pdf}%
+  {\includegraphics[width=#2]{\figdir/#1.pdf}}%
+  {\fbox{\parbox{#2}{\centering\vspace*{2em}\texttt{\detokenize{#1}.pdf}\par
+  not yet generated (\texttt{make paper})\par\vspace*{2em}}}}}
+\newcommand{\prerevcommit}{\texttt{2bcfd96}}
+\newcommand{\revcommit}{\texttt{da3de55}} % <- hash of the freeze commit
+
+\title{Spectral Tilt Without Specificity:\\
+Placement Versus Capacity in the Dual Geometry\\ of Large Language Models}
+\author{Nuraj Rimal}  % <- check
+\date{October 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+% The result sentences are chosen by scripts/two_tail_report.py. The TITLE and
+% the "neither is specific" framing are not: if report.md shows a robust
+% positive Delta in either tail, retitle.
+A recent account of transformer geometry holds that concepts ``whisper'' and
+syntax ``shouts'': concept directions concentrate in the low-variance tail of the
+representation spectrum, and syntactic information in the high-variance head
+\citep{acharya2026concepts}. We test both halves with the same instrument. For
+each tail we ask two questions. The first is about \emph{placement}: does the
+measured quantity sit where the account says it does? Under the published
+measurement it does in both tails, though the tilt is small and depends on the
+basis and the null. The second is about \emph{capacity} and \emph{specificity}: is the
+label better recovered from that tail than from the other one, and more so than
+a matched control label that carries none of the claimed content? We test this
+across eight open-weight models, eleven behavioural concepts and six window
+sizes. \num{LoudOpening} (mean $\Delta = \num{LoudFinalDeltaAllMean}$, 95\% CI
+$[\num{LoudFinalDeltaAllCILo}, \num{LoudFinalDeltaAllCIHi}]$).
+\num{QuietOpening} (mean $\Delta = \num{QuietMidDeltaAllMean}$, TOST
+$p \pval{QuietMidDeltaAllPTOST}$), \num{QuietAbstractEq}. Every result is
+reported with and without the model that failed our reliability gate, at six
+window sizes, at two layers, under length-matched and length-residualised
+controls, and with a non-linear probe.
+The window size, the primary tests, the equivalence bound and the
+multiplicity correction were frozen before the new data were collected (commits
+\prerevcommit{} and \revcommit). We also report the methodological problems we
+hit along the way: cross-validation leakage between near-duplicate statement
+pairs, retention denominators that turn noise into effects, and isotropic
+baselines that overstate spectral effects. Each one, left unfixed, would have
+produced a confident but wrong result.
+\end{abstract}
+
+\tableofcontents
+
+%──────────────────────────────────────────────────────────────────────────────
+\chapter{Introduction}
+%──────────────────────────────────────────────────────────────────────────────
+
+The linear representation hypothesis holds that language models encode
+high-level concepts as directions in activation space
+\citep{park2024linear,mikolov2013efficient}. A sharper geometric claim has
+followed. \citet{acharya2026concepts} report that concept directions
+\emph{anti-concentrate}: their energy sits in the low-variance tail of the
+unembedding second-moment matrix rather than in the high-variance head. A
+part-of-speech probe, meanwhile, reads syntax more accurately from the head than
+from the tail. The resulting picture, ``concepts whisper while syntax shouts'',
+is a claim about where in the spectrum different kinds of information live.
+
+The claim has two halves, and each half has two parts. It says where a quantity
+is \emph{placed} (the tail for concepts, the head for syntax), and it implies
+that this placement is \emph{specific}: that the tail holds concepts \emph{as
+concepts} and the head holds syntax \emph{as syntax}, rather than either tail
+simply being where information of any kind ends up. The published evidence
+addresses placement. Specificity requires a control: a label that is equally
+easy to read out of the representation but carries none of the claimed content.
+This is the problem that control tasks were introduced to solve for probing in
+general \citep{hewitt2019designing}. A probe that reads a property from a
+representation shows only that the information is there, not that the
+representation is organised around it \citep{belinkov2022probing,
+ravichander2021probing,elazar2021amnesic}.
+
+This thesis brings that standard to both halves of the spectral claim, using the
+same estimator, folds, normalisation and bootstrap on each side so that the two
+halves are measured on one scale.
+
+\paragraph{Main result.} \emph{Under the published measurement both tails
+tilt; neither tilt is specific.} The published picture reproduces when it is
+measured the published way: concept directions sit in the tail against an
+isotropic baseline, and part of speech is read more accurately from the head in
+\num{LoudFinalGapAllNPos}{} of \num{LoudFinalGapAllN}{} models. Both tilts are
+fragile. The syntactic tilt is not significant and reverses in the
+full-vocabulary basis, and against structural nulls concept directions sit in
+the tail in only about half the cells. Specificity does not hold at all. Against matched controls, the head prefers syntax no more than it prefers an
+arbitrary partition of the vocabulary, and the tail prefers concepts no more than
+it prefers surface length.
+
+\paragraph{Contributions.}
+\begin{enumerate}
+  \item A symmetric two-tail test of spectral specificity, a difference in
+        differences of \emph{retention} across the spectrum, with a matched
+        control for each tail (Chapter~\ref{ch:method}).
+  \item Pre-registered evidence across eight models and eleven concepts that
+        neither tail is specific, including an equivalence test that turns ``we
+        found nothing'' into ``the effect is smaller than $\pm0.10$''
+        (Chapter~\ref{ch:results}).
+  \item A direct comparison of spectral \emph{placement} (where a direction's
+        energy sits) with subspace \emph{capacity} (where the concept can be
+        read from), which the original account treated as one quantity
+        (Section~\ref{sec:placement}).
+  \item Methodological findings that apply beyond this paper, each of which on
+        its own would have produced a confident but wrong result
+        (Chapter~\ref{ch:methods}).
+\end{enumerate}
+
+%──────────────────────────────────────────────────────────────────────────────
+\chapter{Related Work}
+%──────────────────────────────────────────────────────────────────────────────
+
+\paragraph{Linear representations and spectral geometry.}
+\citet{park2024linear} formalise the linear representation hypothesis and the
+role of the unembedding geometry; \citet{acharya2026concepts} add the dual,
+spectral reading that this thesis tests. Anisotropy in contextual
+representations \citep{ethayarajh2019contextual} and a small number of rogue,
+high-variance dimensions \citep{timkey2021all} mean that the high-variance head
+is dominated by a few directions, which is why the choice of null baseline
+matters so much for any spectral statistic.
+
+\paragraph{Probing and its controls.}
+A probe's accuracy shows that a property is decodable, not that the model uses
+it or is organised around it \citep{belinkov2022probing,ravichander2021probing}.
+\citet{hewitt2019designing} introduced \emph{control tasks}: labels assigned to
+word types at random, so they can be learned only by memorising lexical
+identity. They proposed \emph{selectivity}, the accuracy gap between the real
+task and its control, as the quantity to report. Our loud-tail control,
+\texttt{token\_id\_random}, is a control task in exactly this sense, with class
+sizes matched to the part-of-speech distribution. Information-theoretic
+\citep{pimentel2020information} and description-length
+\citep{voita2020information} probing make the same point from a different angle:
+probe accuracy has to be read against what the probe could have learned anyway.
+Conditional probing \citep{hewitt2021conditional} asks what a representation
+adds beyond a baseline. Our difference in differences asks the analogous
+question across spectral subspaces.
+
+\paragraph{Removing information.}
+Amnesic probing \citep{elazar2021amnesic}, iterative nullspace projection
+\citep{ravfogel2020null} and closed-form concept erasure
+\citep{belrose2023leace} test whether a property \emph{matters} by removing
+it. Our length-residualised control (Section~\ref{sec:length}) uses the same
+move on a nuisance variable: it removes the linear length signal from the
+activations and asks whether the concept result changes.
+
+\paragraph{Steering.}
+Activation addition \citep{turner2023activation,panickssery2024steering} and the
+refusal direction \citep{arditi2024refusal} are the behavioural counterparts of
+these geometric claims. Our steering experiments are reported in
+Appendix~\ref{app:steering}.
+
+%──────────────────────────────────────────────────────────────────────────────
+\chapter{Method}\label{ch:method}
+%──────────────────────────────────────────────────────────────────────────────
+
+\section{Spectral basis}
+Let $\mathbf{W}_U \in \mathbb{R}^{|\mathcal{V}|\times d}$ be the unembedding
+matrix. The reference matrix is the second moment
+$\boldsymbol{\Sigma} = \tfrac{1}{|\mathcal{L}|}\sum_{\ell\in\mathcal{L}}
+\boldsymbol{\gamma}_\ell\boldsymbol{\gamma}_\ell^\top$ over a token set
+$\mathcal{L}\subseteq\mathcal{V}$, where $\boldsymbol{\gamma}_\ell\in\mathbb{R}^d$
+is the unembedding vector of token $\ell$ (the $\ell$-th row of
+$\mathbf{W}_U$), with eigendecomposition
+$\boldsymbol{\Sigma} = \mathbf{U}\boldsymbol{\Lambda}\mathbf{U}^\top$,
+$\lambda_1 \ge \dots \ge \lambda_d$. The primary analyses use the published
+language-subset basis, so that both tails are measured in the basis in which the
+published claims were made. The full-vocabulary basis
+($\mathcal{L}=\mathcal{V}$) is a pre-specified robustness check.
+
+\section{Placement}
+For a unit concept direction $\mathbf{v}$ the energy CDF is
+$C(k) = \sum_{i\le k}(\mathbf{v}^\top\mathbf{u}_i)^2$ and the Gini deviation is
+$\mathcal{G} = \int_0^1 [C(V) - V]\,dV$, where $V(k)$ is the cumulative explained
+variance. Negative $\mathcal{G}$ means energy in the tail. We report
+$\mathcal{G}$ against two nulls: norm-matched isotropic Gaussian directions, as
+published, and structural nulls built from the same data, namely per-pair sign
+flips for matched contrasts and label repartitions for unmatched ones
+(Appendix~\ref{app:nulls}).
+
+\section{Capacity and specificity}
+Placement describes one vector. Capacity describes a subspace: how much of a
+label can be read from it. For a window of $k$ consecutive eigenvectors starting
+at position $s$, $\mathbf{U}_{s:s+k}$, we train a probe on
+$\mathbf{X}\mathbf{U}_{s:s+k}$ and report \emph{retention},
+\begin{equation}
+  R_y(s) = \frac{\mathrm{acc}_y(s) - m_y}{\mathrm{acc}_y(\text{full } d) - m_y},
+\end{equation}
+where $m_y$ is the majority-class rate. Retention is the share of the label's
+own full-dimensional signal that survives the projection. It puts labels with
+different ceilings on one scale. Two headroom thresholds apply, and they do
+different jobs. A retention value is \emph{computed} only when the
+full-dimensional probe beats the majority rate by at least $0.02$; below that the
+denominator is noise and the ratio is undefined. Separately, a quiet-tail cell
+\emph{enters the aggregate} only if the concept's headroom is at least $0.10$ and
+the shuffled-label floor check passes (Section~\ref{sec:prereg}). The first is a
+numerical guard; the second, pre-registered, decides which computed values are
+reliable enough to average.
+
+The \emph{tilt} of a label toward a tail is the retention gap between the two
+ends of the spectrum. For the loud tail
+$g_y = R_y(\text{top}) - R_y(\text{bottom})$; for the quiet tail the sign is
+flipped. \emph{Specificity} is the difference in differences between the real
+label and its control,
+\begin{equation}
+  \Delta = g_{\text{real}} - g_{\text{control}},
+\end{equation}
+with a 95\% interval from a paired bootstrap over items (10{,}000 resamples), so
+that one resample is applied to all labels at once. $\Delta > 0$ means the tail
+prefers the real label more than it prefers the control.
+
+\paragraph{Loud-tail control.} \texttt{token\_id\_random} assigns every word
+\emph{type} to one of $C$ classes at random, fixed across its occurrences, with
+class sizes matched to the part-of-speech distribution by bin packing. It
+contains no syntax but is exactly as recoverable from lexical identity as part
+of speech is. Type frequency and word length are reported as second and third
+controls; both correlate with part of speech, so they bound the confound rather
+than remove it.
+
+\paragraph{Quiet-tail control.} Folds are grouped by statement pair
+(Section~\ref{sec:leakage}), so both members of a pair are always held out
+together. This rules out the direct analogue of the loud-tail control. A random
+partition of \emph{pairs} can only be learned by recognising a held-out pair's
+mate in the training fold, which grouping prevents, so it sits at chance; we
+keep it as a leakage detector, not a control. A label that is constant within a
+pair is still learnable when it reflects a general property of the statements
+rather than pair identity: the probe can learn it from other pairs and apply it
+to unseen ones. Surface length is such a property. In the sycophancy sets both
+members of a pair have identical length (Table~\ref{tab:length}), yet under grouped folds length is
+read from the activations of the CAA sycophancy set with $0.97$ accuracy in
+every model. We
+therefore use a median split on character length as the control: it is learnable,
+carries no concept content by construction, and is available for every dataset.
+Its weakness is that it can correlate with the label within a pair;
+Section~\ref{sec:length} measures that correlation and removes it.\ifsemantic{ A
+semantic control is reported as an exploratory addition
+(Section~\ref{sec:robust}).}
+
+\paragraph{Probe.} Multinomial logistic regression (L-BFGS, $C=1$, standardised
+inputs, five folds), identical to the published part-of-speech probe. As a
+robustness check, a one-hidden-layer MLP (256 units) is run on the same windows
+and folds.
+
+\section{Inference and pre-registration}\label{sec:prereg}
+Models are the unit of analysis. In the quiet tail, concepts are averaged within
+a model before testing, because concepts in one model share an eigenbasis and are
+not independent. We use one-sample $t$-tests over models and report Wilcoxon
+signed-rank tests alongside.
+
+The following were frozen in \texttt{prereg/two\_tail\_prereg.json} and
+committed (\revcommit) before any of the new concepts, window sizes or layers
+were run.\footnote{The public repository is a single release snapshot. The full
+development history, including commits \prerevcommit{} and \revcommit{}, is
+archived and available on request; \texttt{prereg/two\_tail\_prereg.lock.json}
+records the SHA-256 and timestamp of the freeze.} They extend, and do not change, the original pre-specification
+(\prerevcommit).
+\begin{itemize}
+  \item \textbf{Window size.} $k=0.10\,d$ for the loud tail (the published
+        setting) and $k=0.005\,d$ for the quiet tail (the setting of the original
+        concept runs). The sweep $k \in \{0.25, 0.5, 1, 2, 5, 10\}\%$ is
+        reported in full as robustness; no conclusion is drawn from any other
+        $k$.
+  \item \textbf{One primary test per tail.} Loud: $\Delta$ against
+        \texttt{token\_id\_random}, final layer. Quiet: $\Delta$ against length,
+        mid-depth layer.
+  \item \textbf{Multiplicity.} Two tails $\times$ two layers $\times$ two
+        quantities (tilt $g$ and specificity $\Delta$) form a family of eight,
+        corrected with Holm--Bonferroni \citep{holm1979simple}. A member that
+        was not run enters with $p=1$.
+  \item \textbf{Equivalence.} TOST \citep{lakens2017equivalence} with a
+        smallest effect size of interest of $\pm0.10$ retention units, the
+        smallest difference we would describe as a tail ``holding'' a label. It
+        is distinct from the $\pm0.082$ Gini bound used for placement, which is
+        on a different scale. Because specificity is directional, we also report
+        the one-sided non-superiority test of $H_0: \Delta \ge +0.10$.
+  \item \textbf{gemma-2-2b.} The model failed the split-half reliability gate on
+        the concept side (Appendix~\ref{app:gemma}). Every aggregate is
+        reported with and without it, and a conclusion is called robust only if
+        it holds both ways.
+  \item \textbf{Cell exclusion.} A quiet-tail cell enters the aggregate only if
+        its shuffled-label floor check passes and the concept's full-dimensional
+        headroom is at least $0.10$. Table~\ref{tab:two_tail} gives the number
+        of usable cells per model.
+\end{itemize}
+\ifsemantic{One analysis was added after the freeze, at a reviewer's suggestion:
+the semantic control of Section~\ref{sec:robust}. It is labelled exploratory
+throughout and is not part of the corrected family.}
+
+%──────────────────────────────────────────────────────────────────────────────
+\chapter{Experimental Setup}
+%──────────────────────────────────────────────────────────────────────────────
+
+\paragraph{Models.} Qwen2.5-0.5B, Qwen2.5-3B, Qwen2.5-7B, Qwen3-4B,
+Mistral-7B-v0.3, Llama-3.2-3B, Llama-3.1-8B and gemma-2-2b. PyTorch
+\texttt{2.11.0+cu128}, Transformers \texttt{5.18.0}.
+
+\paragraph{Loud tail.} Universal Dependencies English-EWT
+\citep{silveira2014gold,nivre2020universal}, first 500 sentences,
+final-layer token activations with the final norm applied (sub-word mean
+pooling, published tag filter, tags with $\ge 30$ occurrences). A mid-depth read
+(hidden state $\lfloor L/2 \rfloor$, no final norm) is the second layer. A
+reproduction gate requires the top-$k$ and bottom-$k$ accuracies to match the
+published values within $0.02$ before any control is read; in practice they
+match far more closely (Section~\ref{sec:tilt}).
+
+\paragraph{Quiet tail.} Eleven matched-pair concepts, up to 512 pairs each,
+last-token pooling, mid-depth and final layers: the truth datasets of
+\citet{marks2024geometry} (\textit{cities}, \textit{cities\_negated},
+\textit{conjunction}, \textit{disjunction}, \textit{counterfact},
+\textit{magnitude}, \textit{translation}) and the sycophancy sets of
+\citet{panickssery2024steering} and \citet{perez2022discovering}
+(\textit{sycophancy} and its \textit{nlp}, \textit{philpapers} and
+\textit{political} subsets). Refusal is unmatched (harmful and harmless
+instructions come from different corpora), so it has no within-pair control and
+enters only the placement analysis.
+
+\begin{table}[h]\centering\small
+\begin{tabular}{llrl}\toprule
+Source & Concepts & Pairs used & Matched\\\midrule
+\texttt{geometry-of-truth} \citep{marks2024geometry} & 7 truth sets & $\le 512$ each & yes\\
+\texttt{CAA} \citep{panickssery2024steering} & sycophancy & 512 & yes\\
+\texttt{evals} \citep{perez2022discovering} & 3 sycophancy subsets & 500 each & yes\\
+\texttt{refusal\_direction} \citep{arditi2024refusal} & 4 refusal sets & 100--256 & no\\
+UD English-EWT & part of speech & 6{,}585 tokens & --\\\bottomrule
+\end{tabular}
+\caption{Data. Refusal enters the placement analysis only.}
+\end{table}
+
+%──────────────────────────────────────────────────────────────────────────────
+\chapter{Results}\label{ch:results}
+%──────────────────────────────────────────────────────────────────────────────
+
+\section{Under the published measurement, both tails tilt}\label{sec:tilt}
+\paragraph{Placement reproduces.} Following the published isotropic method, the
+mean word-level Gini deviation is $-0.397$, against a published $-0.356$
+\citep{acharya2026concepts}. The unembedding second moment has condition number
+$2.30\times10^{3}$ and an isotropic random-direction baseline of $-0.1452$. Our
+extraction matches the published routine at cosine $1.000$ on Qwen2.5-0.5B.
+
+\paragraph{Capacity reproduces.} The part-of-speech probe reproduces the
+published one almost exactly. On the \num{ReproN}{} models whose per-model
+accuracies were published (\num{ReproModels}), our top-$k$ and bottom-$k$
+accuracies differ from the published values by at most \num{ReproMaxDelta}.
+Before any new result was read, a smoke run reproduced the thesis's own earlier
+numbers (Qwen2.5-0.5B: loud $\Delta = +0.0264$ and quiet
+$\Delta = +0.1704$ / $+0.0844$, matched to four decimals). The null results that
+follow therefore come from the published pipeline, not from a reimplementation
+that could have lost the effect.
+
+\paragraph{The loud tail tilts.} Part of speech is read more accurately from the
+top-$k$ window than from the bottom-$k$ window in \num{LoudFinalGapAllNPos}{} of
+\num{LoudFinalGapAllN}{} models, as published. The mean retention gap is
+$g = \num{LoudFinalGapAllMean}$ (95\% CI $[\num{LoudFinalGapAllCILo},
+\num{LoudFinalGapAllCIHi}]$, $p \pval{LoudFinalGapAllP}$). The tilt is
+basis-dependent: in the full-vocabulary basis the mean gap is
+$\num{RobFullVocabularyBasisLoudFinalGapAllMean}$
+($p \pval{RobFullVocabularyBasisLoudFinalGapAllP}$), with part of speech read
+better from the \emph{bottom} of the spectrum in several models.
+
+\paragraph{The quiet tail tilts in placement.} Concept directions carry more of
+their energy in the tail than isotropic directions do. Against structural nulls,
+however, the effect shrinks to a few hundredths of a Gini unit, and the
+direction sits in the tail in only \num{PlacementNTail}{} of
+\num{PlacementCapacityN}{} (model, concept) cells
+(Section~\ref{sec:placement}, Appendix~\ref{app:nulls}).
+
+\section{Neither tilt is specific}\label{sec:specific}
+Figure~\ref{fig:retention} shows retention across the whole spectrum. In both
+tails the real label and its control trace curves of nearly the same shape: the
+gap between them does not open at the end the account predicts.
+
+\begin{figure}[!htbp]\centering
+\maybefig{fig1_loud_retention}{0.98\linewidth}\\[0.6em]
+\maybefig{fig2_quiet_retention}{0.98\linewidth}
+\caption{Retention of each label's full-dimensional signal in a $k$-dimensional
+window, swept from the high-variance head (left) to the low-variance tail
+(right). Top: part of speech and three controls. Bottom: concepts and the
+length control. Thick lines are means over models; thin lines are individual
+models. The published comparison is the first window against the last.}
+\label{fig:retention}
+\end{figure}
+
+\paragraph{Primary tests.} \emph{Loud tail.} \num{LoudOpening}:
+$\Delta = \num{LoudFinalDeltaAllMean}$ (95\% CI
+$[\num{LoudFinalDeltaAllCILo}, \num{LoudFinalDeltaAllCIHi}]$,
+$p \pval{LoudFinalDeltaAllP}$, $n=\num{LoudFinalDeltaAllN}$); without
+gemma-2-2b, $\Delta = \num{LoudFinalDeltaNoGemmaMean}$
+($p \pval{LoudFinalDeltaNoGemmaP}$). \num{LoudVerdict}
+\num{LoudNonSupSentence} (non-superiority $p \pval{LoudFinalDeltaAllPNonSup}$;
+without gemma $p \pval{LoudFinalDeltaNoGemmaPNonSup}$).
+%  The three sentences above are chosen by scripts/two_tail_report.py from the
+%  results (see "Sentences selected by the write-up rules" in report.md).
+
+\emph{Quiet tail.} \num{QuietOpening}:
+$\Delta = \num{QuietMidDeltaAllMean}$ (95\% CI
+$[\num{QuietMidDeltaAllCILo}, \num{QuietMidDeltaAllCIHi}]$,
+$p \pval{QuietMidDeltaAllP}$, $n=\num{QuietMidDeltaAllN}$ models); without
+gemma-2-2b, $\Delta = \num{QuietMidDeltaNoGemmaMean}$
+($p \pval{QuietMidDeltaNoGemmaP}$). The 90\% interval is
+$[\num{QuietMidDeltaAllCINinetyLo}, \num{QuietMidDeltaAllCINinetyHi}]$ (TOST
+$p \pval{QuietMidDeltaAllPTOST}$; without gemma
+$p \pval{QuietMidDeltaNoGemmaPTOST}$). \num{QuietEquivalenceSentence}
+
+\paragraph{Multiplicity.} Table~\ref{tab:family} lists all eight members of the
+pre-registered family. \num{HolmSentence}
+
+\begin{figure}[!htbp]\centering
+\maybefig{fig3_per_model_delta}{\linewidth}
+\caption{Specificity $\Delta$ per model. Left: loud tail, part of speech against
+a random lexical partition, 95\% CI by token bootstrap. Right: quiet tail,
+concept against length, mean over concepts with the range across concepts.
+Hollow: gemma-2-2b. Orange: mean over models with a 95\% $t$-interval, with and
+without gemma-2-2b. Shaded: the $\pm0.10$ equivalence bound.}
+\label{fig:forest}
+\end{figure}
+
+\IfFileExists{\figdir/table_two_tail.tex}{\input{\figdir/table_two_tail.tex}}{}
+
+\begin{table}[!htbp]\centering\small
+\begin{tabular}{lllrrrrr}\toprule
+Tail & Layer & Quantity & mean & 95\% CI & $p$ & $p_{\text{Holm}}$ & $p_{\text{TOST}}$\\\midrule
+Loud & final & $\Delta$ (primary) & \num{LoudFinalDeltaAllMean} & [\num{LoudFinalDeltaAllCILo}, \num{LoudFinalDeltaAllCIHi}] & \ptab{LoudFinalDeltaAllP} & \ptab{LoudFinalDeltaAllPHolm} & \ptab{LoudFinalDeltaAllPTOST}\\
+Loud & final & $g$ & \num{LoudFinalGapAllMean} & [\num{LoudFinalGapAllCILo}, \num{LoudFinalGapAllCIHi}] & \ptab{LoudFinalGapAllP} & \ptab{LoudFinalGapAllPHolm} & \ptab{LoudFinalGapAllPTOST}\\
+Loud & mid & $\Delta$ & \num{LoudMidDeltaAllMean} & [\num{LoudMidDeltaAllCILo}, \num{LoudMidDeltaAllCIHi}] & \ptab{LoudMidDeltaAllP} & \ptab{LoudMidDeltaAllPHolm} & \ptab{LoudMidDeltaAllPTOST}\\
+Loud & mid & $g$ & \num{LoudMidGapAllMean} & [\num{LoudMidGapAllCILo}, \num{LoudMidGapAllCIHi}] & \ptab{LoudMidGapAllP} & \ptab{LoudMidGapAllPHolm} & \ptab{LoudMidGapAllPTOST}\\
+Quiet & mid & $\Delta$ (primary) & \num{QuietMidDeltaAllMean} & [\num{QuietMidDeltaAllCILo}, \num{QuietMidDeltaAllCIHi}] & \ptab{QuietMidDeltaAllP} & \ptab{QuietMidDeltaAllPHolm} & \ptab{QuietMidDeltaAllPTOST}\\
+Quiet & mid & $g$ & \num{QuietMidGapAllMean} & [\num{QuietMidGapAllCILo}, \num{QuietMidGapAllCIHi}] & \ptab{QuietMidGapAllP} & \ptab{QuietMidGapAllPHolm} & \ptab{QuietMidGapAllPTOST}\\
+Quiet & final & $\Delta$ & \num{QuietFinalDeltaAllMean} & [\num{QuietFinalDeltaAllCILo}, \num{QuietFinalDeltaAllCIHi}] & \ptab{QuietFinalDeltaAllP} & \ptab{QuietFinalDeltaAllPHolm} & \ptab{QuietFinalDeltaAllPTOST}\\
+Quiet & final & $g$ & \num{QuietFinalGapAllMean} & [\num{QuietFinalGapAllCILo}, \num{QuietFinalGapAllCIHi}] & \ptab{QuietFinalGapAllP} & \ptab{QuietFinalGapAllPHolm} & \ptab{QuietFinalGapAllPTOST}\\\bottomrule
+\end{tabular}
+\caption{The pre-registered family, all eight models. The same table without
+gemma-2-2b is Table~\ref{tab:family_nogemma} (Appendix~\ref{app:gemma}).
+$g$: tilt of the real label; $\Delta$: specificity. TOST bound $\pm0.10$.}
+\label{tab:family}
+\end{table}
+
+\section{Placement and capacity}\label{sec:placement}
+Placement and capacity answer different questions. A difference-of-means
+direction records where along the spectrum the class \emph{means} differ; a
+probe on a window records whether the classes are \emph{separable} there, which
+also depends on how much within-class variance that window carries.
+Figure~\ref{fig:placement} sets the two side by side for every (model, concept)
+cell measured both ways (\num{PlacementCapacityN}{} cells; Spearman
+$\rho = \num{PlacementCapacityRho}$, descriptive only, since cells within a model
+share a basis).
+\num{PlacementSentence}
+
+\begin{figure}[!htbp]\centering
+\maybefig{fig4_placement_vs_capacity}{0.62\linewidth}
+\caption{Placement (Gini gap against the structural shuffle null; negative means
+energy in the tail) against capacity (quiet-minus-loud retention), one point per
+(model, concept) cell at the primary setting.}
+\label{fig:placement}
+\end{figure}
+
+\section{Robustness}\label{sec:robust}
+\paragraph{Window size.} Figure~\ref{fig:ksweep} reports $\Delta$ at every window
+size from $0.25\%$ to $10\%$ of $d$, for both tails and both layers. Individual
+cells change sign with $k$, which is why $k$ was fixed in advance.
+\num{KSweepSentence}
+
+\paragraph{Controls.} \num{ControlsOpening}: type frequency
+($\Delta = \num{LoudCtlFreqBucketAllMean}$, $p \pval{LoudCtlFreqBucketAllP}$;
+it beats the control in \num{LoudCtlFreqBucketAllNPos}{} of 8 models); word
+length ($\Delta = \num{LoudCtlLengthBucketAllMean}$,
+$p \pval{LoudCtlLengthBucketAllP}$; \num{LoudCtlLengthBucketAllNPos}{} of 8).
+
+\paragraph{Length.}\label{sec:length} Table~\ref{tab:length} reports how
+strongly length alone predicts each concept label. Restricting to a subset of
+pairs in which the positive member is the longer one exactly as often as the
+negative gives $\Delta = \num{RobLengthBalancedMidDeltaAllMean}$ (TOST
+$p \pval{RobLengthBalancedMidDeltaAllPTOST}$). Regressing length out of the
+activations the concept probe sees gives
+$\Delta = \num{RobLengthResidualisedMidDeltaAllMean}$ (TOST
+$p \pval{RobLengthResidualisedMidDeltaAllPTOST}$). \num{LengthSentence}
+
+\paragraph{Layer.} At the other layer the specificity effect is
+$\Delta = \num{LoudMidDeltaAllMean}$ (loud, mid) and
+$\Delta = \num{QuietFinalDeltaAllMean}$ (quiet, final) (Table~\ref{tab:family}).
+
+\paragraph{Non-linear probe.} With a one-hidden-layer MLP on four models
+(Qwen2.5-3B, Llama-3.2-3B, Mistral-7B-v0.3, Qwen3-4B),
+$\Delta = \num{RobMLPProbeLoudFinalDeltaAllMean}$ (95\% CI
+$[\num{RobMLPProbeLoudFinalDeltaAllCILo}, \num{RobMLPProbeLoudFinalDeltaAllCIHi}]$,
+TOST $p \pval{RobMLPProbeLoudFinalDeltaAllPTOST}$) in the loud tail and
+$\Delta = \num{RobMLPProbeQuietMidDeltaAllMean}$
+($[\num{RobMLPProbeQuietMidDeltaAllCILo}, \num{RobMLPProbeQuietMidDeltaAllCIHi}]$,
+TOST $p \pval{RobMLPProbeQuietMidDeltaAllPTOST}$) in the quiet tail,
+\num{MLPSentence} With $n = 4$ models these intervals are wide, and the check
+rules out a large non-linear effect rather than any effect.
+
+\ifsemantic{\paragraph{Semantic control (exploratory).} Length is a surface control. For a
+semantic one we pool the three sycophancy subsets (NLP, PhilPapers, political
+questions) and use the \emph{topic} of the question (three classes) as the
+control label. Topic is balanced against the concept within every subset, so it
+carries no sycophancy information, and like length it is constant within a pair
+but learnable across pairs. Against topic, the quiet-tail specificity effect is
+$\Delta = \num{RobSemanticControlMidDeltaAllMean}$ (95\% CI
+$[\num{RobSemanticControlMidDeltaAllCILo}, \num{RobSemanticControlMidDeltaAllCIHi}]$,
+TOST $p \pval{RobSemanticControlMidDeltaAllPTOST}$, $n = \num{RobSemanticControlMidDeltaAllN}$
+models; final layer $\Delta = \num{RobSemanticControlFinalDeltaAllMean}$).
+\num{SemanticSentence} Two caveats apply: the analysis was added after the freeze,
+and the three subsets also differ in prompt format, so topic is a
+``semantic-or-format'' control rather than a purely semantic one.}
+
+\paragraph{Basis.} In the full-vocabulary basis, with all eight models rerun into
+a folder that the analysis audits for mixed bases, the loud-tail
+$\Delta = \num{RobFullVocabularyBasisLoudFinalDeltaAllMean}$
+($p \pval{RobFullVocabularyBasisLoudFinalDeltaAllP}$). This replaces the
+earlier full-vocabulary figure, which was computed from a folder in which two of
+the eight result files had been produced in the published basis.
+
+\begin{figure}[!htbp]\centering
+\maybefig{figS1_k_sweep}{\linewidth}
+\caption{Mean $\Delta$ over models (95\% CI) against window size, both tails and
+both layers, with all models (left) and without gemma-2-2b (right). Shaded:
+equivalence bound.}
+\label{fig:ksweep}
+\end{figure}
+
+\begin{table}[!htbp]\centering\small
+\IfFileExists{\figdir/table_length.tex}{\input{\figdir/table_length.tex}}%
+{\emph{Pending \texttt{make paper}.}}
+\caption{How much of each concept label is predictable from length alone.
+AUC $=0.5$ means length is uninformative.}
+\label{tab:length}
+\end{table}
+
+%──────────────────────────────────────────────────────────────────────────────
+\chapter{Methodological Findings}\label{ch:methods}
+%──────────────────────────────────────────────────────────────────────────────
+Each of these, left in place, would have produced a confident but wrong result.
+We report them because they are not specific to this paper.
+
+\section{Isotropic baselines overstate spectral effects}
+In a strongly anisotropic spectrum, a norm-matched random direction already has
+a Gini deviation of $-0.16$ to $-0.28$. A direction can therefore look
+anti-concentrated against the isotropic null while being indistinguishable from
+a sign-flip or label-repartition null built from the same data
+(Appendix~\ref{app:nulls}). Both nulls should be reported; choosing the one that
+gives the more favourable answer is not an option.
+
+\section{Leakage between near-duplicate pairs}\label{sec:leakage}
+Statement pairs share most of their tokens (sycophancy pairs share $99.2\%$).
+A statement-level split puts a test item's pair-mate in the training fold with
+the opposite label about $80\%$ of the time. The probe learns the mate and
+answers the test item confidently backwards, so a linear probe scores
+\emph{below} chance ($0.18$ on a balanced binary task in gemma-2-2b). In the
+other direction, the same leakage inflates any pair-level control label.
+Pair-grouped folds remove both effects; a pair-level random label then sits at
+chance and serves as a leakage detector.
+
+\section{Retention denominators}
+Normalising by full-dimensional headroom puts labels on one scale, but when the
+headroom is small it turns a two-point accuracy difference into a retention gap
+of $-0.47$ (Qwen2.5-0.5B on sycophancy, headroom $0.045$). Cells with concept
+headroom below $0.10$ are excluded, as pre-registered; per-model counts of
+usable cells are given in Table~\ref{tab:two_tail}, and the summary file
+\texttt{concept\_subspace\_summary.csv} reports every test with and without the
+exclusion.
+
+\section{Degenerate bottom eigenspaces}
+When regularisation $\lambda\mathbf{I}$ dominates the small eigenvalues, the
+bottom of the spectrum collapses onto a plateau within which the eigenvectors
+are arbitrary, so ``the bottom-$k$ subspace'' names no reproducible object. At
+$\lambda = 0.1$ the condition number fell to $1.38$ and the random-direction
+Gini to $-0.0004$. All reported runs check for this; none of the primary bases
+is degenerate.
+
+%──────────────────────────────────────────────────────────────────────────────
+\chapter{Limitations}
+%──────────────────────────────────────────────────────────────────────────────
+\begin{itemize}
+  \item \textbf{The pre-registered quiet-tail control is surface form.} We
+        measure length's correlation with each label and test whether the result
+        survives balancing and residualising it.\ifsemantic{ The semantic
+        (topic) control is exploratory, covers only the sycophancy family, and
+        may partly reflect prompt format.} A semantic nuisance label annotated on
+        the same truth statements would be the strongest control and does not
+        exist in these datasets.
+  \item \textbf{Eight models.} Models are the unit of analysis, so $n=8$ (or 7).
+        Effects smaller than the 90\% intervals reported here
+        cannot be ruled out at this $n$.
+  \item \textbf{Two layers.} We probe the final and mid-depth layers, not the
+        full depth profile.
+  \item \textbf{Probes measure decodability.} A null specificity result says the
+        tails do not \emph{hold} labels selectively; it does not say the model
+        does not \emph{use} spectral position. Interventional tests
+        \citep{elazar2021amnesic,belrose2023leace} are the natural next step.
+  \item \textbf{One syntactic label, one language.} Part of speech on English
+        EWT. Dependency relations and other languages are untested here.
+  \item \textbf{gemma-2-2b} fails the concept-side reliability gate, and its
+        word concepts never separate at any layer. We report it both ways
+        throughout rather than resolving why.
+  \item \textbf{Refusal} is unmatched and enters only the placement analysis.
+\end{itemize}
+
+%──────────────────────────────────────────────────────────────────────────────
+\chapter{Conclusion}
+%──────────────────────────────────────────────────────────────────────────────
+Measured the way it was published, the spectral account holds, if weakly:
+concept directions sit in the tail against an isotropic baseline, and syntax is
+read slightly more easily from the head in the published basis.
+Measured with a control on each side, using one estimator for both, neither
+tail is specific. The head prefers syntax no more than it prefers an arbitrary
+partition of the vocabulary, and the tail prefers concepts no more than it
+prefers length. Spectral claims about representations need the same control-task
+discipline that probing claims already require.
+
+\ifnumberedrefs\bibliographystyle{unsrtnat}\else\bibliographystyle{plainnat}\fi
+\bibliography{references}
+
+\appendix
+%──────────────────────────────────────────────────────────────────────────────
+\chapter{Structural shuffle nulls}\label{app:nulls}
+%──────────────────────────────────────────────────────────────────────────────
+For paired contrasts the null direction is
+$\mathbf{v}^{(b)}_{\text{null}} \propto \sum_i \sigma^{(b)}_i(\mathbf{x}^+_i -
+\mathbf{x}^-_i)$ with Rademacher signs $\sigma^{(b)}_i$. For unmatched data,
+class labels are repartitioned with group sizes preserved. Both nulls are
+two-sided.
+
+Against the sign-flip null, per-concept gaps for the word-level controls ranged
+from about $-0.05$ to $+0.03$. Two of 42 word-level concepts reached $\alpha =
+0.05$, consistent with the roughly two expected by chance.
+
+\paragraph{Refusal (corrected).} Refusal is unmatched, so it uses the
+label-repartition null. Across the seven models retained after the reliability
+gate, the mean gap was $-0.0302$ for the primary refusal set ($t$-test
+$p = 0.050$, Wilcoxon $p = 0.031$), $-0.0397$ for AdvBench ($p = 0.023$),
+$-0.0419$ for HarmBench ($p = 0.025$) and $-0.0441$ for JailbreakBench
+($p = 0.019$). Individual model gaps ranged from $-0.0995$ to $+0.0052$. The
+four refusal sets overlap heavily in construction and are not independent
+replications.
+%  The previous draft reported "gaps ranged from -0.0397 to -0.0441 with p 0.019-
+%  0.025". Those were the cross-model MEAN gaps of three sets, with the primary
+%  set (p = 0.050) left out. -0.0397 / 0.025 also coincide to three decimals with
+%  the pre-revision loud-tail Delta (-0.03971, p = 0.0254), which is why the
+%  sentence looked like a copy-paste slip. It was not.
+
+%──────────────────────────────────────────────────────────────────────────────
+\chapter{gemma-2-2b}\label{app:gemma}
+%──────────────────────────────────────────────────────────────────────────────
+Against the pre-specified frozen decision rule, gemma-2-2b's refusal-direction
+split-half cosine was $0.06$--$0.44$, below the threshold of $0.70$, and the
+result did not change when the sample was doubled to 512 pairs. Its word
+concepts never separated at any layer (mean pairwise cosine $0.66$--$0.86$,
+against $0.26$ in other models). The original analysis excluded it on the concept
+side but kept it on the syntax side. Here every test is reported both ways
+(Table~\ref{tab:family}, \texttt{primary\_and\_family.csv}). In the final
+data this matters for one number only: the loud-tail $\Delta$ is significant
+with gemma-2-2b ($p \pval{LoudFinalDeltaAllP}$) and not without it
+($p \pval{LoudFinalDeltaNoGemmaP}$). Table~\ref{tab:family_nogemma} repeats the
+pre-registered family without gemma-2-2b.
+
+\begin{table}[!htbp]\centering\small
+\begin{tabular}{lllrrrrr}\toprule
+Tail & Layer & Quantity & mean & 95\% CI & $p$ & $p_{\text{Holm}}$ & $p_{\text{TOST}}$\\\midrule
+Loud & final & $\Delta$ (primary) & \num{LoudFinalDeltaNoGemmaMean} & [\num{LoudFinalDeltaNoGemmaCILo}, \num{LoudFinalDeltaNoGemmaCIHi}] & \ptab{LoudFinalDeltaNoGemmaP} & \ptab{LoudFinalDeltaNoGemmaPHolm} & \ptab{LoudFinalDeltaNoGemmaPTOST}\\
+Loud & final & $g$ & \num{LoudFinalGapNoGemmaMean} & [\num{LoudFinalGapNoGemmaCILo}, \num{LoudFinalGapNoGemmaCIHi}] & \ptab{LoudFinalGapNoGemmaP} & \ptab{LoudFinalGapNoGemmaPHolm} & \ptab{LoudFinalGapNoGemmaPTOST}\\
+Loud & mid & $\Delta$ & \num{LoudMidDeltaNoGemmaMean} & [\num{LoudMidDeltaNoGemmaCILo}, \num{LoudMidDeltaNoGemmaCIHi}] & \ptab{LoudMidDeltaNoGemmaP} & \ptab{LoudMidDeltaNoGemmaPHolm} & \ptab{LoudMidDeltaNoGemmaPTOST}\\
+Loud & mid & $g$ & \num{LoudMidGapNoGemmaMean} & [\num{LoudMidGapNoGemmaCILo}, \num{LoudMidGapNoGemmaCIHi}] & \ptab{LoudMidGapNoGemmaP} & \ptab{LoudMidGapNoGemmaPHolm} & \ptab{LoudMidGapNoGemmaPTOST}\\
+Quiet & mid & $\Delta$ (primary) & \num{QuietMidDeltaNoGemmaMean} & [\num{QuietMidDeltaNoGemmaCILo}, \num{QuietMidDeltaNoGemmaCIHi}] & \ptab{QuietMidDeltaNoGemmaP} & \ptab{QuietMidDeltaNoGemmaPHolm} & \ptab{QuietMidDeltaNoGemmaPTOST}\\
+Quiet & mid & $g$ & \num{QuietMidGapNoGemmaMean} & [\num{QuietMidGapNoGemmaCILo}, \num{QuietMidGapNoGemmaCIHi}] & \ptab{QuietMidGapNoGemmaP} & \ptab{QuietMidGapNoGemmaPHolm} & \ptab{QuietMidGapNoGemmaPTOST}\\
+Quiet & final & $\Delta$ & \num{QuietFinalDeltaNoGemmaMean} & [\num{QuietFinalDeltaNoGemmaCILo}, \num{QuietFinalDeltaNoGemmaCIHi}] & \ptab{QuietFinalDeltaNoGemmaP} & \ptab{QuietFinalDeltaNoGemmaPHolm} & \ptab{QuietFinalDeltaNoGemmaPTOST}\\
+Quiet & final & $g$ & \num{QuietFinalGapNoGemmaMean} & [\num{QuietFinalGapNoGemmaCILo}, \num{QuietFinalGapNoGemmaCIHi}] & \ptab{QuietFinalGapNoGemmaP} & \ptab{QuietFinalGapNoGemmaPHolm} & \ptab{QuietFinalGapNoGemmaPTOST}\\\bottomrule
+\end{tabular}
+\caption{The pre-registered family without gemma-2-2b ($n=7$ models).}
+\label{tab:family_nogemma}
+\end{table}
+
+%──────────────────────────────────────────────────────────────────────────────
+\chapter{Steering and rank}\label{app:steering}
+%──────────────────────────────────────────────────────────────────────────────
+\paragraph{Activation addition.} On two models, with both signs and four
+steering magnitudes, each real direction was compared against 50 shuffled
+directions generated under the corresponding null. Between 11 and 17 of the 50
+shuffled directions matched the real direction; the minimum permutation
+$p$-value was $0.24$. No perplexity experiment was run.
+
+\paragraph{Rank.} The rank hypothesis \citep{engels2025not} gave an overall
+$p = 0.374$. Two models reached significance individually, in opposite
+directions.
+
+\end{document}

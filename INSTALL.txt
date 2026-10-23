@@ -1,0 +1,108 @@
+Installing into pratyush-acharya/spectral_anti_concentration
+============================================================
+
+Everything here is ADDITIVE. No published file is modified, so the EMNLP
+artifacts stay reproducible exactly as they are.
+
+1. Copy, preserving paths
+-------------------------
+   src/linear_rep_geometry/*.py   -> src/linear_rep_geometry/
+   scripts/*.py, scripts/*.sh     -> scripts/
+   run_rotate.sh, run_all.sh,
+   setup_server.sh, test_pipeline.py, README.md  -> repo root
+
+   NOTE: src/linear_rep_geometry/__init__.py is deliberately NOT included.
+   Yours already exists and exports load_model. Do not overwrite it — add
+   this line to the end of your existing file instead:
+
+       from . import (spectral_metrics, covariance, behavioral, nulls,
+                      dimensionality, dual_geometry, word_level)
+
+2. Dependencies
+---------------
+   No new ones. The code imports only torch, numpy and scipy, all already
+   pinned in your requirements.txt.
+
+   On jalapeno, torch must be a CUDA 12.8+ wheel: the RTX PRO 6000 Blackwell
+   is sm_120 and older wheels have no kernels for it. They import fine and
+   then fail at the first matmul.
+
+       pip install torch --index-url https://download.pytorch.org/whl/cu128
+       pip install -r requirements.txt
+
+3. Verify
+---------
+       python scripts/check_env.py     # libraries, Blackwell arch, disk, gated access
+       python test_pipeline.py         # 55 checks on a synthetic model, no GPU needed
+
+4. Run
+------
+       python scripts/build_datasets.py --clone
+
+       # Phase 2 FIRST, with --freeze, before reading any Phase 1 output.
+       # It is write-once and timestamped; commit the file.
+       python scripts/run_phases.py 2 --model Qwen/Qwen2.5-0.5B --freeze
+       git add results/*/decision_rule.json && git commit -m "freeze analysis plan"
+
+       # then, inside tmux, on the disk-constrained box:
+       tmux new -s thesis
+       bash run_rotate.sh
+
+   run_all.sh is the one to use once the disk has been cleared: all eight
+   models in sequence, weights kept, one log per model. If one fails (a gated
+   licence, say) it carries on with the rest.
+
+       tmux new -s thesis
+       MAXPAIRS=256 bash run_all.sh
+
+   MAXPAIRS=256 halves the results footprint (40 GB -> 20 GB across eight
+   models) and is above what Arditi et al. used to find the refusal direction,
+   so the estimate has long since saturated. There is no reason to use 512.
+
+   run_rotate.sh is the fallback for a disk-constrained box: download one
+   model, run it, delete the weights, repeat. Peak usage is one model instead
+   of eight. Use it with KEEP=1 if you want it to stop deleting.
+
+   job_phases.sh is a Slurm template. jalapeno has no scheduler, so it is
+   unused there; it is kept in case the work moves to a cluster.
+
+5. Space
+--------
+   .venv with torch                3.5 GB
+   source repos + datasets + code  1.1 GB
+   8 model weights, kept          73   GB
+   results, MAXPAIRS=256          20   GB
+   ------------------------------------
+   everything resident            ~98 GB
+   comfortable (large models
+   rotated, all results kept)     ~60 GB
+
+   The results figure is computed from concepts x layers x pairs x hidden
+   dimension rather than measured. Check it against `du -sh results/` after
+   the first large model and adjust before committing to the full sweep.
+
+6. Order of operations
+----------------------
+   Freeze the decision rule BEFORE the sweep, not after. It is write-once and
+   timestamped, and the commit is what makes "pre-specified" checkable by the
+   committee. It is easy to skip once everything suddenly runs, and impossible
+   to add convincingly afterwards.
+
+   Run Qwen2.5-0.5B alone first. It takes a fraction of the time, and a broken
+   setup surfaces in minutes rather than hours into an eight-model sweep.
+
+File map to the proposal's phases
+---------------------------------
+   spectral_metrics.py   metrics (verbatim from the published code) + Gini gap,
+                         paired tests, TOST equivalence
+   covariance.py         Phase 5: full-vocab, language-subset, activation bases
+   behavioral.py         Phases 1 and 3: statement-level extraction, both
+                         poolings, every layer
+   word_level.py         Section 6: the word-level internal control
+   nulls.py              Phase 2: both nulls, the reliability gate, the frozen
+                         decision rule
+   dimensionality.py     Phase 4: rank test, subspace fallback
+   dual_geometry.py      Phase 6: refusal token vs compliance token contrast
+   build_datasets.py     27,117 pairs from four repositories
+   run_phases.py         phase driver
+   analyze.py            cross-model inference

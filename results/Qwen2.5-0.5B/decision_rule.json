@@ -1,0 +1,26 @@
+{
+  "primary_null": "label_shuffle",
+  "secondary_null": "norm_matched_random",
+  "primary_statistic": "gini_gap",
+  "unit_of_analysis": "model",
+  "alpha": 0.05,
+  "tails": 2,
+  "sesoi": -0.082,
+  "equivalence_test": "TOST",
+  "reporting_cell": {
+    "pooling": "both; a conclusion is reported only if it holds under both",
+    "layer": "trajectory across all layers; headline at the layer of peak split-half reliability, chosen per model before Gini is read",
+    "basis": "full_vocab primary; language and activation reported alongside"
+  },
+  "gates": {
+    "split_half_cosine_min": 0.7,
+    "note": "below this the direction is not interpreted for that cell"
+  },
+  "hypotheses": {
+    "H0": "mean Gini gap for behavioural directions = 0",
+    "H1": "mean Gini gap != 0",
+    "secondary": "paired: refusal gap vs truth gap; behavioural vs word-level, same model, same layer, same basis"
+  },
+  "frozen_at": "2026-10-05T03:09:04.579783+00:00",
+  "sha256": "fdc0d6eee05db75f352f4517b2cf9476c6205ba2cf513e775ff6e83166a8fdbd"
+}

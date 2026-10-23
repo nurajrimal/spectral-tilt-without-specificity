@@ -1,0 +1,489 @@
+{
+  "model": "Qwen/Qwen3-4B",
+  "model_name": "Qwen3-4B",
+  "basis": "cov:/home/nurimal/spectral_anti_concentration/results/Qwen3-4B/en-fr/cov_src.pt",
+  "d": 2560,
+  "k": 256,
+  "k_frac": 0.1,
+  "top_k_variance_captured": 0.2839389741420746,
+  "bottom_k_variance_captured": 0.023682117462158203,
+  "n_tokens": 6585,
+  "n_classes": 13,
+  "probe_backend": "torch_gpu_lbfgs",
+  "majority_rates": {
+    "pos": 0.1773728170083523,
+    "pos_shuffled": 0.1773728170083523,
+    "token_id_random": 0.1773728170083523,
+    "freq_bucket": 0.07699316628701594,
+    "length_bucket": 0.07699316628701594
+  },
+  "full_accuracy": {
+    "pos": 0.8265755504935461,
+    "pos_shuffled": 0.1624905087319666,
+    "token_id_random": 0.4287015945330296,
+    "freq_bucket": 0.4478359908883826,
+    "length_bucket": 0.29020501138952165
+  },
+  "cells": [
+    {
+      "subspace": "top_k",
+      "label": "pos",
+      "start": 0,
+      "retained_variance": 0.28393906354904175,
+      "accuracy": 0.5722095671981776,
+      "retention": 0.6081871345029237
+    },
+    {
+      "subspace": "top_k",
+      "label": "pos_shuffled",
+      "start": 0,
+      "retained_variance": 0.28393906354904175,
+      "accuracy": 0.17630979498861046,
+      "retention": NaN
+    },
+    {
+      "subspace": "top_k",
+      "label": "token_id_random",
+      "start": 0,
+      "retained_variance": 0.28393906354904175,
+      "accuracy": 0.2265755504935459,
+      "retention": 0.19577039274924465
+    },
+    {
+      "subspace": "top_k",
+      "label": "freq_bucket",
+      "start": 0,
+      "retained_variance": 0.28393906354904175,
+      "accuracy": 0.26378132118451025,
+      "retention": 0.5036855036855038
+    },
+    {
+      "subspace": "top_k",
+      "label": "length_bucket",
+      "start": 0,
+      "retained_variance": 0.28393906354904175,
+      "accuracy": 0.19924069855732726,
+      "retention": 0.5733618233618234
+    },
+    {
+      "subspace": "window_11pct",
+      "label": "pos",
+      "start": 256,
+      "retained_variance": 0.15109221637248993,
+      "accuracy": 0.5624905087319665,
+      "retention": 0.5932163742690055
+    },
+    {
+      "subspace": "window_11pct",
+      "label": "pos_shuffled",
+      "start": 256,
+      "retained_variance": 0.15109221637248993,
+      "accuracy": 0.17570235383447227,
+      "retention": NaN
+    },
+    {
+      "subspace": "window_11pct",
+      "label": "token_id_random",
+      "start": 256,
+      "retained_variance": 0.15109221637248993,
+      "accuracy": 0.22946089597570235,
+      "retention": 0.2072507552870091
+    },
+    {
+      "subspace": "window_11pct",
+      "label": "freq_bucket",
+      "start": 256,
+      "retained_variance": 0.15109221637248993,
+      "accuracy": 0.2555808656036446,
+      "retention": 0.48157248157248167
+    },
+    {
+      "subspace": "window_11pct",
+      "label": "length_bucket",
+      "start": 256,
+      "retained_variance": 0.15109221637248993,
+      "accuracy": 0.20197418375094914,
+      "retention": 0.5861823361823362
+    },
+    {
+      "subspace": "window_22pct",
+      "label": "pos",
+      "start": 512,
+      "retained_variance": 0.1236635223031044,
+      "accuracy": 0.5641609719058466,
+      "retention": 0.5957894736842103
+    },
+    {
+      "subspace": "window_22pct",
+      "label": "pos_shuffled",
+      "start": 512,
+      "retained_variance": 0.1236635223031044,
+      "accuracy": 0.17630979498861046,
+      "retention": NaN
+    },
+    {
+      "subspace": "window_22pct",
+      "label": "token_id_random",
+      "start": 512,
+      "retained_variance": 0.1236635223031044,
+      "accuracy": 0.2332574031890661,
+      "retention": 0.22235649546827813
+    },
+    {
+      "subspace": "window_22pct",
+      "label": "freq_bucket",
+      "start": 512,
+      "retained_variance": 0.1236635223031044,
+      "accuracy": 0.26985573272589214,
+      "retention": 0.5200655200655201
+    },
+    {
+      "subspace": "window_22pct",
+      "label": "length_bucket",
+      "start": 512,
+      "retained_variance": 0.1236635223031044,
+      "accuracy": 0.20303720577069098,
+      "retention": 0.5911680911680912
+    },
+    {
+      "subspace": "window_33pct",
+      "label": "pos",
+      "start": 768,
+      "retained_variance": 0.10383850336074829,
+      "accuracy": 0.5591495823842065,
+      "retention": 0.5880701754385963
+    },
+    {
+      "subspace": "window_33pct",
+      "label": "pos_shuffled",
+      "start": 768,
+      "retained_variance": 0.10383850336074829,
+      "accuracy": 0.17646165527714502,
+      "retention": NaN
+    },
+    {
+      "subspace": "window_33pct",
+      "label": "token_id_random",
+      "start": 768,
+      "retained_variance": 0.10383850336074829,
+      "accuracy": 0.23143507972665148,
+      "retention": 0.2151057401812689
+    },
+    {
+      "subspace": "window_33pct",
+      "label": "freq_bucket",
+      "start": 768,
+      "retained_variance": 0.10383850336074829,
+      "accuracy": 0.2621108580106303,
+      "retention": 0.4991809991809995
+    },
+    {
+      "subspace": "window_33pct",
+      "label": "length_bucket",
+      "start": 768,
+      "retained_variance": 0.10383850336074829,
+      "accuracy": 0.2021260440394837,
+      "retention": 0.586894586894587
+    },
+    {
+      "subspace": "window_44pct",
+      "label": "pos",
+      "start": 1024,
+      "retained_variance": 0.08781658113002777,
+      "accuracy": 0.5597570235383447,
+      "retention": 0.5890058479532161
+    },
+    {
+      "subspace": "window_44pct",
+      "label": "pos_shuffled",
+      "start": 1024,
+      "retained_variance": 0.08781658113002777,
+      "accuracy": 0.17661351556567956,
+      "retention": NaN
+    },
+    {
+      "subspace": "window_44pct",
+      "label": "token_id_random",
+      "start": 1024,
+      "retained_variance": 0.08781658113002777,
+      "accuracy": 0.225208807896735,
+      "retention": 0.19033232628398794
+    },
+    {
+      "subspace": "window_44pct",
+      "label": "freq_bucket",
+      "start": 1024,
+      "retained_variance": 0.08781658113002777,
+      "accuracy": 0.2713743356112377,
+      "retention": 0.5241605241605244
+    },
+    {
+      "subspace": "window_44pct",
+      "label": "length_bucket",
+      "start": 1024,
+      "retained_variance": 0.08781658113002777,
+      "accuracy": 0.19863325740318905,
+      "retention": 0.5705128205128204
+    },
+    {
+      "subspace": "window_56pct",
+      "label": "pos",
+      "start": 1280,
+      "retained_variance": 0.07405158877372742,
+      "accuracy": 0.565375854214123,
+      "retention": 0.59766081871345
+    },
+    {
+      "subspace": "window_56pct",
+      "label": "pos_shuffled",
+      "start": 1280,
+      "retained_variance": 0.07405158877372742,
+      "accuracy": 0.17600607441154134,
+      "retention": NaN
+    },
+    {
+      "subspace": "window_56pct",
+      "label": "token_id_random",
+      "start": 1280,
+      "retained_variance": 0.07405158877372742,
+      "accuracy": 0.23796507213363705,
+      "retention": 0.24108761329305137
+    },
+    {
+      "subspace": "window_56pct",
+      "label": "freq_bucket",
+      "start": 1280,
+      "retained_variance": 0.07405158877372742,
+      "accuracy": 0.2640850417615793,
+      "retention": 0.5045045045045046
+    },
+    {
+      "subspace": "window_56pct",
+      "label": "length_bucket",
+      "start": 1280,
+      "retained_variance": 0.07405158877372742,
+      "accuracy": 0.2025816249050873,
+      "retention": 0.5890313390313389
+    },
+    {
+      "subspace": "window_67pct",
+      "label": "pos",
+      "start": 1536,
+      "retained_variance": 0.061796627938747406,
+      "accuracy": 0.5630979498861047,
+      "retention": 0.5941520467836255
+    },
+    {
+      "subspace": "window_67pct",
+      "label": "pos_shuffled",
+      "start": 1536,
+      "retained_variance": 0.061796627938747406,
+      "accuracy": 0.17630979498861046,
+      "retention": NaN
+    },
+    {
+      "subspace": "window_67pct",
+      "label": "token_id_random",
+      "start": 1536,
+      "retained_variance": 0.061796627938747406,
+      "accuracy": 0.2311313591495824,
+      "retention": 0.2138972809667675
+    },
+    {
+      "subspace": "window_67pct",
+      "label": "freq_bucket",
+      "start": 1536,
+      "retained_variance": 0.061796627938747406,
+      "accuracy": 0.2712224753227031,
+      "retention": 0.5237510237510239
+    },
+    {
+      "subspace": "window_67pct",
+      "label": "length_bucket",
+      "start": 1536,
+      "retained_variance": 0.061796627938747406,
+      "accuracy": 0.2,
+      "retention": 0.576923076923077
+    },
+    {
+      "subspace": "window_78pct",
+      "label": "pos",
+      "start": 1792,
+      "retained_variance": 0.05050325393676758,
+      "accuracy": 0.5562642369020501,
+      "retention": 0.5836257309941518
+    },
+    {
+      "subspace": "window_78pct",
+      "label": "pos_shuffled",
+      "start": 1792,
+      "retained_variance": 0.05050325393676758,
+      "accuracy": 0.17630979498861046,
+      "retention": NaN
+    },
+    {
+      "subspace": "window_78pct",
+      "label": "token_id_random",
+      "start": 1792,
+      "retained_variance": 0.05050325393676758,
+      "accuracy": 0.22976461655277144,
+      "retention": 0.2084592145015106
+    },
+    {
+      "subspace": "window_78pct",
+      "label": "freq_bucket",
+      "start": 1792,
+      "retained_variance": 0.05050325393676758,
+      "accuracy": 0.25968109339407747,
+      "retention": 0.49262899262899285
+    },
+    {
+      "subspace": "window_78pct",
+      "label": "length_bucket",
+      "start": 1792,
+      "retained_variance": 0.05050325393676758,
+      "accuracy": 0.19984813971146545,
+      "retention": 0.5762108262108262
+    },
+    {
+      "subspace": "window_89pct",
+      "label": "pos",
+      "start": 2048,
+      "retained_variance": 0.03948494419455528,
+      "accuracy": 0.5582384206529992,
+      "retention": 0.5866666666666664
+    },
+    {
+      "subspace": "window_89pct",
+      "label": "pos_shuffled",
+      "start": 2048,
+      "retained_variance": 0.03948494419455528,
+      "accuracy": 0.17646165527714502,
+      "retention": NaN
+    },
+    {
+      "subspace": "window_89pct",
+      "label": "token_id_random",
+      "start": 2048,
+      "retained_variance": 0.03948494419455528,
+      "accuracy": 0.2239939255884586,
+      "retention": 0.18549848942598182
+    },
+    {
+      "subspace": "window_89pct",
+      "label": "freq_bucket",
+      "start": 2048,
+      "retained_variance": 0.03948494419455528,
+      "accuracy": 0.26924829157175395,
+      "retention": 0.5184275184275184
+    },
+    {
+      "subspace": "window_89pct",
+      "label": "length_bucket",
+      "start": 2048,
+      "retained_variance": 0.03948494419455528,
+      "accuracy": 0.20273348519362186,
+      "retention": 0.5897435897435896
+    },
+    {
+      "subspace": "bottom_k",
+      "label": "pos",
+      "start": 2304,
+      "retained_variance": 0.02381373755633831,
+      "accuracy": 0.554290053151101,
+      "retention": 0.5805847953216373
+    },
+    {
+      "subspace": "bottom_k",
+      "label": "pos_shuffled",
+      "start": 2304,
+      "retained_variance": 0.02381373755633831,
+      "accuracy": 0.17646165527714502,
+      "retention": NaN
+    },
+    {
+      "subspace": "bottom_k",
+      "label": "token_id_random",
+      "start": 2304,
+      "retained_variance": 0.02381373755633831,
+      "accuracy": 0.22277904328018222,
+      "retention": 0.18066465256797581
+    },
+    {
+      "subspace": "bottom_k",
+      "label": "freq_bucket",
+      "start": 2304,
+      "retained_variance": 0.02381373755633831,
+      "accuracy": 0.24935459377372818,
+      "retention": 0.46478296478296494
+    },
+    {
+      "subspace": "bottom_k",
+      "label": "length_bucket",
+      "start": 2304,
+      "retained_variance": 0.02381373755633831,
+      "accuracy": 0.19514047076689447,
+      "retention": 0.5541310541310542
+    }
+  ],
+  "random_k": {
+    "pos": {
+      "mean_accuracy": 0.5612452543659833,
+      "std_accuracy": 0.004987310135181416,
+      "retention": 0.5912982456140349
+    },
+    "pos_shuffled": {
+      "mean_accuracy": 0.1769779802581625,
+      "std_accuracy": 0.0007599086410446046,
+      "retention": NaN
+    },
+    "token_id_random": {
+      "mean_accuracy": 0.2264236902050114,
+      "std_accuracy": 0.003325705647427114,
+      "retention": 0.19516616314199406
+    },
+    "freq_bucket": {
+      "mean_accuracy": 0.2678208048595293,
+      "std_accuracy": 0.001986063201126401,
+      "retention": 0.514578214578215
+    },
+    "length_bucket": {
+      "mean_accuracy": 0.19835990888382687,
+      "std_accuracy": 0.0016701870414417724,
+      "retention": 0.5692307692307692
+    }
+  },
+  "degeneracy": {
+    "d": 2560,
+    "lambda_min": 6.363450211210875e-06,
+    "lambda_max": 0.06362123787403107,
+    "condition_number": 9997.915558755483,
+    "bottom_k_spread": 26.843374668369854,
+    "n_within_1pct_of_floor": 1,
+    "bottom_k_inside_plateau": false,
+    "note": "bottom-k eigenvalues are separated; the subspace is well defined"
+  },
+  "reproduction": {
+    "checked": false,
+    "reason": "Qwen3-4B not in pos_probe_all_models.json"
+  },
+  "floor_check": {
+    "shuffled_top_k": 0.17630979498861046,
+    "majority": 0.1773728170083523,
+    "ok": true
+  },
+  "difference_in_differences": {
+    "available": true,
+    "control": "token_id_random",
+    "retention_gap_pos": 0.02760233918128656,
+    "retention_gap_control": 0.01510574018126894,
+    "delta": 0.012496599000017618,
+    "ci95": [
+      -0.01500853341813755,
+      0.04038985176940323
+    ],
+    "p_boot": 0.378,
+    "n_tokens": 6585,
+    "verdict": "not syntax-specific at this n: the top-k advantage is the same size for POS and for a label with no syntax in it"
+  }
+}
