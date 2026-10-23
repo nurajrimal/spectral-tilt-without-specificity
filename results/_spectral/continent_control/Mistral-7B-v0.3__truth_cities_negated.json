@@ -1,0 +1,4793 @@
+{
+  "model": "mistralai/Mistral-7B-v0.3",
+  "model_name": "Mistral-7B-v0.3",
+  "concept": "truth_cities_negated",
+  "matched": true,
+  "basis": "cov:/home/nurimal/spectral-anti-concentration-thesis/results/Mistral-7B-v0.3/en-fr/cov_src.pt",
+  "basis_kind": "published_language",
+  "d": 4096,
+  "k": 20,
+  "k_frac": 0.005,
+  "n_pairs": 512,
+  "n_statements": 1024,
+  "pooling": "last_token",
+  "n_layers": 33,
+  "probe": "linear",
+  "classes": [
+    "Africa",
+    "Americas",
+    "Asia",
+    "Europe"
+  ],
+  "class_counts": {
+    "named_continent": {
+      "Africa": 142,
+      "Asia": 634,
+      "Europe": 115,
+      "Americas": 133
+    },
+    "city_continent": {
+      "Africa": 154,
+      "Asia": 636,
+      "Americas": 132,
+      "Europe": 102
+    }
+  },
+  "leakage": {
+    "named_continent": {
+      "cramers_v": 0.0493856561848442,
+      "p": 0.47574709738380927,
+      "truth_acc_from_control": 0.513671875
+    },
+    "city_continent": {
+      "cramers_v": 0.0,
+      "p": 1.0,
+      "truth_acc_from_control": 0.5
+    },
+    "length_bucket": {
+      "cramers_v": 0.001953125,
+      "p": 0.9501646619415055,
+      "truth_acc_from_control": 0.501953125
+    }
+  },
+  "controls": [
+    "named_continent",
+    "city_continent",
+    "length_bucket"
+  ],
+  "primary": {
+    "dataset": "truth_cities",
+    "layer": "mid",
+    "control": "named_continent"
+  },
+  "layer_roles": {
+    "16": "mid",
+    "32": "final"
+  },
+  "script_version": "continent-control-1",
+  "argv": [
+    "scripts/continent_control.py",
+    "run",
+    "--models",
+    "Qwen/Qwen2.5-0.5B",
+    "Qwen/Qwen2.5-3B",
+    "Qwen/Qwen2.5-7B",
+    "Qwen/Qwen3-4B",
+    "mistralai/Mistral-7B-v0.3",
+    "meta-llama/Llama-3.2-3B",
+    "meta-llama/Llama-3.1-8B",
+    "google/gemma-2-2b",
+    "--skip-existing"
+  ],
+  "written_utc": "2026-10-23T02:30:10.312184+00:00",
+  "by_layer": {
+    "16": {
+      "role": "mid",
+      "by_control": {
+        "named_continent": {
+          "layer": 16,
+          "majority_rates": {
+            "concept": 0.5,
+            "concept_shuffled": 0.5,
+            "pair_id_random": 0.5,
+            "named_continent": 0.619140625
+          },
+          "full_accuracy": {
+            "concept": 0.9990196078431373,
+            "concept_shuffled": 0.5166095564439368,
+            "pair_id_random": 0.4961736150770988,
+            "named_continent": 0.9667904054825815
+          },
+          "headroom": {
+            "concept": 0.49901960784313726,
+            "concept_shuffled": 0.0166095564439368,
+            "pair_id_random": -0.003826384922901216,
+            "named_continent": 0.34764978048258155
+          },
+          "cells": [
+            {
+              "layer": 16,
+              "subspace": "top_k",
+              "label": "concept",
+              "start": 0,
+              "retained_variance": 0.08483313769102097,
+              "accuracy": 0.9911955073291452,
+              "retention": 0.984321055944456
+            },
+            {
+              "layer": 16,
+              "subspace": "top_k",
+              "label": "concept_shuffled",
+              "start": 0,
+              "retained_variance": 0.08483313769102097,
+              "accuracy": 0.5195126594327051,
+              "retention": NaN
+            },
+            {
+              "layer": 16,
+              "subspace": "top_k",
+              "label": "pair_id_random",
+              "start": 0,
+              "retained_variance": 0.08483313769102097,
+              "accuracy": 0.48537026461069865,
+              "retention": NaN
+            },
+            {
+              "layer": 16,
+              "subspace": "top_k",
+              "label": "named_continent",
+              "start": 0,
+              "retained_variance": 0.08483313769102097,
+              "accuracy": 0.619131924614506,
+              "retention": -2.5026293650973953e-05
+            },
+            {
+              "layer": 16,
+              "subspace": "window_11pct",
+              "label": "concept",
+              "start": 453,
+              "retained_variance": 0.008676680736243725,
+              "accuracy": 0.9911955073291452,
+              "retention": 0.984321055944456
+            },
+            {
+              "layer": 16,
+              "subspace": "window_11pct",
+              "label": "concept_shuffled",
+              "start": 453,
+              "retained_variance": 0.008676680736243725,
+              "accuracy": 0.5301732343422805,
+              "retention": NaN
+            },
+            {
+              "layer": 16,
+              "subspace": "window_11pct",
+              "label": "pair_id_random",
+              "start": 453,
+              "retained_variance": 0.008676680736243725,
+              "accuracy": 0.4862554730630116,
+              "retention": NaN
+            },
+            {
+              "layer": 16,
+              "subspace": "window_11pct",
+              "label": "named_continent",
+              "start": 453,
+              "retained_variance": 0.008676680736243725,
+              "accuracy": 0.619131924614506,
+              "retention": -2.5026293650973953e-05
+            },
+            {
+              "layer": 16,
+              "subspace": "window_22pct",
+              "label": "concept",
+              "start": 906,
+              "retained_variance": 0.0065993997268378735,
+              "accuracy": 0.9931467732724159,
+              "retention": 0.9882312548877489
+            },
+            {
+              "layer": 16,
+              "subspace": "window_22pct",
+              "label": "concept_shuffled",
+              "start": 906,
+              "retained_variance": 0.0065993997268378735,
+              "accuracy": 0.5264134780125642,
+              "retention": NaN
+            },
+            {
+              "layer": 16,
+              "subspace": "window_22pct",
+              "label": "pair_id_random",
+              "start": 906,
+              "retained_variance": 0.0065993997268378735,
+              "accuracy": 0.4745288406624786,
+              "retention": NaN
+            },
+            {
+              "layer": 16,
+              "subspace": "window_22pct",
+              "label": "named_continent",
+              "start": 906,
+              "retained_variance": 0.0065993997268378735,
+              "accuracy": 0.619131924614506,
+              "retention": -2.5026293650973953e-05
+            },
+            {
+              "layer": 16,
+              "subspace": "window_33pct",
+              "label": "concept",
+              "start": 1359,
+              "retained_variance": 0.005233860574662685,
+              "accuracy": 0.996078431372549,
+              "retention": 0.994106090373281
+            },
+            {
+              "layer": 16,
+              "subspace": "window_33pct",
+              "label": "concept_shuffled",
+              "start": 1359,
+              "retained_variance": 0.005233860574662685,
+              "accuracy": 0.5264134780125642,
+              "retention": NaN
+            },
+            {
+              "layer": 16,
+              "subspace": "window_33pct",
+              "label": "pair_id_random",
+              "start": 1359,
+              "retained_variance": 0.005233860574662685,
+              "accuracy": 0.5029506948410433,
+              "retention": NaN
+            },
+            {
+              "layer": 16,
+              "subspace": "window_33pct",
+              "label": "named_continent",
+              "start": 1359,
+              "retained_variance": 0.005233860574662685,
+              "accuracy": 0.619131924614506,
+              "retention": -2.5026293650973953e-05
+            },
+            {
+              "layer": 16,
+              "subspace": "window_44pct",
+              "label": "concept",
+              "start": 1812,
+              "retained_variance": 0.004175554029643536,
+              "accuracy": 0.9911955073291452,
+              "retention": 0.984321055944456
+            },
+            {
+              "layer": 16,
+              "subspace": "window_44pct",
+              "label": "concept_shuffled",
+              "start": 1812,
+              "retained_variance": 0.004175554029643536,
+              "accuracy": 0.5215210355987054,
+              "retention": NaN
+            },
+            {
+              "layer": 16,
+              "subspace": "window_44pct",
+              "label": "pair_id_random",
+              "start": 1812,
+              "retained_variance": 0.004175554029643536,
+              "accuracy": 0.49998096325909,
+              "retention": NaN
+            },
+            {
+              "layer": 16,
+              "subspace": "window_44pct",
+              "label": "named_continent",
+              "start": 1812,
+              "retained_variance": 0.004175554029643536,
+              "accuracy": 0.619131924614506,
+              "retention": -2.5026293650973953e-05
+            },
+            {
+              "layer": 16,
+              "subspace": "window_56pct",
+              "label": "concept",
+              "start": 2264,
+              "retained_variance": 0.003298884956166148,
+              "accuracy": 0.996078431372549,
+              "retention": 0.994106090373281
+            },
+            {
+              "layer": 16,
+              "subspace": "window_56pct",
+              "label": "concept_shuffled",
+              "start": 2264,
+              "retained_variance": 0.003298884956166148,
+              "accuracy": 0.5145345516847516,
+              "retention": NaN
+            },
+            {
+              "layer": 16,
+              "subspace": "window_56pct",
+              "label": "pair_id_random",
+              "start": 2264,
+              "retained_variance": 0.003298884956166148,
+              "accuracy": 0.5176470588235293,
+              "retention": NaN
+            },
+            {
+              "layer": 16,
+              "subspace": "window_56pct",
+              "label": "named_continent",
+              "start": 2264,
+              "retained_variance": 0.003298884956166148,
+              "accuracy": 0.619131924614506,
+              "retention": -2.5026293650973953e-05
+            },
+            {
+              "layer": 16,
+              "subspace": "window_67pct",
+              "label": "concept",
+              "start": 2717,
+              "retained_variance": 0.0025401413440704346,
+              "accuracy": 0.9941176470588236,
+              "retention": 0.9901768172888016
+            },
+            {
+              "layer": 16,
+              "subspace": "window_67pct",
+              "label": "concept_shuffled",
+              "start": 2717,
+              "retained_variance": 0.0025401413440704346,
+              "accuracy": 0.5234437464306111,
+              "retention": NaN
+            },
+            {
+              "layer": 16,
+              "subspace": "window_67pct",
+              "label": "pair_id_random",
+              "start": 2717,
+              "retained_variance": 0.0025401413440704346,
+              "accuracy": 0.5049019607843137,
+              "retention": NaN
+            },
+            {
+              "layer": 16,
+              "subspace": "window_67pct",
+              "label": "named_continent",
+              "start": 2717,
+              "retained_variance": 0.0025401413440704346,
+              "accuracy": 0.619131924614506,
+              "retention": -2.5026293650973953e-05
+            },
+            {
+              "layer": 16,
+              "subspace": "window_78pct",
+              "label": "concept",
+              "start": 3170,
+              "retained_variance": 0.0018575962167233229,
+              "accuracy": 0.9892537597563298,
+              "retention": 0.9804299311423504
+            },
+            {
+              "layer": 16,
+              "subspace": "window_78pct",
+              "label": "concept_shuffled",
+              "start": 3170,
+              "retained_variance": 0.0018575962167233229,
+              "accuracy": 0.507833618884447,
+              "retention": NaN
+            },
+            {
+              "layer": 16,
+              "subspace": "window_78pct",
+              "label": "pair_id_random",
+              "start": 3170,
+              "retained_variance": 0.0018575962167233229,
+              "accuracy": 0.4960498762611841,
+              "retention": NaN
+            },
+            {
+              "layer": 16,
+              "subspace": "window_78pct",
+              "label": "named_continent",
+              "start": 3170,
+              "retained_variance": 0.0018575962167233229,
+              "accuracy": 0.619131924614506,
+              "retention": -2.5026293650973953e-05
+            },
+            {
+              "layer": 16,
+              "subspace": "window_89pct",
+              "label": "concept",
+              "start": 3623,
+              "retained_variance": 0.001197158358991146,
+              "accuracy": 0.9921758994860079,
+              "retention": 0.9862856924866956
+            },
+            {
+              "layer": 16,
+              "subspace": "window_89pct",
+              "label": "concept_shuffled",
+              "start": 3623,
+              "retained_variance": 0.001197158358991146,
+              "accuracy": 0.5116885589187131,
+              "retention": NaN
+            },
+            {
+              "layer": 16,
+              "subspace": "window_89pct",
+              "label": "pair_id_random",
+              "start": 3623,
+              "retained_variance": 0.001197158358991146,
+              "accuracy": 0.47740338853988196,
+              "retention": NaN
+            },
+            {
+              "layer": 16,
+              "subspace": "window_89pct",
+              "label": "named_continent",
+              "start": 3623,
+              "retained_variance": 0.001197158358991146,
+              "accuracy": 0.619131924614506,
+              "retention": -2.5026293650973953e-05
+            },
+            {
+              "layer": 16,
+              "subspace": "bottom_k",
+              "label": "concept",
+              "start": 4076,
+              "retained_variance": 0.00018177773745264858,
+              "accuracy": 0.9902151151722824,
+              "retention": 0.9823564194022163
+            },
+            {
+              "layer": 16,
+              "subspace": "bottom_k",
+              "label": "concept_shuffled",
+              "start": 4076,
+              "retained_variance": 0.00018177773745264858,
+              "accuracy": 0.5009803921568627,
+              "retention": NaN
+            },
+            {
+              "layer": 16,
+              "subspace": "bottom_k",
+              "label": "pair_id_random",
+              "start": 4076,
+              "retained_variance": 0.00018177773745264858,
+              "accuracy": 0.5068341899866742,
+              "retention": NaN
+            },
+            {
+              "layer": 16,
+              "subspace": "bottom_k",
+              "label": "named_continent",
+              "start": 4076,
+              "retained_variance": 0.00018177773745264858,
+              "accuracy": 0.619131924614506,
+              "retention": -2.5026293650973953e-05
+            }
+          ],
+          "floor_check": {
+            "shuffled_top_k": 0.5195126594327051,
+            "majority": 0.5,
+            "ok": true
+          },
+          "difference_in_differences": {
+            "available": true,
+            "control": "named_continent",
+            "delta": -0.001956962180746562,
+            "ci95": [
+              -0.019569621807465618,
+              0.013698735265225933
+            ],
+            "p_boot": 0.8986,
+            "n_tokens": 1024,
+            "verdict": "not concept-specific at this n: the quiet-tail advantage is the same size for the concept and for a label with no concept in it",
+            "retention_gap_concept_quiet_minus_loud": -0.001956962180746562,
+            "retention_gap_control_quiet_minus_loud": 0.0
+          },
+          "by_k": {
+            "0.005": {
+              "k": 20,
+              "cells": [
+                {
+                  "layer": 16,
+                  "subspace": "top_k",
+                  "label": "concept",
+                  "start": 0,
+                  "retained_variance": 0.08483313769102097,
+                  "accuracy": 0.9911955073291452,
+                  "retention": 0.984321055944456
+                },
+                {
+                  "layer": 16,
+                  "subspace": "top_k",
+                  "label": "concept_shuffled",
+                  "start": 0,
+                  "retained_variance": 0.08483313769102097,
+                  "accuracy": 0.5195126594327051,
+                  "retention": NaN
+                },
+                {
+                  "layer": 16,
+                  "subspace": "top_k",
+                  "label": "pair_id_random",
+                  "start": 0,
+                  "retained_variance": 0.08483313769102097,
+                  "accuracy": 0.48537026461069865,
+                  "retention": NaN
+                },
+                {
+                  "layer": 16,
+                  "subspace": "top_k",
+                  "label": "named_continent",
+                  "start": 0,
+                  "retained_variance": 0.08483313769102097,
+                  "accuracy": 0.619131924614506,
+                  "retention": -2.5026293650973953e-05
+                },
+                {
+                  "layer": 16,
+                  "subspace": "window_11pct",
+                  "label": "concept",
+                  "start": 453,
+                  "retained_variance": 0.008676680736243725,
+                  "accuracy": 0.9911955073291452,
+                  "retention": 0.984321055944456
+                },
+                {
+                  "layer": 16,
+                  "subspace": "window_11pct",
+                  "label": "concept_shuffled",
+                  "start": 453,
+                  "retained_variance": 0.008676680736243725,
+                  "accuracy": 0.5301732343422805,
+                  "retention": NaN
+                },
+                {
+                  "layer": 16,
+                  "subspace": "window_11pct",
+                  "label": "pair_id_random",
+                  "start": 453,
+                  "retained_variance": 0.008676680736243725,
+                  "accuracy": 0.4862554730630116,
+                  "retention": NaN
+                },
+                {
+                  "layer": 16,
+                  "subspace": "window_11pct",
+                  "label": "named_continent",
+                  "start": 453,
+                  "retained_variance": 0.008676680736243725,
+                  "accuracy": 0.619131924614506,
+                  "retention": -2.5026293650973953e-05
+                },
+                {
+                  "layer": 16,
+                  "subspace": "window_22pct",
+                  "label": "concept",
+                  "start": 906,
+                  "retained_variance": 0.0065993997268378735,
+                  "accuracy": 0.9931467732724159,
+                  "retention": 0.9882312548877489
+                },
+                {
+                  "layer": 16,
+                  "subspace": "window_22pct",
+                  "label": "concept_shuffled",
+                  "start": 906,
+                  "retained_variance": 0.0065993997268378735,
+                  "accuracy": 0.5264134780125642,
+                  "retention": NaN
+                },
+                {
+                  "layer": 16,
+                  "subspace": "window_22pct",
+                  "label": "pair_id_random",
+                  "start": 906,
+                  "retained_variance": 0.0065993997268378735,
+                  "accuracy": 0.4745288406624786,
+                  "retention": NaN
+                },
+                {
+                  "layer": 16,
+                  "subspace": "window_22pct",
+                  "label": "named_continent",
+                  "start": 906,
+                  "retained_variance": 0.0065993997268378735,
+                  "accuracy": 0.619131924614506,
+                  "retention": -2.5026293650973953e-05
+                },
+                {
+                  "layer": 16,
+                  "subspace": "window_33pct",
+                  "label": "concept",
+                  "start": 1359,
+                  "retained_variance": 0.005233860574662685,
+                  "accuracy": 0.996078431372549,
+                  "retention": 0.994106090373281
+                },
+                {
+                  "layer": 16,
+                  "subspace": "window_33pct",
+                  "label": "concept_shuffled",
+                  "start": 1359,
+                  "retained_variance": 0.005233860574662685,
+                  "accuracy": 0.5264134780125642,
+                  "retention": NaN
+                },
+                {
+                  "layer": 16,
+                  "subspace": "window_33pct",
+                  "label": "pair_id_random",
+                  "start": 1359,
+                  "retained_variance": 0.005233860574662685,
+                  "accuracy": 0.5029506948410433,
+                  "retention": NaN
+                },
+                {
+                  "layer": 16,
+                  "subspace": "window_33pct",
+                  "label": "named_continent",
+                  "start": 1359,
+                  "retained_variance": 0.005233860574662685,
+                  "accuracy": 0.619131924614506,
+                  "retention": -2.5026293650973953e-05
+                },
+                {
+                  "layer": 16,
+                  "subspace": "window_44pct",
+                  "label": "concept",
+                  "start": 1812,
+                  "retained_variance": 0.004175554029643536,
+                  "accuracy": 0.9911955073291452,
+                  "retention": 0.984321055944456
+                },
+                {
+                  "layer": 16,
+                  "subspace": "window_44pct",
+                  "label": "concept_shuffled",
+                  "start": 1812,
+                  "retained_variance": 0.004175554029643536,
+                  "accuracy": 0.5215210355987054,
+                  "retention": NaN
+                },
+                {
+                  "layer": 16,
+                  "subspace": "window_44pct",
+                  "label": "pair_id_random",
+                  "start": 1812,
+                  "retained_variance": 0.004175554029643536,
+                  "accuracy": 0.49998096325909,
+                  "retention": NaN
+                },
+                {
+                  "layer": 16,
+                  "subspace": "window_44pct",
+                  "label": "named_continent",
+                  "start": 1812,
+                  "retained_variance": 0.004175554029643536,
+                  "accuracy": 0.619131924614506,
+                  "retention": -2.5026293650973953e-05
+                },
+                {
+                  "layer": 16,
+                  "subspace": "window_56pct",
+                  "label": "concept",
+                  "start": 2264,
+                  "retained_variance": 0.003298884956166148,
+                  "accuracy": 0.996078431372549,
+                  "retention": 0.994106090373281
+                },
+                {
+                  "layer": 16,
+                  "subspace": "window_56pct",
+                  "label": "concept_shuffled",
+                  "start": 2264,
+                  "retained_variance": 0.003298884956166148,
+                  "accuracy": 0.5145345516847516,
+                  "retention": NaN
+                },
+                {
+                  "layer": 16,
+                  "subspace": "window_56pct",
+                  "label": "pair_id_random",
+                  "start": 2264,
+                  "retained_variance": 0.003298884956166148,
+                  "accuracy": 0.5176470588235293,
+                  "retention": NaN
+                },
+                {
+                  "layer": 16,
+                  "subspace": "window_56pct",
+                  "label": "named_continent",
+                  "start": 2264,
+                  "retained_variance": 0.003298884956166148,
+                  "accuracy": 0.619131924614506,
+                  "retention": -2.5026293650973953e-05
+                },
+                {
+                  "layer": 16,
+                  "subspace": "window_67pct",
+                  "label": "concept",
+                  "start": 2717,
+                  "retained_variance": 0.0025401413440704346,
+                  "accuracy": 0.9941176470588236,
+                  "retention": 0.9901768172888016
+                },
+                {
+                  "layer": 16,
+                  "subspace": "window_67pct",
+                  "label": "concept_shuffled",
+                  "start": 2717,
+                  "retained_variance": 0.0025401413440704346,
+                  "accuracy": 0.5234437464306111,
+                  "retention": NaN
+                },
+                {
+                  "layer": 16,
+                  "subspace": "window_67pct",
+                  "label": "pair_id_random",
+                  "start": 2717,
+                  "retained_variance": 0.0025401413440704346,
+                  "accuracy": 0.5049019607843137,
+                  "retention": NaN
+                },
+                {
+                  "layer": 16,
+                  "subspace": "window_67pct",
+                  "label": "named_continent",
+                  "start": 2717,
+                  "retained_variance": 0.0025401413440704346,
+                  "accuracy": 0.619131924614506,
+                  "retention": -2.5026293650973953e-05
+                },
+                {
+                  "layer": 16,
+                  "subspace": "window_78pct",
+                  "label": "concept",
+                  "start": 3170,
+                  "retained_variance": 0.0018575962167233229,
+                  "accuracy": 0.9892537597563298,
+                  "retention": 0.9804299311423504
+                },
+                {
+                  "layer": 16,
+                  "subspace": "window_78pct",
+                  "label": "concept_shuffled",
+                  "start": 3170,
+                  "retained_variance": 0.0018575962167233229,
+                  "accuracy": 0.507833618884447,
+                  "retention": NaN
+                },
+                {
+                  "layer": 16,
+                  "subspace": "window_78pct",
+                  "label": "pair_id_random",
+                  "start": 3170,
+                  "retained_variance": 0.0018575962167233229,
+                  "accuracy": 0.4960498762611841,
+                  "retention": NaN
+                },
+                {
+                  "layer": 16,
+                  "subspace": "window_78pct",
+                  "label": "named_continent",
+                  "start": 3170,
+                  "retained_variance": 0.0018575962167233229,
+                  "accuracy": 0.619131924614506,
+                  "retention": -2.5026293650973953e-05
+                },
+                {
+                  "layer": 16,
+                  "subspace": "window_89pct",
+                  "label": "concept",
+                  "start": 3623,
+                  "retained_variance": 0.001197158358991146,
+                  "accuracy": 0.9921758994860079,
+                  "retention": 0.9862856924866956
+                },
+                {
+                  "layer": 16,
+                  "subspace": "window_89pct",
+                  "label": "concept_shuffled",
+                  "start": 3623,
+                  "retained_variance": 0.001197158358991146,
+                  "accuracy": 0.5116885589187131,
+                  "retention": NaN
+                },
+                {
+                  "layer": 16,
+                  "subspace": "window_89pct",
+                  "label": "pair_id_random",
+                  "start": 3623,
+                  "retained_variance": 0.001197158358991146,
+                  "accuracy": 0.47740338853988196,
+                  "retention": NaN
+                },
+                {
+                  "layer": 16,
+                  "subspace": "window_89pct",
+                  "label": "named_continent",
+                  "start": 3623,
+                  "retained_variance": 0.001197158358991146,
+                  "accuracy": 0.619131924614506,
+                  "retention": -2.5026293650973953e-05
+                },
+                {
+                  "layer": 16,
+                  "subspace": "bottom_k",
+                  "label": "concept",
+                  "start": 4076,
+                  "retained_variance": 0.00018177773745264858,
+                  "accuracy": 0.9902151151722824,
+                  "retention": 0.9823564194022163
+                },
+                {
+                  "layer": 16,
+                  "subspace": "bottom_k",
+                  "label": "concept_shuffled",
+                  "start": 4076,
+                  "retained_variance": 0.00018177773745264858,
+                  "accuracy": 0.5009803921568627,
+                  "retention": NaN
+                },
+                {
+                  "layer": 16,
+                  "subspace": "bottom_k",
+                  "label": "pair_id_random",
+                  "start": 4076,
+                  "retained_variance": 0.00018177773745264858,
+                  "accuracy": 0.5068341899866742,
+                  "retention": NaN
+                },
+                {
+                  "layer": 16,
+                  "subspace": "bottom_k",
+                  "label": "named_continent",
+                  "start": 4076,
+                  "retained_variance": 0.00018177773745264858,
+                  "accuracy": 0.619131924614506,
+                  "retention": -2.5026293650973953e-05
+                }
+              ],
+              "difference_in_differences": {
+                "available": true,
+                "control": "named_continent",
+                "delta": -0.001956962180746562,
+                "ci95": [
+                  -0.019569621807465618,
+                  0.013698735265225933
+                ],
+                "p_boot": 0.8986,
+                "n_tokens": 1024,
+                "verdict": "not concept-specific at this n: the quiet-tail advantage is the same size for the concept and for a label with no concept in it",
+                "retention_gap_concept_quiet_minus_loud": -0.001956962180746562,
+                "retention_gap_control_quiet_minus_loud": 0.0
+              }
+            }
+          }
+        },
+        "city_continent": {
+          "layer": 16,
+          "majority_rates": {
+            "concept": 0.5,
+            "concept_shuffled": 0.5,
+            "pair_id_random": 0.5,
+            "city_continent": 0.62109375
+          },
+          "full_accuracy": {
+            "concept": 0.9990196078431373,
+            "concept_shuffled": 0.5166095564439368,
+            "pair_id_random": 0.4961736150770988,
+            "city_continent": 0.9433181039406053
+          },
+          "headroom": {
+            "concept": 0.49901960784313726,
+            "concept_shuffled": 0.0166095564439368,
+            "pair_id_random": -0.003826384922901216,
+            "city_continent": 0.32222435394060533
+          },
+          "cells": [
+            {
+              "layer": 16,
+              "subspace": "top_k",
+              "label": "concept",
+              "start": 0,
+              "retained_variance": 0.08483313769102097,
+              "accuracy": 0.9911955073291452,
+              "retention": 0.984321055944456
+            },
+            {
+              "layer": 16,
+              "subspace": "top_k",
+              "label": "concept_shuffled",
+              "start": 0,
+              "retained_variance": 0.08483313769102097,
+              "accuracy": 0.5195126594327051,
+              "retention": NaN
+            },
+            {
+              "layer": 16,
+              "subspace": "top_k",
+              "label": "pair_id_random",
+              "start": 0,
+              "retained_variance": 0.08483313769102097,
+              "accuracy": 0.48537026461069865,
+              "retention": NaN
+            },
+            {
+              "layer": 16,
+              "subspace": "top_k",
+              "label": "city_continent",
+              "start": 0,
+              "retained_variance": 0.08483313769102097,
+              "accuracy": 0.6210927089282314,
+              "retention": -3.2308910106850185e-06
+            },
+            {
+              "layer": 16,
+              "subspace": "window_11pct",
+              "label": "concept",
+              "start": 453,
+              "retained_variance": 0.008676680736243725,
+              "accuracy": 0.9911955073291452,
+              "retention": 0.984321055944456
+            },
+            {
+              "layer": 16,
+              "subspace": "window_11pct",
+              "label": "concept_shuffled",
+              "start": 453,
+              "retained_variance": 0.008676680736243725,
+              "accuracy": 0.5301732343422805,
+              "retention": NaN
+            },
+            {
+              "layer": 16,
+              "subspace": "window_11pct",
+              "label": "pair_id_random",
+              "start": 453,
+              "retained_variance": 0.008676680736243725,
+              "accuracy": 0.4862554730630116,
+              "retention": NaN
+            },
+            {
+              "layer": 16,
+              "subspace": "window_11pct",
+              "label": "city_continent",
+              "start": 453,
+              "retained_variance": 0.008676680736243725,
+              "accuracy": 0.6220731010850942,
+              "retention": 0.003039345329169911
+            },
+            {
+              "layer": 16,
+              "subspace": "window_22pct",
+              "label": "concept",
+              "start": 906,
+              "retained_variance": 0.0065993997268378735,
+              "accuracy": 0.9931467732724159,
+              "retention": 0.9882312548877489
+            },
+            {
+              "layer": 16,
+              "subspace": "window_22pct",
+              "label": "concept_shuffled",
+              "start": 906,
+              "retained_variance": 0.0065993997268378735,
+              "accuracy": 0.5264134780125642,
+              "retention": NaN
+            },
+            {
+              "layer": 16,
+              "subspace": "window_22pct",
+              "label": "pair_id_random",
+              "start": 906,
+              "retained_variance": 0.0065993997268378735,
+              "accuracy": 0.4745288406624786,
+              "retention": NaN
+            },
+            {
+              "layer": 16,
+              "subspace": "window_22pct",
+              "label": "city_continent",
+              "start": 906,
+              "retained_variance": 0.0065993997268378735,
+              "accuracy": 0.6210927089282314,
+              "retention": -3.2308910106850185e-06
+            },
+            {
+              "layer": 16,
+              "subspace": "window_33pct",
+              "label": "concept",
+              "start": 1359,
+              "retained_variance": 0.005233860574662685,
+              "accuracy": 0.996078431372549,
+              "retention": 0.994106090373281
+            },
+            {
+              "layer": 16,
+              "subspace": "window_33pct",
+              "label": "concept_shuffled",
+              "start": 1359,
+              "retained_variance": 0.005233860574662685,
+              "accuracy": 0.5264134780125642,
+              "retention": NaN
+            },
+            {
+              "layer": 16,
+              "subspace": "window_33pct",
+              "label": "pair_id_random",
+              "start": 1359,
+              "retained_variance": 0.005233860574662685,
+              "accuracy": 0.5029506948410433,
+              "retention": NaN
+            },
+            {
+              "layer": 16,
+              "subspace": "window_33pct",
+              "label": "city_continent",
+              "start": 1359,
+              "retained_variance": 0.005233860574662685,
+              "accuracy": 0.6210927089282314,
+              "retention": -3.2308910106850185e-06
+            },
+            {
+              "layer": 16,
+              "subspace": "window_44pct",
+              "label": "concept",
+              "start": 1812,
+              "retained_variance": 0.004175554029643536,
+              "accuracy": 0.9911955073291452,
+              "retention": 0.984321055944456
+            },
+            {
+              "layer": 16,
+              "subspace": "window_44pct",
+              "label": "concept_shuffled",
+              "start": 1812,
+              "retained_variance": 0.004175554029643536,
+              "accuracy": 0.5215210355987054,
+              "retention": NaN
+            },
+            {
+              "layer": 16,
+              "subspace": "window_44pct",
+              "label": "pair_id_random",
+              "start": 1812,
+              "retained_variance": 0.004175554029643536,
+              "accuracy": 0.49998096325909,
+              "retention": NaN
+            },
+            {
+              "layer": 16,
+              "subspace": "window_44pct",
+              "label": "city_continent",
+              "start": 1812,
+              "retained_variance": 0.004175554029643536,
+              "accuracy": 0.6210927089282314,
+              "retention": -3.2308910106850185e-06
+            },
+            {
+              "layer": 16,
+              "subspace": "window_56pct",
+              "label": "concept",
+              "start": 2264,
+              "retained_variance": 0.003298884956166148,
+              "accuracy": 0.996078431372549,
+              "retention": 0.994106090373281
+            },
+            {
+              "layer": 16,
+              "subspace": "window_56pct",
+              "label": "concept_shuffled",
+              "start": 2264,
+              "retained_variance": 0.003298884956166148,
+              "accuracy": 0.5145345516847516,
+              "retention": NaN
+            },
+            {
+              "layer": 16,
+              "subspace": "window_56pct",
+              "label": "pair_id_random",
+              "start": 2264,
+              "retained_variance": 0.003298884956166148,
+              "accuracy": 0.5176470588235293,
+              "retention": NaN
+            },
+            {
+              "layer": 16,
+              "subspace": "window_56pct",
+              "label": "city_continent",
+              "start": 2264,
+              "retained_variance": 0.003298884956166148,
+              "accuracy": 0.6210927089282314,
+              "retention": -3.2308910106850185e-06
+            },
+            {
+              "layer": 16,
+              "subspace": "window_67pct",
+              "label": "concept",
+              "start": 2717,
+              "retained_variance": 0.0025401413440704346,
+              "accuracy": 0.9941176470588236,
+              "retention": 0.9901768172888016
+            },
+            {
+              "layer": 16,
+              "subspace": "window_67pct",
+              "label": "concept_shuffled",
+              "start": 2717,
+              "retained_variance": 0.0025401413440704346,
+              "accuracy": 0.5234437464306111,
+              "retention": NaN
+            },
+            {
+              "layer": 16,
+              "subspace": "window_67pct",
+              "label": "pair_id_random",
+              "start": 2717,
+              "retained_variance": 0.0025401413440704346,
+              "accuracy": 0.5049019607843137,
+              "retention": NaN
+            },
+            {
+              "layer": 16,
+              "subspace": "window_67pct",
+              "label": "city_continent",
+              "start": 2717,
+              "retained_variance": 0.0025401413440704346,
+              "accuracy": 0.6210927089282314,
+              "retention": -3.2308910106850185e-06
+            },
+            {
+              "layer": 16,
+              "subspace": "window_78pct",
+              "label": "concept",
+              "start": 3170,
+              "retained_variance": 0.0018575962167233229,
+              "accuracy": 0.9892537597563298,
+              "retention": 0.9804299311423504
+            },
+            {
+              "layer": 16,
+              "subspace": "window_78pct",
+              "label": "concept_shuffled",
+              "start": 3170,
+              "retained_variance": 0.0018575962167233229,
+              "accuracy": 0.507833618884447,
+              "retention": NaN
+            },
+            {
+              "layer": 16,
+              "subspace": "window_78pct",
+              "label": "pair_id_random",
+              "start": 3170,
+              "retained_variance": 0.0018575962167233229,
+              "accuracy": 0.4960498762611841,
+              "retention": NaN
+            },
+            {
+              "layer": 16,
+              "subspace": "window_78pct",
+              "label": "city_continent",
+              "start": 3170,
+              "retained_variance": 0.0018575962167233229,
+              "accuracy": 0.6210927089282314,
+              "retention": -3.2308910106850185e-06
+            },
+            {
+              "layer": 16,
+              "subspace": "window_89pct",
+              "label": "concept",
+              "start": 3623,
+              "retained_variance": 0.001197158358991146,
+              "accuracy": 0.9921758994860079,
+              "retention": 0.9862856924866956
+            },
+            {
+              "layer": 16,
+              "subspace": "window_89pct",
+              "label": "concept_shuffled",
+              "start": 3623,
+              "retained_variance": 0.001197158358991146,
+              "accuracy": 0.5116885589187131,
+              "retention": NaN
+            },
+            {
+              "layer": 16,
+              "subspace": "window_89pct",
+              "label": "pair_id_random",
+              "start": 3623,
+              "retained_variance": 0.001197158358991146,
+              "accuracy": 0.47740338853988196,
+              "retention": NaN
+            },
+            {
+              "layer": 16,
+              "subspace": "window_89pct",
+              "label": "city_continent",
+              "start": 3623,
+              "retained_variance": 0.001197158358991146,
+              "accuracy": 0.6210927089282314,
+              "retention": -3.2308910106850185e-06
+            },
+            {
+              "layer": 16,
+              "subspace": "bottom_k",
+              "label": "concept",
+              "start": 4076,
+              "retained_variance": 0.00018177773745264858,
+              "accuracy": 0.9902151151722824,
+              "retention": 0.9823564194022163
+            },
+            {
+              "layer": 16,
+              "subspace": "bottom_k",
+              "label": "concept_shuffled",
+              "start": 4076,
+              "retained_variance": 0.00018177773745264858,
+              "accuracy": 0.5009803921568627,
+              "retention": NaN
+            },
+            {
+              "layer": 16,
+              "subspace": "bottom_k",
+              "label": "pair_id_random",
+              "start": 4076,
+              "retained_variance": 0.00018177773745264858,
+              "accuracy": 0.5068341899866742,
+              "retention": NaN
+            },
+            {
+              "layer": 16,
+              "subspace": "bottom_k",
+              "label": "city_continent",
+              "start": 4076,
+              "retained_variance": 0.00018177773745264858,
+              "accuracy": 0.6259756329716353,
+              "retention": 0.015150571059986172
+            }
+          ],
+          "floor_check": {
+            "shuffled_top_k": 0.5195126594327051,
+            "majority": 0.5,
+            "ok": true
+          },
+          "difference_in_differences": {
+            "available": true,
+            "control": "city_continent",
+            "delta": -0.017110417964849196,
+            "ci95": [
+              -0.039017993495864114,
+              0.003723428590091756
+            ],
+            "p_boot": 0.1108,
+            "n_tokens": 1024,
+            "verdict": "not concept-specific at this n: the quiet-tail advantage is the same size for the concept and for a label with no concept in it",
+            "retention_gap_concept_quiet_minus_loud": -0.001956962180746562,
+            "retention_gap_control_quiet_minus_loud": 0.015153455784102633
+          },
+          "by_k": {
+            "0.005": {
+              "k": 20,
+              "cells": [
+                {
+                  "layer": 16,
+                  "subspace": "top_k",
+                  "label": "concept",
+                  "start": 0,
+                  "retained_variance": 0.08483313769102097,
+                  "accuracy": 0.9911955073291452,
+                  "retention": 0.984321055944456
+                },
+                {
+                  "layer": 16,
+                  "subspace": "top_k",
+                  "label": "concept_shuffled",
+                  "start": 0,
+                  "retained_variance": 0.08483313769102097,
+                  "accuracy": 0.5195126594327051,
+                  "retention": NaN
+                },
+                {
+                  "layer": 16,
+                  "subspace": "top_k",
+                  "label": "pair_id_random",
+                  "start": 0,
+                  "retained_variance": 0.08483313769102097,
+                  "accuracy": 0.48537026461069865,
+                  "retention": NaN
+                },
+                {
+                  "layer": 16,
+                  "subspace": "top_k",
+                  "label": "city_continent",
+                  "start": 0,
+                  "retained_variance": 0.08483313769102097,
+                  "accuracy": 0.6210927089282314,
+                  "retention": -3.2308910106850185e-06
+                },
+                {
+                  "layer": 16,
+                  "subspace": "window_11pct",
+                  "label": "concept",
+                  "start": 453,
+                  "retained_variance": 0.008676680736243725,
+                  "accuracy": 0.9911955073291452,
+                  "retention": 0.984321055944456
+                },
+                {
+                  "layer": 16,
+                  "subspace": "window_11pct",
+                  "label": "concept_shuffled",
+                  "start": 453,
+                  "retained_variance": 0.008676680736243725,
+                  "accuracy": 0.5301732343422805,
+                  "retention": NaN
+                },
+                {
+                  "layer": 16,
+                  "subspace": "window_11pct",
+                  "label": "pair_id_random",
+                  "start": 453,
+                  "retained_variance": 0.008676680736243725,
+                  "accuracy": 0.4862554730630116,
+                  "retention": NaN
+                },
+                {
+                  "layer": 16,
+                  "subspace": "window_11pct",
+                  "label": "city_continent",
+                  "start": 453,
+                  "retained_variance": 0.008676680736243725,
+                  "accuracy": 0.6220731010850942,
+                  "retention": 0.003039345329169911
+                },
+                {
+                  "layer": 16,
+                  "subspace": "window_22pct",
+                  "label": "concept",
+                  "start": 906,
+                  "retained_variance": 0.0065993997268378735,
+                  "accuracy": 0.9931467732724159,
+                  "retention": 0.9882312548877489
+                },
+                {
+                  "layer": 16,
+                  "subspace": "window_22pct",
+                  "label": "concept_shuffled",
+                  "start": 906,
+                  "retained_variance": 0.0065993997268378735,
+                  "accuracy": 0.5264134780125642,
+                  "retention": NaN
+                },
+                {
+                  "layer": 16,
+                  "subspace": "window_22pct",
+                  "label": "pair_id_random",
+                  "start": 906,
+                  "retained_variance": 0.0065993997268378735,
+                  "accuracy": 0.4745288406624786,
+                  "retention": NaN
+                },
+                {
+                  "layer": 16,
+                  "subspace": "window_22pct",
+                  "label": "city_continent",
+                  "start": 906,
+                  "retained_variance": 0.0065993997268378735,
+                  "accuracy": 0.6210927089282314,
+                  "retention": -3.2308910106850185e-06
+                },
+                {
+                  "layer": 16,
+                  "subspace": "window_33pct",
+                  "label": "concept",
+                  "start": 1359,
+                  "retained_variance": 0.005233860574662685,
+                  "accuracy": 0.996078431372549,
+                  "retention": 0.994106090373281
+                },
+                {
+                  "layer": 16,
+                  "subspace": "window_33pct",
+                  "label": "concept_shuffled",
+                  "start": 1359,
+                  "retained_variance": 0.005233860574662685,
+                  "accuracy": 0.5264134780125642,
+                  "retention": NaN
+                },
+                {
+                  "layer": 16,
+                  "subspace": "window_33pct",
+                  "label": "pair_id_random",
+                  "start": 1359,
+                  "retained_variance": 0.005233860574662685,
+                  "accuracy": 0.5029506948410433,
+                  "retention": NaN
+                },
+                {
+                  "layer": 16,
+                  "subspace": "window_33pct",
+                  "label": "city_continent",
+                  "start": 1359,
+                  "retained_variance": 0.005233860574662685,
+                  "accuracy": 0.6210927089282314,
+                  "retention": -3.2308910106850185e-06
+                },
+                {
+                  "layer": 16,
+                  "subspace": "window_44pct",
+                  "label": "concept",
+                  "start": 1812,
+                  "retained_variance": 0.004175554029643536,
+                  "accuracy": 0.9911955073291452,
+                  "retention": 0.984321055944456
+                },
+                {
+                  "layer": 16,
+                  "subspace": "window_44pct",
+                  "label": "concept_shuffled",
+                  "start": 1812,
+                  "retained_variance": 0.004175554029643536,
+                  "accuracy": 0.5215210355987054,
+                  "retention": NaN
+                },
+                {
+                  "layer": 16,
+                  "subspace": "window_44pct",
+                  "label": "pair_id_random",
+                  "start": 1812,
+                  "retained_variance": 0.004175554029643536,
+                  "accuracy": 0.49998096325909,
+                  "retention": NaN
+                },
+                {
+                  "layer": 16,
+                  "subspace": "window_44pct",
+                  "label": "city_continent",
+                  "start": 1812,
+                  "retained_variance": 0.004175554029643536,
+                  "accuracy": 0.6210927089282314,
+                  "retention": -3.2308910106850185e-06
+                },
+                {
+                  "layer": 16,
+                  "subspace": "window_56pct",
+                  "label": "concept",
+                  "start": 2264,
+                  "retained_variance": 0.003298884956166148,
+                  "accuracy": 0.996078431372549,
+                  "retention": 0.994106090373281
+                },
+                {
+                  "layer": 16,
+                  "subspace": "window_56pct",
+                  "label": "concept_shuffled",
+                  "start": 2264,
+                  "retained_variance": 0.003298884956166148,
+                  "accuracy": 0.5145345516847516,
+                  "retention": NaN
+                },
+                {
+                  "layer": 16,
+                  "subspace": "window_56pct",
+                  "label": "pair_id_random",
+                  "start": 2264,
+                  "retained_variance": 0.003298884956166148,
+                  "accuracy": 0.5176470588235293,
+                  "retention": NaN
+                },
+                {
+                  "layer": 16,
+                  "subspace": "window_56pct",
+                  "label": "city_continent",
+                  "start": 2264,
+                  "retained_variance": 0.003298884956166148,
+                  "accuracy": 0.6210927089282314,
+                  "retention": -3.2308910106850185e-06
+                },
+                {
+                  "layer": 16,
+                  "subspace": "window_67pct",
+                  "label": "concept",
+                  "start": 2717,
+                  "retained_variance": 0.0025401413440704346,
+                  "accuracy": 0.9941176470588236,
+                  "retention": 0.9901768172888016
+                },
+                {
+                  "layer": 16,
+                  "subspace": "window_67pct",
+                  "label": "concept_shuffled",
+                  "start": 2717,
+                  "retained_variance": 0.0025401413440704346,
+                  "accuracy": 0.5234437464306111,
+                  "retention": NaN
+                },
+                {
+                  "layer": 16,
+                  "subspace": "window_67pct",
+                  "label": "pair_id_random",
+                  "start": 2717,
+                  "retained_variance": 0.0025401413440704346,
+                  "accuracy": 0.5049019607843137,
+                  "retention": NaN
+                },
+                {
+                  "layer": 16,
+                  "subspace": "window_67pct",
+                  "label": "city_continent",
+                  "start": 2717,
+                  "retained_variance": 0.0025401413440704346,
+                  "accuracy": 0.6210927089282314,
+                  "retention": -3.2308910106850185e-06
+                },
+                {
+                  "layer": 16,
+                  "subspace": "window_78pct",
+                  "label": "concept",
+                  "start": 3170,
+                  "retained_variance": 0.0018575962167233229,
+                  "accuracy": 0.9892537597563298,
+                  "retention": 0.9804299311423504
+                },
+                {
+                  "layer": 16,
+                  "subspace": "window_78pct",
+                  "label": "concept_shuffled",
+                  "start": 3170,
+                  "retained_variance": 0.0018575962167233229,
+                  "accuracy": 0.507833618884447,
+                  "retention": NaN
+                },
+                {
+                  "layer": 16,
+                  "subspace": "window_78pct",
+                  "label": "pair_id_random",
+                  "start": 3170,
+                  "retained_variance": 0.0018575962167233229,
+                  "accuracy": 0.4960498762611841,
+                  "retention": NaN
+                },
+                {
+                  "layer": 16,
+                  "subspace": "window_78pct",
+                  "label": "city_continent",
+                  "start": 3170,
+                  "retained_variance": 0.0018575962167233229,
+                  "accuracy": 0.6210927089282314,
+                  "retention": -3.2308910106850185e-06
+                },
+                {
+                  "layer": 16,
+                  "subspace": "window_89pct",
+                  "label": "concept",
+                  "start": 3623,
+                  "retained_variance": 0.001197158358991146,
+                  "accuracy": 0.9921758994860079,
+                  "retention": 0.9862856924866956
+                },
+                {
+                  "layer": 16,
+                  "subspace": "window_89pct",
+                  "label": "concept_shuffled",
+                  "start": 3623,
+                  "retained_variance": 0.001197158358991146,
+                  "accuracy": 0.5116885589187131,
+                  "retention": NaN
+                },
+                {
+                  "layer": 16,
+                  "subspace": "window_89pct",
+                  "label": "pair_id_random",
+                  "start": 3623,
+                  "retained_variance": 0.001197158358991146,
+                  "accuracy": 0.47740338853988196,
+                  "retention": NaN
+                },
+                {
+                  "layer": 16,
+                  "subspace": "window_89pct",
+                  "label": "city_continent",
+                  "start": 3623,
+                  "retained_variance": 0.001197158358991146,
+                  "accuracy": 0.6210927089282314,
+                  "retention": -3.2308910106850185e-06
+                },
+                {
+                  "layer": 16,
+                  "subspace": "bottom_k",
+                  "label": "concept",
+                  "start": 4076,
+                  "retained_variance": 0.00018177773745264858,
+                  "accuracy": 0.9902151151722824,
+                  "retention": 0.9823564194022163
+                },
+                {
+                  "layer": 16,
+                  "subspace": "bottom_k",
+                  "label": "concept_shuffled",
+                  "start": 4076,
+                  "retained_variance": 0.00018177773745264858,
+                  "accuracy": 0.5009803921568627,
+                  "retention": NaN
+                },
+                {
+                  "layer": 16,
+                  "subspace": "bottom_k",
+                  "label": "pair_id_random",
+                  "start": 4076,
+                  "retained_variance": 0.00018177773745264858,
+                  "accuracy": 0.5068341899866742,
+                  "retention": NaN
+                },
+                {
+                  "layer": 16,
+                  "subspace": "bottom_k",
+                  "label": "city_continent",
+                  "start": 4076,
+                  "retained_variance": 0.00018177773745264858,
+                  "accuracy": 0.6259756329716353,
+                  "retention": 0.015150571059986172
+                }
+              ],
+              "difference_in_differences": {
+                "available": true,
+                "control": "city_continent",
+                "delta": -0.017110417964849196,
+                "ci95": [
+                  -0.039017993495864114,
+                  0.003723428590091756
+                ],
+                "p_boot": 0.1108,
+                "n_tokens": 1024,
+                "verdict": "not concept-specific at this n: the quiet-tail advantage is the same size for the concept and for a label with no concept in it",
+                "retention_gap_concept_quiet_minus_loud": -0.001956962180746562,
+                "retention_gap_control_quiet_minus_loud": 0.015153455784102633
+              }
+            }
+          }
+        },
+        "length_bucket": {
+          "layer": 16,
+          "majority_rates": {
+            "concept": 0.5,
+            "concept_shuffled": 0.5,
+            "pair_id_random": 0.5,
+            "length_bucket": 0.5
+          },
+          "full_accuracy": {
+            "concept": 0.9990196078431373,
+            "concept_shuffled": 0.5166095564439368,
+            "pair_id_random": 0.4961736150770988,
+            "length_bucket": 0.8486579097658481
+          },
+          "headroom": {
+            "concept": 0.49901960784313726,
+            "concept_shuffled": 0.0166095564439368,
+            "pair_id_random": -0.003826384922901216,
+            "length_bucket": 0.3486579097658481
+          },
+          "cells": [
+            {
+              "layer": 16,
+              "subspace": "top_k",
+              "label": "concept",
+              "start": 0,
+              "retained_variance": 0.08483313769102097,
+              "accuracy": 0.9911955073291452,
+              "retention": 0.984321055944456
+            },
+            {
+              "layer": 16,
+              "subspace": "top_k",
+              "label": "concept_shuffled",
+              "start": 0,
+              "retained_variance": 0.08483313769102097,
+              "accuracy": 0.5195126594327051,
+              "retention": NaN
+            },
+            {
+              "layer": 16,
+              "subspace": "top_k",
+              "label": "pair_id_random",
+              "start": 0,
+              "retained_variance": 0.08483313769102097,
+              "accuracy": 0.48537026461069865,
+              "retention": NaN
+            },
+            {
+              "layer": 16,
+              "subspace": "top_k",
+              "label": "length_bucket",
+              "start": 0,
+              "retained_variance": 0.08483313769102097,
+              "accuracy": 0.5732248239101466,
+              "retention": 0.2100191100191101
+            },
+            {
+              "layer": 16,
+              "subspace": "window_11pct",
+              "label": "concept",
+              "start": 453,
+              "retained_variance": 0.008676680736243725,
+              "accuracy": 0.9911955073291452,
+              "retention": 0.984321055944456
+            },
+            {
+              "layer": 16,
+              "subspace": "window_11pct",
+              "label": "concept_shuffled",
+              "start": 453,
+              "retained_variance": 0.008676680736243725,
+              "accuracy": 0.5301732343422805,
+              "retention": NaN
+            },
+            {
+              "layer": 16,
+              "subspace": "window_11pct",
+              "label": "pair_id_random",
+              "start": 453,
+              "retained_variance": 0.008676680736243725,
+              "accuracy": 0.4862554730630116,
+              "retention": NaN
+            },
+            {
+              "layer": 16,
+              "subspace": "window_11pct",
+              "label": "length_bucket",
+              "start": 453,
+              "retained_variance": 0.008676680736243725,
+              "accuracy": 0.6220826194555491,
+              "retention": 0.35015015015014983
+            },
+            {
+              "layer": 16,
+              "subspace": "window_22pct",
+              "label": "concept",
+              "start": 906,
+              "retained_variance": 0.0065993997268378735,
+              "accuracy": 0.9931467732724159,
+              "retention": 0.9882312548877489
+            },
+            {
+              "layer": 16,
+              "subspace": "window_22pct",
+              "label": "concept_shuffled",
+              "start": 906,
+              "retained_variance": 0.0065993997268378735,
+              "accuracy": 0.5264134780125642,
+              "retention": NaN
+            },
+            {
+              "layer": 16,
+              "subspace": "window_22pct",
+              "label": "pair_id_random",
+              "start": 906,
+              "retained_variance": 0.0065993997268378735,
+              "accuracy": 0.4745288406624786,
+              "retention": NaN
+            },
+            {
+              "layer": 16,
+              "subspace": "window_22pct",
+              "label": "length_bucket",
+              "start": 906,
+              "retained_variance": 0.0065993997268378735,
+              "accuracy": 0.6074433656957928,
+              "retention": 0.308162708162708
+            },
+            {
+              "layer": 16,
+              "subspace": "window_33pct",
+              "label": "concept",
+              "start": 1359,
+              "retained_variance": 0.005233860574662685,
+              "accuracy": 0.996078431372549,
+              "retention": 0.994106090373281
+            },
+            {
+              "layer": 16,
+              "subspace": "window_33pct",
+              "label": "concept_shuffled",
+              "start": 1359,
+              "retained_variance": 0.005233860574662685,
+              "accuracy": 0.5264134780125642,
+              "retention": NaN
+            },
+            {
+              "layer": 16,
+              "subspace": "window_33pct",
+              "label": "pair_id_random",
+              "start": 1359,
+              "retained_variance": 0.005233860574662685,
+              "accuracy": 0.5029506948410433,
+              "retention": NaN
+            },
+            {
+              "layer": 16,
+              "subspace": "window_33pct",
+              "label": "length_bucket",
+              "start": 1359,
+              "retained_variance": 0.005233860574662685,
+              "accuracy": 0.6425661526746621,
+              "retention": 0.4088998088998089
+            },
+            {
+              "layer": 16,
+              "subspace": "window_44pct",
+              "label": "concept",
+              "start": 1812,
+              "retained_variance": 0.004175554029643536,
+              "accuracy": 0.9911955073291452,
+              "retention": 0.984321055944456
+            },
+            {
+              "layer": 16,
+              "subspace": "window_44pct",
+              "label": "concept_shuffled",
+              "start": 1812,
+              "retained_variance": 0.004175554029643536,
+              "accuracy": 0.5215210355987054,
+              "retention": NaN
+            },
+            {
+              "layer": 16,
+              "subspace": "window_44pct",
+              "label": "pair_id_random",
+              "start": 1812,
+              "retained_variance": 0.004175554029643536,
+              "accuracy": 0.49998096325909,
+              "retention": NaN
+            },
+            {
+              "layer": 16,
+              "subspace": "window_44pct",
+              "label": "length_bucket",
+              "start": 1812,
+              "retained_variance": 0.004175554029643536,
+              "accuracy": 0.637768893965353,
+              "retention": 0.3951405951405947
+            },
+            {
+              "layer": 16,
+              "subspace": "window_56pct",
+              "label": "concept",
+              "start": 2264,
+              "retained_variance": 0.003298884956166148,
+              "accuracy": 0.996078431372549,
+              "retention": 0.994106090373281
+            },
+            {
+              "layer": 16,
+              "subspace": "window_56pct",
+              "label": "concept_shuffled",
+              "start": 2264,
+              "retained_variance": 0.003298884956166148,
+              "accuracy": 0.5145345516847516,
+              "retention": NaN
+            },
+            {
+              "layer": 16,
+              "subspace": "window_56pct",
+              "label": "pair_id_random",
+              "start": 2264,
+              "retained_variance": 0.003298884956166148,
+              "accuracy": 0.5176470588235293,
+              "retention": NaN
+            },
+            {
+              "layer": 16,
+              "subspace": "window_56pct",
+              "label": "length_bucket",
+              "start": 2264,
+              "retained_variance": 0.003298884956166148,
+              "accuracy": 0.6699314677327243,
+              "retention": 0.4873873873873877
+            },
+            {
+              "layer": 16,
+              "subspace": "window_67pct",
+              "label": "concept",
+              "start": 2717,
+              "retained_variance": 0.0025401413440704346,
+              "accuracy": 0.9941176470588236,
+              "retention": 0.9901768172888016
+            },
+            {
+              "layer": 16,
+              "subspace": "window_67pct",
+              "label": "concept_shuffled",
+              "start": 2717,
+              "retained_variance": 0.0025401413440704346,
+              "accuracy": 0.5234437464306111,
+              "retention": NaN
+            },
+            {
+              "layer": 16,
+              "subspace": "window_67pct",
+              "label": "pair_id_random",
+              "start": 2717,
+              "retained_variance": 0.0025401413440704346,
+              "accuracy": 0.5049019607843137,
+              "retention": NaN
+            },
+            {
+              "layer": 16,
+              "subspace": "window_67pct",
+              "label": "length_bucket",
+              "start": 2717,
+              "retained_variance": 0.0025401413440704346,
+              "accuracy": 0.6699409861031792,
+              "retention": 0.4874146874146876
+            },
+            {
+              "layer": 16,
+              "subspace": "window_78pct",
+              "label": "concept",
+              "start": 3170,
+              "retained_variance": 0.0018575962167233229,
+              "accuracy": 0.9892537597563298,
+              "retention": 0.9804299311423504
+            },
+            {
+              "layer": 16,
+              "subspace": "window_78pct",
+              "label": "concept_shuffled",
+              "start": 3170,
+              "retained_variance": 0.0018575962167233229,
+              "accuracy": 0.507833618884447,
+              "retention": NaN
+            },
+            {
+              "layer": 16,
+              "subspace": "window_78pct",
+              "label": "pair_id_random",
+              "start": 3170,
+              "retained_variance": 0.0018575962167233229,
+              "accuracy": 0.4960498762611841,
+              "retention": NaN
+            },
+            {
+              "layer": 16,
+              "subspace": "window_78pct",
+              "label": "length_bucket",
+              "start": 3170,
+              "retained_variance": 0.0018575962167233229,
+              "accuracy": 0.6484199505044737,
+              "retention": 0.4256893256893257
+            },
+            {
+              "layer": 16,
+              "subspace": "window_89pct",
+              "label": "concept",
+              "start": 3623,
+              "retained_variance": 0.001197158358991146,
+              "accuracy": 0.9921758994860079,
+              "retention": 0.9862856924866956
+            },
+            {
+              "layer": 16,
+              "subspace": "window_89pct",
+              "label": "concept_shuffled",
+              "start": 3623,
+              "retained_variance": 0.001197158358991146,
+              "accuracy": 0.5116885589187131,
+              "retention": NaN
+            },
+            {
+              "layer": 16,
+              "subspace": "window_89pct",
+              "label": "pair_id_random",
+              "start": 3623,
+              "retained_variance": 0.001197158358991146,
+              "accuracy": 0.47740338853988196,
+              "retention": NaN
+            },
+            {
+              "layer": 16,
+              "subspace": "window_89pct",
+              "label": "length_bucket",
+              "start": 3623,
+              "retained_variance": 0.001197158358991146,
+              "accuracy": 0.6221016561964592,
+              "retention": 0.3502047502047502
+            },
+            {
+              "layer": 16,
+              "subspace": "bottom_k",
+              "label": "concept",
+              "start": 4076,
+              "retained_variance": 0.00018177773745264858,
+              "accuracy": 0.9902151151722824,
+              "retention": 0.9823564194022163
+            },
+            {
+              "layer": 16,
+              "subspace": "bottom_k",
+              "label": "concept_shuffled",
+              "start": 4076,
+              "retained_variance": 0.00018177773745264858,
+              "accuracy": 0.5009803921568627,
+              "retention": NaN
+            },
+            {
+              "layer": 16,
+              "subspace": "bottom_k",
+              "label": "pair_id_random",
+              "start": 4076,
+              "retained_variance": 0.00018177773745264858,
+              "accuracy": 0.5068341899866742,
+              "retention": NaN
+            },
+            {
+              "layer": 16,
+              "subspace": "bottom_k",
+              "label": "length_bucket",
+              "start": 4076,
+              "retained_variance": 0.00018177773745264858,
+              "accuracy": 0.7012088330477824,
+              "retention": 0.5770952770952775
+            }
+          ],
+          "floor_check": {
+            "shuffled_top_k": 0.5195126594327051,
+            "majority": 0.5,
+            "ok": true
+          },
+          "difference_in_differences": {
+            "available": true,
+            "control": "length_bucket",
+            "delta": -0.3688773271479865,
+            "ci95": [
+              -0.4725180495828365,
+              -0.26666219529830776
+            ],
+            "p_boot": 0.0001,
+            "n_tokens": 1024,
+            "verdict": "reversed: the arbitrary item partition prefers the quiet subspace MORE than the concept does",
+            "retention_gap_concept_quiet_minus_loud": -0.001956962180746562,
+            "retention_gap_control_quiet_minus_loud": 0.36692036496723995
+          },
+          "by_k": {
+            "0.005": {
+              "k": 20,
+              "cells": [
+                {
+                  "layer": 16,
+                  "subspace": "top_k",
+                  "label": "concept",
+                  "start": 0,
+                  "retained_variance": 0.08483313769102097,
+                  "accuracy": 0.9911955073291452,
+                  "retention": 0.984321055944456
+                },
+                {
+                  "layer": 16,
+                  "subspace": "top_k",
+                  "label": "concept_shuffled",
+                  "start": 0,
+                  "retained_variance": 0.08483313769102097,
+                  "accuracy": 0.5195126594327051,
+                  "retention": NaN
+                },
+                {
+                  "layer": 16,
+                  "subspace": "top_k",
+                  "label": "pair_id_random",
+                  "start": 0,
+                  "retained_variance": 0.08483313769102097,
+                  "accuracy": 0.48537026461069865,
+                  "retention": NaN
+                },
+                {
+                  "layer": 16,
+                  "subspace": "top_k",
+                  "label": "length_bucket",
+                  "start": 0,
+                  "retained_variance": 0.08483313769102097,
+                  "accuracy": 0.5732248239101466,
+                  "retention": 0.2100191100191101
+                },
+                {
+                  "layer": 16,
+                  "subspace": "window_11pct",
+                  "label": "concept",
+                  "start": 453,
+                  "retained_variance": 0.008676680736243725,
+                  "accuracy": 0.9911955073291452,
+                  "retention": 0.984321055944456
+                },
+                {
+                  "layer": 16,
+                  "subspace": "window_11pct",
+                  "label": "concept_shuffled",
+                  "start": 453,
+                  "retained_variance": 0.008676680736243725,
+                  "accuracy": 0.5301732343422805,
+                  "retention": NaN
+                },
+                {
+                  "layer": 16,
+                  "subspace": "window_11pct",
+                  "label": "pair_id_random",
+                  "start": 453,
+                  "retained_variance": 0.008676680736243725,
+                  "accuracy": 0.4862554730630116,
+                  "retention": NaN
+                },
+                {
+                  "layer": 16,
+                  "subspace": "window_11pct",
+                  "label": "length_bucket",
+                  "start": 453,
+                  "retained_variance": 0.008676680736243725,
+                  "accuracy": 0.6220826194555491,
+                  "retention": 0.35015015015014983
+                },
+                {
+                  "layer": 16,
+                  "subspace": "window_22pct",
+                  "label": "concept",
+                  "start": 906,
+                  "retained_variance": 0.0065993997268378735,
+                  "accuracy": 0.9931467732724159,
+                  "retention": 0.9882312548877489
+                },
+                {
+                  "layer": 16,
+                  "subspace": "window_22pct",
+                  "label": "concept_shuffled",
+                  "start": 906,
+                  "retained_variance": 0.0065993997268378735,
+                  "accuracy": 0.5264134780125642,
+                  "retention": NaN
+                },
+                {
+                  "layer": 16,
+                  "subspace": "window_22pct",
+                  "label": "pair_id_random",
+                  "start": 906,
+                  "retained_variance": 0.0065993997268378735,
+                  "accuracy": 0.4745288406624786,
+                  "retention": NaN
+                },
+                {
+                  "layer": 16,
+                  "subspace": "window_22pct",
+                  "label": "length_bucket",
+                  "start": 906,
+                  "retained_variance": 0.0065993997268378735,
+                  "accuracy": 0.6074433656957928,
+                  "retention": 0.308162708162708
+                },
+                {
+                  "layer": 16,
+                  "subspace": "window_33pct",
+                  "label": "concept",
+                  "start": 1359,
+                  "retained_variance": 0.005233860574662685,
+                  "accuracy": 0.996078431372549,
+                  "retention": 0.994106090373281
+                },
+                {
+                  "layer": 16,
+                  "subspace": "window_33pct",
+                  "label": "concept_shuffled",
+                  "start": 1359,
+                  "retained_variance": 0.005233860574662685,
+                  "accuracy": 0.5264134780125642,
+                  "retention": NaN
+                },
+                {
+                  "layer": 16,
+                  "subspace": "window_33pct",
+                  "label": "pair_id_random",
+                  "start": 1359,
+                  "retained_variance": 0.005233860574662685,
+                  "accuracy": 0.5029506948410433,
+                  "retention": NaN
+                },
+                {
+                  "layer": 16,
+                  "subspace": "window_33pct",
+                  "label": "length_bucket",
+                  "start": 1359,
+                  "retained_variance": 0.005233860574662685,
+                  "accuracy": 0.6425661526746621,
+                  "retention": 0.4088998088998089
+                },
+                {
+                  "layer": 16,
+                  "subspace": "window_44pct",
+                  "label": "concept",
+                  "start": 1812,
+                  "retained_variance": 0.004175554029643536,
+                  "accuracy": 0.9911955073291452,
+                  "retention": 0.984321055944456
+                },
+                {
+                  "layer": 16,
+                  "subspace": "window_44pct",
+                  "label": "concept_shuffled",
+                  "start": 1812,
+                  "retained_variance": 0.004175554029643536,
+                  "accuracy": 0.5215210355987054,
+                  "retention": NaN
+                },
+                {
+                  "layer": 16,
+                  "subspace": "window_44pct",
+                  "label": "pair_id_random",
+                  "start": 1812,
+                  "retained_variance": 0.004175554029643536,
+                  "accuracy": 0.49998096325909,
+                  "retention": NaN
+                },
+                {
+                  "layer": 16,
+                  "subspace": "window_44pct",
+                  "label": "length_bucket",
+                  "start": 1812,
+                  "retained_variance": 0.004175554029643536,
+                  "accuracy": 0.637768893965353,
+                  "retention": 0.3951405951405947
+                },
+                {
+                  "layer": 16,
+                  "subspace": "window_56pct",
+                  "label": "concept",
+                  "start": 2264,
+                  "retained_variance": 0.003298884956166148,
+                  "accuracy": 0.996078431372549,
+                  "retention": 0.994106090373281
+                },
+                {
+                  "layer": 16,
+                  "subspace": "window_56pct",
+                  "label": "concept_shuffled",
+                  "start": 2264,
+                  "retained_variance": 0.003298884956166148,
+                  "accuracy": 0.5145345516847516,
+                  "retention": NaN
+                },
+                {
+                  "layer": 16,
+                  "subspace": "window_56pct",
+                  "label": "pair_id_random",
+                  "start": 2264,
+                  "retained_variance": 0.003298884956166148,
+                  "accuracy": 0.5176470588235293,
+                  "retention": NaN
+                },
+                {
+                  "layer": 16,
+                  "subspace": "window_56pct",
+                  "label": "length_bucket",
+                  "start": 2264,
+                  "retained_variance": 0.003298884956166148,
+                  "accuracy": 0.6699314677327243,
+                  "retention": 0.4873873873873877
+                },
+                {
+                  "layer": 16,
+                  "subspace": "window_67pct",
+                  "label": "concept",
+                  "start": 2717,
+                  "retained_variance": 0.0025401413440704346,
+                  "accuracy": 0.9941176470588236,
+                  "retention": 0.9901768172888016
+                },
+                {
+                  "layer": 16,
+                  "subspace": "window_67pct",
+                  "label": "concept_shuffled",
+                  "start": 2717,
+                  "retained_variance": 0.0025401413440704346,
+                  "accuracy": 0.5234437464306111,
+                  "retention": NaN
+                },
+                {
+                  "layer": 16,
+                  "subspace": "window_67pct",
+                  "label": "pair_id_random",
+                  "start": 2717,
+                  "retained_variance": 0.0025401413440704346,
+                  "accuracy": 0.5049019607843137,
+                  "retention": NaN
+                },
+                {
+                  "layer": 16,
+                  "subspace": "window_67pct",
+                  "label": "length_bucket",
+                  "start": 2717,
+                  "retained_variance": 0.0025401413440704346,
+                  "accuracy": 0.6699409861031792,
+                  "retention": 0.4874146874146876
+                },
+                {
+                  "layer": 16,
+                  "subspace": "window_78pct",
+                  "label": "concept",
+                  "start": 3170,
+                  "retained_variance": 0.0018575962167233229,
+                  "accuracy": 0.9892537597563298,
+                  "retention": 0.9804299311423504
+                },
+                {
+                  "layer": 16,
+                  "subspace": "window_78pct",
+                  "label": "concept_shuffled",
+                  "start": 3170,
+                  "retained_variance": 0.0018575962167233229,
+                  "accuracy": 0.507833618884447,
+                  "retention": NaN
+                },
+                {
+                  "layer": 16,
+                  "subspace": "window_78pct",
+                  "label": "pair_id_random",
+                  "start": 3170,
+                  "retained_variance": 0.0018575962167233229,
+                  "accuracy": 0.4960498762611841,
+                  "retention": NaN
+                },
+                {
+                  "layer": 16,
+                  "subspace": "window_78pct",
+                  "label": "length_bucket",
+                  "start": 3170,
+                  "retained_variance": 0.0018575962167233229,
+                  "accuracy": 0.6484199505044737,
+                  "retention": 0.4256893256893257
+                },
+                {
+                  "layer": 16,
+                  "subspace": "window_89pct",
+                  "label": "concept",
+                  "start": 3623,
+                  "retained_variance": 0.001197158358991146,
+                  "accuracy": 0.9921758994860079,
+                  "retention": 0.9862856924866956
+                },
+                {
+                  "layer": 16,
+                  "subspace": "window_89pct",
+                  "label": "concept_shuffled",
+                  "start": 3623,
+                  "retained_variance": 0.001197158358991146,
+                  "accuracy": 0.5116885589187131,
+                  "retention": NaN
+                },
+                {
+                  "layer": 16,
+                  "subspace": "window_89pct",
+                  "label": "pair_id_random",
+                  "start": 3623,
+                  "retained_variance": 0.001197158358991146,
+                  "accuracy": 0.47740338853988196,
+                  "retention": NaN
+                },
+                {
+                  "layer": 16,
+                  "subspace": "window_89pct",
+                  "label": "length_bucket",
+                  "start": 3623,
+                  "retained_variance": 0.001197158358991146,
+                  "accuracy": 0.6221016561964592,
+                  "retention": 0.3502047502047502
+                },
+                {
+                  "layer": 16,
+                  "subspace": "bottom_k",
+                  "label": "concept",
+                  "start": 4076,
+                  "retained_variance": 0.00018177773745264858,
+                  "accuracy": 0.9902151151722824,
+                  "retention": 0.9823564194022163
+                },
+                {
+                  "layer": 16,
+                  "subspace": "bottom_k",
+                  "label": "concept_shuffled",
+                  "start": 4076,
+                  "retained_variance": 0.00018177773745264858,
+                  "accuracy": 0.5009803921568627,
+                  "retention": NaN
+                },
+                {
+                  "layer": 16,
+                  "subspace": "bottom_k",
+                  "label": "pair_id_random",
+                  "start": 4076,
+                  "retained_variance": 0.00018177773745264858,
+                  "accuracy": 0.5068341899866742,
+                  "retention": NaN
+                },
+                {
+                  "layer": 16,
+                  "subspace": "bottom_k",
+                  "label": "length_bucket",
+                  "start": 4076,
+                  "retained_variance": 0.00018177773745264858,
+                  "accuracy": 0.7012088330477824,
+                  "retention": 0.5770952770952775
+                }
+              ],
+              "difference_in_differences": {
+                "available": true,
+                "control": "length_bucket",
+                "delta": -0.3688773271479865,
+                "ci95": [
+                  -0.4725180495828365,
+                  -0.26666219529830776
+                ],
+                "p_boot": 0.0001,
+                "n_tokens": 1024,
+                "verdict": "reversed: the arbitrary item partition prefers the quiet subspace MORE than the concept does",
+                "retention_gap_concept_quiet_minus_loud": -0.001956962180746562,
+                "retention_gap_control_quiet_minus_loud": 0.36692036496723995
+              }
+            }
+          }
+        }
+      }
+    },
+    "32": {
+      "role": "final",
+      "by_control": {
+        "named_continent": {
+          "layer": 32,
+          "majority_rates": {
+            "concept": 0.5,
+            "concept_shuffled": 0.5,
+            "pair_id_random": 0.5,
+            "named_continent": 0.619140625
+          },
+          "full_accuracy": {
+            "concept": 0.9990196078431373,
+            "concept_shuffled": 0.4991528650295069,
+            "pair_id_random": 0.5127831715210356,
+            "named_continent": 0.9403769274700171
+          },
+          "headroom": {
+            "concept": 0.49901960784313726,
+            "concept_shuffled": -0.0008471349704931019,
+            "pair_id_random": 0.012783171521035586,
+            "named_continent": 0.3212363024700171
+          },
+          "cells": [
+            {
+              "layer": 32,
+              "subspace": "top_k",
+              "label": "concept",
+              "start": 0,
+              "retained_variance": 0.08483313769102097,
+              "accuracy": 0.917894536455359,
+              "retention": 0.837431094664963
+            },
+            {
+              "layer": 32,
+              "subspace": "top_k",
+              "label": "concept_shuffled",
+              "start": 0,
+              "retained_variance": 0.08483313769102097,
+              "accuracy": 0.5019988577955454,
+              "retention": NaN
+            },
+            {
+              "layer": 32,
+              "subspace": "top_k",
+              "label": "pair_id_random",
+              "start": 0,
+              "retained_variance": 0.08483313769102097,
+              "accuracy": 0.4825623453264801,
+              "retention": NaN
+            },
+            {
+              "layer": 32,
+              "subspace": "top_k",
+              "label": "named_continent",
+              "start": 0,
+              "retained_variance": 0.08483313769102097,
+              "accuracy": 0.619131924614506,
+              "retention": -2.7084066860300693e-05
+            },
+            {
+              "layer": 32,
+              "subspace": "window_11pct",
+              "label": "concept",
+              "start": 453,
+              "retained_variance": 0.008676680736243725,
+              "accuracy": 0.9326004188083001,
+              "retention": 0.8669006427985583
+            },
+            {
+              "layer": 32,
+              "subspace": "window_11pct",
+              "label": "concept_shuffled",
+              "start": 453,
+              "retained_variance": 0.008676680736243725,
+              "accuracy": 0.5302779364172853,
+              "retention": NaN
+            },
+            {
+              "layer": 32,
+              "subspace": "window_11pct",
+              "label": "pair_id_random",
+              "start": 453,
+              "retained_variance": 0.008676680736243725,
+              "accuracy": 0.5068817818389493,
+              "retention": NaN
+            },
+            {
+              "layer": 32,
+              "subspace": "window_11pct",
+              "label": "named_continent",
+              "start": 453,
+              "retained_variance": 0.008676680736243725,
+              "accuracy": 0.619131924614506,
+              "retention": -2.7084066860300693e-05
+            },
+            {
+              "layer": 32,
+              "subspace": "window_22pct",
+              "label": "concept",
+              "start": 906,
+              "retained_variance": 0.0065993997268378735,
+              "accuracy": 0.9697125452122597,
+              "retention": 0.9412707192858643
+            },
+            {
+              "layer": 32,
+              "subspace": "window_22pct",
+              "label": "concept_shuffled",
+              "start": 906,
+              "retained_variance": 0.0065993997268378735,
+              "accuracy": 0.5254711593375214,
+              "retention": NaN
+            },
+            {
+              "layer": 32,
+              "subspace": "window_22pct",
+              "label": "pair_id_random",
+              "start": 906,
+              "retained_variance": 0.0065993997268378735,
+              "accuracy": 0.49430801446792305,
+              "retention": NaN
+            },
+            {
+              "layer": 32,
+              "subspace": "window_22pct",
+              "label": "named_continent",
+              "start": 906,
+              "retained_variance": 0.0065993997268378735,
+              "accuracy": 0.619131924614506,
+              "retention": -2.7084066860300693e-05
+            },
+            {
+              "layer": 32,
+              "subspace": "window_33pct",
+              "label": "concept",
+              "start": 1359,
+              "retained_variance": 0.005233860574662685,
+              "accuracy": 0.9619074814391777,
+              "retention": 0.925629923512694
+            },
+            {
+              "layer": 32,
+              "subspace": "window_33pct",
+              "label": "concept_shuffled",
+              "start": 1359,
+              "retained_variance": 0.005233860574662685,
+              "accuracy": 0.5068817818389493,
+              "retention": NaN
+            },
+            {
+              "layer": 32,
+              "subspace": "window_33pct",
+              "label": "pair_id_random",
+              "start": 1359,
+              "retained_variance": 0.005233860574662685,
+              "accuracy": 0.5138111555301732,
+              "retention": NaN
+            },
+            {
+              "layer": 32,
+              "subspace": "window_33pct",
+              "label": "named_continent",
+              "start": 1359,
+              "retained_variance": 0.005233860574662685,
+              "accuracy": 0.619131924614506,
+              "retention": -2.7084066860300693e-05
+            },
+            {
+              "layer": 32,
+              "subspace": "window_44pct",
+              "label": "concept",
+              "start": 1812,
+              "retained_variance": 0.004175554029643536,
+              "accuracy": 0.913049685893775,
+              "retention": 0.827722356800885
+            },
+            {
+              "layer": 32,
+              "subspace": "window_44pct",
+              "label": "concept_shuffled",
+              "start": 1812,
+              "retained_variance": 0.004175554029643536,
+              "accuracy": 0.4950790024747763,
+              "retention": NaN
+            },
+            {
+              "layer": 32,
+              "subspace": "window_44pct",
+              "label": "pair_id_random",
+              "start": 1812,
+              "retained_variance": 0.004175554029643536,
+              "accuracy": 0.52827907862174,
+              "retention": NaN
+            },
+            {
+              "layer": 32,
+              "subspace": "window_44pct",
+              "label": "named_continent",
+              "start": 1812,
+              "retained_variance": 0.004175554029643536,
+              "accuracy": 0.6201027984009138,
+              "retention": 0.0029952200094307915
+            },
+            {
+              "layer": 32,
+              "subspace": "window_56pct",
+              "label": "concept",
+              "start": 2264,
+              "retained_variance": 0.003298884956166148,
+              "accuracy": 0.9648296211688558,
+              "retention": 0.9314856848570392
+            },
+            {
+              "layer": 32,
+              "subspace": "window_56pct",
+              "label": "concept_shuffled",
+              "start": 2264,
+              "retained_variance": 0.003298884956166148,
+              "accuracy": 0.5138301922710832,
+              "retention": NaN
+            },
+            {
+              "layer": 32,
+              "subspace": "window_56pct",
+              "label": "pair_id_random",
+              "start": 2264,
+              "retained_variance": 0.003298884956166148,
+              "accuracy": 0.5107747953550352,
+              "retention": NaN
+            },
+            {
+              "layer": 32,
+              "subspace": "window_56pct",
+              "label": "named_continent",
+              "start": 2264,
+              "retained_variance": 0.003298884956166148,
+              "accuracy": 0.619131924614506,
+              "retention": -2.7084066860300693e-05
+            },
+            {
+              "layer": 32,
+              "subspace": "window_67pct",
+              "label": "concept",
+              "start": 2717,
+              "retained_variance": 0.0025401413440704346,
+              "accuracy": 0.980449267085475,
+              "retention": 0.9627863505445667
+            },
+            {
+              "layer": 32,
+              "subspace": "window_67pct",
+              "label": "concept_shuffled",
+              "start": 2717,
+              "retained_variance": 0.0025401413440704346,
+              "accuracy": 0.5097848848277174,
+              "retention": NaN
+            },
+            {
+              "layer": 32,
+              "subspace": "window_67pct",
+              "label": "pair_id_random",
+              "start": 2717,
+              "retained_variance": 0.0025401413440704346,
+              "accuracy": 0.49804873405672945,
+              "retention": NaN
+            },
+            {
+              "layer": 32,
+              "subspace": "window_67pct",
+              "label": "named_continent",
+              "start": 2717,
+              "retained_variance": 0.0025401413440704346,
+              "accuracy": 0.619131924614506,
+              "retention": -2.7084066860300693e-05
+            },
+            {
+              "layer": 32,
+              "subspace": "window_78pct",
+              "label": "concept",
+              "start": 3170,
+              "retained_variance": 0.0018575962167233229,
+              "accuracy": 0.9657909765848087,
+              "retention": 0.9334121731169055
+            },
+            {
+              "layer": 32,
+              "subspace": "window_78pct",
+              "label": "concept_shuffled",
+              "start": 3170,
+              "retained_variance": 0.0018575962167233229,
+              "accuracy": 0.5108604606891299,
+              "retention": NaN
+            },
+            {
+              "layer": 32,
+              "subspace": "window_78pct",
+              "label": "pair_id_random",
+              "start": 3170,
+              "retained_variance": 0.0018575962167233229,
+              "accuracy": 0.5087949743003998,
+              "retention": NaN
+            },
+            {
+              "layer": 32,
+              "subspace": "window_78pct",
+              "label": "named_continent",
+              "start": 3170,
+              "retained_variance": 0.0018575962167233229,
+              "accuracy": 0.619131924614506,
+              "retention": -2.7084066860300693e-05
+            },
+            {
+              "layer": 32,
+              "subspace": "window_89pct",
+              "label": "concept",
+              "start": 3623,
+              "retained_variance": 0.001197158358991146,
+              "accuracy": 0.9648581762802209,
+              "retention": 0.9315429072805997
+            },
+            {
+              "layer": 32,
+              "subspace": "window_89pct",
+              "label": "concept_shuffled",
+              "start": 3623,
+              "retained_variance": 0.001197158358991146,
+              "accuracy": 0.5088044926708547,
+              "retention": NaN
+            },
+            {
+              "layer": 32,
+              "subspace": "window_89pct",
+              "label": "pair_id_random",
+              "start": 3623,
+              "retained_variance": 0.001197158358991146,
+              "accuracy": 0.4912145440700552,
+              "retention": NaN
+            },
+            {
+              "layer": 32,
+              "subspace": "window_89pct",
+              "label": "named_continent",
+              "start": 3623,
+              "retained_variance": 0.001197158358991146,
+              "accuracy": 0.619131924614506,
+              "retention": -2.7084066860300693e-05
+            },
+            {
+              "layer": 32,
+              "subspace": "bottom_k",
+              "label": "concept",
+              "start": 4076,
+              "retained_variance": 0.00018177773745264858,
+              "accuracy": 0.9403483723586523,
+              "retention": 0.8824269937246078
+            },
+            {
+              "layer": 32,
+              "subspace": "bottom_k",
+              "label": "concept_shuffled",
+              "start": 4076,
+              "retained_variance": 0.00018177773745264858,
+              "accuracy": 0.519550732914525,
+              "retention": NaN
+            },
+            {
+              "layer": 32,
+              "subspace": "bottom_k",
+              "label": "pair_id_random",
+              "start": 4076,
+              "retained_variance": 0.00018177773745264858,
+              "accuracy": 0.5098039215686274,
+              "retention": NaN
+            },
+            {
+              "layer": 32,
+              "subspace": "bottom_k",
+              "label": "named_continent",
+              "start": 4076,
+              "retained_variance": 0.00018177773745264858,
+              "accuracy": 0.6201027984009138,
+              "retention": 0.0029952200094307915
+            }
+          ],
+          "floor_check": {
+            "shuffled_top_k": 0.5019988577955454,
+            "majority": 0.5,
+            "ok": true
+          },
+          "difference_in_differences": {
+            "available": true,
+            "control": "named_continent",
+            "delta": 0.041970117267932955,
+            "ci95": [
+              0.008701760195241399,
+              0.07544761357686076
+            ],
+            "p_boot": 0.0126,
+            "n_tokens": 1024,
+            "verdict": "quiet tail is concept-specific: the concept prefers the low-variance subspace more than an arbitrary item partition does",
+            "retention_gap_concept_quiet_minus_loud": 0.045010130157170924,
+            "retention_gap_control_quiet_minus_loud": 0.0030400128892379727
+          },
+          "by_k": {
+            "0.005": {
+              "k": 20,
+              "cells": [
+                {
+                  "layer": 32,
+                  "subspace": "top_k",
+                  "label": "concept",
+                  "start": 0,
+                  "retained_variance": 0.08483313769102097,
+                  "accuracy": 0.917894536455359,
+                  "retention": 0.837431094664963
+                },
+                {
+                  "layer": 32,
+                  "subspace": "top_k",
+                  "label": "concept_shuffled",
+                  "start": 0,
+                  "retained_variance": 0.08483313769102097,
+                  "accuracy": 0.5019988577955454,
+                  "retention": NaN
+                },
+                {
+                  "layer": 32,
+                  "subspace": "top_k",
+                  "label": "pair_id_random",
+                  "start": 0,
+                  "retained_variance": 0.08483313769102097,
+                  "accuracy": 0.4825623453264801,
+                  "retention": NaN
+                },
+                {
+                  "layer": 32,
+                  "subspace": "top_k",
+                  "label": "named_continent",
+                  "start": 0,
+                  "retained_variance": 0.08483313769102097,
+                  "accuracy": 0.619131924614506,
+                  "retention": -2.7084066860300693e-05
+                },
+                {
+                  "layer": 32,
+                  "subspace": "window_11pct",
+                  "label": "concept",
+                  "start": 453,
+                  "retained_variance": 0.008676680736243725,
+                  "accuracy": 0.9326004188083001,
+                  "retention": 0.8669006427985583
+                },
+                {
+                  "layer": 32,
+                  "subspace": "window_11pct",
+                  "label": "concept_shuffled",
+                  "start": 453,
+                  "retained_variance": 0.008676680736243725,
+                  "accuracy": 0.5302779364172853,
+                  "retention": NaN
+                },
+                {
+                  "layer": 32,
+                  "subspace": "window_11pct",
+                  "label": "pair_id_random",
+                  "start": 453,
+                  "retained_variance": 0.008676680736243725,
+                  "accuracy": 0.5068817818389493,
+                  "retention": NaN
+                },
+                {
+                  "layer": 32,
+                  "subspace": "window_11pct",
+                  "label": "named_continent",
+                  "start": 453,
+                  "retained_variance": 0.008676680736243725,
+                  "accuracy": 0.619131924614506,
+                  "retention": -2.7084066860300693e-05
+                },
+                {
+                  "layer": 32,
+                  "subspace": "window_22pct",
+                  "label": "concept",
+                  "start": 906,
+                  "retained_variance": 0.0065993997268378735,
+                  "accuracy": 0.9697125452122597,
+                  "retention": 0.9412707192858643
+                },
+                {
+                  "layer": 32,
+                  "subspace": "window_22pct",
+                  "label": "concept_shuffled",
+                  "start": 906,
+                  "retained_variance": 0.0065993997268378735,
+                  "accuracy": 0.5254711593375214,
+                  "retention": NaN
+                },
+                {
+                  "layer": 32,
+                  "subspace": "window_22pct",
+                  "label": "pair_id_random",
+                  "start": 906,
+                  "retained_variance": 0.0065993997268378735,
+                  "accuracy": 0.49430801446792305,
+                  "retention": NaN
+                },
+                {
+                  "layer": 32,
+                  "subspace": "window_22pct",
+                  "label": "named_continent",
+                  "start": 906,
+                  "retained_variance": 0.0065993997268378735,
+                  "accuracy": 0.619131924614506,
+                  "retention": -2.7084066860300693e-05
+                },
+                {
+                  "layer": 32,
+                  "subspace": "window_33pct",
+                  "label": "concept",
+                  "start": 1359,
+                  "retained_variance": 0.005233860574662685,
+                  "accuracy": 0.9619074814391777,
+                  "retention": 0.925629923512694
+                },
+                {
+                  "layer": 32,
+                  "subspace": "window_33pct",
+                  "label": "concept_shuffled",
+                  "start": 1359,
+                  "retained_variance": 0.005233860574662685,
+                  "accuracy": 0.5068817818389493,
+                  "retention": NaN
+                },
+                {
+                  "layer": 32,
+                  "subspace": "window_33pct",
+                  "label": "pair_id_random",
+                  "start": 1359,
+                  "retained_variance": 0.005233860574662685,
+                  "accuracy": 0.5138111555301732,
+                  "retention": NaN
+                },
+                {
+                  "layer": 32,
+                  "subspace": "window_33pct",
+                  "label": "named_continent",
+                  "start": 1359,
+                  "retained_variance": 0.005233860574662685,
+                  "accuracy": 0.619131924614506,
+                  "retention": -2.7084066860300693e-05
+                },
+                {
+                  "layer": 32,
+                  "subspace": "window_44pct",
+                  "label": "concept",
+                  "start": 1812,
+                  "retained_variance": 0.004175554029643536,
+                  "accuracy": 0.913049685893775,
+                  "retention": 0.827722356800885
+                },
+                {
+                  "layer": 32,
+                  "subspace": "window_44pct",
+                  "label": "concept_shuffled",
+                  "start": 1812,
+                  "retained_variance": 0.004175554029643536,
+                  "accuracy": 0.4950790024747763,
+                  "retention": NaN
+                },
+                {
+                  "layer": 32,
+                  "subspace": "window_44pct",
+                  "label": "pair_id_random",
+                  "start": 1812,
+                  "retained_variance": 0.004175554029643536,
+                  "accuracy": 0.52827907862174,
+                  "retention": NaN
+                },
+                {
+                  "layer": 32,
+                  "subspace": "window_44pct",
+                  "label": "named_continent",
+                  "start": 1812,
+                  "retained_variance": 0.004175554029643536,
+                  "accuracy": 0.6201027984009138,
+                  "retention": 0.0029952200094307915
+                },
+                {
+                  "layer": 32,
+                  "subspace": "window_56pct",
+                  "label": "concept",
+                  "start": 2264,
+                  "retained_variance": 0.003298884956166148,
+                  "accuracy": 0.9648296211688558,
+                  "retention": 0.9314856848570392
+                },
+                {
+                  "layer": 32,
+                  "subspace": "window_56pct",
+                  "label": "concept_shuffled",
+                  "start": 2264,
+                  "retained_variance": 0.003298884956166148,
+                  "accuracy": 0.5138301922710832,
+                  "retention": NaN
+                },
+                {
+                  "layer": 32,
+                  "subspace": "window_56pct",
+                  "label": "pair_id_random",
+                  "start": 2264,
+                  "retained_variance": 0.003298884956166148,
+                  "accuracy": 0.5107747953550352,
+                  "retention": NaN
+                },
+                {
+                  "layer": 32,
+                  "subspace": "window_56pct",
+                  "label": "named_continent",
+                  "start": 2264,
+                  "retained_variance": 0.003298884956166148,
+                  "accuracy": 0.619131924614506,
+                  "retention": -2.7084066860300693e-05
+                },
+                {
+                  "layer": 32,
+                  "subspace": "window_67pct",
+                  "label": "concept",
+                  "start": 2717,
+                  "retained_variance": 0.0025401413440704346,
+                  "accuracy": 0.980449267085475,
+                  "retention": 0.9627863505445667
+                },
+                {
+                  "layer": 32,
+                  "subspace": "window_67pct",
+                  "label": "concept_shuffled",
+                  "start": 2717,
+                  "retained_variance": 0.0025401413440704346,
+                  "accuracy": 0.5097848848277174,
+                  "retention": NaN
+                },
+                {
+                  "layer": 32,
+                  "subspace": "window_67pct",
+                  "label": "pair_id_random",
+                  "start": 2717,
+                  "retained_variance": 0.0025401413440704346,
+                  "accuracy": 0.49804873405672945,
+                  "retention": NaN
+                },
+                {
+                  "layer": 32,
+                  "subspace": "window_67pct",
+                  "label": "named_continent",
+                  "start": 2717,
+                  "retained_variance": 0.0025401413440704346,
+                  "accuracy": 0.619131924614506,
+                  "retention": -2.7084066860300693e-05
+                },
+                {
+                  "layer": 32,
+                  "subspace": "window_78pct",
+                  "label": "concept",
+                  "start": 3170,
+                  "retained_variance": 0.0018575962167233229,
+                  "accuracy": 0.9657909765848087,
+                  "retention": 0.9334121731169055
+                },
+                {
+                  "layer": 32,
+                  "subspace": "window_78pct",
+                  "label": "concept_shuffled",
+                  "start": 3170,
+                  "retained_variance": 0.0018575962167233229,
+                  "accuracy": 0.5108604606891299,
+                  "retention": NaN
+                },
+                {
+                  "layer": 32,
+                  "subspace": "window_78pct",
+                  "label": "pair_id_random",
+                  "start": 3170,
+                  "retained_variance": 0.0018575962167233229,
+                  "accuracy": 0.5087949743003998,
+                  "retention": NaN
+                },
+                {
+                  "layer": 32,
+                  "subspace": "window_78pct",
+                  "label": "named_continent",
+                  "start": 3170,
+                  "retained_variance": 0.0018575962167233229,
+                  "accuracy": 0.619131924614506,
+                  "retention": -2.7084066860300693e-05
+                },
+                {
+                  "layer": 32,
+                  "subspace": "window_89pct",
+                  "label": "concept",
+                  "start": 3623,
+                  "retained_variance": 0.001197158358991146,
+                  "accuracy": 0.9648581762802209,
+                  "retention": 0.9315429072805997
+                },
+                {
+                  "layer": 32,
+                  "subspace": "window_89pct",
+                  "label": "concept_shuffled",
+                  "start": 3623,
+                  "retained_variance": 0.001197158358991146,
+                  "accuracy": 0.5088044926708547,
+                  "retention": NaN
+                },
+                {
+                  "layer": 32,
+                  "subspace": "window_89pct",
+                  "label": "pair_id_random",
+                  "start": 3623,
+                  "retained_variance": 0.001197158358991146,
+                  "accuracy": 0.4912145440700552,
+                  "retention": NaN
+                },
+                {
+                  "layer": 32,
+                  "subspace": "window_89pct",
+                  "label": "named_continent",
+                  "start": 3623,
+                  "retained_variance": 0.001197158358991146,
+                  "accuracy": 0.619131924614506,
+                  "retention": -2.7084066860300693e-05
+                },
+                {
+                  "layer": 32,
+                  "subspace": "bottom_k",
+                  "label": "concept",
+                  "start": 4076,
+                  "retained_variance": 0.00018177773745264858,
+                  "accuracy": 0.9403483723586523,
+                  "retention": 0.8824269937246078
+                },
+                {
+                  "layer": 32,
+                  "subspace": "bottom_k",
+                  "label": "concept_shuffled",
+                  "start": 4076,
+                  "retained_variance": 0.00018177773745264858,
+                  "accuracy": 0.519550732914525,
+                  "retention": NaN
+                },
+                {
+                  "layer": 32,
+                  "subspace": "bottom_k",
+                  "label": "pair_id_random",
+                  "start": 4076,
+                  "retained_variance": 0.00018177773745264858,
+                  "accuracy": 0.5098039215686274,
+                  "retention": NaN
+                },
+                {
+                  "layer": 32,
+                  "subspace": "bottom_k",
+                  "label": "named_continent",
+                  "start": 4076,
+                  "retained_variance": 0.00018177773745264858,
+                  "accuracy": 0.6201027984009138,
+                  "retention": 0.0029952200094307915
+                }
+              ],
+              "difference_in_differences": {
+                "available": true,
+                "control": "named_continent",
+                "delta": 0.041970117267932955,
+                "ci95": [
+                  0.008701760195241399,
+                  0.07544761357686076
+                ],
+                "p_boot": 0.0126,
+                "n_tokens": 1024,
+                "verdict": "quiet tail is concept-specific: the concept prefers the low-variance subspace more than an arbitrary item partition does",
+                "retention_gap_concept_quiet_minus_loud": 0.045010130157170924,
+                "retention_gap_control_quiet_minus_loud": 0.0030400128892379727
+              }
+            }
+          }
+        },
+        "city_continent": {
+          "layer": 32,
+          "majority_rates": {
+            "concept": 0.5,
+            "concept_shuffled": 0.5,
+            "pair_id_random": 0.5,
+            "city_continent": 0.62109375
+          },
+          "full_accuracy": {
+            "concept": 0.9990196078431373,
+            "concept_shuffled": 0.4991528650295069,
+            "pair_id_random": 0.5127831715210356,
+            "city_continent": 0.9491814201408719
+          },
+          "headroom": {
+            "concept": 0.49901960784313726,
+            "concept_shuffled": -0.0008471349704931019,
+            "pair_id_random": 0.012783171521035586,
+            "city_continent": 0.3280876701408719
+          },
+          "cells": [
+            {
+              "layer": 32,
+              "subspace": "top_k",
+              "label": "concept",
+              "start": 0,
+              "retained_variance": 0.08483313769102097,
+              "accuracy": 0.917894536455359,
+              "retention": 0.837431094664963
+            },
+            {
+              "layer": 32,
+              "subspace": "top_k",
+              "label": "concept_shuffled",
+              "start": 0,
+              "retained_variance": 0.08483313769102097,
+              "accuracy": 0.5019988577955454,
+              "retention": NaN
+            },
+            {
+              "layer": 32,
+              "subspace": "top_k",
+              "label": "pair_id_random",
+              "start": 0,
+              "retained_variance": 0.08483313769102097,
+              "accuracy": 0.4825623453264801,
+              "retention": NaN
+            },
+            {
+              "layer": 32,
+              "subspace": "top_k",
+              "label": "city_continent",
+              "start": 0,
+              "retained_variance": 0.08483313769102097,
+              "accuracy": 0.6210927089282314,
+              "retention": -3.1731511523230412e-06
+            },
+            {
+              "layer": 32,
+              "subspace": "window_11pct",
+              "label": "concept",
+              "start": 453,
+              "retained_variance": 0.008676680736243725,
+              "accuracy": 0.9326004188083001,
+              "retention": 0.8669006427985583
+            },
+            {
+              "layer": 32,
+              "subspace": "window_11pct",
+              "label": "concept_shuffled",
+              "start": 453,
+              "retained_variance": 0.008676680736243725,
+              "accuracy": 0.5302779364172853,
+              "retention": NaN
+            },
+            {
+              "layer": 32,
+              "subspace": "window_11pct",
+              "label": "pair_id_random",
+              "start": 453,
+              "retained_variance": 0.008676680736243725,
+              "accuracy": 0.5068817818389493,
+              "retention": NaN
+            },
+            {
+              "layer": 32,
+              "subspace": "window_11pct",
+              "label": "city_continent",
+              "start": 453,
+              "retained_variance": 0.008676680736243725,
+              "accuracy": 0.6210927089282314,
+              "retention": -3.1731511523230412e-06
+            },
+            {
+              "layer": 32,
+              "subspace": "window_22pct",
+              "label": "concept",
+              "start": 906,
+              "retained_variance": 0.0065993997268378735,
+              "accuracy": 0.9697125452122597,
+              "retention": 0.9412707192858643
+            },
+            {
+              "layer": 32,
+              "subspace": "window_22pct",
+              "label": "concept_shuffled",
+              "start": 906,
+              "retained_variance": 0.0065993997268378735,
+              "accuracy": 0.5254711593375214,
+              "retention": NaN
+            },
+            {
+              "layer": 32,
+              "subspace": "window_22pct",
+              "label": "pair_id_random",
+              "start": 906,
+              "retained_variance": 0.0065993997268378735,
+              "accuracy": 0.49430801446792305,
+              "retention": NaN
+            },
+            {
+              "layer": 32,
+              "subspace": "window_22pct",
+              "label": "city_continent",
+              "start": 906,
+              "retained_variance": 0.0065993997268378735,
+              "accuracy": 0.6210927089282314,
+              "retention": -3.1731511523230412e-06
+            },
+            {
+              "layer": 32,
+              "subspace": "window_33pct",
+              "label": "concept",
+              "start": 1359,
+              "retained_variance": 0.005233860574662685,
+              "accuracy": 0.9619074814391777,
+              "retention": 0.925629923512694
+            },
+            {
+              "layer": 32,
+              "subspace": "window_33pct",
+              "label": "concept_shuffled",
+              "start": 1359,
+              "retained_variance": 0.005233860574662685,
+              "accuracy": 0.5068817818389493,
+              "retention": NaN
+            },
+            {
+              "layer": 32,
+              "subspace": "window_33pct",
+              "label": "pair_id_random",
+              "start": 1359,
+              "retained_variance": 0.005233860574662685,
+              "accuracy": 0.5138111555301732,
+              "retention": NaN
+            },
+            {
+              "layer": 32,
+              "subspace": "window_33pct",
+              "label": "city_continent",
+              "start": 1359,
+              "retained_variance": 0.005233860574662685,
+              "accuracy": 0.6210927089282314,
+              "retention": -3.1731511523230412e-06
+            },
+            {
+              "layer": 32,
+              "subspace": "window_44pct",
+              "label": "concept",
+              "start": 1812,
+              "retained_variance": 0.004175554029643536,
+              "accuracy": 0.913049685893775,
+              "retention": 0.827722356800885
+            },
+            {
+              "layer": 32,
+              "subspace": "window_44pct",
+              "label": "concept_shuffled",
+              "start": 1812,
+              "retained_variance": 0.004175554029643536,
+              "accuracy": 0.4950790024747763,
+              "retention": NaN
+            },
+            {
+              "layer": 32,
+              "subspace": "window_44pct",
+              "label": "pair_id_random",
+              "start": 1812,
+              "retained_variance": 0.004175554029643536,
+              "accuracy": 0.52827907862174,
+              "retention": NaN
+            },
+            {
+              "layer": 32,
+              "subspace": "window_44pct",
+              "label": "city_continent",
+              "start": 1812,
+              "retained_variance": 0.004175554029643536,
+              "accuracy": 0.6240338853988197,
+              "retention": 0.008961432160974657
+            },
+            {
+              "layer": 32,
+              "subspace": "window_56pct",
+              "label": "concept",
+              "start": 2264,
+              "retained_variance": 0.003298884956166148,
+              "accuracy": 0.9648296211688558,
+              "retention": 0.9314856848570392
+            },
+            {
+              "layer": 32,
+              "subspace": "window_56pct",
+              "label": "concept_shuffled",
+              "start": 2264,
+              "retained_variance": 0.003298884956166148,
+              "accuracy": 0.5138301922710832,
+              "retention": NaN
+            },
+            {
+              "layer": 32,
+              "subspace": "window_56pct",
+              "label": "pair_id_random",
+              "start": 2264,
+              "retained_variance": 0.003298884956166148,
+              "accuracy": 0.5107747953550352,
+              "retention": NaN
+            },
+            {
+              "layer": 32,
+              "subspace": "window_56pct",
+              "label": "city_continent",
+              "start": 2264,
+              "retained_variance": 0.003298884956166148,
+              "accuracy": 0.6210927089282314,
+              "retention": -3.1731511523230412e-06
+            },
+            {
+              "layer": 32,
+              "subspace": "window_67pct",
+              "label": "concept",
+              "start": 2717,
+              "retained_variance": 0.0025401413440704346,
+              "accuracy": 0.980449267085475,
+              "retention": 0.9627863505445667
+            },
+            {
+              "layer": 32,
+              "subspace": "window_67pct",
+              "label": "concept_shuffled",
+              "start": 2717,
+              "retained_variance": 0.0025401413440704346,
+              "accuracy": 0.5097848848277174,
+              "retention": NaN
+            },
+            {
+              "layer": 32,
+              "subspace": "window_67pct",
+              "label": "pair_id_random",
+              "start": 2717,
+              "retained_variance": 0.0025401413440704346,
+              "accuracy": 0.49804873405672945,
+              "retention": NaN
+            },
+            {
+              "layer": 32,
+              "subspace": "window_67pct",
+              "label": "city_continent",
+              "start": 2717,
+              "retained_variance": 0.0025401413440704346,
+              "accuracy": 0.6210927089282314,
+              "retention": -3.1731511523230412e-06
+            },
+            {
+              "layer": 32,
+              "subspace": "window_78pct",
+              "label": "concept",
+              "start": 3170,
+              "retained_variance": 0.0018575962167233229,
+              "accuracy": 0.9657909765848087,
+              "retention": 0.9334121731169055
+            },
+            {
+              "layer": 32,
+              "subspace": "window_78pct",
+              "label": "concept_shuffled",
+              "start": 3170,
+              "retained_variance": 0.0018575962167233229,
+              "accuracy": 0.5108604606891299,
+              "retention": NaN
+            },
+            {
+              "layer": 32,
+              "subspace": "window_78pct",
+              "label": "pair_id_random",
+              "start": 3170,
+              "retained_variance": 0.0018575962167233229,
+              "accuracy": 0.5087949743003998,
+              "retention": NaN
+            },
+            {
+              "layer": 32,
+              "subspace": "window_78pct",
+              "label": "city_continent",
+              "start": 3170,
+              "retained_variance": 0.0018575962167233229,
+              "accuracy": 0.6210927089282314,
+              "retention": -3.1731511523230412e-06
+            },
+            {
+              "layer": 32,
+              "subspace": "window_89pct",
+              "label": "concept",
+              "start": 3623,
+              "retained_variance": 0.001197158358991146,
+              "accuracy": 0.9648581762802209,
+              "retention": 0.9315429072805997
+            },
+            {
+              "layer": 32,
+              "subspace": "window_89pct",
+              "label": "concept_shuffled",
+              "start": 3623,
+              "retained_variance": 0.001197158358991146,
+              "accuracy": 0.5088044926708547,
+              "retention": NaN
+            },
+            {
+              "layer": 32,
+              "subspace": "window_89pct",
+              "label": "pair_id_random",
+              "start": 3623,
+              "retained_variance": 0.001197158358991146,
+              "accuracy": 0.4912145440700552,
+              "retention": NaN
+            },
+            {
+              "layer": 32,
+              "subspace": "window_89pct",
+              "label": "city_continent",
+              "start": 3623,
+              "retained_variance": 0.001197158358991146,
+              "accuracy": 0.6240243670283647,
+              "retention": 0.008932420493298015
+            },
+            {
+              "layer": 32,
+              "subspace": "bottom_k",
+              "label": "concept",
+              "start": 4076,
+              "retained_variance": 0.00018177773745264858,
+              "accuracy": 0.9403483723586523,
+              "retention": 0.8824269937246078
+            },
+            {
+              "layer": 32,
+              "subspace": "bottom_k",
+              "label": "concept_shuffled",
+              "start": 4076,
+              "retained_variance": 0.00018177773745264858,
+              "accuracy": 0.519550732914525,
+              "retention": NaN
+            },
+            {
+              "layer": 32,
+              "subspace": "bottom_k",
+              "label": "pair_id_random",
+              "start": 4076,
+              "retained_variance": 0.00018177773745264858,
+              "accuracy": 0.5098039215686274,
+              "retention": NaN
+            },
+            {
+              "layer": 32,
+              "subspace": "bottom_k",
+              "label": "city_continent",
+              "start": 4076,
+              "retained_variance": 0.00018177773745264858,
+              "accuracy": 0.6259756329716353,
+              "retention": 0.01487981236703936
+            }
+          ],
+          "floor_check": {
+            "shuffled_top_k": 0.5019988577955454,
+            "majority": 0.5,
+            "ok": true
+          },
+          "difference_in_differences": {
+            "available": true,
+            "control": "city_continent",
+            "delta": 0.030127484619460063,
+            "ci95": [
+              -0.004160439380027097,
+              0.064253119565079
+            ],
+            "p_boot": 0.0834,
+            "n_tokens": 1024,
+            "verdict": "not concept-specific at this n: the quiet-tail advantage is the same size for the concept and for a label with no concept in it",
+            "retention_gap_concept_quiet_minus_loud": 0.045010130157170924,
+            "retention_gap_control_quiet_minus_loud": 0.01488264553771086
+          },
+          "by_k": {
+            "0.005": {
+              "k": 20,
+              "cells": [
+                {
+                  "layer": 32,
+                  "subspace": "top_k",
+                  "label": "concept",
+                  "start": 0,
+                  "retained_variance": 0.08483313769102097,
+                  "accuracy": 0.917894536455359,
+                  "retention": 0.837431094664963
+                },
+                {
+                  "layer": 32,
+                  "subspace": "top_k",
+                  "label": "concept_shuffled",
+                  "start": 0,
+                  "retained_variance": 0.08483313769102097,
+                  "accuracy": 0.5019988577955454,
+                  "retention": NaN
+                },
+                {
+                  "layer": 32,
+                  "subspace": "top_k",
+                  "label": "pair_id_random",
+                  "start": 0,
+                  "retained_variance": 0.08483313769102097,
+                  "accuracy": 0.4825623453264801,
+                  "retention": NaN
+                },
+                {
+                  "layer": 32,
+                  "subspace": "top_k",
+                  "label": "city_continent",
+                  "start": 0,
+                  "retained_variance": 0.08483313769102097,
+                  "accuracy": 0.6210927089282314,
+                  "retention": -3.1731511523230412e-06
+                },
+                {
+                  "layer": 32,
+                  "subspace": "window_11pct",
+                  "label": "concept",
+                  "start": 453,
+                  "retained_variance": 0.008676680736243725,
+                  "accuracy": 0.9326004188083001,
+                  "retention": 0.8669006427985583
+                },
+                {
+                  "layer": 32,
+                  "subspace": "window_11pct",
+                  "label": "concept_shuffled",
+                  "start": 453,
+                  "retained_variance": 0.008676680736243725,
+                  "accuracy": 0.5302779364172853,
+                  "retention": NaN
+                },
+                {
+                  "layer": 32,
+                  "subspace": "window_11pct",
+                  "label": "pair_id_random",
+                  "start": 453,
+                  "retained_variance": 0.008676680736243725,
+                  "accuracy": 0.5068817818389493,
+                  "retention": NaN
+                },
+                {
+                  "layer": 32,
+                  "subspace": "window_11pct",
+                  "label": "city_continent",
+                  "start": 453,
+                  "retained_variance": 0.008676680736243725,
+                  "accuracy": 0.6210927089282314,
+                  "retention": -3.1731511523230412e-06
+                },
+                {
+                  "layer": 32,
+                  "subspace": "window_22pct",
+                  "label": "concept",
+                  "start": 906,
+                  "retained_variance": 0.0065993997268378735,
+                  "accuracy": 0.9697125452122597,
+                  "retention": 0.9412707192858643
+                },
+                {
+                  "layer": 32,
+                  "subspace": "window_22pct",
+                  "label": "concept_shuffled",
+                  "start": 906,
+                  "retained_variance": 0.0065993997268378735,
+                  "accuracy": 0.5254711593375214,
+                  "retention": NaN
+                },
+                {
+                  "layer": 32,
+                  "subspace": "window_22pct",
+                  "label": "pair_id_random",
+                  "start": 906,
+                  "retained_variance": 0.0065993997268378735,
+                  "accuracy": 0.49430801446792305,
+                  "retention": NaN
+                },
+                {
+                  "layer": 32,
+                  "subspace": "window_22pct",
+                  "label": "city_continent",
+                  "start": 906,
+                  "retained_variance": 0.0065993997268378735,
+                  "accuracy": 0.6210927089282314,
+                  "retention": -3.1731511523230412e-06
+                },
+                {
+                  "layer": 32,
+                  "subspace": "window_33pct",
+                  "label": "concept",
+                  "start": 1359,
+                  "retained_variance": 0.005233860574662685,
+                  "accuracy": 0.9619074814391777,
+                  "retention": 0.925629923512694
+                },
+                {
+                  "layer": 32,
+                  "subspace": "window_33pct",
+                  "label": "concept_shuffled",
+                  "start": 1359,
+                  "retained_variance": 0.005233860574662685,
+                  "accuracy": 0.5068817818389493,
+                  "retention": NaN
+                },
+                {
+                  "layer": 32,
+                  "subspace": "window_33pct",
+                  "label": "pair_id_random",
+                  "start": 1359,
+                  "retained_variance": 0.005233860574662685,
+                  "accuracy": 0.5138111555301732,
+                  "retention": NaN
+                },
+                {
+                  "layer": 32,
+                  "subspace": "window_33pct",
+                  "label": "city_continent",
+                  "start": 1359,
+                  "retained_variance": 0.005233860574662685,
+                  "accuracy": 0.6210927089282314,
+                  "retention": -3.1731511523230412e-06
+                },
+                {
+                  "layer": 32,
+                  "subspace": "window_44pct",
+                  "label": "concept",
+                  "start": 1812,
+                  "retained_variance": 0.004175554029643536,
+                  "accuracy": 0.913049685893775,
+                  "retention": 0.827722356800885
+                },
+                {
+                  "layer": 32,
+                  "subspace": "window_44pct",
+                  "label": "concept_shuffled",
+                  "start": 1812,
+                  "retained_variance": 0.004175554029643536,
+                  "accuracy": 0.4950790024747763,
+                  "retention": NaN
+                },
+                {
+                  "layer": 32,
+                  "subspace": "window_44pct",
+                  "label": "pair_id_random",
+                  "start": 1812,
+                  "retained_variance": 0.004175554029643536,
+                  "accuracy": 0.52827907862174,
+                  "retention": NaN
+                },
+                {
+                  "layer": 32,
+                  "subspace": "window_44pct",
+                  "label": "city_continent",
+                  "start": 1812,
+                  "retained_variance": 0.004175554029643536,
+                  "accuracy": 0.6240338853988197,
+                  "retention": 0.008961432160974657
+                },
+                {
+                  "layer": 32,
+                  "subspace": "window_56pct",
+                  "label": "concept",
+                  "start": 2264,
+                  "retained_variance": 0.003298884956166148,
+                  "accuracy": 0.9648296211688558,
+                  "retention": 0.9314856848570392
+                },
+                {
+                  "layer": 32,
+                  "subspace": "window_56pct",
+                  "label": "concept_shuffled",
+                  "start": 2264,
+                  "retained_variance": 0.003298884956166148,
+                  "accuracy": 0.5138301922710832,
+                  "retention": NaN
+                },
+                {
+                  "layer": 32,
+                  "subspace": "window_56pct",
+                  "label": "pair_id_random",
+                  "start": 2264,
+                  "retained_variance": 0.003298884956166148,
+                  "accuracy": 0.5107747953550352,
+                  "retention": NaN
+                },
+                {
+                  "layer": 32,
+                  "subspace": "window_56pct",
+                  "label": "city_continent",
+                  "start": 2264,
+                  "retained_variance": 0.003298884956166148,
+                  "accuracy": 0.6210927089282314,
+                  "retention": -3.1731511523230412e-06
+                },
+                {
+                  "layer": 32,
+                  "subspace": "window_67pct",
+                  "label": "concept",
+                  "start": 2717,
+                  "retained_variance": 0.0025401413440704346,
+                  "accuracy": 0.980449267085475,
+                  "retention": 0.9627863505445667
+                },
+                {
+                  "layer": 32,
+                  "subspace": "window_67pct",
+                  "label": "concept_shuffled",
+                  "start": 2717,
+                  "retained_variance": 0.0025401413440704346,
+                  "accuracy": 0.5097848848277174,
+                  "retention": NaN
+                },
+                {
+                  "layer": 32,
+                  "subspace": "window_67pct",
+                  "label": "pair_id_random",
+                  "start": 2717,
+                  "retained_variance": 0.0025401413440704346,
+                  "accuracy": 0.49804873405672945,
+                  "retention": NaN
+                },
+                {
+                  "layer": 32,
+                  "subspace": "window_67pct",
+                  "label": "city_continent",
+                  "start": 2717,
+                  "retained_variance": 0.0025401413440704346,
+                  "accuracy": 0.6210927089282314,
+                  "retention": -3.1731511523230412e-06
+                },
+                {
+                  "layer": 32,
+                  "subspace": "window_78pct",
+                  "label": "concept",
+                  "start": 3170,
+                  "retained_variance": 0.0018575962167233229,
+                  "accuracy": 0.9657909765848087,
+                  "retention": 0.9334121731169055
+                },
+                {
+                  "layer": 32,
+                  "subspace": "window_78pct",
+                  "label": "concept_shuffled",
+                  "start": 3170,
+                  "retained_variance": 0.0018575962167233229,
+                  "accuracy": 0.5108604606891299,
+                  "retention": NaN
+                },
+                {
+                  "layer": 32,
+                  "subspace": "window_78pct",
+                  "label": "pair_id_random",
+                  "start": 3170,
+                  "retained_variance": 0.0018575962167233229,
+                  "accuracy": 0.5087949743003998,
+                  "retention": NaN
+                },
+                {
+                  "layer": 32,
+                  "subspace": "window_78pct",
+                  "label": "city_continent",
+                  "start": 3170,
+                  "retained_variance": 0.0018575962167233229,
+                  "accuracy": 0.6210927089282314,
+                  "retention": -3.1731511523230412e-06
+                },
+                {
+                  "layer": 32,
+                  "subspace": "window_89pct",
+                  "label": "concept",
+                  "start": 3623,
+                  "retained_variance": 0.001197158358991146,
+                  "accuracy": 0.9648581762802209,
+                  "retention": 0.9315429072805997
+                },
+                {
+                  "layer": 32,
+                  "subspace": "window_89pct",
+                  "label": "concept_shuffled",
+                  "start": 3623,
+                  "retained_variance": 0.001197158358991146,
+                  "accuracy": 0.5088044926708547,
+                  "retention": NaN
+                },
+                {
+                  "layer": 32,
+                  "subspace": "window_89pct",
+                  "label": "pair_id_random",
+                  "start": 3623,
+                  "retained_variance": 0.001197158358991146,
+                  "accuracy": 0.4912145440700552,
+                  "retention": NaN
+                },
+                {
+                  "layer": 32,
+                  "subspace": "window_89pct",
+                  "label": "city_continent",
+                  "start": 3623,
+                  "retained_variance": 0.001197158358991146,
+                  "accuracy": 0.6240243670283647,
+                  "retention": 0.008932420493298015
+                },
+                {
+                  "layer": 32,
+                  "subspace": "bottom_k",
+                  "label": "concept",
+                  "start": 4076,
+                  "retained_variance": 0.00018177773745264858,
+                  "accuracy": 0.9403483723586523,
+                  "retention": 0.8824269937246078
+                },
+                {
+                  "layer": 32,
+                  "subspace": "bottom_k",
+                  "label": "concept_shuffled",
+                  "start": 4076,
+                  "retained_variance": 0.00018177773745264858,
+                  "accuracy": 0.519550732914525,
+                  "retention": NaN
+                },
+                {
+                  "layer": 32,
+                  "subspace": "bottom_k",
+                  "label": "pair_id_random",
+                  "start": 4076,
+                  "retained_variance": 0.00018177773745264858,
+                  "accuracy": 0.5098039215686274,
+                  "retention": NaN
+                },
+                {
+                  "layer": 32,
+                  "subspace": "bottom_k",
+                  "label": "city_continent",
+                  "start": 4076,
+                  "retained_variance": 0.00018177773745264858,
+                  "accuracy": 0.6259756329716353,
+                  "retention": 0.01487981236703936
+                }
+              ],
+              "difference_in_differences": {
+                "available": true,
+                "control": "city_continent",
+                "delta": 0.030127484619460063,
+                "ci95": [
+                  -0.004160439380027097,
+                  0.064253119565079
+                ],
+                "p_boot": 0.0834,
+                "n_tokens": 1024,
+                "verdict": "not concept-specific at this n: the quiet-tail advantage is the same size for the concept and for a label with no concept in it",
+                "retention_gap_concept_quiet_minus_loud": 0.045010130157170924,
+                "retention_gap_control_quiet_minus_loud": 0.01488264553771086
+              }
+            }
+          }
+        },
+        "length_bucket": {
+          "layer": 32,
+          "majority_rates": {
+            "concept": 0.5,
+            "concept_shuffled": 0.5,
+            "pair_id_random": 0.5,
+            "length_bucket": 0.5
+          },
+          "full_accuracy": {
+            "concept": 0.9990196078431373,
+            "concept_shuffled": 0.4991528650295069,
+            "pair_id_random": 0.5127831715210356,
+            "length_bucket": 0.8134113839710642
+          },
+          "headroom": {
+            "concept": 0.49901960784313726,
+            "concept_shuffled": -0.0008471349704931019,
+            "pair_id_random": 0.012783171521035586,
+            "length_bucket": 0.31341138397106416
+          },
+          "cells": [
+            {
+              "layer": 32,
+              "subspace": "top_k",
+              "label": "concept",
+              "start": 0,
+              "retained_variance": 0.08483313769102097,
+              "accuracy": 0.917894536455359,
+              "retention": 0.837431094664963
+            },
+            {
+              "layer": 32,
+              "subspace": "top_k",
+              "label": "concept_shuffled",
+              "start": 0,
+              "retained_variance": 0.08483313769102097,
+              "accuracy": 0.5019988577955454,
+              "retention": NaN
+            },
+            {
+              "layer": 32,
+              "subspace": "top_k",
+              "label": "pair_id_random",
+              "start": 0,
+              "retained_variance": 0.08483313769102097,
+              "accuracy": 0.4825623453264801,
+              "retention": NaN
+            },
+            {
+              "layer": 32,
+              "subspace": "top_k",
+              "label": "length_bucket",
+              "start": 0,
+              "retained_variance": 0.08483313769102097,
+              "accuracy": 0.6182181610508282,
+              "retention": 0.3771980441582897
+            },
+            {
+              "layer": 32,
+              "subspace": "window_11pct",
+              "label": "concept",
+              "start": 453,
+              "retained_variance": 0.008676680736243725,
+              "accuracy": 0.9326004188083001,
+              "retention": 0.8669006427985583
+            },
+            {
+              "layer": 32,
+              "subspace": "window_11pct",
+              "label": "concept_shuffled",
+              "start": 453,
+              "retained_variance": 0.008676680736243725,
+              "accuracy": 0.5302779364172853,
+              "retention": NaN
+            },
+            {
+              "layer": 32,
+              "subspace": "window_11pct",
+              "label": "pair_id_random",
+              "start": 453,
+              "retained_variance": 0.008676680736243725,
+              "accuracy": 0.5068817818389493,
+              "retention": NaN
+            },
+            {
+              "layer": 32,
+              "subspace": "window_11pct",
+              "label": "length_bucket",
+              "start": 453,
+              "retained_variance": 0.008676680736243725,
+              "accuracy": 0.5976965543498953,
+              "retention": 0.3117198651562548
+            },
+            {
+              "layer": 32,
+              "subspace": "window_22pct",
+              "label": "concept",
+              "start": 906,
+              "retained_variance": 0.0065993997268378735,
+              "accuracy": 0.9697125452122597,
+              "retention": 0.9412707192858643
+            },
+            {
+              "layer": 32,
+              "subspace": "window_22pct",
+              "label": "concept_shuffled",
+              "start": 906,
+              "retained_variance": 0.0065993997268378735,
+              "accuracy": 0.5254711593375214,
+              "retention": NaN
+            },
+            {
+              "layer": 32,
+              "subspace": "window_22pct",
+              "label": "pair_id_random",
+              "start": 906,
+              "retained_variance": 0.0065993997268378735,
+              "accuracy": 0.49430801446792305,
+              "retention": NaN
+            },
+            {
+              "layer": 32,
+              "subspace": "window_22pct",
+              "label": "length_bucket",
+              "start": 906,
+              "retained_variance": 0.0065993997268378735,
+              "accuracy": 0.6007329145250333,
+              "retention": 0.32140796306982106
+            },
+            {
+              "layer": 32,
+              "subspace": "window_33pct",
+              "label": "concept",
+              "start": 1359,
+              "retained_variance": 0.005233860574662685,
+              "accuracy": 0.9619074814391777,
+              "retention": 0.925629923512694
+            },
+            {
+              "layer": 32,
+              "subspace": "window_33pct",
+              "label": "concept_shuffled",
+              "start": 1359,
+              "retained_variance": 0.005233860574662685,
+              "accuracy": 0.5068817818389493,
+              "retention": NaN
+            },
+            {
+              "layer": 32,
+              "subspace": "window_33pct",
+              "label": "pair_id_random",
+              "start": 1359,
+              "retained_variance": 0.005233860574662685,
+              "accuracy": 0.5138111555301732,
+              "retention": NaN
+            },
+            {
+              "layer": 32,
+              "subspace": "window_33pct",
+              "label": "length_bucket",
+              "start": 1359,
+              "retained_variance": 0.005233860574662685,
+              "accuracy": 0.6308871121264039,
+              "retention": 0.4176207975217905
+            },
+            {
+              "layer": 32,
+              "subspace": "window_44pct",
+              "label": "concept",
+              "start": 1812,
+              "retained_variance": 0.004175554029643536,
+              "accuracy": 0.913049685893775,
+              "retention": 0.827722356800885
+            },
+            {
+              "layer": 32,
+              "subspace": "window_44pct",
+              "label": "concept_shuffled",
+              "start": 1812,
+              "retained_variance": 0.004175554029643536,
+              "accuracy": 0.4950790024747763,
+              "retention": NaN
+            },
+            {
+              "layer": 32,
+              "subspace": "window_44pct",
+              "label": "pair_id_random",
+              "start": 1812,
+              "retained_variance": 0.004175554029643536,
+              "accuracy": 0.52827907862174,
+              "retention": NaN
+            },
+            {
+              "layer": 32,
+              "subspace": "window_44pct",
+              "label": "length_bucket",
+              "start": 1812,
+              "retained_variance": 0.004175554029643536,
+              "accuracy": 0.5918332381496287,
+              "retention": 0.29301181401281606
+            },
+            {
+              "layer": 32,
+              "subspace": "window_56pct",
+              "label": "concept",
+              "start": 2264,
+              "retained_variance": 0.003298884956166148,
+              "accuracy": 0.9648296211688558,
+              "retention": 0.9314856848570392
+            },
+            {
+              "layer": 32,
+              "subspace": "window_56pct",
+              "label": "concept_shuffled",
+              "start": 2264,
+              "retained_variance": 0.003298884956166148,
+              "accuracy": 0.5138301922710832,
+              "retention": NaN
+            },
+            {
+              "layer": 32,
+              "subspace": "window_56pct",
+              "label": "pair_id_random",
+              "start": 2264,
+              "retained_variance": 0.003298884956166148,
+              "accuracy": 0.5107747953550352,
+              "retention": NaN
+            },
+            {
+              "layer": 32,
+              "subspace": "window_56pct",
+              "label": "length_bucket",
+              "start": 2264,
+              "retained_variance": 0.003298884956166148,
+              "accuracy": 0.6299352750809061,
+              "retention": 0.41458377623227116
+            },
+            {
+              "layer": 32,
+              "subspace": "window_67pct",
+              "label": "concept",
+              "start": 2717,
+              "retained_variance": 0.0025401413440704346,
+              "accuracy": 0.980449267085475,
+              "retention": 0.9627863505445667
+            },
+            {
+              "layer": 32,
+              "subspace": "window_67pct",
+              "label": "concept_shuffled",
+              "start": 2717,
+              "retained_variance": 0.0025401413440704346,
+              "accuracy": 0.5097848848277174,
+              "retention": NaN
+            },
+            {
+              "layer": 32,
+              "subspace": "window_67pct",
+              "label": "pair_id_random",
+              "start": 2717,
+              "retained_variance": 0.0025401413440704346,
+              "accuracy": 0.49804873405672945,
+              "retention": NaN
+            },
+            {
+              "layer": 32,
+              "subspace": "window_67pct",
+              "label": "length_bucket",
+              "start": 2717,
+              "retained_variance": 0.0025401413440704346,
+              "accuracy": 0.6054159527888825,
+              "retention": 0.3363501078142556
+            },
+            {
+              "layer": 32,
+              "subspace": "window_78pct",
+              "label": "concept",
+              "start": 3170,
+              "retained_variance": 0.0018575962167233229,
+              "accuracy": 0.9657909765848087,
+              "retention": 0.9334121731169055
+            },
+            {
+              "layer": 32,
+              "subspace": "window_78pct",
+              "label": "concept_shuffled",
+              "start": 3170,
+              "retained_variance": 0.0018575962167233229,
+              "accuracy": 0.5108604606891299,
+              "retention": NaN
+            },
+            {
+              "layer": 32,
+              "subspace": "window_78pct",
+              "label": "pair_id_random",
+              "start": 3170,
+              "retained_variance": 0.0018575962167233229,
+              "accuracy": 0.5087949743003998,
+              "retention": NaN
+            },
+            {
+              "layer": 32,
+              "subspace": "window_78pct",
+              "label": "length_bucket",
+              "start": 3170,
+              "retained_variance": 0.0018575962167233229,
+              "accuracy": 0.6494193794022463,
+              "retention": 0.47675160202872996
+            },
+            {
+              "layer": 32,
+              "subspace": "window_89pct",
+              "label": "concept",
+              "start": 3623,
+              "retained_variance": 0.001197158358991146,
+              "accuracy": 0.9648581762802209,
+              "retention": 0.9315429072805997
+            },
+            {
+              "layer": 32,
+              "subspace": "window_89pct",
+              "label": "concept_shuffled",
+              "start": 3623,
+              "retained_variance": 0.001197158358991146,
+              "accuracy": 0.5088044926708547,
+              "retention": NaN
+            },
+            {
+              "layer": 32,
+              "subspace": "window_89pct",
+              "label": "pair_id_random",
+              "start": 3623,
+              "retained_variance": 0.001197158358991146,
+              "accuracy": 0.4912145440700552,
+              "retention": NaN
+            },
+            {
+              "layer": 32,
+              "subspace": "window_89pct",
+              "label": "length_bucket",
+              "start": 3623,
+              "retained_variance": 0.001197158358991146,
+              "accuracy": 0.6142585189415571,
+              "retention": 0.3645640355938893
+            },
+            {
+              "layer": 32,
+              "subspace": "bottom_k",
+              "label": "concept",
+              "start": 4076,
+              "retained_variance": 0.00018177773745264858,
+              "accuracy": 0.9403483723586523,
+              "retention": 0.8824269937246078
+            },
+            {
+              "layer": 32,
+              "subspace": "bottom_k",
+              "label": "concept_shuffled",
+              "start": 4076,
+              "retained_variance": 0.00018177773745264858,
+              "accuracy": 0.519550732914525,
+              "retention": NaN
+            },
+            {
+              "layer": 32,
+              "subspace": "bottom_k",
+              "label": "pair_id_random",
+              "start": 4076,
+              "retained_variance": 0.00018177773745264858,
+              "accuracy": 0.5098039215686274,
+              "retention": NaN
+            },
+            {
+              "layer": 32,
+              "subspace": "bottom_k",
+              "label": "length_bucket",
+              "start": 4076,
+              "retained_variance": 0.00018177773745264858,
+              "accuracy": 0.6456691414429849,
+              "retention": 0.4647857381480243
+            }
+          ],
+          "floor_check": {
+            "shuffled_top_k": 0.5019988577955454,
+            "majority": 0.5,
+            "ok": true
+          },
+          "difference_in_differences": {
+            "available": true,
+            "control": "length_bucket",
+            "delta": -0.04223542440291654,
+            "ci95": [
+              -0.1560837512045347,
+              0.07190151375709476
+            ],
+            "p_boot": 0.4668,
+            "n_tokens": 1024,
+            "verdict": "not concept-specific at this n: the quiet-tail advantage is the same size for the concept and for a label with no concept in it",
+            "retention_gap_concept_quiet_minus_loud": 0.045010130157170924,
+            "retention_gap_control_quiet_minus_loud": 0.08724555456008747
+          },
+          "by_k": {
+            "0.005": {
+              "k": 20,
+              "cells": [
+                {
+                  "layer": 32,
+                  "subspace": "top_k",
+                  "label": "concept",
+                  "start": 0,
+                  "retained_variance": 0.08483313769102097,
+                  "accuracy": 0.917894536455359,
+                  "retention": 0.837431094664963
+                },
+                {
+                  "layer": 32,
+                  "subspace": "top_k",
+                  "label": "concept_shuffled",
+                  "start": 0,
+                  "retained_variance": 0.08483313769102097,
+                  "accuracy": 0.5019988577955454,
+                  "retention": NaN
+                },
+                {
+                  "layer": 32,
+                  "subspace": "top_k",
+                  "label": "pair_id_random",
+                  "start": 0,
+                  "retained_variance": 0.08483313769102097,
+                  "accuracy": 0.4825623453264801,
+                  "retention": NaN
+                },
+                {
+                  "layer": 32,
+                  "subspace": "top_k",
+                  "label": "length_bucket",
+                  "start": 0,
+                  "retained_variance": 0.08483313769102097,
+                  "accuracy": 0.6182181610508282,
+                  "retention": 0.3771980441582897
+                },
+                {
+                  "layer": 32,
+                  "subspace": "window_11pct",
+                  "label": "concept",
+                  "start": 453,
+                  "retained_variance": 0.008676680736243725,
+                  "accuracy": 0.9326004188083001,
+                  "retention": 0.8669006427985583
+                },
+                {
+                  "layer": 32,
+                  "subspace": "window_11pct",
+                  "label": "concept_shuffled",
+                  "start": 453,
+                  "retained_variance": 0.008676680736243725,
+                  "accuracy": 0.5302779364172853,
+                  "retention": NaN
+                },
+                {
+                  "layer": 32,
+                  "subspace": "window_11pct",
+                  "label": "pair_id_random",
+                  "start": 453,
+                  "retained_variance": 0.008676680736243725,
+                  "accuracy": 0.5068817818389493,
+                  "retention": NaN
+                },
+                {
+                  "layer": 32,
+                  "subspace": "window_11pct",
+                  "label": "length_bucket",
+                  "start": 453,
+                  "retained_variance": 0.008676680736243725,
+                  "accuracy": 0.5976965543498953,
+                  "retention": 0.3117198651562548
+                },
+                {
+                  "layer": 32,
+                  "subspace": "window_22pct",
+                  "label": "concept",
+                  "start": 906,
+                  "retained_variance": 0.0065993997268378735,
+                  "accuracy": 0.9697125452122597,
+                  "retention": 0.9412707192858643
+                },
+                {
+                  "layer": 32,
+                  "subspace": "window_22pct",
+                  "label": "concept_shuffled",
+                  "start": 906,
+                  "retained_variance": 0.0065993997268378735,
+                  "accuracy": 0.5254711593375214,
+                  "retention": NaN
+                },
+                {
+                  "layer": 32,
+                  "subspace": "window_22pct",
+                  "label": "pair_id_random",
+                  "start": 906,
+                  "retained_variance": 0.0065993997268378735,
+                  "accuracy": 0.49430801446792305,
+                  "retention": NaN
+                },
+                {
+                  "layer": 32,
+                  "subspace": "window_22pct",
+                  "label": "length_bucket",
+                  "start": 906,
+                  "retained_variance": 0.0065993997268378735,
+                  "accuracy": 0.6007329145250333,
+                  "retention": 0.32140796306982106
+                },
+                {
+                  "layer": 32,
+                  "subspace": "window_33pct",
+                  "label": "concept",
+                  "start": 1359,
+                  "retained_variance": 0.005233860574662685,
+                  "accuracy": 0.9619074814391777,
+                  "retention": 0.925629923512694
+                },
+                {
+                  "layer": 32,
+                  "subspace": "window_33pct",
+                  "label": "concept_shuffled",
+                  "start": 1359,
+                  "retained_variance": 0.005233860574662685,
+                  "accuracy": 0.5068817818389493,
+                  "retention": NaN
+                },
+                {
+                  "layer": 32,
+                  "subspace": "window_33pct",
+                  "label": "pair_id_random",
+                  "start": 1359,
+                  "retained_variance": 0.005233860574662685,
+                  "accuracy": 0.5138111555301732,
+                  "retention": NaN
+                },
+                {
+                  "layer": 32,
+                  "subspace": "window_33pct",
+                  "label": "length_bucket",
+                  "start": 1359,
+                  "retained_variance": 0.005233860574662685,
+                  "accuracy": 0.6308871121264039,
+                  "retention": 0.4176207975217905
+                },
+                {
+                  "layer": 32,
+                  "subspace": "window_44pct",
+                  "label": "concept",
+                  "start": 1812,
+                  "retained_variance": 0.004175554029643536,
+                  "accuracy": 0.913049685893775,
+                  "retention": 0.827722356800885
+                },
+                {
+                  "layer": 32,
+                  "subspace": "window_44pct",
+                  "label": "concept_shuffled",
+                  "start": 1812,
+                  "retained_variance": 0.004175554029643536,
+                  "accuracy": 0.4950790024747763,
+                  "retention": NaN
+                },
+                {
+                  "layer": 32,
+                  "subspace": "window_44pct",
+                  "label": "pair_id_random",
+                  "start": 1812,
+                  "retained_variance": 0.004175554029643536,
+                  "accuracy": 0.52827907862174,
+                  "retention": NaN
+                },
+                {
+                  "layer": 32,
+                  "subspace": "window_44pct",
+                  "label": "length_bucket",
+                  "start": 1812,
+                  "retained_variance": 0.004175554029643536,
+                  "accuracy": 0.5918332381496287,
+                  "retention": 0.29301181401281606
+                },
+                {
+                  "layer": 32,
+                  "subspace": "window_56pct",
+                  "label": "concept",
+                  "start": 2264,
+                  "retained_variance": 0.003298884956166148,
+                  "accuracy": 0.9648296211688558,
+                  "retention": 0.9314856848570392
+                },
+                {
+                  "layer": 32,
+                  "subspace": "window_56pct",
+                  "label": "concept_shuffled",
+                  "start": 2264,
+                  "retained_variance": 0.003298884956166148,
+                  "accuracy": 0.5138301922710832,
+                  "retention": NaN
+                },
+                {
+                  "layer": 32,
+                  "subspace": "window_56pct",
+                  "label": "pair_id_random",
+                  "start": 2264,
+                  "retained_variance": 0.003298884956166148,
+                  "accuracy": 0.5107747953550352,
+                  "retention": NaN
+                },
+                {
+                  "layer": 32,
+                  "subspace": "window_56pct",
+                  "label": "length_bucket",
+                  "start": 2264,
+                  "retained_variance": 0.003298884956166148,
+                  "accuracy": 0.6299352750809061,
+                  "retention": 0.41458377623227116
+                },
+                {
+                  "layer": 32,
+                  "subspace": "window_67pct",
+                  "label": "concept",
+                  "start": 2717,
+                  "retained_variance": 0.0025401413440704346,
+                  "accuracy": 0.980449267085475,
+                  "retention": 0.9627863505445667
+                },
+                {
+                  "layer": 32,
+                  "subspace": "window_67pct",
+                  "label": "concept_shuffled",
+                  "start": 2717,
+                  "retained_variance": 0.0025401413440704346,
+                  "accuracy": 0.5097848848277174,
+                  "retention": NaN
+                },
+                {
+                  "layer": 32,
+                  "subspace": "window_67pct",
+                  "label": "pair_id_random",
+                  "start": 2717,
+                  "retained_variance": 0.0025401413440704346,
+                  "accuracy": 0.49804873405672945,
+                  "retention": NaN
+                },
+                {
+                  "layer": 32,
+                  "subspace": "window_67pct",
+                  "label": "length_bucket",
+                  "start": 2717,
+                  "retained_variance": 0.0025401413440704346,
+                  "accuracy": 0.6054159527888825,
+                  "retention": 0.3363501078142556
+                },
+                {
+                  "layer": 32,
+                  "subspace": "window_78pct",
+                  "label": "concept",
+                  "start": 3170,
+                  "retained_variance": 0.0018575962167233229,
+                  "accuracy": 0.9657909765848087,
+                  "retention": 0.9334121731169055
+                },
+                {
+                  "layer": 32,
+                  "subspace": "window_78pct",
+                  "label": "concept_shuffled",
+                  "start": 3170,
+                  "retained_variance": 0.0018575962167233229,
+                  "accuracy": 0.5108604606891299,
+                  "retention": NaN
+                },
+                {
+                  "layer": 32,
+                  "subspace": "window_78pct",
+                  "label": "pair_id_random",
+                  "start": 3170,
+                  "retained_variance": 0.0018575962167233229,
+                  "accuracy": 0.5087949743003998,
+                  "retention": NaN
+                },
+                {
+                  "layer": 32,
+                  "subspace": "window_78pct",
+                  "label": "length_bucket",
+                  "start": 3170,
+                  "retained_variance": 0.0018575962167233229,
+                  "accuracy": 0.6494193794022463,
+                  "retention": 0.47675160202872996
+                },
+                {
+                  "layer": 32,
+                  "subspace": "window_89pct",
+                  "label": "concept",
+                  "start": 3623,
+                  "retained_variance": 0.001197158358991146,
+                  "accuracy": 0.9648581762802209,
+                  "retention": 0.9315429072805997
+                },
+                {
+                  "layer": 32,
+                  "subspace": "window_89pct",
+                  "label": "concept_shuffled",
+                  "start": 3623,
+                  "retained_variance": 0.001197158358991146,
+                  "accuracy": 0.5088044926708547,
+                  "retention": NaN
+                },
+                {
+                  "layer": 32,
+                  "subspace": "window_89pct",
+                  "label": "pair_id_random",
+                  "start": 3623,
+                  "retained_variance": 0.001197158358991146,
+                  "accuracy": 0.4912145440700552,
+                  "retention": NaN
+                },
+                {
+                  "layer": 32,
+                  "subspace": "window_89pct",
+                  "label": "length_bucket",
+                  "start": 3623,
+                  "retained_variance": 0.001197158358991146,
+                  "accuracy": 0.6142585189415571,
+                  "retention": 0.3645640355938893
+                },
+                {
+                  "layer": 32,
+                  "subspace": "bottom_k",
+                  "label": "concept",
+                  "start": 4076,
+                  "retained_variance": 0.00018177773745264858,
+                  "accuracy": 0.9403483723586523,
+                  "retention": 0.8824269937246078
+                },
+                {
+                  "layer": 32,
+                  "subspace": "bottom_k",
+                  "label": "concept_shuffled",
+                  "start": 4076,
+                  "retained_variance": 0.00018177773745264858,
+                  "accuracy": 0.519550732914525,
+                  "retention": NaN
+                },
+                {
+                  "layer": 32,
+                  "subspace": "bottom_k",
+                  "label": "pair_id_random",
+                  "start": 4076,
+                  "retained_variance": 0.00018177773745264858,
+                  "accuracy": 0.5098039215686274,
+                  "retention": NaN
+                },
+                {
+                  "layer": 32,
+                  "subspace": "bottom_k",
+                  "label": "length_bucket",
+                  "start": 4076,
+                  "retained_variance": 0.00018177773745264858,
+                  "accuracy": 0.6456691414429849,
+                  "retention": 0.4647857381480243
+                }
+              ],
+              "difference_in_differences": {
+                "available": true,
+                "control": "length_bucket",
+                "delta": -0.04223542440291654,
+                "ci95": [
+                  -0.1560837512045347,
+                  0.07190151375709476
+                ],
+                "p_boot": 0.4668,
+                "n_tokens": 1024,
+                "verdict": "not concept-specific at this n: the quiet-tail advantage is the same size for the concept and for a label with no concept in it",
+                "retention_gap_concept_quiet_minus_loud": 0.045010130157170924,
+                "retention_gap_control_quiet_minus_loud": 0.08724555456008747
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
