@@ -1,0 +1,43 @@
+{
+  "title": "Word-level specificity of spectral anti-concentration: pre-registration",
+  "status": "DRAFT until scripts/freeze_prereg.py --prereg prereg/word_specificity_prereg.json has written word_specificity_prereg.lock.json and both files are committed. Edit only before freezing.",
+  "relation_to_thesis": "Added after the two-tail results were known. It tests a question those results left open (whether the published word-level placement is concept-specific) and does not change anything frozen in two_tail_prereg.json. It is reported as a pre-registered addendum, frozen before any word-specificity output was produced.",
+
+  "claim_tested": "Word-pair concept directions (difference of means, target minus base) sit further in the low-variance tail of the unembedding spectrum than the difference of means of two arbitrary groups of words of the same size.",
+
+  "models": [
+    "Qwen2.5-0.5B", "Qwen2.5-3B", "Qwen2.5-7B", "Qwen3-4B",
+    "Mistral-7B-v0.3", "Llama-3.2-3B", "Llama-3.1-8B", "gemma-2-2b"
+  ],
+  "gemma_policy": "Same as two_tail_prereg.json: every test is reported with and without gemma-2-2b, and a conclusion is called robust only if it holds both ways.",
+  "concepts": "All 42 files in data/word_pairs/ with at least 4 pairs. No concept is selected or dropped after seeing results.",
+  "extraction": "Context-free, one activation per word, mean over sequence, max_length 16, via behavioral.layerwise_activations (the extraction phase 0 verified against the published one).",
+
+  "primary": {
+    "basis": "published language subset (results/<model>/en-fr/cov_src.pt); no fallback to full vocabulary",
+    "layer": "final (final norm applied)",
+    "null": "lexical: 2n words drawn without replacement from the pooled vocabulary of all concept files, excluding the concept's own words, split at random into two groups of n",
+    "n_null": 1000,
+    "seed": 0,
+    "statistic": "gap = Gini(real) - mean Gini(lexical null), averaged over concepts within a model",
+    "test": "one-sample t-test of the per-model mean gap against 0 across models, two-sided, alpha 0.05; Wilcoxon signed-rank reported alongside",
+    "equivalence": "TOST with bounds +/-0.082 Gini units (the placement SESOI already used in the thesis)"
+  },
+
+  "decision_rule": {
+    "specific": "mean gap < 0 with the 95% CI excluding 0, in both the all-model and without-gemma versions",
+    "not_specific": "TOST equivalent within +/-0.082 in both versions",
+    "inconclusive": "neither; report the interval and say the study cannot decide at n = 8"
+  },
+
+  "secondary_reported_not_primary": [
+    "repartition null (the concept's own 2n words, random split)",
+    "isotropic gap (the published comparison), for reference",
+    "mid layer (floor(L/2), no final norm)",
+    "full-vocabulary basis",
+    "per-concept-group means (Verb Morphology, Semantic, Semantic expanded, Grammatical, Language Pairs): exploratory, uncorrected",
+    "per-concept permutation p-values: descriptive, compared with the 5% expected by chance"
+  ],
+
+  "multiplicity": "One primary test. Secondary rows are reported in full and not used for the conclusion."
+}
