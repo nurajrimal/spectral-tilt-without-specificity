@@ -1,0 +1,51 @@
+{
+  "title": "Semantic (continent) control for the quiet tail: pre-registration",
+  "status": "DRAFT until scripts/freeze_prereg.py --prereg prereg/continent_control_prereg.json has written continent_control_prereg.lock.json and both files are committed. Edit only before freezing.",
+  "relation_to_thesis": "Added after the two-tail and word-level results were known, to address the thesis's stated main limitation (the pre-registered quiet-tail control is surface length, not semantic). Changes nothing frozen in two_tail_prereg.json or word_specificity_prereg.json. Frozen before any continent-control output was produced.",
+
+  "claim_tested": "Truth is recovered better from the low-variance tail than from the high-variance head, MORE than a semantic label with no truth content is.",
+
+  "models": [
+    "Qwen2.5-0.5B", "Qwen2.5-3B", "Qwen2.5-7B", "Qwen3-4B",
+    "Mistral-7B-v0.3", "Llama-3.2-3B", "Llama-3.1-8B", "gemma-2-2b"
+  ],
+  "gemma_policy": "Every test reported with and without gemma-2-2b; a conclusion is robust only if it holds both ways.",
+
+  "data": {
+    "primary": "truth_cities, first 512 pairs of data/statements/truth_cities.jsonl (the pairs used in the thesis)",
+    "replication": "truth_cities_negated, first 512 pairs",
+    "continent_map": "data/country_continent.json, UN M49 regions. Oceania (Australia, one statement) folded into Asia so no class has a single member. Classes: Africa, Americas, Asia, Europe."
+  },
+
+  "labels": {
+    "named_continent": "PRIMARY CONTROL. Continent of the country named in each statement, parsed from the text (' is in X.' / ' is not in X.'). Varies within a pair whenever the false country is on another continent (312 of 512 pairs). Predicts truth at 0.514 on these pairs (Cramer's V 0.049).",
+    "city_continent": "SECONDARY CONTROL. Continent of the city's correct country (the pair's 'topic' field); identical for both members of a pair, so independent of truth by construction.",
+    "length_bucket": "REFERENCE. The thesis's pre-registered control, re-run on the same activations as a reproduction check."
+  },
+
+  "method": "Identical to the thesis quiet tail: test_concept_subspace.run_cell with the published language-subset basis, last-token pooling, k = 0.005 d, 10 windows, multinomial logistic regression (L-BFGS, C = 1, standardised, five pair-grouped folds), retention against the majority rate, Delta = tilt(concept) - tilt(control) with the quiet-tail sign, paired bootstrap over items with 10,000 resamples. Cached activations from the thesis runs are reused.",
+
+  "primary": {
+    "cell": "truth_cities, mid layer (hidden state floor(L/2)), control named_continent",
+    "unit": "per-model Delta",
+    "test": "one-sample t-test of per-model Delta against 0 across models, two-sided, alpha 0.05; Wilcoxon signed-rank reported alongside",
+    "equivalence": "TOST with bounds +/-0.10 retention units (the thesis quiet-tail bound)"
+  },
+
+  "usable_cell_rule": "Same as the thesis: concept full-dimensional headroom >= 0.10 and the shuffled-label floor check passes; additionally the control's headroom must exceed 0.02 (retention guard) and Delta must be computable. pair_id_random full-dimensional accuracy is reported for every cell as the leakage detector.",
+
+  "decision_rule": {
+    "specific": "95% CI of the mean Delta above 0 in both the all-model and without-gemma versions",
+    "not_specific": "90% CI inside +/-0.10 in both versions",
+    "inconclusive": "neither; report the interval"
+  },
+
+  "secondary_reported_not_primary": [
+    "city_continent control",
+    "final layer",
+    "truth_cities_negated replication",
+    "length_bucket on the same activations, as a check against the thesis numbers"
+  ],
+
+  "multiplicity": "One primary test. Secondary rows are reported in full and not used for the conclusion."
+}
