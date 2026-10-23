@@ -1,0 +1,52 @@
+{
+  "title": "Causal ablation test of quiet-tail specificity: pre-registration",
+  "status": "DRAFT until scripts/freeze_prereg.py --prereg prereg/causal_ablation_prereg.json has written causal_ablation_prereg.lock.json and both files are committed. Edit only before freezing.",
+  "relation_to_thesis": "Addresses the stated limitation that probes measure decodability, not use. Added after all probe results were known; changes nothing frozen in earlier pre-registrations. Frozen before any ablation output was produced.",
+
+  "claim_tested": "Removing the low-variance tail of the published spectral basis from the residual stream harms the model's use of factual knowledge MORE, relative to removing the high-variance head, than it harms ordinary next-token prediction.",
+
+  "models": ["Qwen2.5-0.5B", "Qwen2.5-3B", "Qwen2.5-7B", "Qwen3-4B",
+             "Mistral-7B-v0.3", "Llama-3.2-3B", "Llama-3.1-8B", "gemma-2-2b"],
+  "gemma_policy": "Every test reported with and without gemma-2-2b; a conclusion is robust only if it holds both ways.",
+
+  "intervention": "At hidden state i (the output of decoder layer i-1; the vector the probes read), every token's vector h is replaced by h - U U^T h, with U the orthonormal eigenvectors of the published language-subset basis (results/<model>/en-fr/cov_src.pt) for subspace S: head = top-k, tail = bottom-k, random = k eigenvectors drawn uniformly (3 seeds, seed 0; reference only). Applied to all positions.",
+
+  "behaviours": {
+    "truth": "truth_cities, first 512 pairs. Prompt 'The city of {city} is in'; the model is correct on a pair when log p(' {correct country}') > log p(' {wrong country}'), summing over continuation tokens. Pairwise accuracy, chance 0.5. Wrong country parsed from the pair's false statement.",
+    "general": "Top-1 next-token accuracy on data/heldout_ppl_passages.txt (10 passages, each truncated to 256 tokens)."
+  },
+
+  "statistic": {
+    "retention": "R_truth(S) = (acc_truth(S) - 0.5) / (acc_truth(none) - 0.5); R_gen(S) = acc_gen(S) / acc_gen(none)",
+    "reliance": "reliance(b) = R_b(remove head) - R_b(remove tail)",
+    "delta": "Delta = reliance(truth) - reliance(general); > 0 means the model relies on the tail more for truth than for general prediction",
+    "per_model_ci": "bootstrap, 2000 resamples, pairs resampled for truth and whole passages for general, denominators held at point estimates"
+  },
+
+  "primary": {
+    "cell": "mid layer (hidden state floor(n_hidden_states / 2)), k = 0.10 d",
+    "test": "one-sample t-test of per-model Delta against 0 across models, two-sided, alpha 0.05; Wilcoxon reported alongside",
+    "equivalence": "TOST with bounds +/-0.10 retention units"
+  },
+
+  "gates": {
+    "competence": "baseline truth accuracy >= 0.60",
+    "sensitivity": "at that k, removing the head or the tail must reduce R_truth or R_gen by at least 0.10; otherwise Delta is 0 by construction and the cell is excluded",
+    "validity": "the primary test is valid only if at least 6 of 8 models pass both gates; otherwise 'not testable'"
+  },
+
+  "decision_rule": {
+    "specific": "95% CI of mean Delta above 0 in both versions (all passing models, and without gemma-2-2b)",
+    "not_specific": "90% CI inside +/-0.10 in both versions, or 95% CI below 0 in both",
+    "inconclusive": "anything else"
+  },
+
+  "secondary_reported_not_primary": [
+    "final layer (output of the last decoder layer, before the final norm)",
+    "k = 0.02, 0.05, 0.20 of d",
+    "random-subspace retentions, as a reference for how much any k directions matter",
+    "mean log-probability margin (correct minus wrong) under each condition"
+  ],
+
+  "multiplicity": "One primary test. Secondary rows are reported in full and not used for the conclusion."
+}
