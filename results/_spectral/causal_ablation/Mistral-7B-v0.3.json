@@ -1,0 +1,565 @@
+{
+  "model_name": "Mistral-7B-v0.3",
+  "basis": "cov:/home/nurimal/spectral-anti-concentration-thesis/results/Mistral-7B-v0.3/en-fr/cov_src.pt",
+  "d": 4096,
+  "n_hidden_states": 33,
+  "n_pairs": 512,
+  "n_passages": 10,
+  "tokenizer_boundary_mismatches": 0,
+  "k_fracs": [
+    0.02,
+    0.05,
+    0.1,
+    0.2
+  ],
+  "primary": {
+    "layer": "mid",
+    "k_frac": 0.1
+  },
+  "written_utc": "2026-10-23T03:45:00.075625+00:00",
+  "argv": [
+    "scripts/causal_ablation.py",
+    "run",
+    "--models",
+    "Qwen/Qwen2.5-0.5B",
+    "Qwen/Qwen2.5-3B",
+    "Qwen/Qwen2.5-7B",
+    "Qwen/Qwen3-4B",
+    "mistralai/Mistral-7B-v0.3",
+    "meta-llama/Llama-3.2-3B",
+    "meta-llama/Llama-3.1-8B",
+    "google/gemma-2-2b",
+    "--skip-existing"
+  ],
+  "by_layer": {
+    "mid": {
+      "hidden_state": 16,
+      "by_k": {
+        "0.02": {
+          "k": 82,
+          "conditions": {
+            "head": {
+              "acc_truth": 1.0,
+              "acc_gen": 0.6656362699639361,
+              "R_truth": 1.0,
+              "R_gen": 0.9634601043997016,
+              "margin_mean": 8.917650624876842
+            },
+            "tail": {
+              "acc_truth": 0.806640625,
+              "acc_gen": 0.11128284389489954,
+              "R_truth": 0.61328125,
+              "R_gen": 0.1610738255033557,
+              "margin_mean": 1.9771189838647842
+            },
+            "random0": {
+              "acc_truth": 1.0,
+              "acc_gen": 0.6836682122617208,
+              "R_truth": 1.0,
+              "R_gen": 0.9895600298284862,
+              "margin_mean": 9.165122336242348
+            },
+            "random1": {
+              "acc_truth": 1.0,
+              "acc_gen": 0.6831530139103554,
+              "R_truth": 1.0,
+              "R_gen": 0.988814317673378,
+              "margin_mean": 9.041132210288197
+            },
+            "random2": {
+              "acc_truth": 1.0,
+              "acc_gen": 0.6852138073158166,
+              "R_truth": 1.0,
+              "R_gen": 0.9917971662938107,
+              "margin_mean": 9.123157914960757
+            },
+            "random_mean": {
+              "acc_truth": 1.0,
+              "acc_gen": 0.6840116778292976,
+              "R_truth": 1.0,
+              "R_gen": 0.990057171265225,
+              "margin_mean": 9.109804153830433
+            }
+          },
+          "difference_in_differences": {
+            "available": true,
+            "delta": -0.41566752889634606,
+            "ci95": [
+              -0.49719324105864177,
+              -0.33053922423811893
+            ],
+            "reliance_truth": 0.38671875,
+            "reliance_gen": 0.8023862788963461,
+            "n_boot": 2000
+          },
+          "gates": {
+            "ok": true,
+            "baseline_truth_acc": 1.0,
+            "max_cost": 0.8389261744966443,
+            "reasons": []
+          }
+        },
+        "0.05": {
+          "k": 205,
+          "conditions": {
+            "head": {
+              "acc_truth": 1.0,
+              "acc_gen": 0.6470891293147862,
+              "R_truth": 1.0,
+              "R_gen": 0.9366144668158092,
+              "margin_mean": 8.69547621323727
+            },
+            "tail": {
+              "acc_truth": 0.794921875,
+              "acc_gen": 0.0005151983513652757,
+              "R_truth": 0.58984375,
+              "R_gen": 0.0007457121551081283,
+              "margin_mean": 0.7554734293371439
+            },
+            "random0": {
+              "acc_truth": 1.0,
+              "acc_gen": 0.6676970633693973,
+              "R_truth": 1.0,
+              "R_gen": 0.9664429530201343,
+              "margin_mean": 8.741527618840337
+            },
+            "random1": {
+              "acc_truth": 1.0,
+              "acc_gen": 0.678516228748068,
+              "R_truth": 1.0,
+              "R_gen": 0.982102908277405,
+              "margin_mean": 9.116358168656006
+            },
+            "random2": {
+              "acc_truth": 1.0,
+              "acc_gen": 0.678516228748068,
+              "R_truth": 1.0,
+              "R_gen": 0.982102908277405,
+              "margin_mean": 8.809187373146415
+            },
+            "random_mean": {
+              "acc_truth": 1.0,
+              "acc_gen": 0.6749098402885112,
+              "R_truth": 1.0,
+              "R_gen": 0.9768829231916482,
+              "margin_mean": 8.88902438688092
+            }
+          },
+          "difference_in_differences": {
+            "available": true,
+            "delta": -0.5257125046607011,
+            "ci95": [
+              -0.5993199350564883,
+              -0.44221401735001903
+            ],
+            "reliance_truth": 0.41015625,
+            "reliance_gen": 0.9358687546607011,
+            "n_boot": 2000
+          },
+          "gates": {
+            "ok": true,
+            "baseline_truth_acc": 1.0,
+            "max_cost": 0.9992542878448919,
+            "reasons": []
+          }
+        },
+        "0.1": {
+          "k": 410,
+          "conditions": {
+            "head": {
+              "acc_truth": 1.0,
+              "acc_gen": 0.631633178773828,
+              "R_truth": 1.0,
+              "R_gen": 0.9142431021625653,
+              "margin_mean": 8.429566578939557
+            },
+            "tail": {
+              "acc_truth": 0.77734375,
+              "acc_gen": 0.0,
+              "R_truth": 0.5546875,
+              "R_gen": 0.0,
+              "margin_mean": 0.584621861577034
+            },
+            "random0": {
+              "acc_truth": 1.0,
+              "acc_gen": 0.6589386913961875,
+              "R_truth": 1.0,
+              "R_gen": 0.9537658463832961,
+              "margin_mean": 8.666767579969019
+            },
+            "random1": {
+              "acc_truth": 1.0,
+              "acc_gen": 0.6537867078825348,
+              "R_truth": 1.0,
+              "R_gen": 0.9463087248322147,
+              "margin_mean": 8.285082474118099
+            },
+            "random2": {
+              "acc_truth": 1.0,
+              "acc_gen": 0.6439979392065945,
+              "R_truth": 1.0,
+              "R_gen": 0.9321401938851603,
+              "margin_mean": 8.750514298211783
+            },
+            "random_mean": {
+              "acc_truth": 1.0,
+              "acc_gen": 0.652241112828439,
+              "R_truth": 1.0,
+              "R_gen": 0.9440715883668904,
+              "margin_mean": 8.567454784099633
+            }
+          },
+          "difference_in_differences": {
+            "available": true,
+            "delta": -0.4689306021625653,
+            "ci95": [
+              -0.5457761324451912,
+              -0.3828083256856625
+            ],
+            "reliance_truth": 0.4453125,
+            "reliance_gen": 0.9142431021625653,
+            "n_boot": 2000
+          },
+          "gates": {
+            "ok": true,
+            "baseline_truth_acc": 1.0,
+            "max_cost": 1.0,
+            "reasons": []
+          }
+        },
+        "0.2": {
+          "k": 819,
+          "conditions": {
+            "head": {
+              "acc_truth": 0.994140625,
+              "acc_gen": 0.6017516743946419,
+              "R_truth": 0.98828125,
+              "R_gen": 0.8709917971662938,
+              "margin_mean": 7.259355441434309
+            },
+            "tail": {
+              "acc_truth": 0.71875,
+              "acc_gen": 0.0,
+              "R_truth": 0.4375,
+              "R_gen": 0.0,
+              "margin_mean": 0.4025794379413128
+            },
+            "random0": {
+              "acc_truth": 0.806640625,
+              "acc_gen": 0.4868624420401855,
+              "R_truth": 0.61328125,
+              "R_gen": 0.7046979865771812,
+              "margin_mean": 2.9077685456722975
+            },
+            "random1": {
+              "acc_truth": 1.0,
+              "acc_gen": 0.5965996908809892,
+              "R_truth": 1.0,
+              "R_gen": 0.8635346756152126,
+              "margin_mean": 8.987381504382938
+            },
+            "random2": {
+              "acc_truth": 0.994140625,
+              "acc_gen": 0.5909325090159712,
+              "R_truth": 0.98828125,
+              "R_gen": 0.8553318419090231,
+              "margin_mean": 7.082028598058969
+            },
+            "random_mean": {
+              "acc_truth": 0.93359375,
+              "acc_gen": 0.5581315473123819,
+              "R_truth": 0.8671875,
+              "R_gen": 0.8078548347004723,
+              "margin_mean": 6.325726216038068
+            }
+          },
+          "difference_in_differences": {
+            "available": true,
+            "delta": -0.3202105471662938,
+            "ci95": [
+              -0.40083205462705557,
+              -0.23187838487055246
+            ],
+            "reliance_truth": 0.55078125,
+            "reliance_gen": 0.8709917971662938,
+            "n_boot": 2000
+          },
+          "gates": {
+            "ok": true,
+            "baseline_truth_acc": 1.0,
+            "max_cost": 1.0,
+            "reasons": []
+          }
+        }
+      }
+    },
+    "final": {
+      "hidden_state": 32,
+      "by_k": {
+        "0.02": {
+          "k": 82,
+          "conditions": {
+            "head": {
+              "acc_truth": 0.97265625,
+              "acc_gen": 0.4688304997424008,
+              "R_truth": 0.9453125,
+              "R_gen": 0.6785980611483967,
+              "margin_mean": 9.650347414746648
+            },
+            "tail": {
+              "acc_truth": 1.0,
+              "acc_gen": 0.6630602782071098,
+              "R_truth": 1.0,
+              "R_gen": 0.9597315436241611,
+              "margin_mean": 9.488201916916296
+            },
+            "random0": {
+              "acc_truth": 1.0,
+              "acc_gen": 0.6831530139103554,
+              "R_truth": 1.0,
+              "R_gen": 0.988814317673378,
+              "margin_mean": 9.08604433061555
+            },
+            "random1": {
+              "acc_truth": 1.0,
+              "acc_gen": 0.6903657908294694,
+              "R_truth": 1.0,
+              "R_gen": 0.9992542878448919,
+              "margin_mean": 9.050241452874616
+            },
+            "random2": {
+              "acc_truth": 1.0,
+              "acc_gen": 0.6950025759917569,
+              "R_truth": 1.0,
+              "R_gen": 1.005965697240865,
+              "margin_mean": 8.983593143057078
+            },
+            "random_mean": {
+              "acc_truth": 1.0,
+              "acc_gen": 0.6895071269105273,
+              "R_truth": 1.0,
+              "R_gen": 0.9980114342530451,
+              "margin_mean": 9.039959642182415
+            }
+          },
+          "difference_in_differences": {
+            "available": true,
+            "delta": 0.22644598247576442,
+            "ci95": [
+              0.18663297439895524,
+              0.2641695049904615
+            ],
+            "reliance_truth": -0.0546875,
+            "reliance_gen": -0.2811334824757644,
+            "n_boot": 2000
+          },
+          "gates": {
+            "ok": true,
+            "baseline_truth_acc": 1.0,
+            "max_cost": 0.3214019388516033,
+            "reasons": []
+          }
+        },
+        "0.05": {
+          "k": 205,
+          "conditions": {
+            "head": {
+              "acc_truth": 0.97265625,
+              "acc_gen": 0.46470891293147865,
+              "R_truth": 0.9453125,
+              "R_gen": 0.6726323639075317,
+              "margin_mean": 8.590714029036462
+            },
+            "tail": {
+              "acc_truth": 1.0,
+              "acc_gen": 0.6300875837197321,
+              "R_truth": 1.0,
+              "R_gen": 0.9120059656972408,
+              "margin_mean": 9.539189660688862
+            },
+            "random0": {
+              "acc_truth": 1.0,
+              "acc_gen": 0.6893353941267388,
+              "R_truth": 1.0,
+              "R_gen": 0.9977628635346757,
+              "margin_mean": 8.905481658643112
+            },
+            "random1": {
+              "acc_truth": 1.0,
+              "acc_gen": 0.678516228748068,
+              "R_truth": 1.0,
+              "R_gen": 0.982102908277405,
+              "margin_mean": 9.014078096020967
+            },
+            "random2": {
+              "acc_truth": 1.0,
+              "acc_gen": 0.6826378155589902,
+              "R_truth": 1.0,
+              "R_gen": 0.9880686055182699,
+              "margin_mean": 8.917761787772179
+            },
+            "random_mean": {
+              "acc_truth": 1.0,
+              "acc_gen": 0.6834964794779324,
+              "R_truth": 1.0,
+              "R_gen": 0.9893114591101169,
+              "margin_mean": 8.945773847478753
+            }
+          },
+          "difference_in_differences": {
+            "available": true,
+            "delta": 0.18468610178970907,
+            "ci95": [
+              0.14683284544172825,
+              0.2225129305816287
+            ],
+            "reliance_truth": -0.0546875,
+            "reliance_gen": -0.23937360178970907,
+            "n_boot": 2000
+          },
+          "gates": {
+            "ok": true,
+            "baseline_truth_acc": 1.0,
+            "max_cost": 0.32736763609246833,
+            "reasons": []
+          }
+        },
+        "0.1": {
+          "k": 410,
+          "conditions": {
+            "head": {
+              "acc_truth": 0.95703125,
+              "acc_gen": 0.4574961360123648,
+              "R_truth": 0.9140625,
+              "R_gen": 0.6621923937360179,
+              "margin_mean": 7.514641877496615
+            },
+            "tail": {
+              "acc_truth": 0.9921875,
+              "acc_gen": 0.5873261205564142,
+              "R_truth": 0.984375,
+              "R_gen": 0.8501118568232662,
+              "margin_mean": 9.571497081546113
+            },
+            "random0": {
+              "acc_truth": 1.0,
+              "acc_gen": 0.6780010303967027,
+              "R_truth": 1.0,
+              "R_gen": 0.9813571961222967,
+              "margin_mean": 8.731262842891738
+            },
+            "random1": {
+              "acc_truth": 1.0,
+              "acc_gen": 0.6764554353426069,
+              "R_truth": 1.0,
+              "R_gen": 0.9791200596569724,
+              "margin_mean": 8.86965503776446
+            },
+            "random2": {
+              "acc_truth": 0.96484375,
+              "acc_gen": 0.4657393096342092,
+              "R_truth": 0.9296875,
+              "R_gen": 0.674123788217748,
+              "margin_mean": 9.108464422897669
+            },
+            "random_mean": {
+              "acc_truth": 0.98828125,
+              "acc_gen": 0.6067319251245062,
+              "R_truth": 0.9765625,
+              "R_gen": 0.8782003479990056,
+              "margin_mean": 8.903127434517955
+            }
+          },
+          "difference_in_differences": {
+            "available": true,
+            "delta": 0.11760696308724827,
+            "ci95": [
+              0.07710198444308461,
+              0.15707327425172107
+            ],
+            "reliance_truth": -0.0703125,
+            "reliance_gen": -0.18791946308724827,
+            "n_boot": 2000
+          },
+          "gates": {
+            "ok": true,
+            "baseline_truth_acc": 1.0,
+            "max_cost": 0.3378076062639821,
+            "reasons": []
+          }
+        },
+        "0.2": {
+          "k": 819,
+          "conditions": {
+            "head": {
+              "acc_truth": 0.912109375,
+              "acc_gen": 0.4039155074703761,
+              "R_truth": 0.82421875,
+              "R_gen": 0.5846383296047726,
+              "margin_mean": 5.9592364254640415
+            },
+            "tail": {
+              "acc_truth": 0.990234375,
+              "acc_gen": 0.5404430705821741,
+              "R_truth": 0.98046875,
+              "R_gen": 0.7822520507084265,
+              "margin_mean": 9.55544023856055
+            },
+            "random0": {
+              "acc_truth": 1.0,
+              "acc_gen": 0.6378155589902113,
+              "R_truth": 1.0,
+              "R_gen": 0.9231916480238628,
+              "margin_mean": 8.535109739284962
+            },
+            "random1": {
+              "acc_truth": 0.96484375,
+              "acc_gen": 0.45801133436373004,
+              "R_truth": 0.9296875,
+              "R_gen": 0.662938105891126,
+              "margin_mean": 8.929119371809065
+            },
+            "random2": {
+              "acc_truth": 1.0,
+              "acc_gen": 0.6573930963420918,
+              "R_truth": 1.0,
+              "R_gen": 0.9515287099179718,
+              "margin_mean": 8.420778763014823
+            },
+            "random_mean": {
+              "acc_truth": 0.98828125,
+              "acc_gen": 0.584406663232011,
+              "R_truth": 0.9765625,
+              "R_gen": 0.8458861546109868,
+              "margin_mean": 8.628335958036283
+            }
+          },
+          "difference_in_differences": {
+            "available": true,
+            "delta": 0.041363721103653966,
+            "ci95": [
+              -0.021664770583807922,
+              0.10208308499266795
+            ],
+            "reliance_truth": -0.15625,
+            "reliance_gen": -0.19761372110365397,
+            "n_boot": 2000
+          },
+          "gates": {
+            "ok": true,
+            "baseline_truth_acc": 1.0,
+            "max_cost": 0.4153616703952274,
+            "reasons": []
+          }
+        }
+      }
+    }
+  },
+  "baseline": {
+    "acc_truth": 1.0,
+    "acc_gen": 0.6908809891808346,
+    "R_truth": 1.0,
+    "R_gen": 1.0,
+    "margin_mean": 9.137509189778939
+  }
+}
