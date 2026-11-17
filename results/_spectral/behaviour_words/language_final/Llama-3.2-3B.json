@@ -1,0 +1,56 @@
+{
+  "model": "Llama-3.2-3B",
+  "model_id": "meta-llama/Llama-3.2-3B",
+  "basis_source": "cov:/home/nurimal/spectral-anti-concentration-thesis/results/Llama-3.2-3B/en-fr/cov_src.pt",
+  "unembedding_source": "safetensors:model.embed_tokens.weight (tied)",
+  "act_layer_index": 28,
+  "clean_report": {
+    "truth_cities": {
+      "n_pairs": 255,
+      "n_clean": 222
+    },
+    "truth_cities_negated": {
+      "n_pairs": 255,
+      "n_clean": 222
+    },
+    "truth_counterfact": {
+      "n_pairs": 398,
+      "n_clean": 384
+    }
+  },
+  "n_words": 323,
+  "n_null": 1000,
+  "seed": 0,
+  "concepts": [
+    {
+      "concept": "truth_cities",
+      "n_pairs": 222,
+      "gini_vocab": -0.03652770817279816,
+      "gap_repartition_vocab": 0.01978451758623123,
+      "p_repartition_vocab": 0.33666333666333664,
+      "gini_act": -0.15729790925979614,
+      "gap_repartition_act": 0.016413867473602295,
+      "p_repartition_act": 0.2677322677322677
+    },
+    {
+      "concept": "truth_cities_negated",
+      "n_pairs": 222,
+      "gini_vocab": -0.03652767091989517,
+      "gap_repartition_vocab": 0.017812997102737427,
+      "p_repartition_vocab": 0.37462537462537465,
+      "gini_act": -0.15729787945747375,
+      "gap_repartition_act": 0.016690433025360107,
+      "p_repartition_act": 0.26673326673326675
+    },
+    {
+      "concept": "truth_counterfact",
+      "n_pairs": 384,
+      "gini_vocab": -0.01935182511806488,
+      "gap_repartition_vocab": 0.011297710239887238,
+      "p_repartition_vocab": 0.6063936063936064,
+      "gini_act": -0.17076869308948517,
+      "gap_repartition_act": 0.0058904290199279785,
+      "p_repartition_act": 0.6943056943056943
+    }
+  ]
+}
