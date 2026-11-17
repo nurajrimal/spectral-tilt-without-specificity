@@ -17,6 +17,8 @@ PY=${PY:-.venv/bin/python}
 OUT=results/_spectral/behaviour_link
 PREREG=prereg/behaviour_link_prereg.json
 STATEMENTS=${STATEMENTS:-$HOME/spectral_anti_concentration/data/statements}
+GPU_GIB=${GPU_GIB:-3.5}             # lower it (e.g. GPU_GIB=2.5) if a model still runs out of memory
+export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
 mkdir -p "$OUT/logs"
 
 MODELS=(Qwen/Qwen2.5-0.5B Qwen/Qwen2.5-3B Qwen/Qwen2.5-7B Qwen/Qwen3-4B
@@ -35,7 +37,8 @@ run_all() {
     local name=${m##*/}
     if [ -f "$OUT/results/${name}.json" ]; then echo "skip $name"; continue; fi
     $PY scripts/behaviour_link.py run --model "$m" --statements-dir "$STATEMENTS" \
-      2>&1 | tee "$OUT/logs/${name}.log"
+      --gpu-gib "$GPU_GIB" 2>&1 | tee "$OUT/logs/${name}.log" \
+      || echo "FAILED: $name (see $OUT/logs/${name}.log); continuing"
   done
 }
 

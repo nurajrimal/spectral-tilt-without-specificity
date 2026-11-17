@@ -164,6 +164,30 @@ def verdict_link(l_all, l_nog):
 
 # ─── Model side ──────────────────────────────────────────────────────────────
 
+def capped_device_map(model_id, gpu_gib):
+    """
+    Device map that puts at most `gpu_gib` GiB of weights on GPU 0 and the rest
+    in CPU memory. device_map="auto" fills small cards (6 GB) so tightly that
+    loading a large embedding matrix runs out of memory. Weights and arithmetic
+    are unchanged; only where each layer lives.
+    """
+    if not torch.cuda.is_available():
+        return "cpu"
+    from accelerate import infer_auto_device_map, init_empty_weights
+    from transformers import AutoConfig, AutoModelForCausalLM
+    cfg = AutoConfig.from_pretrained(model_id)
+    dtype = getattr(cfg, "torch_dtype", None) or torch.bfloat16
+    if isinstance(dtype, str):
+        dtype = getattr(torch, dtype)
+    with init_empty_weights():
+        skeleton = AutoModelForCausalLM.from_config(cfg)
+    skeleton.tie_weights()
+    return infer_auto_device_map(
+        skeleton, max_memory={0: f"{gpu_gib}GiB", "cpu": "1000GiB"},
+        no_split_module_classes=getattr(skeleton, "_no_split_modules", None) or [],
+        dtype=dtype)
+
+
 def extract_all(model_id, name, statements, args):
     """Last-token activations for every dataset and variant; cached."""
     import linear_rep_geometry as lrg
@@ -180,7 +204,8 @@ def extract_all(model_id, name, statements, args):
             else:
                 todo.append((d, var, p))
     if todo:
-        model, tok, handler = lrg.load_model(model_id)
+        model, tok, handler = lrg.load_model(
+            model_id, device_map=capped_device_map(model_id, args.gpu_gib))
         model.eval()
         device = next(model.parameters()).device
         for d, var, p in todo:
@@ -346,6 +371,8 @@ def main():
     r.add_argument("--n-null", type=int, default=1000)
     r.add_argument("--seed", type=int, default=0)
     r.add_argument("--batch-size", type=int, default=8)
+    r.add_argument("--gpu-gib", type=float, default=3.5,
+                   help="max GiB of weights on the GPU; the rest stays in CPU memory")
     r.set_defaults(func=cmd_run)
     s = sub.add_parser("summarize")
     s.set_defaults(func=cmd_summarize)
