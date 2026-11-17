@@ -55,6 +55,6 @@ case "${1:-}" in
     $PY scripts/dictionary_specificity.py summarize --basis full_vocab --rule published || true
     $PY scripts/dictionary_specificity.py summarize --basis language --rule space_first || true ;;
   all)     require_frozen; sweep language published; sweep full_vocab published
-           sweep language space_first; "$0" summary ;;
+           sweep language space_first; bash "$0" summary ;;
   *) sed -n '2,12p' "$0"; exit 1 ;;
 esac
