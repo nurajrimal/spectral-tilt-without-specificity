@@ -1,0 +1,498 @@
+{
+  "model": "Llama-3.1-8B",
+  "model_id": "meta-llama/Llama-3.1-8B",
+  "basis_source": "cov:/home/nurimal/spectral-anti-concentration-thesis/results/Llama-3.1-8B/en-fr/cov_src.pt",
+  "unembedding_source": "safetensors:lm_head.weight",
+  "report_pairs": [
+    [
+      "false",
+      "true"
+    ],
+    [
+      "False",
+      "True"
+    ],
+    [
+      "incorrect",
+      "correct"
+    ],
+    [
+      "Incorrect",
+      "Correct"
+    ],
+    [
+      "wrong",
+      "right"
+    ],
+    [
+      "no",
+      "yes"
+    ],
+    [
+      "No",
+      "Yes"
+    ],
+    [
+      "inaccurate",
+      "accurate"
+    ],
+    [
+      "fake",
+      "real"
+    ],
+    [
+      "invalid",
+      "valid"
+    ],
+    [
+      "lie",
+      "truth"
+    ],
+    [
+      "fiction",
+      "fact"
+    ],
+    [
+      "mistaken",
+      "accurate"
+    ],
+    [
+      "untrue",
+      "true"
+    ]
+  ],
+  "report_clean": {
+    "truth_report": {
+      "n_pairs": 14,
+      "n_clean": 14
+    }
+  },
+  "n_pool": 2485,
+  "n_null": 1000,
+  "seed": 0,
+  "vocab": {
+    "gini_vocab": -0.1436515897512436,
+    "gap_vocab": -0.058304354548454285,
+    "p_vocab": 0.00999000999000999
+  },
+  "means": {
+    "plain|final": {
+      "gap_act": -0.016086823173931668,
+      "gap_link_word": 0.010509829211514443,
+      "gap_link_signflip": 0.010890493235949959,
+      "cos": 0.01096253247565723
+    },
+    "plain|mid": {
+      "gap_act": -0.0023757964372634888,
+      "gap_link_word": -0.005406268074044159,
+      "gap_link_signflip": -0.005019764316135219,
+      "cos": -0.004862106072583369
+    },
+    "prompted|final": {
+      "gap_act": 0.006357288786343166,
+      "gap_link_word": 0.052703685559598465,
+      "gap_link_signflip": 0.05276957989138152,
+      "cos": 0.052825462305918336
+    },
+    "prompted|mid": {
+      "gap_act": 0.0031413925545556204,
+      "gap_link_word": 0.013698991853743792,
+      "gap_link_signflip": 0.013637428970209189,
+      "cos": 0.013730174063571863
+    }
+  },
+  "rows": [
+    {
+      "dataset": "truth_cities",
+      "variant": "plain",
+      "layer": "final",
+      "n_pairs": 512,
+      "gini_act": -0.21534369885921478,
+      "gap_act": 0.0025396645069122314,
+      "p_act": 0.8661338661338661,
+      "cos": 0.01524851843714714,
+      "gap_link_word": 0.015002744272351265,
+      "p_link_word": 0.34565434565434566,
+      "gap_link_signflip": 0.016113143414258957,
+      "p_link_signflip": 0.25574425574425574
+    },
+    {
+      "dataset": "truth_cities",
+      "variant": "plain",
+      "layer": "mid",
+      "n_pairs": 512,
+      "gini_act": -0.2034686803817749,
+      "gap_act": -0.0018095076084136963,
+      "p_act": 0.7362637362637363,
+      "cos": -0.01450837031006813,
+      "gap_link_word": -0.01523491833359003,
+      "p_link_word": 0.3166833166833167,
+      "gap_link_signflip": -0.015061991289258003,
+      "p_link_signflip": 0.25874125874125875
+    },
+    {
+      "dataset": "truth_cities",
+      "variant": "prompted",
+      "layer": "final",
+      "n_pairs": 512,
+      "gini_act": -0.21445274353027344,
+      "gap_act": 0.006948217749595642,
+      "p_act": 0.6003996003996004,
+      "cos": 0.08610406517982483,
+      "gap_link_word": 0.08590545505285263,
+      "p_link_word": 0.000999000999000999,
+      "gap_link_signflip": 0.08706039190292358,
+      "p_link_signflip": 0.030969030969030968
+    },
+    {
+      "dataset": "truth_cities",
+      "variant": "prompted",
+      "layer": "mid",
+      "n_pairs": 512,
+      "gini_act": -0.19569548964500427,
+      "gap_act": -0.0012122094631195068,
+      "p_act": 0.7832167832167832,
+      "cos": 0.03264310583472252,
+      "gap_link_word": 0.03272975981235504,
+      "p_link_word": 0.03596403596403597,
+      "gap_link_signflip": 0.032550860196352005,
+      "p_link_signflip": 0.2597402597402597
+    },
+    {
+      "dataset": "truth_cities_negated",
+      "variant": "plain",
+      "layer": "final",
+      "n_pairs": 512,
+      "gini_act": -0.2901020050048828,
+      "gap_act": -0.029117316007614136,
+      "p_act": 0.3756243756243756,
+      "cos": -0.00038297491846606135,
+      "gap_link_word": -0.0005665819044224918,
+      "p_link_word": 0.968031968031968,
+      "gap_link_signflip": -0.0007940572686493397,
+      "p_link_signflip": 0.9500499500499501
+    },
+    {
+      "dataset": "truth_cities_negated",
+      "variant": "plain",
+      "layer": "mid",
+      "n_pairs": 512,
+      "gini_act": -0.20578879117965698,
+      "gap_act": -0.005833238363265991,
+      "p_act": 0.3196803196803197,
+      "cos": -0.003946224693208933,
+      "gap_link_word": -0.004638984799385071,
+      "p_link_word": 0.7822177822177823,
+      "gap_link_signflip": -0.003377592423930764,
+      "p_link_signflip": 0.8091908091908092
+    },
+    {
+      "dataset": "truth_cities_negated",
+      "variant": "prompted",
+      "layer": "final",
+      "n_pairs": 512,
+      "gini_act": -0.2147427499294281,
+      "gap_act": 0.002457842230796814,
+      "p_act": 0.8531468531468531,
+      "cos": 0.02132842317223549,
+      "gap_link_word": 0.021404804661870003,
+      "p_link_word": 0.17182817182817184,
+      "gap_link_signflip": 0.021233774721622467,
+      "p_link_signflip": 0.4275724275724276
+    },
+    {
+      "dataset": "truth_cities_negated",
+      "variant": "prompted",
+      "layer": "mid",
+      "n_pairs": 512,
+      "gini_act": -0.19431251287460327,
+      "gap_act": -0.000851944088935852,
+      "p_act": 0.8921078921078921,
+      "cos": -0.012582280673086643,
+      "gap_link_word": -0.012659711763262749,
+      "p_link_word": 0.42957042957042957,
+      "gap_link_signflip": -0.012250017374753952,
+      "p_link_signflip": 0.5514485514485514
+    },
+    {
+      "dataset": "truth_conjunction",
+      "variant": "plain",
+      "layer": "final",
+      "n_pairs": 512,
+      "gini_act": -0.28732797503471375,
+      "gap_act": -0.0439608097076416,
+      "p_act": 0.03996003996003996,
+      "cos": 0.04350052773952484,
+      "gap_link_word": 0.04324810951948166,
+      "p_link_word": 0.004995004995004995,
+      "gap_link_signflip": 0.0433737151324749,
+      "p_link_signflip": 0.005994005994005994
+    },
+    {
+      "dataset": "truth_conjunction",
+      "variant": "plain",
+      "layer": "mid",
+      "n_pairs": 512,
+      "gini_act": -0.19033239781856537,
+      "gap_act": 0.002475455403327942,
+      "p_act": 0.6683316683316683,
+      "cos": -0.014283531345427036,
+      "gap_link_word": -0.014719272032380104,
+      "p_link_word": 0.33466533466533466,
+      "gap_link_signflip": -0.014822066761553288,
+      "p_link_signflip": 0.3596403596403596
+    },
+    {
+      "dataset": "truth_conjunction",
+      "variant": "prompted",
+      "layer": "final",
+      "n_pairs": 512,
+      "gini_act": -0.21584194898605347,
+      "gap_act": 0.0011568665504455566,
+      "p_act": 0.9250749250749251,
+      "cos": 0.07536055892705917,
+      "gap_link_word": 0.07560553401708603,
+      "p_link_word": 0.000999000999000999,
+      "gap_link_signflip": 0.07501507550477982,
+      "p_link_signflip": 0.061938061938061936
+    },
+    {
+      "dataset": "truth_conjunction",
+      "variant": "prompted",
+      "layer": "mid",
+      "n_pairs": 512,
+      "gini_act": -0.19102692604064941,
+      "gap_act": 0.004785448312759399,
+      "p_act": 0.4145854145854146,
+      "cos": 0.01635328121483326,
+      "gap_link_word": 0.01690348982810974,
+      "p_link_word": 0.2897102897102897,
+      "gap_link_signflip": 0.015010393224656582,
+      "p_link_signflip": 0.5564435564435565
+    },
+    {
+      "dataset": "truth_counterfact",
+      "variant": "plain",
+      "layer": "final",
+      "n_pairs": 512,
+      "gini_act": -0.27235230803489685,
+      "gap_act": -0.040730416774749756,
+      "p_act": 0.08191808191808192,
+      "cos": 0.011405971832573414,
+      "gap_link_word": 0.010702161118388176,
+      "p_link_word": 0.5414585414585414,
+      "gap_link_signflip": 0.011671320535242558,
+      "p_link_signflip": 0.47052947052947053
+    },
+    {
+      "dataset": "truth_counterfact",
+      "variant": "plain",
+      "layer": "mid",
+      "n_pairs": 512,
+      "gini_act": -0.20172640681266785,
+      "gap_act": -0.004002615809440613,
+      "p_act": 0.5344655344655345,
+      "cos": -0.010861322283744812,
+      "gap_link_word": -0.011294137686491013,
+      "p_link_word": 0.46353646353646355,
+      "gap_link_signflip": -0.011403607204556465,
+      "p_link_signflip": 0.5084915084915085
+    },
+    {
+      "dataset": "truth_counterfact",
+      "variant": "prompted",
+      "layer": "final",
+      "n_pairs": 512,
+      "gini_act": -0.22671012580394745,
+      "gap_act": -0.0052389055490493774,
+      "p_act": 0.7442557442557443,
+      "cos": 0.08401418477296829,
+      "gap_link_word": 0.08370230346918106,
+      "p_link_word": 0.000999000999000999,
+      "gap_link_signflip": 0.08474098145961761,
+      "p_link_signflip": 0.002997002997002997
+    },
+    {
+      "dataset": "truth_counterfact",
+      "variant": "prompted",
+      "layer": "mid",
+      "n_pairs": 512,
+      "gini_act": -0.19000881910324097,
+      "gap_act": 0.005885913968086243,
+      "p_act": 0.3166833166833167,
+      "cos": 0.037236738950014114,
+      "gap_link_word": 0.03716571256518364,
+      "p_link_word": 0.017982017982017984,
+      "gap_link_signflip": 0.037676937878131866,
+      "p_link_signflip": 0.10989010989010989
+    },
+    {
+      "dataset": "truth_disjunction",
+      "variant": "plain",
+      "layer": "final",
+      "n_pairs": 512,
+      "gini_act": -0.22436092793941498,
+      "gap_act": 0.010520294308662415,
+      "p_act": 0.5994005994005994,
+      "cos": 0.003801728133112192,
+      "gap_link_word": 0.0033700885251164436,
+      "p_link_word": 0.8261738261738262,
+      "gap_link_signflip": 0.004208255559206009,
+      "p_link_signflip": 0.7742257742257742
+    },
+    {
+      "dataset": "truth_disjunction",
+      "variant": "plain",
+      "layer": "mid",
+      "n_pairs": 512,
+      "gini_act": -0.20088602602481842,
+      "gap_act": -0.0020430684089660645,
+      "p_act": 0.7372627372627373,
+      "cos": 0.010795604437589645,
+      "gap_link_word": 0.010666615329682827,
+      "p_link_word": 0.5124875124875125,
+      "gap_link_signflip": 0.01067402120679617,
+      "p_link_signflip": 0.44255744255744256
+    },
+    {
+      "dataset": "truth_disjunction",
+      "variant": "prompted",
+      "layer": "final",
+      "n_pairs": 512,
+      "gini_act": -0.2259298712015152,
+      "gap_act": -0.009810999035835266,
+      "p_act": 0.34865134865134867,
+      "cos": 0.020113736391067505,
+      "gap_link_word": 0.01977827586233616,
+      "p_link_word": 0.1938061938061938,
+      "gap_link_signflip": 0.019898027181625366,
+      "p_link_signflip": 0.2917082917082917
+    },
+    {
+      "dataset": "truth_disjunction",
+      "variant": "prompted",
+      "layer": "mid",
+      "n_pairs": 512,
+      "gini_act": -0.19229181110858917,
+      "gap_act": 0.003005489706993103,
+      "p_act": 0.6103896103896104,
+      "cos": -0.00520586222410202,
+      "gap_link_word": -0.005364969838410616,
+      "p_link_word": 0.7142857142857143,
+      "gap_link_signflip": -0.005250563845038414,
+      "p_link_signflip": 0.6043956043956044
+    },
+    {
+      "dataset": "truth_magnitude",
+      "variant": "plain",
+      "layer": "final",
+      "n_pairs": 512,
+      "gini_act": -0.22937819361686707,
+      "gap_act": 0.015320748090744019,
+      "p_act": 0.47352647352647353,
+      "cos": 0.02587178535759449,
+      "gap_link_word": 0.024902766570448875,
+      "p_link_word": 0.07992007992007992,
+      "gap_link_signflip": 0.025859002023935318,
+      "p_link_signflip": 0.23976023976023977
+    },
+    {
+      "dataset": "truth_magnitude",
+      "variant": "plain",
+      "layer": "mid",
+      "n_pairs": 512,
+      "gini_act": -0.1965126246213913,
+      "gap_act": -6.273388862609863e-06,
+      "p_act": 0.998001998001998,
+      "cos": 0.012784074060618877,
+      "gap_link_word": 0.011498372070491314,
+      "p_link_word": 0.5024975024975025,
+      "gap_link_signflip": 0.012428388930857182,
+      "p_link_signflip": 0.4515484515484515
+    },
+    {
+      "dataset": "truth_magnitude",
+      "variant": "prompted",
+      "layer": "final",
+      "n_pairs": 512,
+      "gini_act": -0.2467777132987976,
+      "gap_act": 0.005270034074783325,
+      "p_act": 0.8051948051948052,
+      "cos": 0.0792427808046341,
+      "gap_link_word": 0.07875999063253403,
+      "p_link_word": 0.000999000999000999,
+      "gap_link_signflip": 0.0791984274983406,
+      "p_link_signflip": 0.16883116883116883
+    },
+    {
+      "dataset": "truth_magnitude",
+      "variant": "prompted",
+      "layer": "mid",
+      "n_pairs": 512,
+      "gini_act": -0.18011078238487244,
+      "gap_act": 0.006281554698944092,
+      "p_act": 0.3006993006993007,
+      "cos": 0.044316310435533524,
+      "gap_link_word": 0.04356873035430908,
+      "p_link_word": 0.003996003996003996,
+      "gap_link_signflip": 0.043804142624139786,
+      "p_link_signflip": 0.36563436563436563
+    },
+    {
+      "dataset": "truth_translation",
+      "variant": "plain",
+      "layer": "final",
+      "n_pairs": 354,
+      "gini_act": -0.26247039437294006,
+      "gap_act": -0.02717992663383484,
+      "p_act": 0.07192807192807193,
+      "cos": -0.022707829251885414,
+      "gap_link_word": -0.023090483620762825,
+      "p_link_word": 0.11888111888111888,
+      "gap_link_signflip": -0.024197926744818687,
+      "p_link_signflip": 0.26173826173826176
+    },
+    {
+      "dataset": "truth_translation",
+      "variant": "plain",
+      "layer": "mid",
+      "n_pairs": 354,
+      "gini_act": -0.19987402856349945,
+      "gap_act": -0.005411326885223389,
+      "p_act": 0.2087912087912088,
+      "cos": -0.014014972373843193,
+      "gap_link_word": -0.01412155106663704,
+      "p_link_word": 0.37662337662337664,
+      "gap_link_signflip": -0.013575502671301365,
+      "p_link_signflip": 0.7852147852147852
+    },
+    {
+      "dataset": "truth_translation",
+      "variant": "prompted",
+      "layer": "final",
+      "n_pairs": 354,
+      "gini_act": -0.19831475615501404,
+      "gap_act": 0.043717965483665466,
+      "p_act": 0.029970029970029972,
+      "cos": 0.0036144868936389685,
+      "gap_link_word": 0.0037694352213293314,
+      "p_link_word": 0.8351648351648352,
+      "gap_link_signflip": 0.00224038097076118,
+      "p_link_signflip": 0.973026973026973
+    },
+    {
+      "dataset": "truth_translation",
+      "variant": "prompted",
+      "layer": "mid",
+      "n_pairs": 354,
+      "gini_act": -0.19518417119979858,
+      "gap_act": 0.004095494747161865,
+      "p_act": 0.4645354645354645,
+      "cos": -0.01665007509291172,
+      "gap_link_word": -0.0164500679820776,
+      "p_link_word": 0.2817182817182817,
+      "gap_link_signflip": -0.016079749912023544,
+      "p_link_signflip": 0.32167832167832167
+    }
+  ]
+}
