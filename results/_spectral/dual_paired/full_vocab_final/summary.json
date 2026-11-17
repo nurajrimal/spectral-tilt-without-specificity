@@ -1,0 +1,272 @@
+{
+  "basis": "full_vocab",
+  "layer": "final",
+  "tests": {
+    "d|all": {
+      "models": [
+        "Qwen2.5-0.5B",
+        "Qwen2.5-3B",
+        "Qwen2.5-7B",
+        "Qwen3-4B",
+        "Mistral-7B-v0.3",
+        "Llama-3.2-3B",
+        "Llama-3.1-8B",
+        "gemma-2-2b"
+      ],
+      "n": 8,
+      "test": {
+        "n": 8,
+        "mean": 0.06003451590323564,
+        "sd": 0.0349118961515357,
+        "median": 0.071536626922898,
+        "t": 4.863764845790221,
+        "p_t": 0.0018272551584273516,
+        "cohens_d": 1.7196005522775037,
+        "ci95": [
+          0.030847440306788,
+          0.08922159149968328
+        ],
+        "wilcoxon_W": 0.0,
+        "p_wilcoxon": 0.0078125
+      },
+      "tost": {
+        "n": 8,
+        "mean": 0.06003451590323564,
+        "sesoi": 0.082,
+        "bound": 0.082,
+        "alpha": 0.05,
+        "p_lower": 4.210628157869584e-06,
+        "p_upper": 0.05918563265963244,
+        "p_tost": 0.05918563265963244,
+        "ci90": [
+          0.03664931678209546,
+          0.08341971502437583
+        ],
+        "equivalent": false,
+        "conclusive": false,
+        "note": "Neither different from zero nor equivalent to it: the study is underpowered at this n for this bound."
+      }
+    },
+    "d|without_gemma": {
+      "models": [
+        "Qwen2.5-0.5B",
+        "Qwen2.5-3B",
+        "Qwen2.5-7B",
+        "Qwen3-4B",
+        "Mistral-7B-v0.3",
+        "Llama-3.2-3B",
+        "Llama-3.1-8B"
+      ],
+      "n": 7,
+      "test": {
+        "n": 7,
+        "mean": 0.060620799307760445,
+        "sd": 0.03766659587611129,
+        "median": 0.07406681780703366,
+        "t": 4.258084796773759,
+        "p_t": 0.005332467900439391,
+        "cohens_d": 1.6094047762411958,
+        "ci95": [
+          0.02578500825812493,
+          0.09545659035739595
+        ],
+        "wilcoxon_W": 0.0,
+        "p_wilcoxon": 0.015625
+      },
+      "tost": {
+        "n": 7,
+        "mean": 0.060620799307760445,
+        "sesoi": 0.082,
+        "bound": 0.082,
+        "alpha": 0.05,
+        "p_lower": 2.866649471961671e-05,
+        "p_upper": 0.0919267510337969,
+        "p_tost": 0.0919267510337969,
+        "ci90": [
+          0.032956450797564533,
+          0.08828514781795634
+        ],
+        "equivalent": false,
+        "conclusive": false,
+        "note": "Neither different from zero nor equivalent to it: the study is underpowered at this n for this bound."
+      }
+    },
+    "gap_act|all": {
+      "models": [
+        "Qwen2.5-0.5B",
+        "Qwen2.5-3B",
+        "Qwen2.5-7B",
+        "Qwen3-4B",
+        "Mistral-7B-v0.3",
+        "Llama-3.2-3B",
+        "Llama-3.1-8B",
+        "gemma-2-2b"
+      ],
+      "n": 8,
+      "test": {
+        "n": 8,
+        "mean": -0.0006046356174646684,
+        "sd": 0.011196903437424134,
+        "median": 0.0007984533905982969,
+        "t": -0.15273578008261868,
+        "p_t": 0.882916030567486,
+        "cohens_d": -0.054000252913118434,
+        "ci95": [
+          -0.009965481148618874,
+          0.008756209913689536
+        ],
+        "wilcoxon_W": 17.0,
+        "p_wilcoxon": 0.9453125
+      },
+      "tost": {
+        "n": 8,
+        "mean": -0.0006046356174646684,
+        "sesoi": 0.082,
+        "bound": 0.082,
+        "alpha": 0.05,
+        "p_lower": 8.076544864245717e-08,
+        "p_upper": 7.295118782849308e-08,
+        "p_tost": 8.076544864245717e-08,
+        "ci90": [
+          -0.00810470995567344,
+          0.0068954387207441
+        ],
+        "equivalent": true,
+        "conclusive": true
+      }
+    },
+    "gap_act|without_gemma": {
+      "models": [
+        "Qwen2.5-0.5B",
+        "Qwen2.5-3B",
+        "Qwen2.5-7B",
+        "Qwen3-4B",
+        "Mistral-7B-v0.3",
+        "Llama-3.2-3B",
+        "Llama-3.1-8B"
+      ],
+      "n": 7,
+      "test": {
+        "n": 7,
+        "mean": -0.001806390506768585,
+        "sd": 0.011523298837043974,
+        "median": -0.0023985356092453003,
+        "t": -0.41474755789667767,
+        "p_t": 0.692747675035918,
+        "cohens_d": -0.15675984215228173,
+        "ci95": [
+          -0.012463664442806971,
+          0.0088508834292698
+        ],
+        "wilcoxon_W": 12.0,
+        "p_wilcoxon": 0.8125
+      },
+      "tost": {
+        "n": 7,
+        "mean": -0.001806390506768585,
+        "sesoi": 0.082,
+        "bound": 0.082,
+        "alpha": 0.05,
+        "p_lower": 8.27175825465987e-07,
+        "p_upper": 6.374527035760523e-07,
+        "p_tost": 8.27175825465987e-07,
+        "ci90": [
+          -0.010269713183010152,
+          0.006656932169472975
+        ],
+        "equivalent": true,
+        "conclusive": true
+      }
+    },
+    "gap_vocab|all": {
+      "models": [
+        "Qwen2.5-0.5B",
+        "Qwen2.5-3B",
+        "Qwen2.5-7B",
+        "Qwen3-4B",
+        "Mistral-7B-v0.3",
+        "Llama-3.2-3B",
+        "Llama-3.1-8B",
+        "gemma-2-2b"
+      ],
+      "n": 8,
+      "test": {
+        "n": 8,
+        "mean": 0.05942988028577097,
+        "sd": 0.03555948051729656,
+        "median": 0.0695630919565225,
+        "t": 4.7270962054389685,
+        "p_t": 0.0021397772072254645,
+        "cohens_d": 1.6712808910935457,
+        "ci95": [
+          0.029701410611026942,
+          0.089158349960515
+        ],
+        "wilcoxon_W": 1.0,
+        "p_wilcoxon": 0.015625
+      },
+      "tost": {
+        "n": 8,
+        "mean": 0.05942988028577097,
+        "sesoi": 0.082,
+        "bound": 0.082,
+        "alpha": 0.05,
+        "p_lower": 4.8983161935523425e-06,
+        "p_upper": 0.05784341779378408,
+        "p_tost": 0.05784341779378408,
+        "ci90": [
+          0.0356109066920177,
+          0.08324885387952423
+        ],
+        "equivalent": false,
+        "conclusive": false,
+        "note": "Neither different from zero nor equivalent to it: the study is underpowered at this n for this bound."
+      }
+    },
+    "gap_vocab|without_gemma": {
+      "models": [
+        "Qwen2.5-0.5B",
+        "Qwen2.5-3B",
+        "Qwen2.5-7B",
+        "Qwen3-4B",
+        "Mistral-7B-v0.3",
+        "Llama-3.2-3B",
+        "Llama-3.1-8B"
+      ],
+      "n": 7,
+      "test": {
+        "n": 7,
+        "mean": 0.058814408800991855,
+        "sd": 0.038362576152416394,
+        "median": 0.0753880032338202,
+        "t": 4.056252598273734,
+        "p_t": 0.006678730302777214,
+        "cohens_d": 1.5331193756988406,
+        "ci95": [
+          0.023334943351902344,
+          0.09429387425008137
+        ],
+        "wilcoxon_W": 1.0,
+        "p_wilcoxon": 0.03125
+      },
+      "tost": {
+        "n": 7,
+        "mean": 0.058814408800991855,
+        "sesoi": 0.082,
+        "bound": 0.082,
+        "alpha": 0.05,
+        "p_lower": 3.421193447115619e-05,
+        "p_upper": 0.08046396874892317,
+        "p_tost": 0.08046396874892317,
+        "ci90": [
+          0.030638895411886937,
+          0.08698992219009676
+        ],
+        "equivalent": false,
+        "conclusive": false,
+        "note": "Neither different from zero nor equivalent to it: the study is underpowered at this n for this bound."
+      }
+    }
+  },
+  "verdict": "asymmetry confirmed"
+}
