@@ -137,9 +137,10 @@ def layerwise_activations(prompts: Sequence[str], model, tokenizer, handler,
     also reports.
 
     Padding is masked out of the mean rather than averaged in, and the last
-    token is found per example from the attention mask, so right-padded
-    tokenizers (which several handlers in this repo set) do not silently read
-    pad positions.
+    token is found per example from the attention mask (the last unmasked
+    position), so neither right- nor left-padded tokenizers read pad positions.
+    An earlier version used lengths - 1, which is correct only for right
+    padding; gemma-2-2b's tokenizer pads on the left.
     """
     if device == "cuda" and not torch.cuda.is_available():
         device = handler._detect_device(model)
@@ -163,6 +164,10 @@ def layerwise_activations(prompts: Sequence[str], model, tokenizer, handler,
         mean = torch.empty_like(last)
 
         m = mask.unsqueeze(-1).float()
+        # Position of the LAST real token, whichever side the tokenizer pads on.
+        # Right padding: lengths - 1. Left padding (gemma-2-2b's default): the
+        # final column. Taking the last 1 in the mask gives both.
+        last_idx = mask.shape[1] - 1 - torch.flip(mask, dims=[1]).argmax(dim=1)
         for li, h in enumerate(hs):
             if li == nL - 1:
                 h = handler.apply_final_norm(model, h)
@@ -170,7 +175,7 @@ def layerwise_activations(prompts: Sequence[str], model, tokenizer, handler,
             summed = (hf * m).sum(dim=1)
             mean[:, li, :] = (summed / lengths.unsqueeze(1).clamp(min=1)).cpu()
             for j in range(len(batch)):
-                last[j, li, :] = hf[j, int(lengths[j].item()) - 1, :].cpu()
+                last[j, li, :] = hf[j, int(last_idx[j].item()), :].cpu()
 
         chunks["last_token"].append(last)
         chunks["mean_over_sequence"].append(mean)
