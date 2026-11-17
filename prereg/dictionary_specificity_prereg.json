@@ -1,0 +1,57 @@
+{
+  "title": "Dictionary-side specificity of the dual geometry: pre-registration",
+  "status": "DRAFT until scripts/freeze_prereg.py --prereg prereg/dictionary_specificity_prereg.json has written dictionary_specificity_prereg.lock.json and both files are committed. Edit only before freezing.",
+  "relation_to_thesis": "Added after the two-tail, word-level, continent and causal results were known. Acharya et al. (2026) define the dual geometry as activation-space concept directions anti-concentrating while unembedding-row contrasts concentrate. word_specificity_prereg.json tested the activation half against a lexical null; this tests the unembedding half against the same null, with the same concepts, basis, Gini and statistics. Changes nothing frozen in any earlier pre-registration. Frozen before any dictionary-specificity output was produced.",
+
+  "claim_tested": "Word-pair concept directions built from unembedding rows, mean(gamma(target)) - mean(gamma(base)), sit further toward the high-variance head of the unembedding spectrum than the same difference of means for two arbitrary groups of words of the same size.",
+
+  "why_the_published_check_is_not_enough": "The published comparison (scripts/fix_hole5_unembed_null.py) set concept directions against the difference of ONE random token pair drawn from all unembedding rows. That differs from a concept direction in three ways at once: the concept relation, real words versus arbitrary tokens (sub-words, other scripts, padding rows), and an average over n pairs versus a single pair. The primary null below matches the last two and leaves only the relation.",
+
+  "models": [
+    "Qwen2.5-0.5B", "Qwen2.5-3B", "Qwen2.5-7B", "Qwen3-4B",
+    "Mistral-7B-v0.3", "Llama-3.2-3B", "Llama-3.1-8B", "gemma-2-2b"
+  ],
+  "gemma_policy": "Same as every earlier pre-registration: every test is reported with and without gemma-2-2b, and a conclusion is called robust only if it holds both ways.",
+
+  "concepts": "All files in data/word_pairs/ with at least 4 pairs (42 concepts). Within a model, a pair is kept only if both words are single tokens and map to different tokens; a concept is kept only if it has at least 4 such pairs. No concept is selected or dropped after seeing results.",
+  "token_rule": "published (identical to scripts/artifact_check_unembed.filter_single_token_pairs): the token of the bare word if it is a single token, otherwise of ' ' + word if that is a single token, otherwise the word is dropped.",
+  "word_vectors": "gamma(w) = the row of the unembedding matrix for w's token, read directly from the model's safetensors (lm_head.weight, or model.embed_tokens.weight when the embeddings are tied). Before any real run, 'dictionary_specificity.py check' must show that this equals the published route (linear_rep_geometry.get_lm_head) on Qwen2.5-0.5B to within 1e-3; if it does not, every run uses the published route.",
+
+  "primary": {
+    "basis": "published language subset (results/<model>/en-fr/cov_src.pt, or its eigen cache); no fallback to the full vocabulary",
+    "null": "lexical: 2n words drawn without replacement from the pooled single-token vocabulary of all usable concepts in that model, excluding the concept's own tokens, split at random into two groups of n",
+    "n_null": 1000,
+    "seed": 0,
+    "statistic": "gap = Gini(concept) - mean Gini(lexical null), averaged over concepts within a model; POSITIVE means further toward the head (the direction the published account predicts)",
+    "test": "one-sample t-test of the per-model mean gap against 0 across models, two-sided, alpha 0.05; Wilcoxon signed-rank reported alongside",
+    "equivalence": "TOST with bounds +/-0.082 Gini units (the placement bound used throughout the thesis)"
+  },
+
+  "inclusion_and_validity": {
+    "model_inclusion": "a model enters only if at least 10 concepts survive the single-token rule",
+    "validity": "the primary test is valid only if at least 6 of 8 models enter; otherwise it is reported as not testable and no conclusion is drawn"
+  },
+
+  "decision_rule": {
+    "specific_head": "95% CI of the mean gap above 0 in both the all-model and without-gemma versions",
+    "not_specific": "TOST equivalent within +/-0.082 in both versions",
+    "reversed_tail": "95% CI of the mean gap below 0 in both versions",
+    "inconclusive": "anything else; report the interval"
+  },
+
+  "reproduction_check": "Reported first, not a condition for the primary test: the published comparison, concept Gini minus the mean Gini of 1,000 single random token pairs over all unembedding rows (seed 42, as in fix_hole5_unembed_null.py). It reproduces if that gap is positive in at least 6 of 8 models. If it does not reproduce, that is reported, and the primary result is still reported as pre-registered.",
+
+  "secondary_reported_not_primary": [
+    "vocab_n null: 2n random tokens from the tokenizer vocabulary (padding rows excluded), two groups of n -- separates averaging from real-word structure",
+    "repartition null: the concept's own 2n words, random split",
+    "isotropic gap, for reference",
+    "full-vocabulary basis",
+    "token rule space_first (prefer ' ' + word)",
+    "per-concept-group means (Verb Morphology, Semantic, Semantic expanded, Grammatical, Language Pairs): exploratory, uncorrected",
+    "per-concept permutation p-values: descriptive, compared with the 5% expected by chance",
+    "dual contrast: per-model dictionary gap beside the activation gap from word_specificity (language basis, final layer). Descriptive only, because the dictionary side uses the single-token subset of pairs and the activation side all pairs"
+  ],
+
+  "multiplicity": "One primary test. Secondary rows are reported in full and not used for the conclusion.",
+  "reporting": "The result is reported whatever it is."
+}
