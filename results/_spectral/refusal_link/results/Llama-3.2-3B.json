@@ -1,0 +1,644 @@
+{
+  "model": "Llama-3.2-3B",
+  "model_id": "meta-llama/Llama-3.2-3B",
+  "unembedding_source": "safetensors:model.embed_tokens.weight (tied)",
+  "n_null": 1000,
+  "seed": 0,
+  "batch_size": 32,
+  "rules": {
+    "published": {
+      "report_pairs": [
+        [
+          "Sure",
+          "Sorry"
+        ],
+        [
+          "sure",
+          "sorry"
+        ],
+        [
+          "Certainly",
+          "Unfortunately"
+        ],
+        [
+          "certainly",
+          "unfortunately"
+        ],
+        [
+          "can",
+          "cannot"
+        ],
+        [
+          "Yes",
+          "No"
+        ],
+        [
+          "yes",
+          "no"
+        ],
+        [
+          "happy",
+          "unable"
+        ],
+        [
+          "accept",
+          "refuse"
+        ],
+        [
+          "allow",
+          "decline"
+        ],
+        [
+          "agree",
+          "reject"
+        ],
+        [
+          "glad",
+          "afraid"
+        ]
+      ],
+      "report_clean": {
+        "refusal_report": {
+          "n_pairs": 13,
+          "n_clean": 12
+        }
+      },
+      "n_pool": 2486,
+      "basis_source": "cov:/home/nurimal/spectral-anti-concentration-thesis/results/Llama-3.2-3B/en-fr/cov_src.pt",
+      "vocab": {
+        "gini_vocab": -0.12660424411296844,
+        "gap_vocab": -0.056569792330265045,
+        "p_vocab": 0.007992007992007992
+      },
+      "means": {
+        "plain|final": {
+          "gap_act": 0.0032648667693138123,
+          "gap_link_word": 0.014116493985056877,
+          "gap_link_repartition": 0.013456559856422246,
+          "cos": 0.013553154072724283
+        },
+        "plain|mid": {
+          "gap_act": -0.014686048030853271,
+          "gap_link_word": 0.021715616225264966,
+          "gap_link_repartition": 0.020959284738637507,
+          "cos": 0.021320682775694877
+        },
+        "prompted|final": {
+          "gap_act": 0.014258883893489838,
+          "gap_link_word": 0.06081669311970472,
+          "gap_link_repartition": 0.060089386999607086,
+          "cos": 0.05982807092368603
+        },
+        "prompted|mid": {
+          "gap_act": -0.015048928558826447,
+          "gap_link_word": 0.004648441798053682,
+          "gap_link_repartition": 0.0049240762600675225,
+          "cos": 0.005011659930460155
+        }
+      },
+      "rows": [
+        {
+          "dataset": "refusal",
+          "variant": "plain",
+          "layer": "final",
+          "n_pairs": 256,
+          "gini_act": -0.1304185688495636,
+          "gap_act": 0.025286376476287842,
+          "p_act": 0.15984015984015984,
+          "cos": 0.00440166937187314,
+          "gap_link_word": 0.005073269829154015,
+          "p_link_word": 0.8061938061938062,
+          "gap_link_repartition": 0.003838352393358946,
+          "p_link_repartition": 0.8481518481518482
+        },
+        {
+          "dataset": "refusal",
+          "variant": "plain",
+          "layer": "mid",
+          "n_pairs": 256,
+          "gini_act": -0.22609491646289825,
+          "gap_act": -0.006558597087860107,
+          "p_act": 0.46353646353646355,
+          "cos": 0.0035880778450518847,
+          "gap_link_word": 0.004204850178211927,
+          "p_link_word": 0.8151848151848152,
+          "gap_link_repartition": 0.0024548196233808994,
+          "p_link_repartition": 0.913086913086913
+        },
+        {
+          "dataset": "refusal",
+          "variant": "prompted",
+          "layer": "final",
+          "n_pairs": 256,
+          "gini_act": -0.10894191265106201,
+          "gap_act": 0.03362247347831726,
+          "p_act": 0.03896103896103896,
+          "cos": 0.0478203184902668,
+          "gap_link_word": 0.04878755658864975,
+          "p_link_word": 0.026973026973026972,
+          "gap_link_repartition": 0.04799357056617737,
+          "p_link_repartition": 0.08491508491508491
+        },
+        {
+          "dataset": "refusal",
+          "variant": "prompted",
+          "layer": "mid",
+          "n_pairs": 256,
+          "gini_act": -0.22114068269729614,
+          "gap_act": -0.02045924961566925,
+          "p_act": 0.023976023976023976,
+          "cos": -0.010747791267931461,
+          "gap_link_word": -0.01089240051805973,
+          "p_link_word": 0.5314685314685315,
+          "gap_link_repartition": -0.011515982449054718,
+          "p_link_repartition": 0.5684315684315684
+        },
+        {
+          "dataset": "refusal_advbench",
+          "variant": "plain",
+          "layer": "final",
+          "n_pairs": 200,
+          "gini_act": -0.15183822810649872,
+          "gap_act": -0.0008385628461837769,
+          "p_act": 0.961038961038961,
+          "cos": 0.015462188981473446,
+          "gap_link_word": 0.016223346814513206,
+          "p_link_word": 0.35364635364635366,
+          "gap_link_repartition": 0.015954554080963135,
+          "p_link_repartition": 0.4125874125874126
+        },
+        {
+          "dataset": "refusal_advbench",
+          "variant": "plain",
+          "layer": "mid",
+          "n_pairs": 200,
+          "gini_act": -0.23457559943199158,
+          "gap_act": -0.013870581984519958,
+          "p_act": 0.11588411588411589,
+          "cos": 0.027059385553002357,
+          "gap_link_word": 0.02763301692903042,
+          "p_link_word": 0.13486513486513488,
+          "gap_link_repartition": 0.02635307051241398,
+          "p_link_repartition": 0.1888111888111888
+        },
+        {
+          "dataset": "refusal_advbench",
+          "variant": "prompted",
+          "layer": "final",
+          "n_pairs": 200,
+          "gini_act": -0.1257685124874115,
+          "gap_act": 0.01725800335407257,
+          "p_act": 0.24475524475524477,
+          "cos": 0.061134763062000275,
+          "gap_link_word": 0.06266099214553833,
+          "p_link_word": 0.00999000999000999,
+          "gap_link_repartition": 0.061097655445337296,
+          "p_link_repartition": 0.02097902097902098
+        },
+        {
+          "dataset": "refusal_advbench",
+          "variant": "prompted",
+          "layer": "mid",
+          "n_pairs": 200,
+          "gini_act": -0.21394863724708557,
+          "gap_act": -0.013653606176376343,
+          "p_act": 0.0989010989010989,
+          "cos": 0.006888146512210369,
+          "gap_link_word": 0.006540556438267231,
+          "p_link_word": 0.6983016983016983,
+          "gap_link_repartition": 0.00706556998193264,
+          "p_link_repartition": 0.6623376623376623
+        },
+        {
+          "dataset": "refusal_harmbench",
+          "variant": "plain",
+          "layer": "final",
+          "n_pairs": 159,
+          "gini_act": -0.15622439980506897,
+          "gap_act": -0.005024537444114685,
+          "p_act": 0.7622377622377622,
+          "cos": 0.019333748146891594,
+          "gap_link_word": 0.019757190719246864,
+          "p_link_word": 0.25374625374625376,
+          "gap_link_repartition": 0.01913132518529892,
+          "p_link_repartition": 0.3016983016983017
+        },
+        {
+          "dataset": "refusal_harmbench",
+          "variant": "plain",
+          "layer": "mid",
+          "n_pairs": 159,
+          "gini_act": -0.23861947655677795,
+          "gap_act": -0.018393754959106445,
+          "p_act": 0.04095904095904096,
+          "cos": 0.029244089499115944,
+          "gap_link_word": 0.029464833438396454,
+          "p_link_word": 0.10989010989010989,
+          "gap_link_repartition": 0.02980862930417061,
+          "p_link_repartition": 0.13686313686313686
+        },
+        {
+          "dataset": "refusal_harmbench",
+          "variant": "prompted",
+          "layer": "final",
+          "n_pairs": 159,
+          "gini_act": -0.13921794295310974,
+          "gap_act": 0.006811961531639099,
+          "p_act": 0.6383616383616384,
+          "cos": 0.07004303485155106,
+          "gap_link_word": 0.07077180594205856,
+          "p_link_word": 0.002997002997002997,
+          "gap_link_repartition": 0.07100782543420792,
+          "p_link_repartition": 0.002997002997002997
+        },
+        {
+          "dataset": "refusal_harmbench",
+          "variant": "prompted",
+          "layer": "mid",
+          "n_pairs": 159,
+          "gini_act": -0.215114027261734,
+          "gap_act": -0.014634847640991211,
+          "p_act": 0.07692307692307693,
+          "cos": 0.01837044395506382,
+          "gap_link_word": 0.018121616914868355,
+          "p_link_word": 0.31368631368631367,
+          "gap_link_repartition": 0.018952831625938416,
+          "p_link_repartition": 0.34965034965034963
+        },
+        {
+          "dataset": "refusal_jailbreakbench",
+          "variant": "plain",
+          "layer": "final",
+          "n_pairs": 100,
+          "gini_act": -0.15911154448986053,
+          "gap_act": -0.006363809108734131,
+          "p_act": 0.6953046953046953,
+          "cos": 0.01501500979065895,
+          "gap_link_word": 0.015412168577313423,
+          "p_link_word": 0.3596403596403596,
+          "gap_link_repartition": 0.014902007766067982,
+          "p_link_repartition": 0.3966033966033966
+        },
+        {
+          "dataset": "refusal_jailbreakbench",
+          "variant": "plain",
+          "layer": "mid",
+          "n_pairs": 100,
+          "gini_act": -0.23958958685398102,
+          "gap_act": -0.019921258091926575,
+          "p_act": 0.03296703296703297,
+          "cos": 0.02539117820560932,
+          "gap_link_word": 0.025559764355421066,
+          "p_link_word": 0.15884115884115885,
+          "gap_link_repartition": 0.02522061951458454,
+          "p_link_repartition": 0.1918081918081918
+        },
+        {
+          "dataset": "refusal_jailbreakbench",
+          "variant": "prompted",
+          "layer": "final",
+          "n_pairs": 100,
+          "gini_act": -0.14415059983730316,
+          "gap_act": -0.0006569027900695801,
+          "p_act": 0.9600399600399601,
+          "cos": 0.06031416729092598,
+          "gap_link_word": 0.06104641780257225,
+          "p_link_word": 0.006993006993006993,
+          "gap_link_repartition": 0.060258496552705765,
+          "p_link_repartition": 0.01898101898101898
+        },
+        {
+          "dataset": "refusal_jailbreakbench",
+          "variant": "prompted",
+          "layer": "mid",
+          "n_pairs": 100,
+          "gini_act": -0.21146616339683533,
+          "gap_act": -0.011448010802268982,
+          "p_act": 0.17282717282717283,
+          "cos": 0.005535840522497892,
+          "gap_link_word": 0.004823994357138872,
+          "p_link_word": 0.7802197802197802,
+          "gap_link_repartition": 0.0051938858814537525,
+          "p_link_repartition": 0.7642357642357642
+        }
+      ]
+    },
+    "space_first": {
+      "report_pairs": [
+        [
+          "Sure",
+          "Sorry"
+        ],
+        [
+          "sure",
+          "sorry"
+        ],
+        [
+          "Certainly",
+          "Unfortunately"
+        ],
+        [
+          "certainly",
+          "unfortunately"
+        ],
+        [
+          "can",
+          "cannot"
+        ],
+        [
+          "Yes",
+          "No"
+        ],
+        [
+          "yes",
+          "no"
+        ],
+        [
+          "happy",
+          "unable"
+        ],
+        [
+          "accept",
+          "refuse"
+        ],
+        [
+          "allow",
+          "decline"
+        ],
+        [
+          "agree",
+          "reject"
+        ],
+        [
+          "glad",
+          "afraid"
+        ]
+      ],
+      "report_clean": {
+        "refusal_report": {
+          "n_pairs": 13,
+          "n_clean": 12
+        }
+      },
+      "n_pool": 2486,
+      "basis_source": "cov:/home/nurimal/spectral-anti-concentration-thesis/results/Llama-3.2-3B/en-fr/cov_src.pt",
+      "vocab": {
+        "gini_vocab": -0.12368329614400864,
+        "gap_vocab": -0.07202170789241791,
+        "p_vocab": 0.003996003996003996
+      },
+      "means": {
+        "plain|final": {
+          "gap_act": 0.0032648667693138123,
+          "gap_link_word": 0.020143040688708425,
+          "gap_link_repartition": 0.020717093255370855,
+          "cos": 0.020907869562506676
+        },
+        "plain|mid": {
+          "gap_act": -0.014686048030853271,
+          "gap_link_word": 0.031401349464431405,
+          "gap_link_repartition": 0.031380906235426664,
+          "cos": 0.03169094934128225
+        },
+        "prompted|final": {
+          "gap_act": 0.014258883893489838,
+          "gap_link_word": 0.04659888241440058,
+          "gap_link_repartition": 0.047645180486142635,
+          "cos": 0.04754898231476545
+        },
+        "prompted|mid": {
+          "gap_act": -0.015048928558826447,
+          "gap_link_word": 0.0001437444589100778,
+          "gap_link_repartition": 0.0006860996363684535,
+          "cos": 0.0006565231597051024
+        }
+      },
+      "rows": [
+        {
+          "dataset": "refusal",
+          "variant": "plain",
+          "layer": "final",
+          "n_pairs": 256,
+          "gini_act": -0.1304185688495636,
+          "gap_act": 0.025286376476287842,
+          "p_act": 0.15984015984015984,
+          "cos": 0.01258094608783722,
+          "gap_link_word": 0.011936011724174023,
+          "p_link_word": 0.5934065934065934,
+          "gap_link_repartition": 0.011736109852790833,
+          "p_link_repartition": 0.5724275724275725
+        },
+        {
+          "dataset": "refusal",
+          "variant": "plain",
+          "layer": "mid",
+          "n_pairs": 256,
+          "gini_act": -0.22609491646289825,
+          "gap_act": -0.006558597087860107,
+          "p_act": 0.46353646353646355,
+          "cos": 0.013190592639148235,
+          "gap_link_word": 0.012693041004240513,
+          "p_link_word": 0.5184815184815185,
+          "gap_link_repartition": 0.011845158413052559,
+          "p_link_repartition": 0.6753246753246753
+        },
+        {
+          "dataset": "refusal",
+          "variant": "prompted",
+          "layer": "final",
+          "n_pairs": 256,
+          "gini_act": -0.10894191265106201,
+          "gap_act": 0.03362247347831726,
+          "p_act": 0.03896103896103896,
+          "cos": 0.037154197692871094,
+          "gap_link_word": 0.0364973209798336,
+          "p_link_word": 0.12487512487512488,
+          "gap_link_repartition": 0.037372101098299026,
+          "p_link_repartition": 0.14785214785214784
+        },
+        {
+          "dataset": "refusal",
+          "variant": "prompted",
+          "layer": "mid",
+          "n_pairs": 256,
+          "gini_act": -0.22114068269729614,
+          "gap_act": -0.02045924961566925,
+          "p_act": 0.023976023976023976,
+          "cos": -0.011926027946174145,
+          "gap_link_word": -0.012790574692189693,
+          "p_link_word": 0.4725274725274725,
+          "gap_link_repartition": -0.012479773722589016,
+          "p_link_repartition": 0.5404595404595405
+        },
+        {
+          "dataset": "refusal_advbench",
+          "variant": "plain",
+          "layer": "final",
+          "n_pairs": 200,
+          "gini_act": -0.15183822810649872,
+          "gap_act": -0.0008385628461837769,
+          "p_act": 0.961038961038961,
+          "cos": 0.023038800805807114,
+          "gap_link_word": 0.0219377800822258,
+          "p_link_word": 0.29270729270729273,
+          "gap_link_repartition": 0.023575112223625183,
+          "p_link_repartition": 0.24375624375624375
+        },
+        {
+          "dataset": "refusal_advbench",
+          "variant": "plain",
+          "layer": "mid",
+          "n_pairs": 200,
+          "gini_act": -0.23457559943199158,
+          "gap_act": -0.013870581984519958,
+          "p_act": 0.11588411588411589,
+          "cos": 0.03556179627776146,
+          "gap_link_word": 0.03519337251782417,
+          "p_link_word": 0.06993006993006994,
+          "gap_link_repartition": 0.03522138297557831,
+          "p_link_repartition": 0.0919080919080919
+        },
+        {
+          "dataset": "refusal_advbench",
+          "variant": "prompted",
+          "layer": "final",
+          "n_pairs": 200,
+          "gini_act": -0.1257685124874115,
+          "gap_act": 0.01725800335407257,
+          "p_act": 0.24475524475524477,
+          "cos": 0.048028621822595596,
+          "gap_link_word": 0.04683244973421097,
+          "p_link_word": 0.03696303696303696,
+          "gap_link_repartition": 0.04806618392467499,
+          "p_link_repartition": 0.058941058941058944
+        },
+        {
+          "dataset": "refusal_advbench",
+          "variant": "prompted",
+          "layer": "mid",
+          "n_pairs": 200,
+          "gini_act": -0.21394863724708557,
+          "gap_act": -0.013653606176376343,
+          "p_act": 0.0989010989010989,
+          "cos": 0.0030050340574234724,
+          "gap_link_word": 0.002757117385044694,
+          "p_link_word": 0.8911088911088911,
+          "gap_link_repartition": 0.003314886474981904,
+          "p_link_repartition": 0.8641358641358642
+        },
+        {
+          "dataset": "refusal_harmbench",
+          "variant": "plain",
+          "layer": "final",
+          "n_pairs": 159,
+          "gini_act": -0.15622439980506897,
+          "gap_act": -0.005024537444114685,
+          "p_act": 0.7622377622377622,
+          "cos": 0.025062236934900284,
+          "gap_link_word": 0.024414632469415665,
+          "p_link_word": 0.23776223776223776,
+          "gap_link_repartition": 0.024996908381581306,
+          "p_link_repartition": 0.23476523476523475
+        },
+        {
+          "dataset": "refusal_harmbench",
+          "variant": "plain",
+          "layer": "mid",
+          "n_pairs": 159,
+          "gini_act": -0.23861947655677795,
+          "gap_act": -0.018393754959106445,
+          "p_act": 0.04095904095904096,
+          "cos": 0.040059320628643036,
+          "gap_link_word": 0.03991638496518135,
+          "p_link_word": 0.03796203796203796,
+          "gap_link_repartition": 0.040711890906095505,
+          "p_link_repartition": 0.056943056943056944
+        },
+        {
+          "dataset": "refusal_harmbench",
+          "variant": "prompted",
+          "layer": "final",
+          "n_pairs": 159,
+          "gini_act": -0.13921794295310974,
+          "gap_act": 0.006811961531639099,
+          "p_act": 0.6383616383616384,
+          "cos": 0.05626872926950455,
+          "gap_link_word": 0.055208586156368256,
+          "p_link_word": 0.008991008991008992,
+          "gap_link_repartition": 0.05657166987657547,
+          "p_link_repartition": 0.017982017982017984
+        },
+        {
+          "dataset": "refusal_harmbench",
+          "variant": "prompted",
+          "layer": "mid",
+          "n_pairs": 159,
+          "gini_act": -0.215114027261734,
+          "gap_act": -0.014634847640991211,
+          "p_act": 0.07692307692307693,
+          "cos": 0.01265865657478571,
+          "gap_link_word": 0.012088214978575706,
+          "p_link_word": 0.5494505494505495,
+          "gap_link_repartition": 0.013248848728835583,
+          "p_link_repartition": 0.5454545454545454
+        },
+        {
+          "dataset": "refusal_jailbreakbench",
+          "variant": "plain",
+          "layer": "final",
+          "n_pairs": 100,
+          "gini_act": -0.15911154448986053,
+          "gap_act": -0.006363809108734131,
+          "p_act": 0.6953046953046953,
+          "cos": 0.022949494421482086,
+          "gap_link_word": 0.02228373847901821,
+          "p_link_word": 0.26973026973026976,
+          "gap_link_repartition": 0.0225602425634861,
+          "p_link_repartition": 0.25574425574425574
+        },
+        {
+          "dataset": "refusal_jailbreakbench",
+          "variant": "plain",
+          "layer": "mid",
+          "n_pairs": 100,
+          "gini_act": -0.23958958685398102,
+          "gap_act": -0.019921258091926575,
+          "p_act": 0.03296703296703297,
+          "cos": 0.03795208781957626,
+          "gap_link_word": 0.037802599370479584,
+          "p_link_word": 0.04995004995004995,
+          "gap_link_repartition": 0.037745192646980286,
+          "p_link_repartition": 0.07292707292707293
+        },
+        {
+          "dataset": "refusal_jailbreakbench",
+          "variant": "prompted",
+          "layer": "final",
+          "n_pairs": 100,
+          "gini_act": -0.14415059983730316,
+          "gap_act": -0.0006569027900695801,
+          "p_act": 0.9600399600399601,
+          "cos": 0.048744380474090576,
+          "gap_link_word": 0.047857172787189484,
+          "p_link_word": 0.03696303696303696,
+          "gap_link_repartition": 0.04857076704502106,
+          "p_link_repartition": 0.04695304695304695
+        },
+        {
+          "dataset": "refusal_jailbreakbench",
+          "variant": "prompted",
+          "layer": "mid",
+          "n_pairs": 100,
+          "gini_act": -0.21146616339683533,
+          "gap_act": -0.011448010802268982,
+          "p_act": 0.17282717282717283,
+          "cos": -0.0011115700472146273,
+          "gap_link_word": -0.0014797798357903957,
+          "p_link_word": 0.949050949050949,
+          "gap_link_repartition": -0.0013395629357546568,
+          "p_link_repartition": 0.929070929070929
+        }
+      ]
+    }
+  }
+}
