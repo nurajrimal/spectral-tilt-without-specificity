@@ -18,11 +18,41 @@ sns.set_theme(
     font_scale=1.75,
 )
 
+def capped_device_map(model_path, gpu_gib):
+    """
+    Device map that puts at most `gpu_gib` GiB of weights on GPU 0 and the rest
+    in CPU memory. device_map="auto" fills a small card (6 GB) with weights and
+    leaves no room for activations, so a model with a large vocabulary
+    (gemma-2-2b: 256k) runs out of memory at the logits. Weights and arithmetic
+    are unchanged; only where each layer lives.
+    """
+    from accelerate import infer_auto_device_map, init_empty_weights
+    from transformers import AutoConfig, AutoModelForCausalLM
+    cfg = AutoConfig.from_pretrained(model_path)
+    dtype = getattr(cfg, "torch_dtype", None) or torch.bfloat16
+    if isinstance(dtype, str):
+        dtype = getattr(torch, dtype)
+    with init_empty_weights():
+        skeleton = AutoModelForCausalLM.from_config(cfg)
+    skeleton.tie_weights()
+    return infer_auto_device_map(
+        skeleton, max_memory={0: f"{gpu_gib}GiB", "cpu": "1000GiB"},
+        no_split_module_classes=getattr(skeleton, "_no_split_modules", None) or [],
+        dtype=dtype)
+
+
 def load_model(model_path, device_map="auto"):
     """
     Loads the model and tokenizer using model-specific handlers.
     Returns: model, tokenizer, handler
+
+    Set LRG_GPU_GIB (e.g. 3) to cap the GPU share of the weights when
+    device_map is "auto". Unset, loading is exactly as before.
     """
+    gib = os.environ.get("LRG_GPU_GIB")
+    if gib and device_map == "auto" and torch.cuda.is_available():
+        device_map = capped_device_map(model_path, float(gib))
+        print(f"  GPU weights capped at {gib} GiB (LRG_GPU_GIB)")
     handler = models.get_handler(model_path)
     model, tokenizer = handler.load(device_map=device_map)
     return model, tokenizer, handler
