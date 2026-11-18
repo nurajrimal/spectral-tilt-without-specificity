@@ -69,17 +69,12 @@
     "scripts/continent_control.py",
     "run",
     "--models",
-    "Qwen/Qwen2.5-0.5B",
-    "Qwen/Qwen2.5-3B",
-    "Qwen/Qwen2.5-7B",
-    "Qwen/Qwen3-4B",
-    "mistralai/Mistral-7B-v0.3",
-    "meta-llama/Llama-3.2-3B",
-    "meta-llama/Llama-3.1-8B",
     "google/gemma-2-2b",
-    "--skip-existing"
+    "--skip-existing",
+    "--batch-size",
+    "4"
   ],
-  "written_utc": "2026-10-23T02:32:54.250414+00:00",
+  "written_utc": "2026-11-18T02:37:52.964970+00:00",
   "by_layer": {
     "13": {
       "role": "mid",
@@ -93,16 +88,16 @@
             "named_continent": 0.619140625
           },
           "full_accuracy": {
-            "concept": 0.7275176089853417,
-            "concept_shuffled": 0.507852655625357,
-            "pair_id_random": 0.48531315438796885,
-            "named_continent": 0.7285265562535694
+            "concept": 0.9980392156862745,
+            "concept_shuffled": 0.492147344374643,
+            "pair_id_random": 0.49914334665905197,
+            "named_continent": 0.9677707976394441
           },
           "headroom": {
-            "concept": 0.22751760898534168,
-            "concept_shuffled": 0.007852655625356975,
-            "pair_id_random": -0.014686845612031152,
-            "named_continent": 0.10938593125356944
+            "concept": 0.4980392156862745,
+            "concept_shuffled": -0.007852655625356975,
+            "pair_id_random": -0.0008566533409480326,
+            "named_continent": 0.34863017263944407
           },
           "cells": [
             {
@@ -111,8 +106,8 @@
               "label": "concept",
               "start": 0,
               "retained_variance": 0.19362998008728027,
-              "accuracy": 0.6141252617551876,
-              "retention": 0.5016106764841236
+              "accuracy": 0.9687607081667619,
+              "retention": 0.9412124455316871
             },
             {
               "layer": 13,
@@ -120,7 +115,7 @@
               "label": "concept_shuffled",
               "start": 0,
               "retained_variance": 0.19362998008728027,
-              "accuracy": 0.4862173995811917,
+              "accuracy": 0.4786502950694841,
               "retention": NaN
             },
             {
@@ -129,7 +124,7 @@
               "label": "pair_id_random",
               "start": 0,
               "retained_variance": 0.19362998008728027,
-              "accuracy": 0.49122406244051026,
+              "accuracy": 0.5243670283647439,
               "retention": NaN
             },
             {
@@ -139,7 +134,7 @@
               "start": 0,
               "retained_variance": 0.19362998008728027,
               "accuracy": 0.619131924614506,
-              "retention": -7.953843235914136e-05
+              "retention": -2.4955916546706137e-05
             },
             {
               "layer": 13,
@@ -147,8 +142,8 @@
               "label": "concept",
               "start": 255,
               "retained_variance": 0.00695414375513792,
-              "accuracy": 0.6240529221397296,
-              "retention": 0.5452453666903735
+              "accuracy": 0.9452979249952408,
+              "retention": 0.8941021328644598
             },
             {
               "layer": 13,
@@ -156,7 +151,7 @@
               "label": "concept_shuffled",
               "start": 255,
               "retained_variance": 0.00695414375513792,
-              "accuracy": 0.4833618884446983,
+              "accuracy": 0.45410241766609555,
               "retention": NaN
             },
             {
@@ -165,7 +160,7 @@
               "label": "pair_id_random",
               "start": 255,
               "retained_variance": 0.00695414375513792,
-              "accuracy": 0.48335237007424325,
+              "accuracy": 0.5067865981343994,
               "retention": NaN
             },
             {
@@ -175,7 +170,7 @@
               "start": 255,
               "retained_variance": 0.00695414375513792,
               "accuracy": 0.619131924614506,
-              "retention": -7.953843235914136e-05
+              "retention": -2.4955916546706137e-05
             },
             {
               "layer": 13,
@@ -183,8 +178,8 @@
               "label": "concept",
               "start": 510,
               "retained_variance": 0.005277235060930252,
-              "accuracy": 0.666076527698458,
-              "retention": 0.7299502154541273
+              "accuracy": 0.956082238720731,
+              "retention": 0.9157556761715464
             },
             {
               "layer": 13,
@@ -192,7 +187,7 @@
               "label": "concept_shuffled",
               "start": 510,
               "retained_variance": 0.005277235060930252,
-              "accuracy": 0.46773272415762424,
+              "accuracy": 0.48820673900628214,
               "retention": NaN
             },
             {
@@ -201,7 +196,7 @@
               "label": "pair_id_random",
               "start": 510,
               "retained_variance": 0.005277235060930252,
-              "accuracy": 0.4981439177612793,
+              "accuracy": 0.49524081477251086,
               "retention": NaN
             },
             {
@@ -211,7 +206,7 @@
               "start": 510,
               "retained_variance": 0.005277235060930252,
               "accuracy": 0.619131924614506,
-              "retention": -7.953843235914136e-05
+              "retention": -2.4955916546706137e-05
             },
             {
               "layer": 13,
@@ -219,8 +214,8 @@
               "label": "concept",
               "start": 764,
               "retained_variance": 0.004286730661988258,
-              "accuracy": 0.6963259090043785,
-              "retention": 0.8629042379617625
+              "accuracy": 0.9794974300399772,
+              "retention": 0.9627704303952299
             },
             {
               "layer": 13,
@@ -228,7 +223,7 @@
               "label": "concept_shuffled",
               "start": 764,
               "retained_variance": 0.004286730661988258,
-              "accuracy": 0.477393870169427,
+              "accuracy": 0.5009994288977727,
               "retention": NaN
             },
             {
@@ -237,7 +232,7 @@
               "label": "pair_id_random",
               "start": 764,
               "retained_variance": 0.004286730661988258,
-              "accuracy": 0.49713497049305155,
+              "accuracy": 0.515657719398439,
               "retention": NaN
             },
             {
@@ -247,7 +242,7 @@
               "start": 764,
               "retained_variance": 0.004286730661988258,
               "accuracy": 0.619131924614506,
-              "retention": -7.953843235914136e-05
+              "retention": -2.4955916546706137e-05
             },
             {
               "layer": 13,
@@ -255,8 +250,8 @@
               "label": "concept",
               "start": 1019,
               "retained_variance": 0.003534798277541995,
-              "accuracy": 0.6503141062250143,
-              "retention": 0.6606702087604068
+              "accuracy": 0.968741671425852,
+              "retention": 0.9411742221542697
             },
             {
               "layer": 13,
@@ -264,7 +259,7 @@
               "label": "concept_shuffled",
               "start": 1019,
               "retained_variance": 0.003534798277541995,
-              "accuracy": 0.5048734056729488,
+              "accuracy": 0.5077765086617171,
               "retention": NaN
             },
             {
@@ -273,7 +268,7 @@
               "label": "pair_id_random",
               "start": 1019,
               "retained_variance": 0.003534798277541995,
-              "accuracy": 0.4873215305539692,
+              "accuracy": 0.4990862364363221,
               "retention": NaN
             },
             {
@@ -283,7 +278,7 @@
               "start": 1019,
               "retained_variance": 0.003534798277541995,
               "accuracy": 0.619131924614506,
-              "retention": -7.953843235914136e-05
+              "retention": -2.4955916546706137e-05
             },
             {
               "layer": 13,
@@ -291,8 +286,8 @@
               "label": "concept",
               "start": 1274,
               "retained_variance": 0.002922222251072526,
-              "accuracy": 0.6835617742242528,
-              "retention": 0.806802493410869
+              "accuracy": 0.9677612792689892,
+              "retention": 0.9392057182172618
             },
             {
               "layer": 13,
@@ -300,7 +295,7 @@
               "label": "concept_shuffled",
               "start": 1274,
               "retained_variance": 0.002922222251072526,
-              "accuracy": 0.46965543498952983,
+              "accuracy": 0.4784599276603845,
               "retention": NaN
             },
             {
@@ -309,7 +304,7 @@
               "label": "pair_id_random",
               "start": 1274,
               "retained_variance": 0.002922222251072526,
-              "accuracy": 0.50001903674091,
+              "accuracy": 0.5255568246716162,
               "retention": NaN
             },
             {
@@ -319,7 +314,7 @@
               "start": 1274,
               "retained_variance": 0.002922222251072526,
               "accuracy": 0.619131924614506,
-              "retention": -7.953843235914136e-05
+              "retention": -2.4955916546706137e-05
             },
             {
               "layer": 13,
@@ -327,8 +322,8 @@
               "label": "concept",
               "start": 1529,
               "retained_variance": 0.002382408594712615,
-              "accuracy": 0.6025699600228441,
-              "retention": 0.4508220725431957
+              "accuracy": 0.9589377498572246,
+              "retention": 0.921489182784191
             },
             {
               "layer": 13,
@@ -336,7 +331,7 @@
               "label": "concept_shuffled",
               "start": 1529,
               "retained_variance": 0.002382408594712615,
-              "accuracy": 0.4921283076337331,
+              "accuracy": 0.4785836664762993,
               "retention": NaN
             },
             {
@@ -345,7 +340,7 @@
               "label": "pair_id_random",
               "start": 1529,
               "retained_variance": 0.002382408594712615,
-              "accuracy": 0.4531600989910528,
+              "accuracy": 0.4853512278697886,
               "retention": NaN
             },
             {
@@ -355,7 +350,7 @@
               "start": 1529,
               "retained_variance": 0.002382408594712615,
               "accuracy": 0.619131924614506,
-              "retention": -7.953843235914136e-05
+              "retention": -2.4955916546706137e-05
             },
             {
               "layer": 13,
@@ -363,8 +358,8 @@
               "label": "concept",
               "start": 1783,
               "retained_variance": 0.0018806891748681664,
-              "accuracy": 0.6210355987055016,
-              "retention": 0.5319834330418777
+              "accuracy": 0.9628688368551304,
+              "retention": 0.929382310220931
             },
             {
               "layer": 13,
@@ -372,7 +367,7 @@
               "label": "concept_shuffled",
               "start": 1783,
               "retained_variance": 0.0018806891748681664,
-              "accuracy": 0.45495907100704364,
+              "accuracy": 0.496954121454407,
               "retention": NaN
             },
             {
@@ -381,7 +376,7 @@
               "label": "pair_id_random",
               "start": 1783,
               "retained_variance": 0.0018806891748681664,
-              "accuracy": 0.5175994669712545,
+              "accuracy": 0.5019988577955454,
               "retention": NaN
             },
             {
@@ -391,7 +386,7 @@
               "start": 1783,
               "retained_variance": 0.0018806891748681664,
               "accuracy": 0.619131924614506,
-              "retention": -7.953843235914136e-05
+              "retention": -2.4955916546706137e-05
             },
             {
               "layer": 13,
@@ -399,8 +394,8 @@
               "label": "concept",
               "start": 2038,
               "retained_variance": 0.00134539813734591,
-              "accuracy": 0.6719303255282695,
-              "retention": 0.7556792034472658
+              "accuracy": 0.9931562916428707,
+              "retention": 0.9901957036923781
             },
             {
               "layer": 13,
@@ -408,7 +403,7 @@
               "label": "concept_shuffled",
               "start": 2038,
               "retained_variance": 0.00134539813734591,
-              "accuracy": 0.4999619265181801,
+              "accuracy": 0.5194841043213401,
               "retention": NaN
             },
             {
@@ -417,7 +412,7 @@
               "label": "pair_id_random",
               "start": 2038,
               "retained_variance": 0.00134539813734591,
-              "accuracy": 0.5107272035027604,
+              "accuracy": 0.5254140491147915,
               "retention": NaN
             },
             {
@@ -427,7 +422,7 @@
               "start": 2038,
               "retained_variance": 0.00134539813734591,
               "accuracy": 0.619131924614506,
-              "retention": -7.953843235914136e-05
+              "retention": -2.4955916546706137e-05
             },
             {
               "layer": 13,
@@ -435,8 +430,8 @@
               "label": "concept",
               "start": 2293,
               "retained_variance": 4.5191289245849475e-05,
-              "accuracy": 0.6523224823910146,
-              "retention": 0.6694975526084592
+              "accuracy": 0.9775652008376167,
+              "retention": 0.9588907575873405
             },
             {
               "layer": 13,
@@ -444,7 +439,7 @@
               "label": "concept_shuffled",
               "start": 2293,
               "retained_variance": 4.5191289245849475e-05,
-              "accuracy": 0.4793641728536075,
+              "accuracy": 0.51952217780316,
               "retention": NaN
             },
             {
@@ -453,7 +448,7 @@
               "label": "pair_id_random",
               "start": 2293,
               "retained_variance": 4.5191289245849475e-05,
-              "accuracy": 0.5097087378640776,
+              "accuracy": 0.5293641728536075,
               "retention": NaN
             },
             {
@@ -463,26 +458,26 @@
               "start": 2293,
               "retained_variance": 4.5191289245849475e-05,
               "accuracy": 0.619131924614506,
-              "retention": -7.953843235914136e-05
+              "retention": -2.4955916546706137e-05
             }
           ],
           "floor_check": {
-            "shuffled_top_k": 0.4862173995811917,
+            "shuffled_top_k": 0.4786502950694841,
             "majority": 0.5,
             "ok": true
           },
           "difference_in_differences": {
             "available": true,
             "control": "named_continent",
-            "delta": 0.16739775734217466,
+            "delta": 0.01764733021653543,
             "ci95": [
-              -0.004292250188260889,
-              0.33908776487261016
+              -0.007843257874015748,
+              0.04313791830708661
             ],
-            "p_boot": 0.0614,
+            "p_boot": 0.2232,
             "n_tokens": 1024,
             "verdict": "not concept-specific at this n: the quiet-tail advantage is the same size for the concept and for a label with no concept in it",
-            "retention_gap_concept_quiet_minus_loud": 0.16739775734217466,
+            "retention_gap_concept_quiet_minus_loud": 0.01764733021653543,
             "retention_gap_control_quiet_minus_loud": 0.0
           },
           "by_k": {
@@ -495,8 +490,8 @@
                   "label": "concept",
                   "start": 0,
                   "retained_variance": 0.19362998008728027,
-                  "accuracy": 0.6141252617551876,
-                  "retention": 0.5016106764841236
+                  "accuracy": 0.9687607081667619,
+                  "retention": 0.9412124455316871
                 },
                 {
                   "layer": 13,
@@ -504,7 +499,7 @@
                   "label": "concept_shuffled",
                   "start": 0,
                   "retained_variance": 0.19362998008728027,
-                  "accuracy": 0.4862173995811917,
+                  "accuracy": 0.4786502950694841,
                   "retention": NaN
                 },
                 {
@@ -513,7 +508,7 @@
                   "label": "pair_id_random",
                   "start": 0,
                   "retained_variance": 0.19362998008728027,
-                  "accuracy": 0.49122406244051026,
+                  "accuracy": 0.5243670283647439,
                   "retention": NaN
                 },
                 {
@@ -523,7 +518,7 @@
                   "start": 0,
                   "retained_variance": 0.19362998008728027,
                   "accuracy": 0.619131924614506,
-                  "retention": -7.953843235914136e-05
+                  "retention": -2.4955916546706137e-05
                 },
                 {
                   "layer": 13,
@@ -531,8 +526,8 @@
                   "label": "concept",
                   "start": 255,
                   "retained_variance": 0.00695414375513792,
-                  "accuracy": 0.6240529221397296,
-                  "retention": 0.5452453666903735
+                  "accuracy": 0.9452979249952408,
+                  "retention": 0.8941021328644598
                 },
                 {
                   "layer": 13,
@@ -540,7 +535,7 @@
                   "label": "concept_shuffled",
                   "start": 255,
                   "retained_variance": 0.00695414375513792,
-                  "accuracy": 0.4833618884446983,
+                  "accuracy": 0.45410241766609555,
                   "retention": NaN
                 },
                 {
@@ -549,7 +544,7 @@
                   "label": "pair_id_random",
                   "start": 255,
                   "retained_variance": 0.00695414375513792,
-                  "accuracy": 0.48335237007424325,
+                  "accuracy": 0.5067865981343994,
                   "retention": NaN
                 },
                 {
@@ -559,7 +554,7 @@
                   "start": 255,
                   "retained_variance": 0.00695414375513792,
                   "accuracy": 0.619131924614506,
-                  "retention": -7.953843235914136e-05
+                  "retention": -2.4955916546706137e-05
                 },
                 {
                   "layer": 13,
@@ -567,8 +562,8 @@
                   "label": "concept",
                   "start": 510,
                   "retained_variance": 0.005277235060930252,
-                  "accuracy": 0.666076527698458,
-                  "retention": 0.7299502154541273
+                  "accuracy": 0.956082238720731,
+                  "retention": 0.9157556761715464
                 },
                 {
                   "layer": 13,
@@ -576,7 +571,7 @@
                   "label": "concept_shuffled",
                   "start": 510,
                   "retained_variance": 0.005277235060930252,
-                  "accuracy": 0.46773272415762424,
+                  "accuracy": 0.48820673900628214,
                   "retention": NaN
                 },
                 {
@@ -585,7 +580,7 @@
                   "label": "pair_id_random",
                   "start": 510,
                   "retained_variance": 0.005277235060930252,
-                  "accuracy": 0.4981439177612793,
+                  "accuracy": 0.49524081477251086,
                   "retention": NaN
                 },
                 {
@@ -595,7 +590,7 @@
                   "start": 510,
                   "retained_variance": 0.005277235060930252,
                   "accuracy": 0.619131924614506,
-                  "retention": -7.953843235914136e-05
+                  "retention": -2.4955916546706137e-05
                 },
                 {
                   "layer": 13,
@@ -603,8 +598,8 @@
                   "label": "concept",
                   "start": 764,
                   "retained_variance": 0.004286730661988258,
-                  "accuracy": 0.6963259090043785,
-                  "retention": 0.8629042379617625
+                  "accuracy": 0.9794974300399772,
+                  "retention": 0.9627704303952299
                 },
                 {
                   "layer": 13,
@@ -612,7 +607,7 @@
                   "label": "concept_shuffled",
                   "start": 764,
                   "retained_variance": 0.004286730661988258,
-                  "accuracy": 0.477393870169427,
+                  "accuracy": 0.5009994288977727,
                   "retention": NaN
                 },
                 {
@@ -621,7 +616,7 @@
                   "label": "pair_id_random",
                   "start": 764,
                   "retained_variance": 0.004286730661988258,
-                  "accuracy": 0.49713497049305155,
+                  "accuracy": 0.515657719398439,
                   "retention": NaN
                 },
                 {
@@ -631,7 +626,7 @@
                   "start": 764,
                   "retained_variance": 0.004286730661988258,
                   "accuracy": 0.619131924614506,
-                  "retention": -7.953843235914136e-05
+                  "retention": -2.4955916546706137e-05
                 },
                 {
                   "layer": 13,
@@ -639,8 +634,8 @@
                   "label": "concept",
                   "start": 1019,
                   "retained_variance": 0.003534798277541995,
-                  "accuracy": 0.6503141062250143,
-                  "retention": 0.6606702087604068
+                  "accuracy": 0.968741671425852,
+                  "retention": 0.9411742221542697
                 },
                 {
                   "layer": 13,
@@ -648,7 +643,7 @@
                   "label": "concept_shuffled",
                   "start": 1019,
                   "retained_variance": 0.003534798277541995,
-                  "accuracy": 0.5048734056729488,
+                  "accuracy": 0.5077765086617171,
                   "retention": NaN
                 },
                 {
@@ -657,7 +652,7 @@
                   "label": "pair_id_random",
                   "start": 1019,
                   "retained_variance": 0.003534798277541995,
-                  "accuracy": 0.4873215305539692,
+                  "accuracy": 0.4990862364363221,
                   "retention": NaN
                 },
                 {
@@ -667,7 +662,7 @@
                   "start": 1019,
                   "retained_variance": 0.003534798277541995,
                   "accuracy": 0.619131924614506,
-                  "retention": -7.953843235914136e-05
+                  "retention": -2.4955916546706137e-05
                 },
                 {
                   "layer": 13,
@@ -675,8 +670,8 @@
                   "label": "concept",
                   "start": 1274,
                   "retained_variance": 0.002922222251072526,
-                  "accuracy": 0.6835617742242528,
-                  "retention": 0.806802493410869
+                  "accuracy": 0.9677612792689892,
+                  "retention": 0.9392057182172618
                 },
                 {
                   "layer": 13,
@@ -684,7 +679,7 @@
                   "label": "concept_shuffled",
                   "start": 1274,
                   "retained_variance": 0.002922222251072526,
-                  "accuracy": 0.46965543498952983,
+                  "accuracy": 0.4784599276603845,
                   "retention": NaN
                 },
                 {
@@ -693,7 +688,7 @@
                   "label": "pair_id_random",
                   "start": 1274,
                   "retained_variance": 0.002922222251072526,
-                  "accuracy": 0.50001903674091,
+                  "accuracy": 0.5255568246716162,
                   "retention": NaN
                 },
                 {
@@ -703,7 +698,7 @@
                   "start": 1274,
                   "retained_variance": 0.002922222251072526,
                   "accuracy": 0.619131924614506,
-                  "retention": -7.953843235914136e-05
+                  "retention": -2.4955916546706137e-05
                 },
                 {
                   "layer": 13,
@@ -711,8 +706,8 @@
                   "label": "concept",
                   "start": 1529,
                   "retained_variance": 0.002382408594712615,
-                  "accuracy": 0.6025699600228441,
-                  "retention": 0.4508220725431957
+                  "accuracy": 0.9589377498572246,
+                  "retention": 0.921489182784191
                 },
                 {
                   "layer": 13,
@@ -720,7 +715,7 @@
                   "label": "concept_shuffled",
                   "start": 1529,
                   "retained_variance": 0.002382408594712615,
-                  "accuracy": 0.4921283076337331,
+                  "accuracy": 0.4785836664762993,
                   "retention": NaN
                 },
                 {
@@ -729,7 +724,7 @@
                   "label": "pair_id_random",
                   "start": 1529,
                   "retained_variance": 0.002382408594712615,
-                  "accuracy": 0.4531600989910528,
+                  "accuracy": 0.4853512278697886,
                   "retention": NaN
                 },
                 {
@@ -739,7 +734,7 @@
                   "start": 1529,
                   "retained_variance": 0.002382408594712615,
                   "accuracy": 0.619131924614506,
-                  "retention": -7.953843235914136e-05
+                  "retention": -2.4955916546706137e-05
                 },
                 {
                   "layer": 13,
@@ -747,8 +742,8 @@
                   "label": "concept",
                   "start": 1783,
                   "retained_variance": 0.0018806891748681664,
-                  "accuracy": 0.6210355987055016,
-                  "retention": 0.5319834330418777
+                  "accuracy": 0.9628688368551304,
+                  "retention": 0.929382310220931
                 },
                 {
                   "layer": 13,
@@ -756,7 +751,7 @@
                   "label": "concept_shuffled",
                   "start": 1783,
                   "retained_variance": 0.0018806891748681664,
-                  "accuracy": 0.45495907100704364,
+                  "accuracy": 0.496954121454407,
                   "retention": NaN
                 },
                 {
@@ -765,7 +760,7 @@
                   "label": "pair_id_random",
                   "start": 1783,
                   "retained_variance": 0.0018806891748681664,
-                  "accuracy": 0.5175994669712545,
+                  "accuracy": 0.5019988577955454,
                   "retention": NaN
                 },
                 {
@@ -775,7 +770,7 @@
                   "start": 1783,
                   "retained_variance": 0.0018806891748681664,
                   "accuracy": 0.619131924614506,
-                  "retention": -7.953843235914136e-05
+                  "retention": -2.4955916546706137e-05
                 },
                 {
                   "layer": 13,
@@ -783,8 +778,8 @@
                   "label": "concept",
                   "start": 2038,
                   "retained_variance": 0.00134539813734591,
-                  "accuracy": 0.6719303255282695,
-                  "retention": 0.7556792034472658
+                  "accuracy": 0.9931562916428707,
+                  "retention": 0.9901957036923781
                 },
                 {
                   "layer": 13,
@@ -792,7 +787,7 @@
                   "label": "concept_shuffled",
                   "start": 2038,
                   "retained_variance": 0.00134539813734591,
-                  "accuracy": 0.4999619265181801,
+                  "accuracy": 0.5194841043213401,
                   "retention": NaN
                 },
                 {
@@ -801,7 +796,7 @@
                   "label": "pair_id_random",
                   "start": 2038,
                   "retained_variance": 0.00134539813734591,
-                  "accuracy": 0.5107272035027604,
+                  "accuracy": 0.5254140491147915,
                   "retention": NaN
                 },
                 {
@@ -811,7 +806,7 @@
                   "start": 2038,
                   "retained_variance": 0.00134539813734591,
                   "accuracy": 0.619131924614506,
-                  "retention": -7.953843235914136e-05
+                  "retention": -2.4955916546706137e-05
                 },
                 {
                   "layer": 13,
@@ -819,8 +814,8 @@
                   "label": "concept",
                   "start": 2293,
                   "retained_variance": 4.5191289245849475e-05,
-                  "accuracy": 0.6523224823910146,
-                  "retention": 0.6694975526084592
+                  "accuracy": 0.9775652008376167,
+                  "retention": 0.9588907575873405
                 },
                 {
                   "layer": 13,
@@ -828,7 +823,7 @@
                   "label": "concept_shuffled",
                   "start": 2293,
                   "retained_variance": 4.5191289245849475e-05,
-                  "accuracy": 0.4793641728536075,
+                  "accuracy": 0.51952217780316,
                   "retention": NaN
                 },
                 {
@@ -837,7 +832,7 @@
                   "label": "pair_id_random",
                   "start": 2293,
                   "retained_variance": 4.5191289245849475e-05,
-                  "accuracy": 0.5097087378640776,
+                  "accuracy": 0.5293641728536075,
                   "retention": NaN
                 },
                 {
@@ -847,21 +842,21 @@
                   "start": 2293,
                   "retained_variance": 4.5191289245849475e-05,
                   "accuracy": 0.619131924614506,
-                  "retention": -7.953843235914136e-05
+                  "retention": -2.4955916546706137e-05
                 }
               ],
               "difference_in_differences": {
                 "available": true,
                 "control": "named_continent",
-                "delta": 0.16739775734217466,
+                "delta": 0.01764733021653543,
                 "ci95": [
-                  -0.004292250188260889,
-                  0.33908776487261016
+                  -0.007843257874015748,
+                  0.04313791830708661
                 ],
-                "p_boot": 0.0614,
+                "p_boot": 0.2232,
                 "n_tokens": 1024,
                 "verdict": "not concept-specific at this n: the quiet-tail advantage is the same size for the concept and for a label with no concept in it",
-                "retention_gap_concept_quiet_minus_loud": 0.16739775734217466,
+                "retention_gap_concept_quiet_minus_loud": 0.01764733021653543,
                 "retention_gap_control_quiet_minus_loud": 0.0
               }
             }
@@ -876,16 +871,16 @@
             "city_continent": 0.62109375
           },
           "full_accuracy": {
-            "concept": 0.7275176089853417,
-            "concept_shuffled": 0.507852655625357,
-            "pair_id_random": 0.48531315438796885,
-            "city_continent": 0.8447363411383971
+            "concept": 0.9980392156862745,
+            "concept_shuffled": 0.492147344374643,
+            "pair_id_random": 0.49914334665905197,
+            "city_continent": 0.9003236245954692
           },
           "headroom": {
-            "concept": 0.22751760898534168,
-            "concept_shuffled": 0.007852655625356975,
-            "pair_id_random": -0.014686845612031152,
-            "city_continent": 0.22364259113839713
+            "concept": 0.4980392156862745,
+            "concept_shuffled": -0.007852655625356975,
+            "pair_id_random": -0.0008566533409480326,
+            "city_continent": 0.2792298745954692
           },
           "cells": [
             {
@@ -894,8 +889,8 @@
               "label": "concept",
               "start": 0,
               "retained_variance": 0.19362998008728027,
-              "accuracy": 0.6141252617551876,
-              "retention": 0.5016106764841236
+              "accuracy": 0.9687607081667619,
+              "retention": 0.9412124455316871
             },
             {
               "layer": 13,
@@ -903,7 +898,7 @@
               "label": "concept_shuffled",
               "start": 0,
               "retained_variance": 0.19362998008728027,
-              "accuracy": 0.4862173995811917,
+              "accuracy": 0.4786502950694841,
               "retention": NaN
             },
             {
@@ -912,7 +907,7 @@
               "label": "pair_id_random",
               "start": 0,
               "retained_variance": 0.19362998008728027,
-              "accuracy": 0.49122406244051026,
+              "accuracy": 0.5243670283647439,
               "retention": NaN
             },
             {
@@ -922,7 +917,7 @@
               "start": 0,
               "retained_variance": 0.19362998008728027,
               "accuracy": 0.6210927089282314,
-              "retention": -4.655069337513807e-06
+              "retention": -3.728368141405819e-06
             },
             {
               "layer": 13,
@@ -930,8 +925,8 @@
               "label": "concept",
               "start": 255,
               "retained_variance": 0.00695414375513792,
-              "accuracy": 0.6240529221397296,
-              "retention": 0.5452453666903735
+              "accuracy": 0.9452979249952408,
+              "retention": 0.8941021328644598
             },
             {
               "layer": 13,
@@ -939,7 +934,7 @@
               "label": "concept_shuffled",
               "start": 255,
               "retained_variance": 0.00695414375513792,
-              "accuracy": 0.4833618884446983,
+              "accuracy": 0.45410241766609555,
               "retention": NaN
             },
             {
@@ -948,7 +943,7 @@
               "label": "pair_id_random",
               "start": 255,
               "retained_variance": 0.00695414375513792,
-              "accuracy": 0.48335237007424325,
+              "accuracy": 0.5067865981343994,
               "retention": NaN
             },
             {
@@ -958,7 +953,7 @@
               "start": 255,
               "retained_variance": 0.00695414375513792,
               "accuracy": 0.6210927089282314,
-              "retention": -4.655069337513807e-06
+              "retention": -3.728368141405819e-06
             },
             {
               "layer": 13,
@@ -966,8 +961,8 @@
               "label": "concept",
               "start": 510,
               "retained_variance": 0.005277235060930252,
-              "accuracy": 0.666076527698458,
-              "retention": 0.7299502154541273
+              "accuracy": 0.956082238720731,
+              "retention": 0.9157556761715464
             },
             {
               "layer": 13,
@@ -975,7 +970,7 @@
               "label": "concept_shuffled",
               "start": 510,
               "retained_variance": 0.005277235060930252,
-              "accuracy": 0.46773272415762424,
+              "accuracy": 0.48820673900628214,
               "retention": NaN
             },
             {
@@ -984,7 +979,7 @@
               "label": "pair_id_random",
               "start": 510,
               "retained_variance": 0.005277235060930252,
-              "accuracy": 0.4981439177612793,
+              "accuracy": 0.49524081477251086,
               "retention": NaN
             },
             {
@@ -994,7 +989,7 @@
               "start": 510,
               "retained_variance": 0.005277235060930252,
               "accuracy": 0.6210927089282314,
-              "retention": -4.655069337513807e-06
+              "retention": -3.728368141405819e-06
             },
             {
               "layer": 13,
@@ -1002,8 +997,8 @@
               "label": "concept",
               "start": 764,
               "retained_variance": 0.004286730661988258,
-              "accuracy": 0.6963259090043785,
-              "retention": 0.8629042379617625
+              "accuracy": 0.9794974300399772,
+              "retention": 0.9627704303952299
             },
             {
               "layer": 13,
@@ -1011,7 +1006,7 @@
               "label": "concept_shuffled",
               "start": 764,
               "retained_variance": 0.004286730661988258,
-              "accuracy": 0.477393870169427,
+              "accuracy": 0.5009994288977727,
               "retention": NaN
             },
             {
@@ -1020,7 +1015,7 @@
               "label": "pair_id_random",
               "start": 764,
               "retained_variance": 0.004286730661988258,
-              "accuracy": 0.49713497049305155,
+              "accuracy": 0.515657719398439,
               "retention": NaN
             },
             {
@@ -1030,7 +1025,7 @@
               "start": 764,
               "retained_variance": 0.004286730661988258,
               "accuracy": 0.6210927089282314,
-              "retention": -4.655069337513807e-06
+              "retention": -3.728368141405819e-06
             },
             {
               "layer": 13,
@@ -1038,8 +1033,8 @@
               "label": "concept",
               "start": 1019,
               "retained_variance": 0.003534798277541995,
-              "accuracy": 0.6503141062250143,
-              "retention": 0.6606702087604068
+              "accuracy": 0.968741671425852,
+              "retention": 0.9411742221542697
             },
             {
               "layer": 13,
@@ -1047,7 +1042,7 @@
               "label": "concept_shuffled",
               "start": 1019,
               "retained_variance": 0.003534798277541995,
-              "accuracy": 0.5048734056729488,
+              "accuracy": 0.5077765086617171,
               "retention": NaN
             },
             {
@@ -1056,7 +1051,7 @@
               "label": "pair_id_random",
               "start": 1019,
               "retained_variance": 0.003534798277541995,
-              "accuracy": 0.4873215305539692,
+              "accuracy": 0.4990862364363221,
               "retention": NaN
             },
             {
@@ -1066,7 +1061,7 @@
               "start": 1019,
               "retained_variance": 0.003534798277541995,
               "accuracy": 0.6210927089282314,
-              "retention": -4.655069337513807e-06
+              "retention": -3.728368141405819e-06
             },
             {
               "layer": 13,
@@ -1074,8 +1069,8 @@
               "label": "concept",
               "start": 1274,
               "retained_variance": 0.002922222251072526,
-              "accuracy": 0.6835617742242528,
-              "retention": 0.806802493410869
+              "accuracy": 0.9677612792689892,
+              "retention": 0.9392057182172618
             },
             {
               "layer": 13,
@@ -1083,7 +1078,7 @@
               "label": "concept_shuffled",
               "start": 1274,
               "retained_variance": 0.002922222251072526,
-              "accuracy": 0.46965543498952983,
+              "accuracy": 0.4784599276603845,
               "retention": NaN
             },
             {
@@ -1092,7 +1087,7 @@
               "label": "pair_id_random",
               "start": 1274,
               "retained_variance": 0.002922222251072526,
-              "accuracy": 0.50001903674091,
+              "accuracy": 0.5255568246716162,
               "retention": NaN
             },
             {
@@ -1102,7 +1097,7 @@
               "start": 1274,
               "retained_variance": 0.002922222251072526,
               "accuracy": 0.6210927089282314,
-              "retention": -4.655069337513807e-06
+              "retention": -3.728368141405819e-06
             },
             {
               "layer": 13,
@@ -1110,8 +1105,8 @@
               "label": "concept",
               "start": 1529,
               "retained_variance": 0.002382408594712615,
-              "accuracy": 0.6025699600228441,
-              "retention": 0.4508220725431957
+              "accuracy": 0.9589377498572246,
+              "retention": 0.921489182784191
             },
             {
               "layer": 13,
@@ -1119,7 +1114,7 @@
               "label": "concept_shuffled",
               "start": 1529,
               "retained_variance": 0.002382408594712615,
-              "accuracy": 0.4921283076337331,
+              "accuracy": 0.4785836664762993,
               "retention": NaN
             },
             {
@@ -1128,7 +1123,7 @@
               "label": "pair_id_random",
               "start": 1529,
               "retained_variance": 0.002382408594712615,
-              "accuracy": 0.4531600989910528,
+              "accuracy": 0.4853512278697886,
               "retention": NaN
             },
             {
@@ -1138,7 +1133,7 @@
               "start": 1529,
               "retained_variance": 0.002382408594712615,
               "accuracy": 0.6210927089282314,
-              "retention": -4.655069337513807e-06
+              "retention": -3.728368141405819e-06
             },
             {
               "layer": 13,
@@ -1146,8 +1141,8 @@
               "label": "concept",
               "start": 1783,
               "retained_variance": 0.0018806891748681664,
-              "accuracy": 0.6210355987055016,
-              "retention": 0.5319834330418777
+              "accuracy": 0.9628688368551304,
+              "retention": 0.929382310220931
             },
             {
               "layer": 13,
@@ -1155,7 +1150,7 @@
               "label": "concept_shuffled",
               "start": 1783,
               "retained_variance": 0.0018806891748681664,
-              "accuracy": 0.45495907100704364,
+              "accuracy": 0.496954121454407,
               "retention": NaN
             },
             {
@@ -1164,7 +1159,7 @@
               "label": "pair_id_random",
               "start": 1783,
               "retained_variance": 0.0018806891748681664,
-              "accuracy": 0.5175994669712545,
+              "accuracy": 0.5019988577955454,
               "retention": NaN
             },
             {
@@ -1174,7 +1169,7 @@
               "start": 1783,
               "retained_variance": 0.0018806891748681664,
               "accuracy": 0.6210927089282314,
-              "retention": -4.655069337513807e-06
+              "retention": -3.728368141405819e-06
             },
             {
               "layer": 13,
@@ -1182,8 +1177,8 @@
               "label": "concept",
               "start": 2038,
               "retained_variance": 0.00134539813734591,
-              "accuracy": 0.6719303255282695,
-              "retention": 0.7556792034472658
+              "accuracy": 0.9931562916428707,
+              "retention": 0.9901957036923781
             },
             {
               "layer": 13,
@@ -1191,7 +1186,7 @@
               "label": "concept_shuffled",
               "start": 2038,
               "retained_variance": 0.00134539813734591,
-              "accuracy": 0.4999619265181801,
+              "accuracy": 0.5194841043213401,
               "retention": NaN
             },
             {
@@ -1200,7 +1195,7 @@
               "label": "pair_id_random",
               "start": 2038,
               "retained_variance": 0.00134539813734591,
-              "accuracy": 0.5107272035027604,
+              "accuracy": 0.5254140491147915,
               "retention": NaN
             },
             {
@@ -1210,7 +1205,7 @@
               "start": 2038,
               "retained_variance": 0.00134539813734591,
               "accuracy": 0.6210927089282314,
-              "retention": -4.655069337513807e-06
+              "retention": -3.728368141405819e-06
             },
             {
               "layer": 13,
@@ -1218,8 +1213,8 @@
               "label": "concept",
               "start": 2293,
               "retained_variance": 4.5191289245849475e-05,
-              "accuracy": 0.6523224823910146,
-              "retention": 0.6694975526084592
+              "accuracy": 0.9775652008376167,
+              "retention": 0.9588907575873405
             },
             {
               "layer": 13,
@@ -1227,7 +1222,7 @@
               "label": "concept_shuffled",
               "start": 2293,
               "retained_variance": 4.5191289245849475e-05,
-              "accuracy": 0.4793641728536075,
+              "accuracy": 0.51952217780316,
               "retention": NaN
             },
             {
@@ -1236,7 +1231,7 @@
               "label": "pair_id_random",
               "start": 2293,
               "retained_variance": 4.5191289245849475e-05,
-              "accuracy": 0.5097087378640776,
+              "accuracy": 0.5293641728536075,
               "retention": NaN
             },
             {
@@ -1246,26 +1241,26 @@
               "start": 2293,
               "retained_variance": 4.5191289245849475e-05,
               "accuracy": 0.6210927089282314,
-              "retention": -4.655069337513807e-06
+              "retention": -3.728368141405819e-06
             }
           ],
           "floor_check": {
-            "shuffled_top_k": 0.4862173995811917,
+            "shuffled_top_k": 0.4786502950694841,
             "majority": 0.5,
             "ok": true
           },
           "difference_in_differences": {
             "available": true,
             "control": "city_continent",
-            "delta": 0.16739775734217466,
+            "delta": 0.01764733021653543,
             "ci95": [
-              -0.004292250188260889,
-              0.33908776487261016
+              -0.007843257874015748,
+              0.04313791830708661
             ],
-            "p_boot": 0.0614,
+            "p_boot": 0.2232,
             "n_tokens": 1024,
             "verdict": "not concept-specific at this n: the quiet-tail advantage is the same size for the concept and for a label with no concept in it",
-            "retention_gap_concept_quiet_minus_loud": 0.16739775734217466,
+            "retention_gap_concept_quiet_minus_loud": 0.01764733021653543,
             "retention_gap_control_quiet_minus_loud": 0.0
           },
           "by_k": {
@@ -1278,8 +1273,8 @@
                   "label": "concept",
                   "start": 0,
                   "retained_variance": 0.19362998008728027,
-                  "accuracy": 0.6141252617551876,
-                  "retention": 0.5016106764841236
+                  "accuracy": 0.9687607081667619,
+                  "retention": 0.9412124455316871
                 },
                 {
                   "layer": 13,
@@ -1287,7 +1282,7 @@
                   "label": "concept_shuffled",
                   "start": 0,
                   "retained_variance": 0.19362998008728027,
-                  "accuracy": 0.4862173995811917,
+                  "accuracy": 0.4786502950694841,
                   "retention": NaN
                 },
                 {
@@ -1296,7 +1291,7 @@
                   "label": "pair_id_random",
                   "start": 0,
                   "retained_variance": 0.19362998008728027,
-                  "accuracy": 0.49122406244051026,
+                  "accuracy": 0.5243670283647439,
                   "retention": NaN
                 },
                 {
@@ -1306,7 +1301,7 @@
                   "start": 0,
                   "retained_variance": 0.19362998008728027,
                   "accuracy": 0.6210927089282314,
-                  "retention": -4.655069337513807e-06
+                  "retention": -3.728368141405819e-06
                 },
                 {
                   "layer": 13,
@@ -1314,8 +1309,8 @@
                   "label": "concept",
                   "start": 255,
                   "retained_variance": 0.00695414375513792,
-                  "accuracy": 0.6240529221397296,
-                  "retention": 0.5452453666903735
+                  "accuracy": 0.9452979249952408,
+                  "retention": 0.8941021328644598
                 },
                 {
                   "layer": 13,
@@ -1323,7 +1318,7 @@
                   "label": "concept_shuffled",
                   "start": 255,
                   "retained_variance": 0.00695414375513792,
-                  "accuracy": 0.4833618884446983,
+                  "accuracy": 0.45410241766609555,
                   "retention": NaN
                 },
                 {
@@ -1332,7 +1327,7 @@
                   "label": "pair_id_random",
                   "start": 255,
                   "retained_variance": 0.00695414375513792,
-                  "accuracy": 0.48335237007424325,
+                  "accuracy": 0.5067865981343994,
                   "retention": NaN
                 },
                 {
@@ -1342,7 +1337,7 @@
                   "start": 255,
                   "retained_variance": 0.00695414375513792,
                   "accuracy": 0.6210927089282314,
-                  "retention": -4.655069337513807e-06
+                  "retention": -3.728368141405819e-06
                 },
                 {
                   "layer": 13,
@@ -1350,8 +1345,8 @@
                   "label": "concept",
                   "start": 510,
                   "retained_variance": 0.005277235060930252,
-                  "accuracy": 0.666076527698458,
-                  "retention": 0.7299502154541273
+                  "accuracy": 0.956082238720731,
+                  "retention": 0.9157556761715464
                 },
                 {
                   "layer": 13,
@@ -1359,7 +1354,7 @@
                   "label": "concept_shuffled",
                   "start": 510,
                   "retained_variance": 0.005277235060930252,
-                  "accuracy": 0.46773272415762424,
+                  "accuracy": 0.48820673900628214,
                   "retention": NaN
                 },
                 {
@@ -1368,7 +1363,7 @@
                   "label": "pair_id_random",
                   "start": 510,
                   "retained_variance": 0.005277235060930252,
-                  "accuracy": 0.4981439177612793,
+                  "accuracy": 0.49524081477251086,
                   "retention": NaN
                 },
                 {
@@ -1378,7 +1373,7 @@
                   "start": 510,
                   "retained_variance": 0.005277235060930252,
                   "accuracy": 0.6210927089282314,
-                  "retention": -4.655069337513807e-06
+                  "retention": -3.728368141405819e-06
                 },
                 {
                   "layer": 13,
@@ -1386,8 +1381,8 @@
                   "label": "concept",
                   "start": 764,
                   "retained_variance": 0.004286730661988258,
-                  "accuracy": 0.6963259090043785,
-                  "retention": 0.8629042379617625
+                  "accuracy": 0.9794974300399772,
+                  "retention": 0.9627704303952299
                 },
                 {
                   "layer": 13,
@@ -1395,7 +1390,7 @@
                   "label": "concept_shuffled",
                   "start": 764,
                   "retained_variance": 0.004286730661988258,
-                  "accuracy": 0.477393870169427,
+                  "accuracy": 0.5009994288977727,
                   "retention": NaN
                 },
                 {
@@ -1404,7 +1399,7 @@
                   "label": "pair_id_random",
                   "start": 764,
                   "retained_variance": 0.004286730661988258,
-                  "accuracy": 0.49713497049305155,
+                  "accuracy": 0.515657719398439,
                   "retention": NaN
                 },
                 {
@@ -1414,7 +1409,7 @@
                   "start": 764,
                   "retained_variance": 0.004286730661988258,
                   "accuracy": 0.6210927089282314,
-                  "retention": -4.655069337513807e-06
+                  "retention": -3.728368141405819e-06
                 },
                 {
                   "layer": 13,
@@ -1422,8 +1417,8 @@
                   "label": "concept",
                   "start": 1019,
                   "retained_variance": 0.003534798277541995,
-                  "accuracy": 0.6503141062250143,
-                  "retention": 0.6606702087604068
+                  "accuracy": 0.968741671425852,
+                  "retention": 0.9411742221542697
                 },
                 {
                   "layer": 13,
@@ -1431,7 +1426,7 @@
                   "label": "concept_shuffled",
                   "start": 1019,
                   "retained_variance": 0.003534798277541995,
-                  "accuracy": 0.5048734056729488,
+                  "accuracy": 0.5077765086617171,
                   "retention": NaN
                 },
                 {
@@ -1440,7 +1435,7 @@
                   "label": "pair_id_random",
                   "start": 1019,
                   "retained_variance": 0.003534798277541995,
-                  "accuracy": 0.4873215305539692,
+                  "accuracy": 0.4990862364363221,
                   "retention": NaN
                 },
                 {
@@ -1450,7 +1445,7 @@
                   "start": 1019,
                   "retained_variance": 0.003534798277541995,
                   "accuracy": 0.6210927089282314,
-                  "retention": -4.655069337513807e-06
+                  "retention": -3.728368141405819e-06
                 },
                 {
                   "layer": 13,
@@ -1458,8 +1453,8 @@
                   "label": "concept",
                   "start": 1274,
                   "retained_variance": 0.002922222251072526,
-                  "accuracy": 0.6835617742242528,
-                  "retention": 0.806802493410869
+                  "accuracy": 0.9677612792689892,
+                  "retention": 0.9392057182172618
                 },
                 {
                   "layer": 13,
@@ -1467,7 +1462,7 @@
                   "label": "concept_shuffled",
                   "start": 1274,
                   "retained_variance": 0.002922222251072526,
-                  "accuracy": 0.46965543498952983,
+                  "accuracy": 0.4784599276603845,
                   "retention": NaN
                 },
                 {
@@ -1476,7 +1471,7 @@
                   "label": "pair_id_random",
                   "start": 1274,
                   "retained_variance": 0.002922222251072526,
-                  "accuracy": 0.50001903674091,
+                  "accuracy": 0.5255568246716162,
                   "retention": NaN
                 },
                 {
@@ -1486,7 +1481,7 @@
                   "start": 1274,
                   "retained_variance": 0.002922222251072526,
                   "accuracy": 0.6210927089282314,
-                  "retention": -4.655069337513807e-06
+                  "retention": -3.728368141405819e-06
                 },
                 {
                   "layer": 13,
@@ -1494,8 +1489,8 @@
                   "label": "concept",
                   "start": 1529,
                   "retained_variance": 0.002382408594712615,
-                  "accuracy": 0.6025699600228441,
-                  "retention": 0.4508220725431957
+                  "accuracy": 0.9589377498572246,
+                  "retention": 0.921489182784191
                 },
                 {
                   "layer": 13,
@@ -1503,7 +1498,7 @@
                   "label": "concept_shuffled",
                   "start": 1529,
                   "retained_variance": 0.002382408594712615,
-                  "accuracy": 0.4921283076337331,
+                  "accuracy": 0.4785836664762993,
                   "retention": NaN
                 },
                 {
@@ -1512,7 +1507,7 @@
                   "label": "pair_id_random",
                   "start": 1529,
                   "retained_variance": 0.002382408594712615,
-                  "accuracy": 0.4531600989910528,
+                  "accuracy": 0.4853512278697886,
                   "retention": NaN
                 },
                 {
@@ -1522,7 +1517,7 @@
                   "start": 1529,
                   "retained_variance": 0.002382408594712615,
                   "accuracy": 0.6210927089282314,
-                  "retention": -4.655069337513807e-06
+                  "retention": -3.728368141405819e-06
                 },
                 {
                   "layer": 13,
@@ -1530,8 +1525,8 @@
                   "label": "concept",
                   "start": 1783,
                   "retained_variance": 0.0018806891748681664,
-                  "accuracy": 0.6210355987055016,
-                  "retention": 0.5319834330418777
+                  "accuracy": 0.9628688368551304,
+                  "retention": 0.929382310220931
                 },
                 {
                   "layer": 13,
@@ -1539,7 +1534,7 @@
                   "label": "concept_shuffled",
                   "start": 1783,
                   "retained_variance": 0.0018806891748681664,
-                  "accuracy": 0.45495907100704364,
+                  "accuracy": 0.496954121454407,
                   "retention": NaN
                 },
                 {
@@ -1548,7 +1543,7 @@
                   "label": "pair_id_random",
                   "start": 1783,
                   "retained_variance": 0.0018806891748681664,
-                  "accuracy": 0.5175994669712545,
+                  "accuracy": 0.5019988577955454,
                   "retention": NaN
                 },
                 {
@@ -1558,7 +1553,7 @@
                   "start": 1783,
                   "retained_variance": 0.0018806891748681664,
                   "accuracy": 0.6210927089282314,
-                  "retention": -4.655069337513807e-06
+                  "retention": -3.728368141405819e-06
                 },
                 {
                   "layer": 13,
@@ -1566,8 +1561,8 @@
                   "label": "concept",
                   "start": 2038,
                   "retained_variance": 0.00134539813734591,
-                  "accuracy": 0.6719303255282695,
-                  "retention": 0.7556792034472658
+                  "accuracy": 0.9931562916428707,
+                  "retention": 0.9901957036923781
                 },
                 {
                   "layer": 13,
@@ -1575,7 +1570,7 @@
                   "label": "concept_shuffled",
                   "start": 2038,
                   "retained_variance": 0.00134539813734591,
-                  "accuracy": 0.4999619265181801,
+                  "accuracy": 0.5194841043213401,
                   "retention": NaN
                 },
                 {
@@ -1584,7 +1579,7 @@
                   "label": "pair_id_random",
                   "start": 2038,
                   "retained_variance": 0.00134539813734591,
-                  "accuracy": 0.5107272035027604,
+                  "accuracy": 0.5254140491147915,
                   "retention": NaN
                 },
                 {
@@ -1594,7 +1589,7 @@
                   "start": 2038,
                   "retained_variance": 0.00134539813734591,
                   "accuracy": 0.6210927089282314,
-                  "retention": -4.655069337513807e-06
+                  "retention": -3.728368141405819e-06
                 },
                 {
                   "layer": 13,
@@ -1602,8 +1597,8 @@
                   "label": "concept",
                   "start": 2293,
                   "retained_variance": 4.5191289245849475e-05,
-                  "accuracy": 0.6523224823910146,
-                  "retention": 0.6694975526084592
+                  "accuracy": 0.9775652008376167,
+                  "retention": 0.9588907575873405
                 },
                 {
                   "layer": 13,
@@ -1611,7 +1606,7 @@
                   "label": "concept_shuffled",
                   "start": 2293,
                   "retained_variance": 4.5191289245849475e-05,
-                  "accuracy": 0.4793641728536075,
+                  "accuracy": 0.51952217780316,
                   "retention": NaN
                 },
                 {
@@ -1620,7 +1615,7 @@
                   "label": "pair_id_random",
                   "start": 2293,
                   "retained_variance": 4.5191289245849475e-05,
-                  "accuracy": 0.5097087378640776,
+                  "accuracy": 0.5293641728536075,
                   "retention": NaN
                 },
                 {
@@ -1630,21 +1625,21 @@
                   "start": 2293,
                   "retained_variance": 4.5191289245849475e-05,
                   "accuracy": 0.6210927089282314,
-                  "retention": -4.655069337513807e-06
+                  "retention": -3.728368141405819e-06
                 }
               ],
               "difference_in_differences": {
                 "available": true,
                 "control": "city_continent",
-                "delta": 0.16739775734217466,
+                "delta": 0.01764733021653543,
                 "ci95": [
-                  -0.004292250188260889,
-                  0.33908776487261016
+                  -0.007843257874015748,
+                  0.04313791830708661
                 ],
-                "p_boot": 0.0614,
+                "p_boot": 0.2232,
                 "n_tokens": 1024,
                 "verdict": "not concept-specific at this n: the quiet-tail advantage is the same size for the concept and for a label with no concept in it",
-                "retention_gap_concept_quiet_minus_loud": 0.16739775734217466,
+                "retention_gap_concept_quiet_minus_loud": 0.01764733021653543,
                 "retention_gap_control_quiet_minus_loud": 0.0
               }
             }
@@ -1659,16 +1654,16 @@
             "length_bucket": 0.5
           },
           "full_accuracy": {
-            "concept": 0.7275176089853417,
-            "concept_shuffled": 0.507852655625357,
-            "pair_id_random": 0.48531315438796885,
-            "length_bucket": 0.7246145059965734
+            "concept": 0.9980392156862745,
+            "concept_shuffled": 0.492147344374643,
+            "pair_id_random": 0.49914334665905197,
+            "length_bucket": 0.852608033504664
           },
           "headroom": {
-            "concept": 0.22751760898534168,
-            "concept_shuffled": 0.007852655625356975,
-            "pair_id_random": -0.014686845612031152,
-            "length_bucket": 0.2246145059965734
+            "concept": 0.4980392156862745,
+            "concept_shuffled": -0.007852655625356975,
+            "pair_id_random": -0.0008566533409480326,
+            "length_bucket": 0.35260803350466396
           },
           "cells": [
             {
@@ -1677,8 +1672,8 @@
               "label": "concept",
               "start": 0,
               "retained_variance": 0.19362998008728027,
-              "accuracy": 0.6141252617551876,
-              "retention": 0.5016106764841236
+              "accuracy": 0.9687607081667619,
+              "retention": 0.9412124455316871
             },
             {
               "layer": 13,
@@ -1686,7 +1681,7 @@
               "label": "concept_shuffled",
               "start": 0,
               "retained_variance": 0.19362998008728027,
-              "accuracy": 0.4862173995811917,
+              "accuracy": 0.4786502950694841,
               "retention": NaN
             },
             {
@@ -1695,7 +1690,7 @@
               "label": "pair_id_random",
               "start": 0,
               "retained_variance": 0.19362998008728027,
-              "accuracy": 0.49122406244051026,
+              "accuracy": 0.5243670283647439,
               "retention": NaN
             },
             {
@@ -1704,8 +1699,8 @@
               "label": "length_bucket",
               "start": 0,
               "retained_variance": 0.19362998008728027,
-              "accuracy": 0.638711212640396,
-              "retention": 0.6175523349436394
+              "accuracy": 0.642566152674662,
+              "retention": 0.40431907139964884
             },
             {
               "layer": 13,
@@ -1713,8 +1708,8 @@
               "label": "concept",
               "start": 255,
               "retained_variance": 0.00695414375513792,
-              "accuracy": 0.6240529221397296,
-              "retention": 0.5452453666903735
+              "accuracy": 0.9452979249952408,
+              "retention": 0.8941021328644598
             },
             {
               "layer": 13,
@@ -1722,7 +1717,7 @@
               "label": "concept_shuffled",
               "start": 255,
               "retained_variance": 0.00695414375513792,
-              "accuracy": 0.4833618884446983,
+              "accuracy": 0.45410241766609555,
               "retention": NaN
             },
             {
@@ -1731,7 +1726,7 @@
               "label": "pair_id_random",
               "start": 255,
               "retained_variance": 0.00695414375513792,
-              "accuracy": 0.48335237007424325,
+              "accuracy": 0.5067865981343994,
               "retention": NaN
             },
             {
@@ -1740,8 +1735,8 @@
               "label": "length_bucket",
               "start": 255,
               "retained_variance": 0.00695414375513792,
-              "accuracy": 0.6356843708357129,
-              "retention": 0.6040766166624291
+              "accuracy": 0.6277460498762613,
+              "retention": 0.3622891078418143
             },
             {
               "layer": 13,
@@ -1749,8 +1744,8 @@
               "label": "concept",
               "start": 510,
               "retained_variance": 0.005277235060930252,
-              "accuracy": 0.666076527698458,
-              "retention": 0.7299502154541273
+              "accuracy": 0.956082238720731,
+              "retention": 0.9157556761715464
             },
             {
               "layer": 13,
@@ -1758,7 +1753,7 @@
               "label": "concept_shuffled",
               "start": 510,
               "retained_variance": 0.005277235060930252,
-              "accuracy": 0.46773272415762424,
+              "accuracy": 0.48820673900628214,
               "retention": NaN
             },
             {
@@ -1767,7 +1762,7 @@
               "label": "pair_id_random",
               "start": 510,
               "retained_variance": 0.005277235060930252,
-              "accuracy": 0.4981439177612793,
+              "accuracy": 0.49524081477251086,
               "retention": NaN
             },
             {
@@ -1776,8 +1771,8 @@
               "label": "length_bucket",
               "start": 510,
               "retained_variance": 0.005277235060930252,
-              "accuracy": 0.6288882543308586,
-              "retention": 0.5738198152385797
+              "accuracy": 0.6611650485436893,
+              "retention": 0.4570657308678634
             },
             {
               "layer": 13,
@@ -1785,8 +1780,8 @@
               "label": "concept",
               "start": 764,
               "retained_variance": 0.004286730661988258,
-              "accuracy": 0.6963259090043785,
-              "retention": 0.8629042379617625
+              "accuracy": 0.9794974300399772,
+              "retention": 0.9627704303952299
             },
             {
               "layer": 13,
@@ -1794,7 +1789,7 @@
               "label": "concept_shuffled",
               "start": 764,
               "retained_variance": 0.004286730661988258,
-              "accuracy": 0.477393870169427,
+              "accuracy": 0.5009994288977727,
               "retention": NaN
             },
             {
@@ -1803,7 +1798,7 @@
               "label": "pair_id_random",
               "start": 764,
               "retained_variance": 0.004286730661988258,
-              "accuracy": 0.49713497049305155,
+              "accuracy": 0.515657719398439,
               "retention": NaN
             },
             {
@@ -1812,8 +1807,8 @@
               "label": "length_bucket",
               "start": 764,
               "retained_variance": 0.004286730661988258,
-              "accuracy": 0.6367504283266705,
-              "retention": 0.6088227815916604
+              "accuracy": 0.6026270702455739,
+              "retention": 0.29105142394385203
             },
             {
               "layer": 13,
@@ -1821,8 +1816,8 @@
               "label": "concept",
               "start": 1019,
               "retained_variance": 0.003534798277541995,
-              "accuracy": 0.6503141062250143,
-              "retention": 0.6606702087604068
+              "accuracy": 0.968741671425852,
+              "retention": 0.9411742221542697
             },
             {
               "layer": 13,
@@ -1830,7 +1825,7 @@
               "label": "concept_shuffled",
               "start": 1019,
               "retained_variance": 0.003534798277541995,
-              "accuracy": 0.5048734056729488,
+              "accuracy": 0.5077765086617171,
               "retention": NaN
             },
             {
@@ -1839,7 +1834,7 @@
               "label": "pair_id_random",
               "start": 1019,
               "retained_variance": 0.003534798277541995,
-              "accuracy": 0.4873215305539692,
+              "accuracy": 0.4990862364363221,
               "retention": NaN
             },
             {
@@ -1848,8 +1843,8 @@
               "label": "length_bucket",
               "start": 1019,
               "retained_variance": 0.003534798277541995,
-              "accuracy": 0.6045402627070245,
-              "retention": 0.46542079837274336
+              "accuracy": 0.5811345897582334,
+              "retention": 0.23009852881630455
             },
             {
               "layer": 13,
@@ -1857,8 +1852,8 @@
               "label": "concept",
               "start": 1274,
               "retained_variance": 0.002922222251072526,
-              "accuracy": 0.6835617742242528,
-              "retention": 0.806802493410869
+              "accuracy": 0.9677612792689892,
+              "retention": 0.9392057182172618
             },
             {
               "layer": 13,
@@ -1866,7 +1861,7 @@
               "label": "concept_shuffled",
               "start": 1274,
               "retained_variance": 0.002922222251072526,
-              "accuracy": 0.46965543498952983,
+              "accuracy": 0.4784599276603845,
               "retention": NaN
             },
             {
@@ -1875,7 +1870,7 @@
               "label": "pair_id_random",
               "start": 1274,
               "retained_variance": 0.002922222251072526,
-              "accuracy": 0.50001903674091,
+              "accuracy": 0.5255568246716162,
               "retention": NaN
             },
             {
@@ -1884,8 +1879,8 @@
               "label": "length_bucket",
               "start": 1274,
               "retained_variance": 0.002922222251072526,
-              "accuracy": 0.6025223681705693,
-              "retention": 0.4564369861852702
+              "accuracy": 0.6221302113078241,
+              "retention": 0.346362532055608
             },
             {
               "layer": 13,
@@ -1893,8 +1888,8 @@
               "label": "concept",
               "start": 1529,
               "retained_variance": 0.002382408594712615,
-              "accuracy": 0.6025699600228441,
-              "retention": 0.4508220725431957
+              "accuracy": 0.9589377498572246,
+              "retention": 0.921489182784191
             },
             {
               "layer": 13,
@@ -1902,7 +1897,7 @@
               "label": "concept_shuffled",
               "start": 1529,
               "retained_variance": 0.002382408594712615,
-              "accuracy": 0.4921283076337331,
+              "accuracy": 0.4785836664762993,
               "retention": NaN
             },
             {
@@ -1911,7 +1906,7 @@
               "label": "pair_id_random",
               "start": 1529,
               "retained_variance": 0.002382408594712615,
-              "accuracy": 0.4531600989910528,
+              "accuracy": 0.4853512278697886,
               "retention": NaN
             },
             {
@@ -1920,8 +1915,8 @@
               "label": "length_bucket",
               "start": 1529,
               "retained_variance": 0.002382408594712615,
-              "accuracy": 0.6328003045878545,
-              "retention": 0.5912365454699549
+              "accuracy": 0.6318103940605369,
+              "retention": 0.37381562963962756
             },
             {
               "layer": 13,
@@ -1929,8 +1924,8 @@
               "label": "concept",
               "start": 1783,
               "retained_variance": 0.0018806891748681664,
-              "accuracy": 0.6210355987055016,
-              "retention": 0.5319834330418777
+              "accuracy": 0.9628688368551304,
+              "retention": 0.929382310220931
             },
             {
               "layer": 13,
@@ -1938,7 +1933,7 @@
               "label": "concept_shuffled",
               "start": 1783,
               "retained_variance": 0.0018806891748681664,
-              "accuracy": 0.45495907100704364,
+              "accuracy": 0.496954121454407,
               "retention": NaN
             },
             {
@@ -1947,7 +1942,7 @@
               "label": "pair_id_random",
               "start": 1783,
               "retained_variance": 0.0018806891748681664,
-              "accuracy": 0.5175994669712545,
+              "accuracy": 0.5019988577955454,
               "retention": NaN
             },
             {
@@ -1956,8 +1951,8 @@
               "label": "length_bucket",
               "start": 1783,
               "retained_variance": 0.0018806891748681664,
-              "accuracy": 0.6132876451551494,
-              "retention": 0.5043647766759894
+              "accuracy": 0.6728821625737675,
+              "retention": 0.490295586448914
             },
             {
               "layer": 13,
@@ -1965,8 +1960,8 @@
               "label": "concept",
               "start": 2038,
               "retained_variance": 0.00134539813734591,
-              "accuracy": 0.6719303255282695,
-              "retention": 0.7556792034472658
+              "accuracy": 0.9931562916428707,
+              "retention": 0.9901957036923781
             },
             {
               "layer": 13,
@@ -1974,7 +1969,7 @@
               "label": "concept_shuffled",
               "start": 2038,
               "retained_variance": 0.00134539813734591,
-              "accuracy": 0.4999619265181801,
+              "accuracy": 0.5194841043213401,
               "retention": NaN
             },
             {
@@ -1983,7 +1978,7 @@
               "label": "pair_id_random",
               "start": 2038,
               "retained_variance": 0.00134539813734591,
-              "accuracy": 0.5107272035027604,
+              "accuracy": 0.5254140491147915,
               "retention": NaN
             },
             {
@@ -1992,8 +1987,8 @@
               "label": "length_bucket",
               "start": 2038,
               "retained_variance": 0.00134539813734591,
-              "accuracy": 0.6289548829240433,
-              "retention": 0.5741164505466562
+              "accuracy": 0.6105082809822958,
+              "retention": 0.31340261843703604
             },
             {
               "layer": 13,
@@ -2001,8 +1996,8 @@
               "label": "concept",
               "start": 2293,
               "retained_variance": 4.5191289245849475e-05,
-              "accuracy": 0.6523224823910146,
-              "retention": 0.6694975526084592
+              "accuracy": 0.9775652008376167,
+              "retention": 0.9588907575873405
             },
             {
               "layer": 13,
@@ -2010,7 +2005,7 @@
               "label": "concept_shuffled",
               "start": 2293,
               "retained_variance": 4.5191289245849475e-05,
-              "accuracy": 0.4793641728536075,
+              "accuracy": 0.51952217780316,
               "retention": NaN
             },
             {
@@ -2019,7 +2014,7 @@
               "label": "pair_id_random",
               "start": 2293,
               "retained_variance": 4.5191289245849475e-05,
-              "accuracy": 0.5097087378640776,
+              "accuracy": 0.5293641728536075,
               "retention": NaN
             },
             {
@@ -2028,28 +2023,28 @@
               "label": "length_bucket",
               "start": 2293,
               "retained_variance": 4.5191289245849475e-05,
-              "accuracy": 0.6435560632019798,
-              "retention": 0.639121959488092
+              "accuracy": 0.6308585570150391,
+              "retention": 0.3711162100148471
             }
           ],
           "floor_check": {
-            "shuffled_top_k": 0.4862173995811917,
+            "shuffled_top_k": 0.4786502950694841,
             "majority": 0.5,
             "ok": true
           },
           "difference_in_differences": {
             "available": true,
             "control": "length_bucket",
-            "delta": 0.14565912350668012,
+            "delta": 0.0508818254250656,
             "ci95": [
-              -0.05619036232819957,
-              0.3482284179519831
+              -0.0438724324201476,
+              0.14757480979499252
             ],
-            "p_boot": 0.1548,
+            "p_boot": 0.2966,
             "n_tokens": 1024,
             "verdict": "not concept-specific at this n: the quiet-tail advantage is the same size for the concept and for a label with no concept in it",
-            "retention_gap_concept_quiet_minus_loud": 0.16739775734217466,
-            "retention_gap_control_quiet_minus_loud": 0.02173863383549453
+            "retention_gap_concept_quiet_minus_loud": 0.01764733021653543,
+            "retention_gap_control_quiet_minus_loud": -0.03323449520853017
           },
           "by_k": {
             "0.005": {
@@ -2061,8 +2056,8 @@
                   "label": "concept",
                   "start": 0,
                   "retained_variance": 0.19362998008728027,
-                  "accuracy": 0.6141252617551876,
-                  "retention": 0.5016106764841236
+                  "accuracy": 0.9687607081667619,
+                  "retention": 0.9412124455316871
                 },
                 {
                   "layer": 13,
@@ -2070,7 +2065,7 @@
                   "label": "concept_shuffled",
                   "start": 0,
                   "retained_variance": 0.19362998008728027,
-                  "accuracy": 0.4862173995811917,
+                  "accuracy": 0.4786502950694841,
                   "retention": NaN
                 },
                 {
@@ -2079,7 +2074,7 @@
                   "label": "pair_id_random",
                   "start": 0,
                   "retained_variance": 0.19362998008728027,
-                  "accuracy": 0.49122406244051026,
+                  "accuracy": 0.5243670283647439,
                   "retention": NaN
                 },
                 {
@@ -2088,8 +2083,8 @@
                   "label": "length_bucket",
                   "start": 0,
                   "retained_variance": 0.19362998008728027,
-                  "accuracy": 0.638711212640396,
-                  "retention": 0.6175523349436394
+                  "accuracy": 0.642566152674662,
+                  "retention": 0.40431907139964884
                 },
                 {
                   "layer": 13,
@@ -2097,8 +2092,8 @@
                   "label": "concept",
                   "start": 255,
                   "retained_variance": 0.00695414375513792,
-                  "accuracy": 0.6240529221397296,
-                  "retention": 0.5452453666903735
+                  "accuracy": 0.9452979249952408,
+                  "retention": 0.8941021328644598
                 },
                 {
                   "layer": 13,
@@ -2106,7 +2101,7 @@
                   "label": "concept_shuffled",
                   "start": 255,
                   "retained_variance": 0.00695414375513792,
-                  "accuracy": 0.4833618884446983,
+                  "accuracy": 0.45410241766609555,
                   "retention": NaN
                 },
                 {
@@ -2115,7 +2110,7 @@
                   "label": "pair_id_random",
                   "start": 255,
                   "retained_variance": 0.00695414375513792,
-                  "accuracy": 0.48335237007424325,
+                  "accuracy": 0.5067865981343994,
                   "retention": NaN
                 },
                 {
@@ -2124,8 +2119,8 @@
                   "label": "length_bucket",
                   "start": 255,
                   "retained_variance": 0.00695414375513792,
-                  "accuracy": 0.6356843708357129,
-                  "retention": 0.6040766166624291
+                  "accuracy": 0.6277460498762613,
+                  "retention": 0.3622891078418143
                 },
                 {
                   "layer": 13,
@@ -2133,8 +2128,8 @@
                   "label": "concept",
                   "start": 510,
                   "retained_variance": 0.005277235060930252,
-                  "accuracy": 0.666076527698458,
-                  "retention": 0.7299502154541273
+                  "accuracy": 0.956082238720731,
+                  "retention": 0.9157556761715464
                 },
                 {
                   "layer": 13,
@@ -2142,7 +2137,7 @@
                   "label": "concept_shuffled",
                   "start": 510,
                   "retained_variance": 0.005277235060930252,
-                  "accuracy": 0.46773272415762424,
+                  "accuracy": 0.48820673900628214,
                   "retention": NaN
                 },
                 {
@@ -2151,7 +2146,7 @@
                   "label": "pair_id_random",
                   "start": 510,
                   "retained_variance": 0.005277235060930252,
-                  "accuracy": 0.4981439177612793,
+                  "accuracy": 0.49524081477251086,
                   "retention": NaN
                 },
                 {
@@ -2160,8 +2155,8 @@
                   "label": "length_bucket",
                   "start": 510,
                   "retained_variance": 0.005277235060930252,
-                  "accuracy": 0.6288882543308586,
-                  "retention": 0.5738198152385797
+                  "accuracy": 0.6611650485436893,
+                  "retention": 0.4570657308678634
                 },
                 {
                   "layer": 13,
@@ -2169,8 +2164,8 @@
                   "label": "concept",
                   "start": 764,
                   "retained_variance": 0.004286730661988258,
-                  "accuracy": 0.6963259090043785,
-                  "retention": 0.8629042379617625
+                  "accuracy": 0.9794974300399772,
+                  "retention": 0.9627704303952299
                 },
                 {
                   "layer": 13,
@@ -2178,7 +2173,7 @@
                   "label": "concept_shuffled",
                   "start": 764,
                   "retained_variance": 0.004286730661988258,
-                  "accuracy": 0.477393870169427,
+                  "accuracy": 0.5009994288977727,
                   "retention": NaN
                 },
                 {
@@ -2187,7 +2182,7 @@
                   "label": "pair_id_random",
                   "start": 764,
                   "retained_variance": 0.004286730661988258,
-                  "accuracy": 0.49713497049305155,
+                  "accuracy": 0.515657719398439,
                   "retention": NaN
                 },
                 {
@@ -2196,8 +2191,8 @@
                   "label": "length_bucket",
                   "start": 764,
                   "retained_variance": 0.004286730661988258,
-                  "accuracy": 0.6367504283266705,
-                  "retention": 0.6088227815916604
+                  "accuracy": 0.6026270702455739,
+                  "retention": 0.29105142394385203
                 },
                 {
                   "layer": 13,
@@ -2205,8 +2200,8 @@
                   "label": "concept",
                   "start": 1019,
                   "retained_variance": 0.003534798277541995,
-                  "accuracy": 0.6503141062250143,
-                  "retention": 0.6606702087604068
+                  "accuracy": 0.968741671425852,
+                  "retention": 0.9411742221542697
                 },
                 {
                   "layer": 13,
@@ -2214,7 +2209,7 @@
                   "label": "concept_shuffled",
                   "start": 1019,
                   "retained_variance": 0.003534798277541995,
-                  "accuracy": 0.5048734056729488,
+                  "accuracy": 0.5077765086617171,
                   "retention": NaN
                 },
                 {
@@ -2223,7 +2218,7 @@
                   "label": "pair_id_random",
                   "start": 1019,
                   "retained_variance": 0.003534798277541995,
-                  "accuracy": 0.4873215305539692,
+                  "accuracy": 0.4990862364363221,
                   "retention": NaN
                 },
                 {
@@ -2232,8 +2227,8 @@
                   "label": "length_bucket",
                   "start": 1019,
                   "retained_variance": 0.003534798277541995,
-                  "accuracy": 0.6045402627070245,
-                  "retention": 0.46542079837274336
+                  "accuracy": 0.5811345897582334,
+                  "retention": 0.23009852881630455
                 },
                 {
                   "layer": 13,
@@ -2241,8 +2236,8 @@
                   "label": "concept",
                   "start": 1274,
                   "retained_variance": 0.002922222251072526,
-                  "accuracy": 0.6835617742242528,
-                  "retention": 0.806802493410869
+                  "accuracy": 0.9677612792689892,
+                  "retention": 0.9392057182172618
                 },
                 {
                   "layer": 13,
@@ -2250,7 +2245,7 @@
                   "label": "concept_shuffled",
                   "start": 1274,
                   "retained_variance": 0.002922222251072526,
-                  "accuracy": 0.46965543498952983,
+                  "accuracy": 0.4784599276603845,
                   "retention": NaN
                 },
                 {
@@ -2259,7 +2254,7 @@
                   "label": "pair_id_random",
                   "start": 1274,
                   "retained_variance": 0.002922222251072526,
-                  "accuracy": 0.50001903674091,
+                  "accuracy": 0.5255568246716162,
                   "retention": NaN
                 },
                 {
@@ -2268,8 +2263,8 @@
                   "label": "length_bucket",
                   "start": 1274,
                   "retained_variance": 0.002922222251072526,
-                  "accuracy": 0.6025223681705693,
-                  "retention": 0.4564369861852702
+                  "accuracy": 0.6221302113078241,
+                  "retention": 0.346362532055608
                 },
                 {
                   "layer": 13,
@@ -2277,8 +2272,8 @@
                   "label": "concept",
                   "start": 1529,
                   "retained_variance": 0.002382408594712615,
-                  "accuracy": 0.6025699600228441,
-                  "retention": 0.4508220725431957
+                  "accuracy": 0.9589377498572246,
+                  "retention": 0.921489182784191
                 },
                 {
                   "layer": 13,
@@ -2286,7 +2281,7 @@
                   "label": "concept_shuffled",
                   "start": 1529,
                   "retained_variance": 0.002382408594712615,
-                  "accuracy": 0.4921283076337331,
+                  "accuracy": 0.4785836664762993,
                   "retention": NaN
                 },
                 {
@@ -2295,7 +2290,7 @@
                   "label": "pair_id_random",
                   "start": 1529,
                   "retained_variance": 0.002382408594712615,
-                  "accuracy": 0.4531600989910528,
+                  "accuracy": 0.4853512278697886,
                   "retention": NaN
                 },
                 {
@@ -2304,8 +2299,8 @@
                   "label": "length_bucket",
                   "start": 1529,
                   "retained_variance": 0.002382408594712615,
-                  "accuracy": 0.6328003045878545,
-                  "retention": 0.5912365454699549
+                  "accuracy": 0.6318103940605369,
+                  "retention": 0.37381562963962756
                 },
                 {
                   "layer": 13,
@@ -2313,8 +2308,8 @@
                   "label": "concept",
                   "start": 1783,
                   "retained_variance": 0.0018806891748681664,
-                  "accuracy": 0.6210355987055016,
-                  "retention": 0.5319834330418777
+                  "accuracy": 0.9628688368551304,
+                  "retention": 0.929382310220931
                 },
                 {
                   "layer": 13,
@@ -2322,7 +2317,7 @@
                   "label": "concept_shuffled",
                   "start": 1783,
                   "retained_variance": 0.0018806891748681664,
-                  "accuracy": 0.45495907100704364,
+                  "accuracy": 0.496954121454407,
                   "retention": NaN
                 },
                 {
@@ -2331,7 +2326,7 @@
                   "label": "pair_id_random",
                   "start": 1783,
                   "retained_variance": 0.0018806891748681664,
-                  "accuracy": 0.5175994669712545,
+                  "accuracy": 0.5019988577955454,
                   "retention": NaN
                 },
                 {
@@ -2340,8 +2335,8 @@
                   "label": "length_bucket",
                   "start": 1783,
                   "retained_variance": 0.0018806891748681664,
-                  "accuracy": 0.6132876451551494,
-                  "retention": 0.5043647766759894
+                  "accuracy": 0.6728821625737675,
+                  "retention": 0.490295586448914
                 },
                 {
                   "layer": 13,
@@ -2349,8 +2344,8 @@
                   "label": "concept",
                   "start": 2038,
                   "retained_variance": 0.00134539813734591,
-                  "accuracy": 0.6719303255282695,
-                  "retention": 0.7556792034472658
+                  "accuracy": 0.9931562916428707,
+                  "retention": 0.9901957036923781
                 },
                 {
                   "layer": 13,
@@ -2358,7 +2353,7 @@
                   "label": "concept_shuffled",
                   "start": 2038,
                   "retained_variance": 0.00134539813734591,
-                  "accuracy": 0.4999619265181801,
+                  "accuracy": 0.5194841043213401,
                   "retention": NaN
                 },
                 {
@@ -2367,7 +2362,7 @@
                   "label": "pair_id_random",
                   "start": 2038,
                   "retained_variance": 0.00134539813734591,
-                  "accuracy": 0.5107272035027604,
+                  "accuracy": 0.5254140491147915,
                   "retention": NaN
                 },
                 {
@@ -2376,8 +2371,8 @@
                   "label": "length_bucket",
                   "start": 2038,
                   "retained_variance": 0.00134539813734591,
-                  "accuracy": 0.6289548829240433,
-                  "retention": 0.5741164505466562
+                  "accuracy": 0.6105082809822958,
+                  "retention": 0.31340261843703604
                 },
                 {
                   "layer": 13,
@@ -2385,8 +2380,8 @@
                   "label": "concept",
                   "start": 2293,
                   "retained_variance": 4.5191289245849475e-05,
-                  "accuracy": 0.6523224823910146,
-                  "retention": 0.6694975526084592
+                  "accuracy": 0.9775652008376167,
+                  "retention": 0.9588907575873405
                 },
                 {
                   "layer": 13,
@@ -2394,7 +2389,7 @@
                   "label": "concept_shuffled",
                   "start": 2293,
                   "retained_variance": 4.5191289245849475e-05,
-                  "accuracy": 0.4793641728536075,
+                  "accuracy": 0.51952217780316,
                   "retention": NaN
                 },
                 {
@@ -2403,7 +2398,7 @@
                   "label": "pair_id_random",
                   "start": 2293,
                   "retained_variance": 4.5191289245849475e-05,
-                  "accuracy": 0.5097087378640776,
+                  "accuracy": 0.5293641728536075,
                   "retention": NaN
                 },
                 {
@@ -2412,23 +2407,23 @@
                   "label": "length_bucket",
                   "start": 2293,
                   "retained_variance": 4.5191289245849475e-05,
-                  "accuracy": 0.6435560632019798,
-                  "retention": 0.639121959488092
+                  "accuracy": 0.6308585570150391,
+                  "retention": 0.3711162100148471
                 }
               ],
               "difference_in_differences": {
                 "available": true,
                 "control": "length_bucket",
-                "delta": 0.14565912350668012,
+                "delta": 0.0508818254250656,
                 "ci95": [
-                  -0.05619036232819957,
-                  0.3482284179519831
+                  -0.0438724324201476,
+                  0.14757480979499252
                 ],
-                "p_boot": 0.1548,
+                "p_boot": 0.2966,
                 "n_tokens": 1024,
                 "verdict": "not concept-specific at this n: the quiet-tail advantage is the same size for the concept and for a label with no concept in it",
-                "retention_gap_concept_quiet_minus_loud": 0.16739775734217466,
-                "retention_gap_control_quiet_minus_loud": 0.02173863383549453
+                "retention_gap_concept_quiet_minus_loud": 0.01764733021653543,
+                "retention_gap_control_quiet_minus_loud": -0.03323449520853017
               }
             }
           }
@@ -2447,16 +2442,16 @@
             "named_continent": 0.619140625
           },
           "full_accuracy": {
-            "concept": 0.7098991052731771,
-            "concept_shuffled": 0.5204549781077479,
-            "pair_id_random": 0.5077955454026271,
-            "named_continent": 0.7402722253950124
+            "concept": 0.9951361126975062,
+            "concept_shuffled": 0.5166381115553017,
+            "pair_id_random": 0.4765562535693889,
+            "named_continent": 0.9316390633923473
           },
           "headroom": {
-            "concept": 0.20989910527317712,
-            "concept_shuffled": 0.02045497810774788,
-            "pair_id_random": 0.007795545402627058,
-            "named_continent": 0.12113160039501236
+            "concept": 0.49513611269750624,
+            "concept_shuffled": 0.016638111555301704,
+            "pair_id_random": -0.02344374643061109,
+            "named_continent": 0.31249843839234726
           },
           "cells": [
             {
@@ -2465,8 +2460,8 @@
               "label": "concept",
               "start": 0,
               "retained_variance": 0.19362998008728027,
-              "accuracy": 0.5362078812107367,
-              "retention": 0.1725013604208235
+              "accuracy": 0.9043023034456501,
+              "retention": 0.8165477998423653
             },
             {
               "layer": 26,
@@ -2474,8 +2469,8 @@
               "label": "concept_shuffled",
               "start": 0,
               "retained_variance": 0.19362998008728027,
-              "accuracy": 0.4990005711022273,
-              "retention": -0.048859934853420994
+              "accuracy": 0.4785646297353893,
+              "retention": NaN
             },
             {
               "layer": 26,
@@ -2483,7 +2478,7 @@
               "label": "pair_id_random",
               "start": 0,
               "retained_variance": 0.19362998008728027,
-              "accuracy": 0.5214258518941557,
+              "accuracy": 0.4854464115743385,
               "retention": NaN
             },
             {
@@ -2493,7 +2488,7 @@
               "start": 0,
               "retained_variance": 0.19362998008728027,
               "accuracy": 0.619131924614506,
-              "retention": -7.182589403327953e-05
+              "retention": -2.784137270833409e-05
             },
             {
               "layer": 26,
@@ -2501,8 +2496,8 @@
               "label": "concept",
               "start": 255,
               "retained_variance": 0.00695414375513792,
-              "accuracy": 0.5478107747953549,
-              "retention": 0.22777979321603428
+              "accuracy": 0.6923281934132877,
+              "retention": 0.38843499490570754
             },
             {
               "layer": 26,
@@ -2510,8 +2505,8 @@
               "label": "concept_shuffled",
               "start": 255,
               "retained_variance": 0.00695414375513792,
-              "accuracy": 0.46387778412335806,
-              "retention": -1.7659376454164801
+              "accuracy": 0.5020178945364554,
+              "retention": NaN
             },
             {
               "layer": 26,
@@ -2519,7 +2514,7 @@
               "label": "pair_id_random",
               "start": 255,
               "retained_variance": 0.00695414375513792,
-              "accuracy": 0.5028555111364934,
+              "accuracy": 0.5176565771939844,
               "retention": NaN
             },
             {
@@ -2529,7 +2524,7 @@
               "start": 255,
               "retained_variance": 0.00695414375513792,
               "accuracy": 0.619131924614506,
-              "retention": -7.182589403327953e-05
+              "retention": -2.784137270833409e-05
             },
             {
               "layer": 26,
@@ -2537,8 +2532,8 @@
               "label": "concept",
               "start": 510,
               "retained_variance": 0.005277235060930252,
-              "accuracy": 0.5673234342280601,
-              "retention": 0.32074188282241956
+              "accuracy": 0.8165334094802971,
+              "retention": 0.6392856456294816
             },
             {
               "layer": 26,
@@ -2546,8 +2541,8 @@
               "label": "concept_shuffled",
               "start": 510,
               "retained_variance": 0.005277235060930252,
-              "accuracy": 0.4950790024747763,
-              "retention": -0.24057701256398406
+              "accuracy": 0.5058918713116315,
+              "retention": NaN
             },
             {
               "layer": 26,
@@ -2555,7 +2550,7 @@
               "label": "pair_id_random",
               "start": 510,
               "retained_variance": 0.005277235060930252,
-              "accuracy": 0.5438701694269941,
+              "accuracy": 0.5175233200076146,
               "retention": NaN
             },
             {
@@ -2565,7 +2560,7 @@
               "start": 510,
               "retained_variance": 0.005277235060930252,
               "accuracy": 0.619131924614506,
-              "retention": -7.182589403327953e-05
+              "retention": -2.784137270833409e-05
             },
             {
               "layer": 26,
@@ -2573,8 +2568,8 @@
               "label": "concept",
               "start": 764,
               "retained_variance": 0.004286730661988258,
-              "accuracy": 0.5633066818960593,
-              "retention": 0.301605296571739
+              "accuracy": 0.7988387588044927,
+              "retention": 0.6035487033583884
             },
             {
               "layer": 26,
@@ -2582,8 +2577,8 @@
               "label": "concept_shuffled",
               "start": 764,
               "retained_variance": 0.004286730661988258,
-              "accuracy": 0.4638111555301732,
-              "retention": -1.7691949744067084
+              "accuracy": 0.4881972206358271,
+              "retention": NaN
             },
             {
               "layer": 26,
@@ -2591,7 +2586,7 @@
               "label": "pair_id_random",
               "start": 764,
               "retained_variance": 0.004286730661988258,
-              "accuracy": 0.5107652769845802,
+              "accuracy": 0.4697506186940796,
               "retention": NaN
             },
             {
@@ -2601,7 +2596,7 @@
               "start": 764,
               "retained_variance": 0.004286730661988258,
               "accuracy": 0.619131924614506,
-              "retention": -7.182589403327953e-05
+              "retention": -2.784137270833409e-05
             },
             {
               "layer": 26,
@@ -2609,8 +2604,8 @@
               "label": "concept",
               "start": 1019,
               "retained_variance": 0.003534798277541995,
-              "accuracy": 0.5702836474395584,
-              "retention": 0.3348449120261205
+              "accuracy": 0.7821054635446412,
+              "retention": 0.5697533593494685
             },
             {
               "layer": 26,
@@ -2618,8 +2613,8 @@
               "label": "concept_shuffled",
               "start": 1019,
               "retained_variance": 0.003534798277541995,
-              "accuracy": 0.5038549400342661,
-              "retention": 0.188459748720335
+              "accuracy": 0.4775747192080716,
+              "retention": NaN
             },
             {
               "layer": 26,
@@ -2627,7 +2622,7 @@
               "label": "pair_id_random",
               "start": 1019,
               "retained_variance": 0.003534798277541995,
-              "accuracy": 0.4707119741100324,
+              "accuracy": 0.4472967827907863,
               "retention": NaN
             },
             {
@@ -2636,8 +2631,8 @@
               "label": "named_continent",
               "start": 1019,
               "retained_variance": 0.003534798277541995,
-              "accuracy": 0.619131924614506,
-              "retention": -7.182589403327953e-05
+              "accuracy": 0.6201123167713687,
+              "retention": 0.0031094292066468246
             },
             {
               "layer": 26,
@@ -2645,8 +2640,8 @@
               "label": "concept",
               "start": 1274,
               "retained_variance": 0.002922222251072526,
-              "accuracy": 0.5771559109080525,
-              "retention": 0.3675857065118811
+              "accuracy": 0.7587949743003998,
+              "retention": 0.522674407428055
             },
             {
               "layer": 26,
@@ -2654,8 +2649,8 @@
               "label": "concept_shuffled",
               "start": 1274,
               "retained_variance": 0.002922222251072526,
-              "accuracy": 0.48628402817437655,
-              "retention": -0.6705444392740834
+              "accuracy": 0.4971730439748715,
+              "retention": NaN
             },
             {
               "layer": 26,
@@ -2663,7 +2658,7 @@
               "label": "pair_id_random",
               "start": 1274,
               "retained_variance": 0.002922222251072526,
-              "accuracy": 0.5176089853417095,
+              "accuracy": 0.5304016752332,
               "retention": NaN
             },
             {
@@ -2672,8 +2667,8 @@
               "label": "named_continent",
               "start": 1274,
               "retained_variance": 0.002922222251072526,
-              "accuracy": 0.619131924614506,
-              "retention": -7.182589403327953e-05
+              "accuracy": 0.6201123167713687,
+              "retention": 0.0031094292066468246
             },
             {
               "layer": 26,
@@ -2681,8 +2676,8 @@
               "label": "concept",
               "start": 1529,
               "retained_variance": 0.002382408594712615,
-              "accuracy": 0.5468874928612222,
-              "retention": 0.2233810992200256
+              "accuracy": 0.6357700361698078,
+              "retention": 0.2742075011053654
             },
             {
               "layer": 26,
@@ -2690,8 +2685,8 @@
               "label": "concept_shuffled",
               "start": 1529,
               "retained_variance": 0.002382408594712615,
-              "accuracy": 0.4696935084713497,
-              "retention": -1.481619357840861
+              "accuracy": 0.4794783932990672,
+              "retention": NaN
             },
             {
               "layer": 26,
@@ -2699,7 +2694,7 @@
               "label": "pair_id_random",
               "start": 1529,
               "retained_variance": 0.002382408594712615,
-              "accuracy": 0.5117551875118981,
+              "accuracy": 0.4825909004378451,
               "retention": NaN
             },
             {
@@ -2709,7 +2704,7 @@
               "start": 1529,
               "retained_variance": 0.002382408594712615,
               "accuracy": 0.619131924614506,
-              "retention": -7.182589403327953e-05
+              "retention": -2.784137270833409e-05
             },
             {
               "layer": 26,
@@ -2717,8 +2712,8 @@
               "label": "concept",
               "start": 1783,
               "retained_variance": 0.0018806891748681664,
-              "accuracy": 0.5927755568246716,
-              "retention": 0.4420007255577729
+              "accuracy": 0.6767751760898535,
+              "retention": 0.357023395297872
             },
             {
               "layer": 26,
@@ -2726,8 +2721,8 @@
               "label": "concept_shuffled",
               "start": 1783,
               "retained_variance": 0.0018806891748681664,
-              "accuracy": 0.47633733104892445,
-              "retention": -1.1568171242438372
+              "accuracy": 0.4911288787359604,
+              "retention": NaN
             },
             {
               "layer": 26,
@@ -2735,7 +2730,7 @@
               "label": "pair_id_random",
               "start": 1783,
               "retained_variance": 0.0018806891748681664,
-              "accuracy": 0.5059013896820865,
+              "accuracy": 0.5116790405482581,
               "retention": NaN
             },
             {
@@ -2745,7 +2740,7 @@
               "start": 1783,
               "retained_variance": 0.0018806891748681664,
               "accuracy": 0.619131924614506,
-              "retention": -7.182589403327953e-05
+              "retention": -2.784137270833409e-05
             },
             {
               "layer": 26,
@@ -2753,8 +2748,8 @@
               "label": "concept",
               "start": 2038,
               "retained_variance": 0.00134539813734591,
-              "accuracy": 0.5741956976965544,
-              "retention": 0.3534826773081812
+              "accuracy": 0.8007614696363982,
+              "retention": 0.6074318998827349
             },
             {
               "layer": 26,
@@ -2762,8 +2757,8 @@
               "label": "concept_shuffled",
               "start": 2038,
               "retained_variance": 0.00134539813734591,
-              "accuracy": 0.49999048162954496,
-              "retention": -0.0004653327128928252
+              "accuracy": 0.5263754045307444,
+              "retention": NaN
             },
             {
               "layer": 26,
@@ -2771,7 +2766,7 @@
               "label": "pair_id_random",
               "start": 2038,
               "retained_variance": 0.00134539813734591,
-              "accuracy": 0.5087378640776699,
+              "accuracy": 0.4814391776127927,
               "retention": NaN
             },
             {
@@ -2780,8 +2775,8 @@
               "label": "named_continent",
               "start": 2038,
               "retained_variance": 0.00134539813734591,
-              "accuracy": 0.619131924614506,
-              "retention": -7.182589403327953e-05
+              "accuracy": 0.6201027984009138,
+              "retention": 0.003078970268983334
             },
             {
               "layer": 26,
@@ -2789,8 +2784,8 @@
               "label": "concept",
               "start": 2293,
               "retained_variance": 4.5191289245849475e-05,
-              "accuracy": 0.5888444698267656,
-              "retention": 0.4232722655541449
+              "accuracy": 0.8759185227489054,
+              "retention": 0.7592225917453237
             },
             {
               "layer": 26,
@@ -2798,8 +2793,8 @@
               "label": "concept_shuffled",
               "start": 2293,
               "retained_variance": 4.5191289245849475e-05,
-              "accuracy": 0.5097468113458976,
-              "retention": 0.47650069799907246
+              "accuracy": 0.5076813249571673,
+              "retention": NaN
             },
             {
               "layer": 26,
@@ -2807,7 +2802,7 @@
               "label": "pair_id_random",
               "start": 2293,
               "retained_variance": 4.5191289245849475e-05,
-              "accuracy": 0.515676756139349,
+              "accuracy": 0.5028174376546735,
               "retention": NaN
             },
             {
@@ -2817,26 +2812,26 @@
               "start": 2293,
               "retained_variance": 4.5191289245849475e-05,
               "accuracy": 0.619131924614506,
-              "retention": -7.182589403327953e-05
+              "retention": -2.784137270833409e-05
             }
           ],
           "floor_check": {
-            "shuffled_top_k": 0.4990005711022273,
+            "shuffled_top_k": 0.4785646297353893,
             "majority": 0.5,
             "ok": true
           },
           "difference_in_differences": {
             "available": true,
             "control": "named_continent",
-            "delta": 0.25123677841012165,
+            "delta": -0.05719702476498971,
             "ci95": [
-              0.09305065867041543,
-              0.41872796401686946
+              -0.10650480473480843,
+              -0.008214014990203727
             ],
-            "p_boot": 0.0012,
+            "p_boot": 0.023,
             "n_tokens": 1024,
-            "verdict": "quiet tail is concept-specific: the concept prefers the low-variance subspace more than an arbitrary item partition does",
-            "retention_gap_concept_quiet_minus_loud": 0.25123677841012165,
+            "verdict": "reversed: the arbitrary item partition prefers the quiet subspace MORE than the concept does",
+            "retention_gap_concept_quiet_minus_loud": -0.05719702476498971,
             "retention_gap_control_quiet_minus_loud": 0.0
           },
           "by_k": {
@@ -2849,8 +2844,8 @@
                   "label": "concept",
                   "start": 0,
                   "retained_variance": 0.19362998008728027,
-                  "accuracy": 0.5362078812107367,
-                  "retention": 0.1725013604208235
+                  "accuracy": 0.9043023034456501,
+                  "retention": 0.8165477998423653
                 },
                 {
                   "layer": 26,
@@ -2858,8 +2853,8 @@
                   "label": "concept_shuffled",
                   "start": 0,
                   "retained_variance": 0.19362998008728027,
-                  "accuracy": 0.4990005711022273,
-                  "retention": -0.048859934853420994
+                  "accuracy": 0.4785646297353893,
+                  "retention": NaN
                 },
                 {
                   "layer": 26,
@@ -2867,7 +2862,7 @@
                   "label": "pair_id_random",
                   "start": 0,
                   "retained_variance": 0.19362998008728027,
-                  "accuracy": 0.5214258518941557,
+                  "accuracy": 0.4854464115743385,
                   "retention": NaN
                 },
                 {
@@ -2877,7 +2872,7 @@
                   "start": 0,
                   "retained_variance": 0.19362998008728027,
                   "accuracy": 0.619131924614506,
-                  "retention": -7.182589403327953e-05
+                  "retention": -2.784137270833409e-05
                 },
                 {
                   "layer": 26,
@@ -2885,8 +2880,8 @@
                   "label": "concept",
                   "start": 255,
                   "retained_variance": 0.00695414375513792,
-                  "accuracy": 0.5478107747953549,
-                  "retention": 0.22777979321603428
+                  "accuracy": 0.6923281934132877,
+                  "retention": 0.38843499490570754
                 },
                 {
                   "layer": 26,
@@ -2894,8 +2889,8 @@
                   "label": "concept_shuffled",
                   "start": 255,
                   "retained_variance": 0.00695414375513792,
-                  "accuracy": 0.46387778412335806,
-                  "retention": -1.7659376454164801
+                  "accuracy": 0.5020178945364554,
+                  "retention": NaN
                 },
                 {
                   "layer": 26,
@@ -2903,7 +2898,7 @@
                   "label": "pair_id_random",
                   "start": 255,
                   "retained_variance": 0.00695414375513792,
-                  "accuracy": 0.5028555111364934,
+                  "accuracy": 0.5176565771939844,
                   "retention": NaN
                 },
                 {
@@ -2913,7 +2908,7 @@
                   "start": 255,
                   "retained_variance": 0.00695414375513792,
                   "accuracy": 0.619131924614506,
-                  "retention": -7.182589403327953e-05
+                  "retention": -2.784137270833409e-05
                 },
                 {
                   "layer": 26,
@@ -2921,8 +2916,8 @@
                   "label": "concept",
                   "start": 510,
                   "retained_variance": 0.005277235060930252,
-                  "accuracy": 0.5673234342280601,
-                  "retention": 0.32074188282241956
+                  "accuracy": 0.8165334094802971,
+                  "retention": 0.6392856456294816
                 },
                 {
                   "layer": 26,
@@ -2930,8 +2925,8 @@
                   "label": "concept_shuffled",
                   "start": 510,
                   "retained_variance": 0.005277235060930252,
-                  "accuracy": 0.4950790024747763,
-                  "retention": -0.24057701256398406
+                  "accuracy": 0.5058918713116315,
+                  "retention": NaN
                 },
                 {
                   "layer": 26,
@@ -2939,7 +2934,7 @@
                   "label": "pair_id_random",
                   "start": 510,
                   "retained_variance": 0.005277235060930252,
-                  "accuracy": 0.5438701694269941,
+                  "accuracy": 0.5175233200076146,
                   "retention": NaN
                 },
                 {
@@ -2949,7 +2944,7 @@
                   "start": 510,
                   "retained_variance": 0.005277235060930252,
                   "accuracy": 0.619131924614506,
-                  "retention": -7.182589403327953e-05
+                  "retention": -2.784137270833409e-05
                 },
                 {
                   "layer": 26,
@@ -2957,8 +2952,8 @@
                   "label": "concept",
                   "start": 764,
                   "retained_variance": 0.004286730661988258,
-                  "accuracy": 0.5633066818960593,
-                  "retention": 0.301605296571739
+                  "accuracy": 0.7988387588044927,
+                  "retention": 0.6035487033583884
                 },
                 {
                   "layer": 26,
@@ -2966,8 +2961,8 @@
                   "label": "concept_shuffled",
                   "start": 764,
                   "retained_variance": 0.004286730661988258,
-                  "accuracy": 0.4638111555301732,
-                  "retention": -1.7691949744067084
+                  "accuracy": 0.4881972206358271,
+                  "retention": NaN
                 },
                 {
                   "layer": 26,
@@ -2975,7 +2970,7 @@
                   "label": "pair_id_random",
                   "start": 764,
                   "retained_variance": 0.004286730661988258,
-                  "accuracy": 0.5107652769845802,
+                  "accuracy": 0.4697506186940796,
                   "retention": NaN
                 },
                 {
@@ -2985,7 +2980,7 @@
                   "start": 764,
                   "retained_variance": 0.004286730661988258,
                   "accuracy": 0.619131924614506,
-                  "retention": -7.182589403327953e-05
+                  "retention": -2.784137270833409e-05
                 },
                 {
                   "layer": 26,
@@ -2993,8 +2988,8 @@
                   "label": "concept",
                   "start": 1019,
                   "retained_variance": 0.003534798277541995,
-                  "accuracy": 0.5702836474395584,
-                  "retention": 0.3348449120261205
+                  "accuracy": 0.7821054635446412,
+                  "retention": 0.5697533593494685
                 },
                 {
                   "layer": 26,
@@ -3002,8 +2997,8 @@
                   "label": "concept_shuffled",
                   "start": 1019,
                   "retained_variance": 0.003534798277541995,
-                  "accuracy": 0.5038549400342661,
-                  "retention": 0.188459748720335
+                  "accuracy": 0.4775747192080716,
+                  "retention": NaN
                 },
                 {
                   "layer": 26,
@@ -3011,7 +3006,7 @@
                   "label": "pair_id_random",
                   "start": 1019,
                   "retained_variance": 0.003534798277541995,
-                  "accuracy": 0.4707119741100324,
+                  "accuracy": 0.4472967827907863,
                   "retention": NaN
                 },
                 {
@@ -3020,8 +3015,8 @@
                   "label": "named_continent",
                   "start": 1019,
                   "retained_variance": 0.003534798277541995,
-                  "accuracy": 0.619131924614506,
-                  "retention": -7.182589403327953e-05
+                  "accuracy": 0.6201123167713687,
+                  "retention": 0.0031094292066468246
                 },
                 {
                   "layer": 26,
@@ -3029,8 +3024,8 @@
                   "label": "concept",
                   "start": 1274,
                   "retained_variance": 0.002922222251072526,
-                  "accuracy": 0.5771559109080525,
-                  "retention": 0.3675857065118811
+                  "accuracy": 0.7587949743003998,
+                  "retention": 0.522674407428055
                 },
                 {
                   "layer": 26,
@@ -3038,8 +3033,8 @@
                   "label": "concept_shuffled",
                   "start": 1274,
                   "retained_variance": 0.002922222251072526,
-                  "accuracy": 0.48628402817437655,
-                  "retention": -0.6705444392740834
+                  "accuracy": 0.4971730439748715,
+                  "retention": NaN
                 },
                 {
                   "layer": 26,
@@ -3047,7 +3042,7 @@
                   "label": "pair_id_random",
                   "start": 1274,
                   "retained_variance": 0.002922222251072526,
-                  "accuracy": 0.5176089853417095,
+                  "accuracy": 0.5304016752332,
                   "retention": NaN
                 },
                 {
@@ -3056,8 +3051,8 @@
                   "label": "named_continent",
                   "start": 1274,
                   "retained_variance": 0.002922222251072526,
-                  "accuracy": 0.619131924614506,
-                  "retention": -7.182589403327953e-05
+                  "accuracy": 0.6201123167713687,
+                  "retention": 0.0031094292066468246
                 },
                 {
                   "layer": 26,
@@ -3065,8 +3060,8 @@
                   "label": "concept",
                   "start": 1529,
                   "retained_variance": 0.002382408594712615,
-                  "accuracy": 0.5468874928612222,
-                  "retention": 0.2233810992200256
+                  "accuracy": 0.6357700361698078,
+                  "retention": 0.2742075011053654
                 },
                 {
                   "layer": 26,
@@ -3074,8 +3069,8 @@
                   "label": "concept_shuffled",
                   "start": 1529,
                   "retained_variance": 0.002382408594712615,
-                  "accuracy": 0.4696935084713497,
-                  "retention": -1.481619357840861
+                  "accuracy": 0.4794783932990672,
+                  "retention": NaN
                 },
                 {
                   "layer": 26,
@@ -3083,7 +3078,7 @@
                   "label": "pair_id_random",
                   "start": 1529,
                   "retained_variance": 0.002382408594712615,
-                  "accuracy": 0.5117551875118981,
+                  "accuracy": 0.4825909004378451,
                   "retention": NaN
                 },
                 {
@@ -3093,7 +3088,7 @@
                   "start": 1529,
                   "retained_variance": 0.002382408594712615,
                   "accuracy": 0.619131924614506,
-                  "retention": -7.182589403327953e-05
+                  "retention": -2.784137270833409e-05
                 },
                 {
                   "layer": 26,
@@ -3101,8 +3096,8 @@
                   "label": "concept",
                   "start": 1783,
                   "retained_variance": 0.0018806891748681664,
-                  "accuracy": 0.5927755568246716,
-                  "retention": 0.4420007255577729
+                  "accuracy": 0.6767751760898535,
+                  "retention": 0.357023395297872
                 },
                 {
                   "layer": 26,
@@ -3110,8 +3105,8 @@
                   "label": "concept_shuffled",
                   "start": 1783,
                   "retained_variance": 0.0018806891748681664,
-                  "accuracy": 0.47633733104892445,
-                  "retention": -1.1568171242438372
+                  "accuracy": 0.4911288787359604,
+                  "retention": NaN
                 },
                 {
                   "layer": 26,
@@ -3119,7 +3114,7 @@
                   "label": "pair_id_random",
                   "start": 1783,
                   "retained_variance": 0.0018806891748681664,
-                  "accuracy": 0.5059013896820865,
+                  "accuracy": 0.5116790405482581,
                   "retention": NaN
                 },
                 {
@@ -3129,7 +3124,7 @@
                   "start": 1783,
                   "retained_variance": 0.0018806891748681664,
                   "accuracy": 0.619131924614506,
-                  "retention": -7.182589403327953e-05
+                  "retention": -2.784137270833409e-05
                 },
                 {
                   "layer": 26,
@@ -3137,8 +3132,8 @@
                   "label": "concept",
                   "start": 2038,
                   "retained_variance": 0.00134539813734591,
-                  "accuracy": 0.5741956976965544,
-                  "retention": 0.3534826773081812
+                  "accuracy": 0.8007614696363982,
+                  "retention": 0.6074318998827349
                 },
                 {
                   "layer": 26,
@@ -3146,8 +3141,8 @@
                   "label": "concept_shuffled",
                   "start": 2038,
                   "retained_variance": 0.00134539813734591,
-                  "accuracy": 0.49999048162954496,
-                  "retention": -0.0004653327128928252
+                  "accuracy": 0.5263754045307444,
+                  "retention": NaN
                 },
                 {
                   "layer": 26,
@@ -3155,7 +3150,7 @@
                   "label": "pair_id_random",
                   "start": 2038,
                   "retained_variance": 0.00134539813734591,
-                  "accuracy": 0.5087378640776699,
+                  "accuracy": 0.4814391776127927,
                   "retention": NaN
                 },
                 {
@@ -3164,8 +3159,8 @@
                   "label": "named_continent",
                   "start": 2038,
                   "retained_variance": 0.00134539813734591,
-                  "accuracy": 0.619131924614506,
-                  "retention": -7.182589403327953e-05
+                  "accuracy": 0.6201027984009138,
+                  "retention": 0.003078970268983334
                 },
                 {
                   "layer": 26,
@@ -3173,8 +3168,8 @@
                   "label": "concept",
                   "start": 2293,
                   "retained_variance": 4.5191289245849475e-05,
-                  "accuracy": 0.5888444698267656,
-                  "retention": 0.4232722655541449
+                  "accuracy": 0.8759185227489054,
+                  "retention": 0.7592225917453237
                 },
                 {
                   "layer": 26,
@@ -3182,8 +3177,8 @@
                   "label": "concept_shuffled",
                   "start": 2293,
                   "retained_variance": 4.5191289245849475e-05,
-                  "accuracy": 0.5097468113458976,
-                  "retention": 0.47650069799907246
+                  "accuracy": 0.5076813249571673,
+                  "retention": NaN
                 },
                 {
                   "layer": 26,
@@ -3191,7 +3186,7 @@
                   "label": "pair_id_random",
                   "start": 2293,
                   "retained_variance": 4.5191289245849475e-05,
-                  "accuracy": 0.515676756139349,
+                  "accuracy": 0.5028174376546735,
                   "retention": NaN
                 },
                 {
@@ -3201,21 +3196,21 @@
                   "start": 2293,
                   "retained_variance": 4.5191289245849475e-05,
                   "accuracy": 0.619131924614506,
-                  "retention": -7.182589403327953e-05
+                  "retention": -2.784137270833409e-05
                 }
               ],
               "difference_in_differences": {
                 "available": true,
                 "control": "named_continent",
-                "delta": 0.25123677841012165,
+                "delta": -0.05719702476498971,
                 "ci95": [
-                  0.09305065867041543,
-                  0.41872796401686946
+                  -0.10650480473480843,
+                  -0.008214014990203727
                 ],
-                "p_boot": 0.0012,
+                "p_boot": 0.023,
                 "n_tokens": 1024,
-                "verdict": "quiet tail is concept-specific: the concept prefers the low-variance subspace more than an arbitrary item partition does",
-                "retention_gap_concept_quiet_minus_loud": 0.25123677841012165,
+                "verdict": "reversed: the arbitrary item partition prefers the quiet subspace MORE than the concept does",
+                "retention_gap_concept_quiet_minus_loud": -0.05719702476498971,
                 "retention_gap_control_quiet_minus_loud": 0.0
               }
             }
@@ -3230,16 +3225,16 @@
             "city_continent": 0.62109375
           },
           "full_accuracy": {
-            "concept": 0.7098991052731771,
-            "concept_shuffled": 0.5204549781077479,
-            "pair_id_random": 0.5077955454026271,
-            "city_continent": 0.9179611650485437
+            "concept": 0.9951361126975062,
+            "concept_shuffled": 0.5166381115553017,
+            "pair_id_random": 0.4765562535693889,
+            "city_continent": 0.928650295069484
           },
           "headroom": {
-            "concept": 0.20989910527317712,
-            "concept_shuffled": 0.02045497810774788,
-            "pair_id_random": 0.007795545402627058,
-            "city_continent": 0.29686741504854375
+            "concept": 0.49513611269750624,
+            "concept_shuffled": 0.016638111555301704,
+            "pair_id_random": -0.02344374643061109,
+            "city_continent": 0.30755654506948404
           },
           "cells": [
             {
@@ -3248,8 +3243,8 @@
               "label": "concept",
               "start": 0,
               "retained_variance": 0.19362998008728027,
-              "accuracy": 0.5362078812107367,
-              "retention": 0.1725013604208235
+              "accuracy": 0.9043023034456501,
+              "retention": 0.8165477998423653
             },
             {
               "layer": 26,
@@ -3257,8 +3252,8 @@
               "label": "concept_shuffled",
               "start": 0,
               "retained_variance": 0.19362998008728027,
-              "accuracy": 0.4990005711022273,
-              "retention": -0.048859934853420994
+              "accuracy": 0.4785646297353893,
+              "retention": NaN
             },
             {
               "layer": 26,
@@ -3266,7 +3261,7 @@
               "label": "pair_id_random",
               "start": 0,
               "retained_variance": 0.19362998008728027,
-              "accuracy": 0.5214258518941557,
+              "accuracy": 0.4854464115743385,
               "retention": NaN
             },
             {
@@ -3276,7 +3271,7 @@
               "start": 0,
               "retained_variance": 0.19362998008728027,
               "accuracy": 0.6210927089282314,
-              "retention": -3.506857660347309e-06
+              "retention": -3.3849767961702383e-06
             },
             {
               "layer": 26,
@@ -3284,8 +3279,8 @@
               "label": "concept",
               "start": 255,
               "retained_variance": 0.00695414375513792,
-              "accuracy": 0.5478107747953549,
-              "retention": 0.22777979321603428
+              "accuracy": 0.6923281934132877,
+              "retention": 0.38843499490570754
             },
             {
               "layer": 26,
@@ -3293,8 +3288,8 @@
               "label": "concept_shuffled",
               "start": 255,
               "retained_variance": 0.00695414375513792,
-              "accuracy": 0.46387778412335806,
-              "retention": -1.7659376454164801
+              "accuracy": 0.5020178945364554,
+              "retention": NaN
             },
             {
               "layer": 26,
@@ -3302,7 +3297,7 @@
               "label": "pair_id_random",
               "start": 255,
               "retained_variance": 0.00695414375513792,
-              "accuracy": 0.5028555111364934,
+              "accuracy": 0.5176565771939844,
               "retention": NaN
             },
             {
@@ -3312,7 +3307,7 @@
               "start": 255,
               "retained_variance": 0.00695414375513792,
               "accuracy": 0.6210927089282314,
-              "retention": -3.506857660347309e-06
+              "retention": -3.3849767961702383e-06
             },
             {
               "layer": 26,
@@ -3320,8 +3315,8 @@
               "label": "concept",
               "start": 510,
               "retained_variance": 0.005277235060930252,
-              "accuracy": 0.5673234342280601,
-              "retention": 0.32074188282241956
+              "accuracy": 0.8165334094802971,
+              "retention": 0.6392856456294816
             },
             {
               "layer": 26,
@@ -3329,8 +3324,8 @@
               "label": "concept_shuffled",
               "start": 510,
               "retained_variance": 0.005277235060930252,
-              "accuracy": 0.4950790024747763,
-              "retention": -0.24057701256398406
+              "accuracy": 0.5058918713116315,
+              "retention": NaN
             },
             {
               "layer": 26,
@@ -3338,7 +3333,7 @@
               "label": "pair_id_random",
               "start": 510,
               "retained_variance": 0.005277235060930252,
-              "accuracy": 0.5438701694269941,
+              "accuracy": 0.5175233200076146,
               "retention": NaN
             },
             {
@@ -3348,7 +3343,7 @@
               "start": 510,
               "retained_variance": 0.005277235060930252,
               "accuracy": 0.6210927089282314,
-              "retention": -3.506857660347309e-06
+              "retention": -3.3849767961702383e-06
             },
             {
               "layer": 26,
@@ -3356,8 +3351,8 @@
               "label": "concept",
               "start": 764,
               "retained_variance": 0.004286730661988258,
-              "accuracy": 0.5633066818960593,
-              "retention": 0.301605296571739
+              "accuracy": 0.7988387588044927,
+              "retention": 0.6035487033583884
             },
             {
               "layer": 26,
@@ -3365,8 +3360,8 @@
               "label": "concept_shuffled",
               "start": 764,
               "retained_variance": 0.004286730661988258,
-              "accuracy": 0.4638111555301732,
-              "retention": -1.7691949744067084
+              "accuracy": 0.4881972206358271,
+              "retention": NaN
             },
             {
               "layer": 26,
@@ -3374,7 +3369,7 @@
               "label": "pair_id_random",
               "start": 764,
               "retained_variance": 0.004286730661988258,
-              "accuracy": 0.5107652769845802,
+              "accuracy": 0.4697506186940796,
               "retention": NaN
             },
             {
@@ -3384,7 +3379,7 @@
               "start": 764,
               "retained_variance": 0.004286730661988258,
               "accuracy": 0.6210927089282314,
-              "retention": -3.506857660347309e-06
+              "retention": -3.3849767961702383e-06
             },
             {
               "layer": 26,
@@ -3392,8 +3387,8 @@
               "label": "concept",
               "start": 1019,
               "retained_variance": 0.003534798277541995,
-              "accuracy": 0.5702836474395584,
-              "retention": 0.3348449120261205
+              "accuracy": 0.7821054635446412,
+              "retention": 0.5697533593494685
             },
             {
               "layer": 26,
@@ -3401,8 +3396,8 @@
               "label": "concept_shuffled",
               "start": 1019,
               "retained_variance": 0.003534798277541995,
-              "accuracy": 0.5038549400342661,
-              "retention": 0.188459748720335
+              "accuracy": 0.4775747192080716,
+              "retention": NaN
             },
             {
               "layer": 26,
@@ -3410,7 +3405,7 @@
               "label": "pair_id_random",
               "start": 1019,
               "retained_variance": 0.003534798277541995,
-              "accuracy": 0.4707119741100324,
+              "accuracy": 0.4472967827907863,
               "retention": NaN
             },
             {
@@ -3419,8 +3414,8 @@
               "label": "city_continent",
               "start": 1019,
               "retained_variance": 0.003534798277541995,
-              "accuracy": 0.6210927089282314,
-              "retention": -3.506857660347309e-06
+              "accuracy": 0.6259756329716353,
+              "retention": 0.015873123332596766
             },
             {
               "layer": 26,
@@ -3428,8 +3423,8 @@
               "label": "concept",
               "start": 1274,
               "retained_variance": 0.002922222251072526,
-              "accuracy": 0.5771559109080525,
-              "retention": 0.3675857065118811
+              "accuracy": 0.7587949743003998,
+              "retention": 0.522674407428055
             },
             {
               "layer": 26,
@@ -3437,8 +3432,8 @@
               "label": "concept_shuffled",
               "start": 1274,
               "retained_variance": 0.002922222251072526,
-              "accuracy": 0.48628402817437655,
-              "retention": -0.6705444392740834
+              "accuracy": 0.4971730439748715,
+              "retention": NaN
             },
             {
               "layer": 26,
@@ -3446,7 +3441,7 @@
               "label": "pair_id_random",
               "start": 1274,
               "retained_variance": 0.002922222251072526,
-              "accuracy": 0.5176089853417095,
+              "accuracy": 0.5304016752332,
               "retention": NaN
             },
             {
@@ -3456,7 +3451,7 @@
               "start": 1274,
               "retained_variance": 0.002922222251072526,
               "accuracy": 0.6210927089282314,
-              "retention": -3.506857660347309e-06
+              "retention": -3.3849767961702383e-06
             },
             {
               "layer": 26,
@@ -3464,8 +3459,8 @@
               "label": "concept",
               "start": 1529,
               "retained_variance": 0.002382408594712615,
-              "accuracy": 0.5468874928612222,
-              "retention": 0.2233810992200256
+              "accuracy": 0.6357700361698078,
+              "retention": 0.2742075011053654
             },
             {
               "layer": 26,
@@ -3473,8 +3468,8 @@
               "label": "concept_shuffled",
               "start": 1529,
               "retained_variance": 0.002382408594712615,
-              "accuracy": 0.4696935084713497,
-              "retention": -1.481619357840861
+              "accuracy": 0.4794783932990672,
+              "retention": NaN
             },
             {
               "layer": 26,
@@ -3482,7 +3477,7 @@
               "label": "pair_id_random",
               "start": 1529,
               "retained_variance": 0.002382408594712615,
-              "accuracy": 0.5117551875118981,
+              "accuracy": 0.4825909004378451,
               "retention": NaN
             },
             {
@@ -3491,8 +3486,8 @@
               "label": "city_continent",
               "start": 1529,
               "retained_variance": 0.002382408594712615,
-              "accuracy": 0.6220731010850942,
-              "retention": 0.0032989510988736424
+              "accuracy": 0.6210927089282314,
+              "retention": -3.3849767961702383e-06
             },
             {
               "layer": 26,
@@ -3500,8 +3495,8 @@
               "label": "concept",
               "start": 1783,
               "retained_variance": 0.0018806891748681664,
-              "accuracy": 0.5927755568246716,
-              "retention": 0.4420007255577729
+              "accuracy": 0.6767751760898535,
+              "retention": 0.357023395297872
             },
             {
               "layer": 26,
@@ -3509,8 +3504,8 @@
               "label": "concept_shuffled",
               "start": 1783,
               "retained_variance": 0.0018806891748681664,
-              "accuracy": 0.47633733104892445,
-              "retention": -1.1568171242438372
+              "accuracy": 0.4911288787359604,
+              "retention": NaN
             },
             {
               "layer": 26,
@@ -3518,7 +3513,7 @@
               "label": "pair_id_random",
               "start": 1783,
               "retained_variance": 0.0018806891748681664,
-              "accuracy": 0.5059013896820865,
+              "accuracy": 0.5116790405482581,
               "retention": NaN
             },
             {
@@ -3528,7 +3523,7 @@
               "start": 1783,
               "retained_variance": 0.0018806891748681664,
               "accuracy": 0.6210927089282314,
-              "retention": -3.506857660347309e-06
+              "retention": -3.3849767961702383e-06
             },
             {
               "layer": 26,
@@ -3536,8 +3531,8 @@
               "label": "concept",
               "start": 2038,
               "retained_variance": 0.00134539813734591,
-              "accuracy": 0.5741956976965544,
-              "retention": 0.3534826773081812
+              "accuracy": 0.8007614696363982,
+              "retention": 0.6074318998827349
             },
             {
               "layer": 26,
@@ -3545,8 +3540,8 @@
               "label": "concept_shuffled",
               "start": 2038,
               "retained_variance": 0.00134539813734591,
-              "accuracy": 0.49999048162954496,
-              "retention": -0.0004653327128928252
+              "accuracy": 0.5263754045307444,
+              "retention": NaN
             },
             {
               "layer": 26,
@@ -3554,7 +3549,7 @@
               "label": "pair_id_random",
               "start": 2038,
               "retained_variance": 0.00134539813734591,
-              "accuracy": 0.5087378640776699,
+              "accuracy": 0.4814391776127927,
               "retention": NaN
             },
             {
@@ -3563,8 +3558,8 @@
               "label": "city_continent",
               "start": 2038,
               "retained_variance": 0.00134539813734591,
-              "accuracy": 0.6210927089282314,
-              "retention": -3.506857660347309e-06
+              "accuracy": 0.6220635827146392,
+              "retention": 0.0031533476695159686
             },
             {
               "layer": 26,
@@ -3572,8 +3567,8 @@
               "label": "concept",
               "start": 2293,
               "retained_variance": 4.5191289245849475e-05,
-              "accuracy": 0.5888444698267656,
-              "retention": 0.4232722655541449
+              "accuracy": 0.8759185227489054,
+              "retention": 0.7592225917453237
             },
             {
               "layer": 26,
@@ -3581,8 +3576,8 @@
               "label": "concept_shuffled",
               "start": 2293,
               "retained_variance": 4.5191289245849475e-05,
-              "accuracy": 0.5097468113458976,
-              "retention": 0.47650069799907246
+              "accuracy": 0.5076813249571673,
+              "retention": NaN
             },
             {
               "layer": 26,
@@ -3590,7 +3585,7 @@
               "label": "pair_id_random",
               "start": 2293,
               "retained_variance": 4.5191289245849475e-05,
-              "accuracy": 0.515676756139349,
+              "accuracy": 0.5028174376546735,
               "retention": NaN
             },
             {
@@ -3599,28 +3594,28 @@
               "label": "city_continent",
               "start": 2293,
               "retained_variance": 4.5191289245849475e-05,
-              "accuracy": 0.6210927089282314,
-              "retention": -3.506857660347309e-06
+              "accuracy": 0.6250047591852275,
+              "retention": 0.012716390686284627
             }
           ],
           "floor_check": {
-            "shuffled_top_k": 0.4990005711022273,
+            "shuffled_top_k": 0.4785646297353893,
             "majority": 0.5,
             "ok": true
           },
           "difference_in_differences": {
             "available": true,
             "control": "city_continent",
-            "delta": 0.25123677841012165,
+            "delta": -0.06989794127163564,
             "ci95": [
-              0.09305065867041543,
-              0.41872796401686946
+              -0.12040863916932308,
+              -0.0198183266298188
             ],
-            "p_boot": 0.0012,
+            "p_boot": 0.007,
             "n_tokens": 1024,
-            "verdict": "quiet tail is concept-specific: the concept prefers the low-variance subspace more than an arbitrary item partition does",
-            "retention_gap_concept_quiet_minus_loud": 0.25123677841012165,
-            "retention_gap_control_quiet_minus_loud": 0.0
+            "verdict": "reversed: the arbitrary item partition prefers the quiet subspace MORE than the concept does",
+            "retention_gap_concept_quiet_minus_loud": -0.05719702476498971,
+            "retention_gap_control_quiet_minus_loud": 0.012700916506645921
           },
           "by_k": {
             "0.005": {
@@ -3632,8 +3627,8 @@
                   "label": "concept",
                   "start": 0,
                   "retained_variance": 0.19362998008728027,
-                  "accuracy": 0.5362078812107367,
-                  "retention": 0.1725013604208235
+                  "accuracy": 0.9043023034456501,
+                  "retention": 0.8165477998423653
                 },
                 {
                   "layer": 26,
@@ -3641,8 +3636,8 @@
                   "label": "concept_shuffled",
                   "start": 0,
                   "retained_variance": 0.19362998008728027,
-                  "accuracy": 0.4990005711022273,
-                  "retention": -0.048859934853420994
+                  "accuracy": 0.4785646297353893,
+                  "retention": NaN
                 },
                 {
                   "layer": 26,
@@ -3650,7 +3645,7 @@
                   "label": "pair_id_random",
                   "start": 0,
                   "retained_variance": 0.19362998008728027,
-                  "accuracy": 0.5214258518941557,
+                  "accuracy": 0.4854464115743385,
                   "retention": NaN
                 },
                 {
@@ -3660,7 +3655,7 @@
                   "start": 0,
                   "retained_variance": 0.19362998008728027,
                   "accuracy": 0.6210927089282314,
-                  "retention": -3.506857660347309e-06
+                  "retention": -3.3849767961702383e-06
                 },
                 {
                   "layer": 26,
@@ -3668,8 +3663,8 @@
                   "label": "concept",
                   "start": 255,
                   "retained_variance": 0.00695414375513792,
-                  "accuracy": 0.5478107747953549,
-                  "retention": 0.22777979321603428
+                  "accuracy": 0.6923281934132877,
+                  "retention": 0.38843499490570754
                 },
                 {
                   "layer": 26,
@@ -3677,8 +3672,8 @@
                   "label": "concept_shuffled",
                   "start": 255,
                   "retained_variance": 0.00695414375513792,
-                  "accuracy": 0.46387778412335806,
-                  "retention": -1.7659376454164801
+                  "accuracy": 0.5020178945364554,
+                  "retention": NaN
                 },
                 {
                   "layer": 26,
@@ -3686,7 +3681,7 @@
                   "label": "pair_id_random",
                   "start": 255,
                   "retained_variance": 0.00695414375513792,
-                  "accuracy": 0.5028555111364934,
+                  "accuracy": 0.5176565771939844,
                   "retention": NaN
                 },
                 {
@@ -3696,7 +3691,7 @@
                   "start": 255,
                   "retained_variance": 0.00695414375513792,
                   "accuracy": 0.6210927089282314,
-                  "retention": -3.506857660347309e-06
+                  "retention": -3.3849767961702383e-06
                 },
                 {
                   "layer": 26,
@@ -3704,8 +3699,8 @@
                   "label": "concept",
                   "start": 510,
                   "retained_variance": 0.005277235060930252,
-                  "accuracy": 0.5673234342280601,
-                  "retention": 0.32074188282241956
+                  "accuracy": 0.8165334094802971,
+                  "retention": 0.6392856456294816
                 },
                 {
                   "layer": 26,
@@ -3713,8 +3708,8 @@
                   "label": "concept_shuffled",
                   "start": 510,
                   "retained_variance": 0.005277235060930252,
-                  "accuracy": 0.4950790024747763,
-                  "retention": -0.24057701256398406
+                  "accuracy": 0.5058918713116315,
+                  "retention": NaN
                 },
                 {
                   "layer": 26,
@@ -3722,7 +3717,7 @@
                   "label": "pair_id_random",
                   "start": 510,
                   "retained_variance": 0.005277235060930252,
-                  "accuracy": 0.5438701694269941,
+                  "accuracy": 0.5175233200076146,
                   "retention": NaN
                 },
                 {
@@ -3732,7 +3727,7 @@
                   "start": 510,
                   "retained_variance": 0.005277235060930252,
                   "accuracy": 0.6210927089282314,
-                  "retention": -3.506857660347309e-06
+                  "retention": -3.3849767961702383e-06
                 },
                 {
                   "layer": 26,
@@ -3740,8 +3735,8 @@
                   "label": "concept",
                   "start": 764,
                   "retained_variance": 0.004286730661988258,
-                  "accuracy": 0.5633066818960593,
-                  "retention": 0.301605296571739
+                  "accuracy": 0.7988387588044927,
+                  "retention": 0.6035487033583884
                 },
                 {
                   "layer": 26,
@@ -3749,8 +3744,8 @@
                   "label": "concept_shuffled",
                   "start": 764,
                   "retained_variance": 0.004286730661988258,
-                  "accuracy": 0.4638111555301732,
-                  "retention": -1.7691949744067084
+                  "accuracy": 0.4881972206358271,
+                  "retention": NaN
                 },
                 {
                   "layer": 26,
@@ -3758,7 +3753,7 @@
                   "label": "pair_id_random",
                   "start": 764,
                   "retained_variance": 0.004286730661988258,
-                  "accuracy": 0.5107652769845802,
+                  "accuracy": 0.4697506186940796,
                   "retention": NaN
                 },
                 {
@@ -3768,7 +3763,7 @@
                   "start": 764,
                   "retained_variance": 0.004286730661988258,
                   "accuracy": 0.6210927089282314,
-                  "retention": -3.506857660347309e-06
+                  "retention": -3.3849767961702383e-06
                 },
                 {
                   "layer": 26,
@@ -3776,8 +3771,8 @@
                   "label": "concept",
                   "start": 1019,
                   "retained_variance": 0.003534798277541995,
-                  "accuracy": 0.5702836474395584,
-                  "retention": 0.3348449120261205
+                  "accuracy": 0.7821054635446412,
+                  "retention": 0.5697533593494685
                 },
                 {
                   "layer": 26,
@@ -3785,8 +3780,8 @@
                   "label": "concept_shuffled",
                   "start": 1019,
                   "retained_variance": 0.003534798277541995,
-                  "accuracy": 0.5038549400342661,
-                  "retention": 0.188459748720335
+                  "accuracy": 0.4775747192080716,
+                  "retention": NaN
                 },
                 {
                   "layer": 26,
@@ -3794,7 +3789,7 @@
                   "label": "pair_id_random",
                   "start": 1019,
                   "retained_variance": 0.003534798277541995,
-                  "accuracy": 0.4707119741100324,
+                  "accuracy": 0.4472967827907863,
                   "retention": NaN
                 },
                 {
@@ -3803,8 +3798,8 @@
                   "label": "city_continent",
                   "start": 1019,
                   "retained_variance": 0.003534798277541995,
-                  "accuracy": 0.6210927089282314,
-                  "retention": -3.506857660347309e-06
+                  "accuracy": 0.6259756329716353,
+                  "retention": 0.015873123332596766
                 },
                 {
                   "layer": 26,
@@ -3812,8 +3807,8 @@
                   "label": "concept",
                   "start": 1274,
                   "retained_variance": 0.002922222251072526,
-                  "accuracy": 0.5771559109080525,
-                  "retention": 0.3675857065118811
+                  "accuracy": 0.7587949743003998,
+                  "retention": 0.522674407428055
                 },
                 {
                   "layer": 26,
@@ -3821,8 +3816,8 @@
                   "label": "concept_shuffled",
                   "start": 1274,
                   "retained_variance": 0.002922222251072526,
-                  "accuracy": 0.48628402817437655,
-                  "retention": -0.6705444392740834
+                  "accuracy": 0.4971730439748715,
+                  "retention": NaN
                 },
                 {
                   "layer": 26,
@@ -3830,7 +3825,7 @@
                   "label": "pair_id_random",
                   "start": 1274,
                   "retained_variance": 0.002922222251072526,
-                  "accuracy": 0.5176089853417095,
+                  "accuracy": 0.5304016752332,
                   "retention": NaN
                 },
                 {
@@ -3840,7 +3835,7 @@
                   "start": 1274,
                   "retained_variance": 0.002922222251072526,
                   "accuracy": 0.6210927089282314,
-                  "retention": -3.506857660347309e-06
+                  "retention": -3.3849767961702383e-06
                 },
                 {
                   "layer": 26,
@@ -3848,8 +3843,8 @@
                   "label": "concept",
                   "start": 1529,
                   "retained_variance": 0.002382408594712615,
-                  "accuracy": 0.5468874928612222,
-                  "retention": 0.2233810992200256
+                  "accuracy": 0.6357700361698078,
+                  "retention": 0.2742075011053654
                 },
                 {
                   "layer": 26,
@@ -3857,8 +3852,8 @@
                   "label": "concept_shuffled",
                   "start": 1529,
                   "retained_variance": 0.002382408594712615,
-                  "accuracy": 0.4696935084713497,
-                  "retention": -1.481619357840861
+                  "accuracy": 0.4794783932990672,
+                  "retention": NaN
                 },
                 {
                   "layer": 26,
@@ -3866,7 +3861,7 @@
                   "label": "pair_id_random",
                   "start": 1529,
                   "retained_variance": 0.002382408594712615,
-                  "accuracy": 0.5117551875118981,
+                  "accuracy": 0.4825909004378451,
                   "retention": NaN
                 },
                 {
@@ -3875,8 +3870,8 @@
                   "label": "city_continent",
                   "start": 1529,
                   "retained_variance": 0.002382408594712615,
-                  "accuracy": 0.6220731010850942,
-                  "retention": 0.0032989510988736424
+                  "accuracy": 0.6210927089282314,
+                  "retention": -3.3849767961702383e-06
                 },
                 {
                   "layer": 26,
@@ -3884,8 +3879,8 @@
                   "label": "concept",
                   "start": 1783,
                   "retained_variance": 0.0018806891748681664,
-                  "accuracy": 0.5927755568246716,
-                  "retention": 0.4420007255577729
+                  "accuracy": 0.6767751760898535,
+                  "retention": 0.357023395297872
                 },
                 {
                   "layer": 26,
@@ -3893,8 +3888,8 @@
                   "label": "concept_shuffled",
                   "start": 1783,
                   "retained_variance": 0.0018806891748681664,
-                  "accuracy": 0.47633733104892445,
-                  "retention": -1.1568171242438372
+                  "accuracy": 0.4911288787359604,
+                  "retention": NaN
                 },
                 {
                   "layer": 26,
@@ -3902,7 +3897,7 @@
                   "label": "pair_id_random",
                   "start": 1783,
                   "retained_variance": 0.0018806891748681664,
-                  "accuracy": 0.5059013896820865,
+                  "accuracy": 0.5116790405482581,
                   "retention": NaN
                 },
                 {
@@ -3912,7 +3907,7 @@
                   "start": 1783,
                   "retained_variance": 0.0018806891748681664,
                   "accuracy": 0.6210927089282314,
-                  "retention": -3.506857660347309e-06
+                  "retention": -3.3849767961702383e-06
                 },
                 {
                   "layer": 26,
@@ -3920,8 +3915,8 @@
                   "label": "concept",
                   "start": 2038,
                   "retained_variance": 0.00134539813734591,
-                  "accuracy": 0.5741956976965544,
-                  "retention": 0.3534826773081812
+                  "accuracy": 0.8007614696363982,
+                  "retention": 0.6074318998827349
                 },
                 {
                   "layer": 26,
@@ -3929,8 +3924,8 @@
                   "label": "concept_shuffled",
                   "start": 2038,
                   "retained_variance": 0.00134539813734591,
-                  "accuracy": 0.49999048162954496,
-                  "retention": -0.0004653327128928252
+                  "accuracy": 0.5263754045307444,
+                  "retention": NaN
                 },
                 {
                   "layer": 26,
@@ -3938,7 +3933,7 @@
                   "label": "pair_id_random",
                   "start": 2038,
                   "retained_variance": 0.00134539813734591,
-                  "accuracy": 0.5087378640776699,
+                  "accuracy": 0.4814391776127927,
                   "retention": NaN
                 },
                 {
@@ -3947,8 +3942,8 @@
                   "label": "city_continent",
                   "start": 2038,
                   "retained_variance": 0.00134539813734591,
-                  "accuracy": 0.6210927089282314,
-                  "retention": -3.506857660347309e-06
+                  "accuracy": 0.6220635827146392,
+                  "retention": 0.0031533476695159686
                 },
                 {
                   "layer": 26,
@@ -3956,8 +3951,8 @@
                   "label": "concept",
                   "start": 2293,
                   "retained_variance": 4.5191289245849475e-05,
-                  "accuracy": 0.5888444698267656,
-                  "retention": 0.4232722655541449
+                  "accuracy": 0.8759185227489054,
+                  "retention": 0.7592225917453237
                 },
                 {
                   "layer": 26,
@@ -3965,8 +3960,8 @@
                   "label": "concept_shuffled",
                   "start": 2293,
                   "retained_variance": 4.5191289245849475e-05,
-                  "accuracy": 0.5097468113458976,
-                  "retention": 0.47650069799907246
+                  "accuracy": 0.5076813249571673,
+                  "retention": NaN
                 },
                 {
                   "layer": 26,
@@ -3974,7 +3969,7 @@
                   "label": "pair_id_random",
                   "start": 2293,
                   "retained_variance": 4.5191289245849475e-05,
-                  "accuracy": 0.515676756139349,
+                  "accuracy": 0.5028174376546735,
                   "retention": NaN
                 },
                 {
@@ -3983,23 +3978,23 @@
                   "label": "city_continent",
                   "start": 2293,
                   "retained_variance": 4.5191289245849475e-05,
-                  "accuracy": 0.6210927089282314,
-                  "retention": -3.506857660347309e-06
+                  "accuracy": 0.6250047591852275,
+                  "retention": 0.012716390686284627
                 }
               ],
               "difference_in_differences": {
                 "available": true,
                 "control": "city_continent",
-                "delta": 0.25123677841012165,
+                "delta": -0.06989794127163564,
                 "ci95": [
-                  0.09305065867041543,
-                  0.41872796401686946
+                  -0.12040863916932308,
+                  -0.0198183266298188
                 ],
-                "p_boot": 0.0012,
+                "p_boot": 0.007,
                 "n_tokens": 1024,
-                "verdict": "quiet tail is concept-specific: the concept prefers the low-variance subspace more than an arbitrary item partition does",
-                "retention_gap_concept_quiet_minus_loud": 0.25123677841012165,
-                "retention_gap_control_quiet_minus_loud": 0.0
+                "verdict": "reversed: the arbitrary item partition prefers the quiet subspace MORE than the concept does",
+                "retention_gap_concept_quiet_minus_loud": -0.05719702476498971,
+                "retention_gap_control_quiet_minus_loud": 0.012700916506645921
               }
             }
           }
@@ -4013,16 +4008,16 @@
             "length_bucket": 0.5
           },
           "full_accuracy": {
-            "concept": 0.7098991052731771,
-            "concept_shuffled": 0.5204549781077479,
-            "pair_id_random": 0.5077955454026271,
-            "length_bucket": 0.698239101465829
+            "concept": 0.9951361126975062,
+            "concept_shuffled": 0.5166381115553017,
+            "pair_id_random": 0.4765562535693889,
+            "length_bucket": 0.784275652008376
           },
           "headroom": {
-            "concept": 0.20989910527317712,
-            "concept_shuffled": 0.02045497810774788,
-            "pair_id_random": 0.007795545402627058,
-            "length_bucket": 0.19823910146582902
+            "concept": 0.49513611269750624,
+            "concept_shuffled": 0.016638111555301704,
+            "pair_id_random": -0.02344374643061109,
+            "length_bucket": 0.284275652008376
           },
           "cells": [
             {
@@ -4031,8 +4026,8 @@
               "label": "concept",
               "start": 0,
               "retained_variance": 0.19362998008728027,
-              "accuracy": 0.5362078812107367,
-              "retention": 0.1725013604208235
+              "accuracy": 0.9043023034456501,
+              "retention": 0.8165477998423653
             },
             {
               "layer": 26,
@@ -4040,8 +4035,8 @@
               "label": "concept_shuffled",
               "start": 0,
               "retained_variance": 0.19362998008728027,
-              "accuracy": 0.4990005711022273,
-              "retention": -0.048859934853420994
+              "accuracy": 0.4785646297353893,
+              "retention": NaN
             },
             {
               "layer": 26,
@@ -4049,7 +4044,7 @@
               "label": "pair_id_random",
               "start": 0,
               "retained_variance": 0.19362998008728027,
-              "accuracy": 0.5214258518941557,
+              "accuracy": 0.4854464115743385,
               "retention": NaN
             },
             {
@@ -4058,8 +4053,8 @@
               "label": "length_bucket",
               "start": 0,
               "retained_variance": 0.19362998008728027,
-              "accuracy": 0.5948315248429469,
-              "retention": 0.47836942430498874
+              "accuracy": 0.6083571292594707,
+              "retention": 0.3811692225272886
             },
             {
               "layer": 26,
@@ -4067,8 +4062,8 @@
               "label": "concept",
               "start": 255,
               "retained_variance": 0.00695414375513792,
-              "accuracy": 0.5478107747953549,
-              "retention": 0.22777979321603428
+              "accuracy": 0.6923281934132877,
+              "retention": 0.38843499490570754
             },
             {
               "layer": 26,
@@ -4076,8 +4071,8 @@
               "label": "concept_shuffled",
               "start": 255,
               "retained_variance": 0.00695414375513792,
-              "accuracy": 0.46387778412335806,
-              "retention": -1.7659376454164801
+              "accuracy": 0.5020178945364554,
+              "retention": NaN
             },
             {
               "layer": 26,
@@ -4085,7 +4080,7 @@
               "label": "pair_id_random",
               "start": 255,
               "retained_variance": 0.00695414375513792,
-              "accuracy": 0.5028555111364934,
+              "accuracy": 0.5176565771939844,
               "retention": NaN
             },
             {
@@ -4094,8 +4089,8 @@
               "label": "length_bucket",
               "start": 255,
               "retained_variance": 0.00695414375513792,
-              "accuracy": 0.6201789453645536,
-              "retention": 0.6062322946175641
+              "accuracy": 0.5948220064724918,
+              "retention": 0.3335565526016205
             },
             {
               "layer": 26,
@@ -4103,8 +4098,8 @@
               "label": "concept",
               "start": 510,
               "retained_variance": 0.005277235060930252,
-              "accuracy": 0.5673234342280601,
-              "retention": 0.32074188282241956
+              "accuracy": 0.8165334094802971,
+              "retention": 0.6392856456294816
             },
             {
               "layer": 26,
@@ -4112,8 +4107,8 @@
               "label": "concept_shuffled",
               "start": 510,
               "retained_variance": 0.005277235060930252,
-              "accuracy": 0.4950790024747763,
-              "retention": -0.24057701256398406
+              "accuracy": 0.5058918713116315,
+              "retention": NaN
             },
             {
               "layer": 26,
@@ -4121,7 +4116,7 @@
               "label": "pair_id_random",
               "start": 510,
               "retained_variance": 0.005277235060930252,
-              "accuracy": 0.5438701694269941,
+              "accuracy": 0.5175233200076146,
               "retention": NaN
             },
             {
@@ -4130,8 +4125,8 @@
               "label": "length_bucket",
               "start": 510,
               "retained_variance": 0.005277235060930252,
-              "accuracy": 0.6074528840662479,
-              "retention": 0.5420367791808711
+              "accuracy": 0.5683514182371978,
+              "retention": 0.24044063483559922
             },
             {
               "layer": 26,
@@ -4139,8 +4134,8 @@
               "label": "concept",
               "start": 764,
               "retained_variance": 0.004286730661988258,
-              "accuracy": 0.5633066818960593,
-              "retention": 0.301605296571739
+              "accuracy": 0.7988387588044927,
+              "retention": 0.6035487033583884
             },
             {
               "layer": 26,
@@ -4148,8 +4143,8 @@
               "label": "concept_shuffled",
               "start": 764,
               "retained_variance": 0.004286730661988258,
-              "accuracy": 0.4638111555301732,
-              "retention": -1.7691949744067084
+              "accuracy": 0.4881972206358271,
+              "retention": NaN
             },
             {
               "layer": 26,
@@ -4157,7 +4152,7 @@
               "label": "pair_id_random",
               "start": 764,
               "retained_variance": 0.004286730661988258,
-              "accuracy": 0.5107652769845802,
+              "accuracy": 0.4697506186940796,
               "retention": NaN
             },
             {
@@ -4166,8 +4161,8 @@
               "label": "length_bucket",
               "start": 764,
               "retained_variance": 0.004286730661988258,
-              "accuracy": 0.630877593755949,
-              "retention": 0.6602007010131081
+              "accuracy": 0.5644108128688368,
+              "retention": 0.2265787182749613
             },
             {
               "layer": 26,
@@ -4175,8 +4170,8 @@
               "label": "concept",
               "start": 1019,
               "retained_variance": 0.003534798277541995,
-              "accuracy": 0.5702836474395584,
-              "retention": 0.3348449120261205
+              "accuracy": 0.7821054635446412,
+              "retention": 0.5697533593494685
             },
             {
               "layer": 26,
@@ -4184,8 +4179,8 @@
               "label": "concept_shuffled",
               "start": 1019,
               "retained_variance": 0.003534798277541995,
-              "accuracy": 0.5038549400342661,
-              "retention": 0.188459748720335
+              "accuracy": 0.4775747192080716,
+              "retention": NaN
             },
             {
               "layer": 26,
@@ -4193,7 +4188,7 @@
               "label": "pair_id_random",
               "start": 1019,
               "retained_variance": 0.003534798277541995,
-              "accuracy": 0.4707119741100324,
+              "accuracy": 0.4472967827907863,
               "retention": NaN
             },
             {
@@ -4202,8 +4197,8 @@
               "label": "length_bucket",
               "start": 1019,
               "retained_variance": 0.003534798277541995,
-              "accuracy": 0.6132876451551494,
-              "retention": 0.5714697267969464
+              "accuracy": 0.6053969160479725,
+              "retention": 0.37075604366168885
             },
             {
               "layer": 26,
@@ -4211,8 +4206,8 @@
               "label": "concept",
               "start": 1274,
               "retained_variance": 0.002922222251072526,
-              "accuracy": 0.5771559109080525,
-              "retention": 0.3675857065118811
+              "accuracy": 0.7587949743003998,
+              "retention": 0.522674407428055
             },
             {
               "layer": 26,
@@ -4220,8 +4215,8 @@
               "label": "concept_shuffled",
               "start": 1274,
               "retained_variance": 0.002922222251072526,
-              "accuracy": 0.48628402817437655,
-              "retention": -0.6705444392740834
+              "accuracy": 0.4971730439748715,
+              "retention": NaN
             },
             {
               "layer": 26,
@@ -4229,7 +4224,7 @@
               "label": "pair_id_random",
               "start": 1274,
               "retained_variance": 0.002922222251072526,
-              "accuracy": 0.5176089853417095,
+              "accuracy": 0.5304016752332,
               "retention": NaN
             },
             {
@@ -4238,8 +4233,8 @@
               "label": "length_bucket",
               "start": 1274,
               "retained_variance": 0.002922222251072526,
-              "accuracy": 0.6290119931467733,
-              "retention": 0.6507898401113938
+              "accuracy": 0.6202170188463735,
+              "retention": 0.4228889037701736
             },
             {
               "layer": 26,
@@ -4247,8 +4242,8 @@
               "label": "concept",
               "start": 1529,
               "retained_variance": 0.002382408594712615,
-              "accuracy": 0.5468874928612222,
-              "retention": 0.2233810992200256
+              "accuracy": 0.6357700361698078,
+              "retention": 0.2742075011053654
             },
             {
               "layer": 26,
@@ -4256,8 +4251,8 @@
               "label": "concept_shuffled",
               "start": 1529,
               "retained_variance": 0.002382408594712615,
-              "accuracy": 0.4696935084713497,
-              "retention": -1.481619357840861
+              "accuracy": 0.4794783932990672,
+              "retention": NaN
             },
             {
               "layer": 26,
@@ -4265,7 +4260,7 @@
               "label": "pair_id_random",
               "start": 1529,
               "retained_variance": 0.002382408594712615,
-              "accuracy": 0.5117551875118981,
+              "accuracy": 0.4825909004378451,
               "retention": NaN
             },
             {
@@ -4274,8 +4269,8 @@
               "label": "length_bucket",
               "start": 1529,
               "retained_variance": 0.002382408594712615,
-              "accuracy": 0.6035313154387968,
-              "retention": 0.5222547654486961
+              "accuracy": 0.5927660384542166,
+              "retention": 0.3263242483091141
             },
             {
               "layer": 26,
@@ -4283,8 +4278,8 @@
               "label": "concept",
               "start": 1783,
               "retained_variance": 0.0018806891748681664,
-              "accuracy": 0.5927755568246716,
-              "retention": 0.4420007255577729
+              "accuracy": 0.6767751760898535,
+              "retention": 0.357023395297872
             },
             {
               "layer": 26,
@@ -4292,8 +4287,8 @@
               "label": "concept_shuffled",
               "start": 1783,
               "retained_variance": 0.0018806891748681664,
-              "accuracy": 0.47633733104892445,
-              "retention": -1.1568171242438372
+              "accuracy": 0.4911288787359604,
+              "retention": NaN
             },
             {
               "layer": 26,
@@ -4301,7 +4296,7 @@
               "label": "pair_id_random",
               "start": 1783,
               "retained_variance": 0.0018806891748681664,
-              "accuracy": 0.5059013896820865,
+              "accuracy": 0.5116790405482581,
               "retention": NaN
             },
             {
@@ -4310,8 +4305,8 @@
               "label": "length_bucket",
               "start": 1783,
               "retained_variance": 0.0018806891748681664,
-              "accuracy": 0.6240053302874549,
-              "retention": 0.6255341623853656
+              "accuracy": 0.5928136303064916,
+              "retention": 0.32649166276032987
             },
             {
               "layer": 26,
@@ -4319,8 +4314,8 @@
               "label": "concept",
               "start": 2038,
               "retained_variance": 0.00134539813734591,
-              "accuracy": 0.5741956976965544,
-              "retention": 0.3534826773081812
+              "accuracy": 0.8007614696363982,
+              "retention": 0.6074318998827349
             },
             {
               "layer": 26,
@@ -4328,8 +4323,8 @@
               "label": "concept_shuffled",
               "start": 2038,
               "retained_variance": 0.00134539813734591,
-              "accuracy": 0.49999048162954496,
-              "retention": -0.0004653327128928252
+              "accuracy": 0.5263754045307444,
+              "retention": NaN
             },
             {
               "layer": 26,
@@ -4337,7 +4332,7 @@
               "label": "pair_id_random",
               "start": 2038,
               "retained_variance": 0.00134539813734591,
-              "accuracy": 0.5087378640776699,
+              "accuracy": 0.4814391776127927,
               "retention": NaN
             },
             {
@@ -4346,8 +4341,8 @@
               "label": "length_bucket",
               "start": 2038,
               "retained_variance": 0.00134539813734591,
-              "accuracy": 0.642594707786027,
-              "retention": 0.7193066692274451
+              "accuracy": 0.6084047211117457,
+              "retention": 0.38133663697850434
             },
             {
               "layer": 26,
@@ -4355,8 +4350,8 @@
               "label": "concept",
               "start": 2293,
               "retained_variance": 4.5191289245849475e-05,
-              "accuracy": 0.5888444698267656,
-              "retention": 0.4232722655541449
+              "accuracy": 0.8759185227489054,
+              "retention": 0.7592225917453237
             },
             {
               "layer": 26,
@@ -4364,8 +4359,8 @@
               "label": "concept_shuffled",
               "start": 2293,
               "retained_variance": 4.5191289245849475e-05,
-              "accuracy": 0.5097468113458976,
-              "retention": 0.47650069799907246
+              "accuracy": 0.5076813249571673,
+              "retention": NaN
             },
             {
               "layer": 26,
@@ -4373,7 +4368,7 @@
               "label": "pair_id_random",
               "start": 2293,
               "retained_variance": 4.5191289245849475e-05,
-              "accuracy": 0.515676756139349,
+              "accuracy": 0.5028174376546735,
               "retention": NaN
             },
             {
@@ -4382,28 +4377,28 @@
               "label": "length_bucket",
               "start": 2293,
               "retained_variance": 4.5191289245849475e-05,
-              "accuracy": 0.5967256805634875,
-              "retention": 0.4879243289960148
+              "accuracy": 0.5997810774795356,
+              "retention": 0.3510011384182687
             }
           ],
           "floor_check": {
-            "shuffled_top_k": 0.4990005711022273,
+            "shuffled_top_k": 0.4785646297353893,
             "majority": 0.5,
             "ok": true
           },
           "difference_in_differences": {
             "available": true,
             "control": "length_bucket",
-            "delta": 0.241384408289605,
+            "delta": -0.026279630194240344,
             "ci95": [
-              0.04624528268428419,
-              0.44171652977875325
+              -0.15440481506243928,
+              0.09980812933728296
             ],
-            "p_boot": 0.0172,
+            "p_boot": 0.6874,
             "n_tokens": 1024,
-            "verdict": "quiet tail is concept-specific: the concept prefers the low-variance subspace more than an arbitrary item partition does",
-            "retention_gap_concept_quiet_minus_loud": 0.25123677841012165,
-            "retention_gap_control_quiet_minus_loud": 0.00985237012051664
+            "verdict": "not concept-specific at this n: the quiet-tail advantage is the same size for the concept and for a label with no concept in it",
+            "retention_gap_concept_quiet_minus_loud": -0.05719702476498971,
+            "retention_gap_control_quiet_minus_loud": -0.030917394570749365
           },
           "by_k": {
             "0.005": {
@@ -4415,8 +4410,8 @@
                   "label": "concept",
                   "start": 0,
                   "retained_variance": 0.19362998008728027,
-                  "accuracy": 0.5362078812107367,
-                  "retention": 0.1725013604208235
+                  "accuracy": 0.9043023034456501,
+                  "retention": 0.8165477998423653
                 },
                 {
                   "layer": 26,
@@ -4424,8 +4419,8 @@
                   "label": "concept_shuffled",
                   "start": 0,
                   "retained_variance": 0.19362998008728027,
-                  "accuracy": 0.4990005711022273,
-                  "retention": -0.048859934853420994
+                  "accuracy": 0.4785646297353893,
+                  "retention": NaN
                 },
                 {
                   "layer": 26,
@@ -4433,7 +4428,7 @@
                   "label": "pair_id_random",
                   "start": 0,
                   "retained_variance": 0.19362998008728027,
-                  "accuracy": 0.5214258518941557,
+                  "accuracy": 0.4854464115743385,
                   "retention": NaN
                 },
                 {
@@ -4442,8 +4437,8 @@
                   "label": "length_bucket",
                   "start": 0,
                   "retained_variance": 0.19362998008728027,
-                  "accuracy": 0.5948315248429469,
-                  "retention": 0.47836942430498874
+                  "accuracy": 0.6083571292594707,
+                  "retention": 0.3811692225272886
                 },
                 {
                   "layer": 26,
@@ -4451,8 +4446,8 @@
                   "label": "concept",
                   "start": 255,
                   "retained_variance": 0.00695414375513792,
-                  "accuracy": 0.5478107747953549,
-                  "retention": 0.22777979321603428
+                  "accuracy": 0.6923281934132877,
+                  "retention": 0.38843499490570754
                 },
                 {
                   "layer": 26,
@@ -4460,8 +4455,8 @@
                   "label": "concept_shuffled",
                   "start": 255,
                   "retained_variance": 0.00695414375513792,
-                  "accuracy": 0.46387778412335806,
-                  "retention": -1.7659376454164801
+                  "accuracy": 0.5020178945364554,
+                  "retention": NaN
                 },
                 {
                   "layer": 26,
@@ -4469,7 +4464,7 @@
                   "label": "pair_id_random",
                   "start": 255,
                   "retained_variance": 0.00695414375513792,
-                  "accuracy": 0.5028555111364934,
+                  "accuracy": 0.5176565771939844,
                   "retention": NaN
                 },
                 {
@@ -4478,8 +4473,8 @@
                   "label": "length_bucket",
                   "start": 255,
                   "retained_variance": 0.00695414375513792,
-                  "accuracy": 0.6201789453645536,
-                  "retention": 0.6062322946175641
+                  "accuracy": 0.5948220064724918,
+                  "retention": 0.3335565526016205
                 },
                 {
                   "layer": 26,
@@ -4487,8 +4482,8 @@
                   "label": "concept",
                   "start": 510,
                   "retained_variance": 0.005277235060930252,
-                  "accuracy": 0.5673234342280601,
-                  "retention": 0.32074188282241956
+                  "accuracy": 0.8165334094802971,
+                  "retention": 0.6392856456294816
                 },
                 {
                   "layer": 26,
@@ -4496,8 +4491,8 @@
                   "label": "concept_shuffled",
                   "start": 510,
                   "retained_variance": 0.005277235060930252,
-                  "accuracy": 0.4950790024747763,
-                  "retention": -0.24057701256398406
+                  "accuracy": 0.5058918713116315,
+                  "retention": NaN
                 },
                 {
                   "layer": 26,
@@ -4505,7 +4500,7 @@
                   "label": "pair_id_random",
                   "start": 510,
                   "retained_variance": 0.005277235060930252,
-                  "accuracy": 0.5438701694269941,
+                  "accuracy": 0.5175233200076146,
                   "retention": NaN
                 },
                 {
@@ -4514,8 +4509,8 @@
                   "label": "length_bucket",
                   "start": 510,
                   "retained_variance": 0.005277235060930252,
-                  "accuracy": 0.6074528840662479,
-                  "retention": 0.5420367791808711
+                  "accuracy": 0.5683514182371978,
+                  "retention": 0.24044063483559922
                 },
                 {
                   "layer": 26,
@@ -4523,8 +4518,8 @@
                   "label": "concept",
                   "start": 764,
                   "retained_variance": 0.004286730661988258,
-                  "accuracy": 0.5633066818960593,
-                  "retention": 0.301605296571739
+                  "accuracy": 0.7988387588044927,
+                  "retention": 0.6035487033583884
                 },
                 {
                   "layer": 26,
@@ -4532,8 +4527,8 @@
                   "label": "concept_shuffled",
                   "start": 764,
                   "retained_variance": 0.004286730661988258,
-                  "accuracy": 0.4638111555301732,
-                  "retention": -1.7691949744067084
+                  "accuracy": 0.4881972206358271,
+                  "retention": NaN
                 },
                 {
                   "layer": 26,
@@ -4541,7 +4536,7 @@
                   "label": "pair_id_random",
                   "start": 764,
                   "retained_variance": 0.004286730661988258,
-                  "accuracy": 0.5107652769845802,
+                  "accuracy": 0.4697506186940796,
                   "retention": NaN
                 },
                 {
@@ -4550,8 +4545,8 @@
                   "label": "length_bucket",
                   "start": 764,
                   "retained_variance": 0.004286730661988258,
-                  "accuracy": 0.630877593755949,
-                  "retention": 0.6602007010131081
+                  "accuracy": 0.5644108128688368,
+                  "retention": 0.2265787182749613
                 },
                 {
                   "layer": 26,
@@ -4559,8 +4554,8 @@
                   "label": "concept",
                   "start": 1019,
                   "retained_variance": 0.003534798277541995,
-                  "accuracy": 0.5702836474395584,
-                  "retention": 0.3348449120261205
+                  "accuracy": 0.7821054635446412,
+                  "retention": 0.5697533593494685
                 },
                 {
                   "layer": 26,
@@ -4568,8 +4563,8 @@
                   "label": "concept_shuffled",
                   "start": 1019,
                   "retained_variance": 0.003534798277541995,
-                  "accuracy": 0.5038549400342661,
-                  "retention": 0.188459748720335
+                  "accuracy": 0.4775747192080716,
+                  "retention": NaN
                 },
                 {
                   "layer": 26,
@@ -4577,7 +4572,7 @@
                   "label": "pair_id_random",
                   "start": 1019,
                   "retained_variance": 0.003534798277541995,
-                  "accuracy": 0.4707119741100324,
+                  "accuracy": 0.4472967827907863,
                   "retention": NaN
                 },
                 {
@@ -4586,8 +4581,8 @@
                   "label": "length_bucket",
                   "start": 1019,
                   "retained_variance": 0.003534798277541995,
-                  "accuracy": 0.6132876451551494,
-                  "retention": 0.5714697267969464
+                  "accuracy": 0.6053969160479725,
+                  "retention": 0.37075604366168885
                 },
                 {
                   "layer": 26,
@@ -4595,8 +4590,8 @@
                   "label": "concept",
                   "start": 1274,
                   "retained_variance": 0.002922222251072526,
-                  "accuracy": 0.5771559109080525,
-                  "retention": 0.3675857065118811
+                  "accuracy": 0.7587949743003998,
+                  "retention": 0.522674407428055
                 },
                 {
                   "layer": 26,
@@ -4604,8 +4599,8 @@
                   "label": "concept_shuffled",
                   "start": 1274,
                   "retained_variance": 0.002922222251072526,
-                  "accuracy": 0.48628402817437655,
-                  "retention": -0.6705444392740834
+                  "accuracy": 0.4971730439748715,
+                  "retention": NaN
                 },
                 {
                   "layer": 26,
@@ -4613,7 +4608,7 @@
                   "label": "pair_id_random",
                   "start": 1274,
                   "retained_variance": 0.002922222251072526,
-                  "accuracy": 0.5176089853417095,
+                  "accuracy": 0.5304016752332,
                   "retention": NaN
                 },
                 {
@@ -4622,8 +4617,8 @@
                   "label": "length_bucket",
                   "start": 1274,
                   "retained_variance": 0.002922222251072526,
-                  "accuracy": 0.6290119931467733,
-                  "retention": 0.6507898401113938
+                  "accuracy": 0.6202170188463735,
+                  "retention": 0.4228889037701736
                 },
                 {
                   "layer": 26,
@@ -4631,8 +4626,8 @@
                   "label": "concept",
                   "start": 1529,
                   "retained_variance": 0.002382408594712615,
-                  "accuracy": 0.5468874928612222,
-                  "retention": 0.2233810992200256
+                  "accuracy": 0.6357700361698078,
+                  "retention": 0.2742075011053654
                 },
                 {
                   "layer": 26,
@@ -4640,8 +4635,8 @@
                   "label": "concept_shuffled",
                   "start": 1529,
                   "retained_variance": 0.002382408594712615,
-                  "accuracy": 0.4696935084713497,
-                  "retention": -1.481619357840861
+                  "accuracy": 0.4794783932990672,
+                  "retention": NaN
                 },
                 {
                   "layer": 26,
@@ -4649,7 +4644,7 @@
                   "label": "pair_id_random",
                   "start": 1529,
                   "retained_variance": 0.002382408594712615,
-                  "accuracy": 0.5117551875118981,
+                  "accuracy": 0.4825909004378451,
                   "retention": NaN
                 },
                 {
@@ -4658,8 +4653,8 @@
                   "label": "length_bucket",
                   "start": 1529,
                   "retained_variance": 0.002382408594712615,
-                  "accuracy": 0.6035313154387968,
-                  "retention": 0.5222547654486961
+                  "accuracy": 0.5927660384542166,
+                  "retention": 0.3263242483091141
                 },
                 {
                   "layer": 26,
@@ -4667,8 +4662,8 @@
                   "label": "concept",
                   "start": 1783,
                   "retained_variance": 0.0018806891748681664,
-                  "accuracy": 0.5927755568246716,
-                  "retention": 0.4420007255577729
+                  "accuracy": 0.6767751760898535,
+                  "retention": 0.357023395297872
                 },
                 {
                   "layer": 26,
@@ -4676,8 +4671,8 @@
                   "label": "concept_shuffled",
                   "start": 1783,
                   "retained_variance": 0.0018806891748681664,
-                  "accuracy": 0.47633733104892445,
-                  "retention": -1.1568171242438372
+                  "accuracy": 0.4911288787359604,
+                  "retention": NaN
                 },
                 {
                   "layer": 26,
@@ -4685,7 +4680,7 @@
                   "label": "pair_id_random",
                   "start": 1783,
                   "retained_variance": 0.0018806891748681664,
-                  "accuracy": 0.5059013896820865,
+                  "accuracy": 0.5116790405482581,
                   "retention": NaN
                 },
                 {
@@ -4694,8 +4689,8 @@
                   "label": "length_bucket",
                   "start": 1783,
                   "retained_variance": 0.0018806891748681664,
-                  "accuracy": 0.6240053302874549,
-                  "retention": 0.6255341623853656
+                  "accuracy": 0.5928136303064916,
+                  "retention": 0.32649166276032987
                 },
                 {
                   "layer": 26,
@@ -4703,8 +4698,8 @@
                   "label": "concept",
                   "start": 2038,
                   "retained_variance": 0.00134539813734591,
-                  "accuracy": 0.5741956976965544,
-                  "retention": 0.3534826773081812
+                  "accuracy": 0.8007614696363982,
+                  "retention": 0.6074318998827349
                 },
                 {
                   "layer": 26,
@@ -4712,8 +4707,8 @@
                   "label": "concept_shuffled",
                   "start": 2038,
                   "retained_variance": 0.00134539813734591,
-                  "accuracy": 0.49999048162954496,
-                  "retention": -0.0004653327128928252
+                  "accuracy": 0.5263754045307444,
+                  "retention": NaN
                 },
                 {
                   "layer": 26,
@@ -4721,7 +4716,7 @@
                   "label": "pair_id_random",
                   "start": 2038,
                   "retained_variance": 0.00134539813734591,
-                  "accuracy": 0.5087378640776699,
+                  "accuracy": 0.4814391776127927,
                   "retention": NaN
                 },
                 {
@@ -4730,8 +4725,8 @@
                   "label": "length_bucket",
                   "start": 2038,
                   "retained_variance": 0.00134539813734591,
-                  "accuracy": 0.642594707786027,
-                  "retention": 0.7193066692274451
+                  "accuracy": 0.6084047211117457,
+                  "retention": 0.38133663697850434
                 },
                 {
                   "layer": 26,
@@ -4739,8 +4734,8 @@
                   "label": "concept",
                   "start": 2293,
                   "retained_variance": 4.5191289245849475e-05,
-                  "accuracy": 0.5888444698267656,
-                  "retention": 0.4232722655541449
+                  "accuracy": 0.8759185227489054,
+                  "retention": 0.7592225917453237
                 },
                 {
                   "layer": 26,
@@ -4748,8 +4743,8 @@
                   "label": "concept_shuffled",
                   "start": 2293,
                   "retained_variance": 4.5191289245849475e-05,
-                  "accuracy": 0.5097468113458976,
-                  "retention": 0.47650069799907246
+                  "accuracy": 0.5076813249571673,
+                  "retention": NaN
                 },
                 {
                   "layer": 26,
@@ -4757,7 +4752,7 @@
                   "label": "pair_id_random",
                   "start": 2293,
                   "retained_variance": 4.5191289245849475e-05,
-                  "accuracy": 0.515676756139349,
+                  "accuracy": 0.5028174376546735,
                   "retention": NaN
                 },
                 {
@@ -4766,23 +4761,23 @@
                   "label": "length_bucket",
                   "start": 2293,
                   "retained_variance": 4.5191289245849475e-05,
-                  "accuracy": 0.5967256805634875,
-                  "retention": 0.4879243289960148
+                  "accuracy": 0.5997810774795356,
+                  "retention": 0.3510011384182687
                 }
               ],
               "difference_in_differences": {
                 "available": true,
                 "control": "length_bucket",
-                "delta": 0.241384408289605,
+                "delta": -0.026279630194240344,
                 "ci95": [
-                  0.04624528268428419,
-                  0.44171652977875325
+                  -0.15440481506243928,
+                  0.09980812933728296
                 ],
-                "p_boot": 0.0172,
+                "p_boot": 0.6874,
                 "n_tokens": 1024,
-                "verdict": "quiet tail is concept-specific: the concept prefers the low-variance subspace more than an arbitrary item partition does",
-                "retention_gap_concept_quiet_minus_loud": 0.25123677841012165,
-                "retention_gap_control_quiet_minus_loud": 0.00985237012051664
+                "verdict": "not concept-specific at this n: the quiet-tail advantage is the same size for the concept and for a label with no concept in it",
+                "retention_gap_concept_quiet_minus_loud": -0.05719702476498971,
+                "retention_gap_control_quiet_minus_loud": -0.030917394570749365
               }
             }
           }

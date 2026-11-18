@@ -92,46 +92,46 @@ Primary: truth_cities, mid layer, control named_continent.
 | Qwen3-4B | truth_cities_negated | final | named_continent | -0.122 | [-0.170, -0.074] | +0.489 | +0.299 | 0.501 | yes |
 | Qwen3-4B | truth_cities_negated | final | city_continent | -0.122 | [-0.170, -0.074] | +0.489 | +0.314 | 0.501 | yes |
 | Qwen3-4B | truth_cities_negated | final | length_bucket | -0.220 | [-0.337, -0.104] | +0.489 | +0.278 | 0.501 | yes |
-| gemma-2-2b | truth_cities | mid | named_continent | +0.339 | [+0.199, +0.475] | +0.230 | +0.093 | 0.509 | yes |
-| gemma-2-2b | truth_cities | mid | city_continent | +0.339 | [+0.199, +0.475] | +0.230 | +0.183 | 0.509 | yes |
-| gemma-2-2b | truth_cities | mid | length_bucket | +0.168 | [-0.012, +0.350] | +0.230 | +0.234 | 0.509 | yes |
-| gemma-2-2b | truth_cities | final | named_continent | -0.058 | [-0.266, +0.145] | +0.202 | +0.135 | 0.488 | yes |
-| gemma-2-2b | truth_cities | final | city_continent | -0.058 | [-0.266, +0.145] | +0.202 | +0.291 | 0.488 | yes |
-| gemma-2-2b | truth_cities | final | length_bucket | -0.091 | [-0.320, +0.133] | +0.202 | +0.236 | 0.488 | yes |
-| gemma-2-2b | truth_cities_negated | mid | named_continent | +0.167 | [-0.004, +0.339] | +0.228 | +0.109 | 0.485 | yes |
-| gemma-2-2b | truth_cities_negated | mid | city_continent | +0.167 | [-0.004, +0.339] | +0.228 | +0.224 | 0.485 | yes |
-| gemma-2-2b | truth_cities_negated | mid | length_bucket | +0.146 | [-0.056, +0.348] | +0.228 | +0.225 | 0.485 | yes |
-| gemma-2-2b | truth_cities_negated | final | named_continent | +0.251 | [+0.093, +0.419] | +0.210 | +0.121 | 0.508 | yes |
-| gemma-2-2b | truth_cities_negated | final | city_continent | +0.251 | [+0.093, +0.419] | +0.210 | +0.297 | 0.508 | yes |
-| gemma-2-2b | truth_cities_negated | final | length_bucket | +0.241 | [+0.046, +0.442] | +0.210 | +0.198 | 0.508 | yes |
+| gemma-2-2b | truth_cities | mid | named_continent | +0.010 | [-0.024, +0.043] | +0.495 | +0.362 | 0.482 | yes |
+| gemma-2-2b | truth_cities | mid | city_continent | +0.010 | [-0.024, +0.043] | +0.495 | +0.279 | 0.482 | yes |
+| gemma-2-2b | truth_cities | mid | length_bucket | +0.101 | [+0.005, +0.195] | +0.495 | +0.334 | 0.482 | yes |
+| gemma-2-2b | truth_cities | final | named_continent | -0.102 | [-0.149, -0.056] | +0.491 | +0.342 | 0.486 | yes |
+| gemma-2-2b | truth_cities | final | city_continent | -0.106 | [-0.154, -0.060] | +0.491 | +0.280 | 0.486 | yes |
+| gemma-2-2b | truth_cities | final | length_bucket | -0.030 | [-0.144, +0.084] | +0.491 | +0.309 | 0.486 | yes |
+| gemma-2-2b | truth_cities_negated | mid | named_continent | +0.018 | [-0.008, +0.043] | +0.498 | +0.349 | 0.499 | yes |
+| gemma-2-2b | truth_cities_negated | mid | city_continent | +0.018 | [-0.008, +0.043] | +0.498 | +0.279 | 0.499 | yes |
+| gemma-2-2b | truth_cities_negated | mid | length_bucket | +0.051 | [-0.044, +0.148] | +0.498 | +0.353 | 0.499 | yes |
+| gemma-2-2b | truth_cities_negated | final | named_continent | -0.057 | [-0.107, -0.008] | +0.495 | +0.312 | 0.477 | yes |
+| gemma-2-2b | truth_cities_negated | final | city_continent | -0.070 | [-0.120, -0.020] | +0.495 | +0.308 | 0.477 | yes |
+| gemma-2-2b | truth_cities_negated | final | length_bucket | -0.026 | [-0.154, +0.100] | +0.495 | +0.284 | 0.477 | yes |
 
 ## Across models (usable cells only)
 
 | dataset | layer | control | models | n | mean Δ | 95% CI | p (t) | p (Wilcoxon) | 90% CI | p TOST | equivalent |
 |---|---|---|---|---|---|---|---|---|---|---|---|
-| truth_cities | mid | **named_continent (primary)** | all | 8 | +0.054 | [-0.064, +0.171] | 0.317 | 0.312 | [-0.041, +0.148] | 0.190 | no |
+| truth_cities | mid | **named_continent (primary)** | all | 8 | +0.012 | [-0.055, +0.080] | 0.677 | 0.547 | [-0.041, +0.066] | 0.009 | yes |
 | truth_cities | mid | **named_continent (primary)** | without gemma | 7 | +0.013 | [-0.068, +0.093] | 0.712 | 0.578 | [-0.051, +0.076] | 0.019 | yes |
-| truth_cities | mid | city_continent | all | 8 | +0.054 | [-0.064, +0.172] | 0.313 | 0.312 | [-0.040, +0.149] | 0.194 | no |
+| truth_cities | mid | city_continent | all | 8 | +0.013 | [-0.055, +0.081] | 0.665 | 0.547 | [-0.042, +0.068] | 0.010 | yes |
 | truth_cities | mid | city_continent | without gemma | 7 | +0.013 | [-0.068, +0.095] | 0.699 | 0.578 | [-0.051, +0.078] | 0.020 | yes |
-| truth_cities | mid | length_bucket | all | 8 | +0.018 | [-0.079, +0.114] | 0.681 | 0.844 | [-0.060, +0.095] | 0.042 | yes |
+| truth_cities | mid | length_bucket | all | 8 | +0.009 | [-0.079, +0.097] | 0.814 | 1.000 | [-0.061, +0.080] | 0.022 | yes |
 | truth_cities | mid | length_bucket | without gemma | 7 | -0.004 | [-0.102, +0.094] | 0.925 | 0.812 | [-0.082, +0.074] | 0.027 | yes |
-| truth_cities | final | named_continent | all | 8 | -0.012 | [-0.100, +0.077] | 0.760 | 0.641 | [-0.083, +0.059] | 0.025 | yes |
+| truth_cities | final | named_continent | all | 8 | -0.017 | [-0.109, +0.074] | 0.667 | 0.641 | [-0.091, +0.056] | 0.035 | yes |
 | truth_cities | final | named_continent | without gemma | 7 | -0.005 | [-0.110, +0.099] | 0.904 | 0.812 | [-0.088, +0.077] | 0.034 | yes |
-| truth_cities | final | city_continent | all | 8 | -0.012 | [-0.100, +0.077] | 0.766 | 0.641 | [-0.082, +0.059] | 0.025 | yes |
+| truth_cities | final | city_continent | all | 8 | -0.018 | [-0.109, +0.074] | 0.664 | 0.641 | [-0.091, +0.056] | 0.036 | yes |
 | truth_cities | final | city_continent | without gemma | 7 | -0.005 | [-0.109, +0.099] | 0.911 | 0.812 | [-0.087, +0.077] | 0.033 | yes |
-| truth_cities | final | length_bucket | all | 8 | -0.056 | [-0.138, +0.026] | 0.151 | 0.148 | [-0.122, +0.010] | 0.124 | no |
+| truth_cities | final | length_bucket | all | 8 | -0.048 | [-0.130, +0.033] | 0.204 | 0.250 | [-0.114, +0.017] | 0.090 | no |
 | truth_cities | final | length_bucket | without gemma | 7 | -0.051 | [-0.148, +0.046] | 0.246 | 0.297 | [-0.128, +0.026] | 0.133 | no |
-| truth_cities_negated | mid | named_continent | all | 8 | +0.038 | [-0.108, +0.183] | 0.559 | 1.000 | [-0.079, +0.154] | 0.173 | no |
+| truth_cities_negated | mid | named_continent | all | 8 | +0.019 | [-0.120, +0.158] | 0.755 | 0.945 | [-0.092, +0.130] | 0.105 | no |
 | truth_cities_negated | mid | named_continent | without gemma | 7 | +0.019 | [-0.147, +0.185] | 0.786 | 0.688 | [-0.113, +0.151] | 0.139 | no |
-| truth_cities_negated | mid | city_continent | all | 8 | +0.034 | [-0.114, +0.183] | 0.602 | 1.000 | [-0.085, +0.154] | 0.166 | no |
+| truth_cities_negated | mid | city_continent | all | 8 | +0.016 | [-0.126, +0.157] | 0.802 | 0.945 | [-0.098, +0.129] | 0.101 | no |
 | truth_cities_negated | mid | city_continent | without gemma | 7 | +0.015 | [-0.154, +0.185] | 0.832 | 0.688 | [-0.119, +0.150] | 0.134 | no |
-| truth_cities_negated | mid | length_bucket | all | 8 | -0.025 | [-0.250, +0.199] | 0.797 | 0.742 | [-0.205, +0.154] | 0.229 | no |
+| truth_cities_negated | mid | length_bucket | all | 8 | -0.037 | [-0.256, +0.181] | 0.699 | 0.547 | [-0.212, +0.138] | 0.260 | no |
 | truth_cities_negated | mid | length_bucket | without gemma | 7 | -0.050 | [-0.309, +0.209] | 0.654 | 0.578 | [-0.255, +0.156] | 0.326 | no |
-| truth_cities_negated | final | named_continent | all | 8 | +0.032 | [-0.068, +0.133] | 0.473 | 0.742 | [-0.048, +0.113] | 0.077 | no |
+| truth_cities_negated | final | named_continent | all | 8 | -0.006 | [-0.076, +0.064] | 0.837 | 0.742 | [-0.062, +0.050] | 0.008 | yes |
 | truth_cities_negated | final | named_continent | without gemma | 7 | +0.001 | [-0.080, +0.082] | 0.979 | 0.938 | [-0.064, +0.065] | 0.012 | yes |
-| truth_cities_negated | final | city_continent | all | 8 | +0.028 | [-0.073, +0.129] | 0.534 | 0.742 | [-0.053, +0.109] | 0.068 | no |
+| truth_cities_negated | final | city_continent | all | 8 | -0.012 | [-0.083, +0.058] | 0.696 | 0.742 | [-0.069, +0.044] | 0.011 | yes |
 | truth_cities_negated | final | city_continent | without gemma | 7 | -0.004 | [-0.085, +0.077] | 0.911 | 0.938 | [-0.068, +0.060] | 0.014 | yes |
-| truth_cities_negated | final | length_bucket | all | 8 | -0.011 | [-0.139, +0.118] | 0.848 | 1.000 | [-0.114, +0.092] | 0.072 | no |
+| truth_cities_negated | final | length_bucket | all | 8 | -0.044 | [-0.141, +0.052] | 0.313 | 0.547 | [-0.121, +0.033] | 0.107 | no |
 | truth_cities_negated | final | length_bucket | without gemma | 7 | -0.047 | [-0.162, +0.068] | 0.357 | 0.578 | [-0.138, +0.044] | 0.150 | no |
 
 Reading the primary row (the pre-registered decision rule):
